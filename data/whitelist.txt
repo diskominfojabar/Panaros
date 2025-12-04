@@ -1,5 +1,16 @@
 # Last updated: 2025-12-04 08:45:21 UTC
 # Total entries: 115
+# Ini dari input manual
+s.id
+blogspot.com
+*.blogspot.com
+wa.me
+ddns.net
+*.ddns.net
+vimeo.com
+*.vimeo.com
+
+# Ini dari input workflows
 *.actions.githubusercontent.com
 *.api.github.com
 *.azureedge.net
