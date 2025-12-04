@@ -10,6 +10,11 @@ sources:
       requires_api_key: true
       api_key_env: "ABUSEIPDB_API_KEY"
 
+    - name: "URLhaus Malware IPs"
+      url: "https://urlhaus.abuse.ch/downloads/csv_recent/"
+      fetcher: "urlhaus_ips"
+      requires_api_key: false
+
     # Contoh sumber lain (uncomment dan sesuaikan):
     # - name: "Spamhaus DROP"
     #   url: "https://www.spamhaus.org/drop/drop.txt"
