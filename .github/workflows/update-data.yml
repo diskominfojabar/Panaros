@@ -46,6 +46,10 @@ jobs:
         run: |
           python scripts/processor.py
 
+      - name: Generate hosts file
+        run: |
+          python scripts/generate_hosts.py
+
       - name: Check for changes
         id: git-check
         run: |
