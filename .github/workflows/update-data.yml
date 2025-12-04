@@ -1,0 +1,81 @@
+name: Update Security Data
+
+# Workflow ini akan berjalan setiap bulan untuk memperbarui data
+on:
+  # Schedule: Berjalan setiap tanggal 1 setiap bulan jam 00:00 UTC
+  schedule:
+    - cron: '0 0 1 * *'
+
+  # Manual trigger jika diperlukan
+  workflow_dispatch:
+
+  # Uncomment untuk test saat push ke branch tertentu
+  # push:
+  #   branches:
+  #     - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run data fetcher
+        env:
+          # Tambahkan API keys di GitHub Secrets
+          ABUSEIPDB_API_KEY: ${{ secrets.ABUSEIPDB_API_KEY }}
+          # Tambahkan API keys lain jika diperlukan:
+          # VIRUSTOTAL_API_KEY: ${{ secrets.VIRUSTOTAL_API_KEY }}
+          # SHODAN_API_KEY: ${{ secrets.SHODAN_API_KEY }}
+        run: |
+          python scripts/processor.py
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code data/ || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/*.txt
+          git commit -m "Update security data - $(date +'%Y-%m-%d')"
+          git push
+
+      - name: Generate summary
+        if: always()
+        run: |
+          echo "## Data Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### File Statistics" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          for file in data/*.txt; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file")
+              # Count lines excluding comments
+              count=$(grep -v '^#' "$file" | grep -v '^$' | wc -l | tr -d ' ')
+              echo "- **$filename**: $count entries" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Updated at: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
