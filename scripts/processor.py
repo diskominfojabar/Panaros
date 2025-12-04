@@ -68,32 +68,125 @@ class DataProcessor:
                 logger.warning(f"Gagal membaca file {filepath}: {e}")
         return data
 
+    def remove_whitelisted_domains(self, blacklist_domains: Set[str], whitelist_path: str) -> Set[str]:
+        """
+        Hapus domain dari blacklist jika ada di whitelist
+        Whitelist diprioritaskan untuk mencegah false positive
+
+        Args:
+            blacklist_domains: Set of domain blacklist
+            whitelist_path: Path ke file whitelist.txt
+
+        Returns:
+            Set of filtered blacklist domains
+        """
+        # Baca whitelist
+        whitelist = self.read_existing_data(whitelist_path)
+
+        if not whitelist:
+            logger.info("Whitelist kosong, tidak ada domain yang perlu difilter")
+            return blacklist_domains
+
+        # Konversi whitelist wildcards untuk matching
+        whitelist_patterns = set()
+        whitelist_exact = set()
+
+        for entry in whitelist:
+            if '*' in entry:
+                # Wildcard pattern
+                whitelist_patterns.add(entry)
+            else:
+                # Exact domain
+                whitelist_exact.add(entry)
+
+        # Filter blacklist
+        filtered = set()
+        removed_count = 0
+
+        for domain in blacklist_domains:
+            should_remove = False
+
+            # Check exact match
+            if domain in whitelist_exact:
+                should_remove = True
+                logger.debug(f"Domain {domain} ada di whitelist (exact match), dihapus dari blacklist")
+
+            # Check wildcard patterns
+            if not should_remove:
+                for pattern in whitelist_patterns:
+                    # Simple wildcard matching
+                    # *.github.com matches: api.github.com, github.com, etc.
+                    pattern_regex = pattern.replace('.', r'\.').replace('*', '.*')
+                    import re
+                    if re.match(f"^{pattern_regex}$", domain):
+                        should_remove = True
+                        logger.debug(f"Domain {domain} cocok dengan whitelist pattern {pattern}, dihapus dari blacklist")
+                        break
+
+            if not should_remove:
+                filtered.add(domain)
+            else:
+                removed_count += 1
+
+        if removed_count > 0:
+            logger.info(f"Menghapus {removed_count} domain dari blacklist karena ada di whitelist")
+
+        return filtered
+
     def add_wildcards_to_domains(self, domains: Set[str]) -> Set[str]:
         """
-        Tambahkan wildcard untuk setiap domain jika belum ada
-        Contoh: thisisporn.net -> *.thisisporn.*
+        Tambahkan wildcard untuk setiap domain untuk memblokir subdomain dan variasi
+
+        Untuk domain: example.com, akan ditambahkan:
+        - *.example.com (semua subdomain)
+        - example.* (semua TLD variations)
+        - *.example.* (kombinasi subdomain + TLD)
+
+        Args:
+            domains: Set of domain names
+
+        Returns:
+            Set dengan domain asli + wildcard variations
         """
         result = set(domains)
+        wildcard_added = 0
 
         for domain in domains:
             # Skip jika sudah wildcard
             if domain.startswith('*'):
                 continue
 
-            # Ekstrak bagian utama domain (tanpa subdomain)
-            # Contoh: sub.thisisporn.net -> thisisporn
+            # Ekstrak bagian domain
             parts = domain.split('.')
+
             if len(parts) >= 2:
                 # Ambil nama domain utama (sebelum TLD)
                 main_domain = parts[-2]
+                tld = parts[-1]
 
-                # Buat wildcard pattern: *.main_domain.*
-                wildcard = f"*.{main_domain}.*"
+                # 1. Wildcard subdomain: *.example.com
+                wildcard_subdomain = f"*.{main_domain}.{tld}"
+                if wildcard_subdomain not in result:
+                    result.add(wildcard_subdomain)
+                    wildcard_added += 1
+                    logger.debug(f"Tambah wildcard subdomain: {wildcard_subdomain}")
 
-                # Cek apakah wildcard sudah ada di data
-                if wildcard not in result:
-                    result.add(wildcard)
-                    logger.debug(f"Menambahkan wildcard: {wildcard} untuk domain: {domain}")
+                # 2. Wildcard TLD: example.*
+                wildcard_tld = f"{main_domain}.*"
+                if wildcard_tld not in result:
+                    result.add(wildcard_tld)
+                    wildcard_added += 1
+                    logger.debug(f"Tambah wildcard TLD: {wildcard_tld}")
+
+                # 3. Wildcard kombinasi: *.example.*
+                wildcard_both = f"*.{main_domain}.*"
+                if wildcard_both not in result:
+                    result.add(wildcard_both)
+                    wildcard_added += 1
+                    logger.debug(f"Tambah wildcard kombinasi: {wildcard_both}")
+
+        if wildcard_added > 0:
+            logger.info(f"Menambahkan {wildcard_added} wildcard entries")
 
         return result
 
@@ -107,13 +200,26 @@ class DataProcessor:
             existing_data = self.read_existing_data(filepath)
             data = existing_data.union(data)
 
-        # Tambahkan wildcard untuk domain blacklist
+        # Proses khusus untuk domain blacklist
         if category == "domain_blacklist":
+            # 1. Cross-check dengan whitelist (prioritas whitelist)
+            output_config = self.config.get('output', {})
+            whitelist_path = output_config.get('domain_whitelist', 'data/whitelist.txt')
+
             original_count = len(data)
+            data = self.remove_whitelisted_domains(data, whitelist_path)
+            removed_count = original_count - len(data)
+
+            if removed_count > 0:
+                logger.info(f"Cross-check whitelist: {removed_count} domain dihapus dari blacklist")
+
+            # 2. Tambahkan wildcard variations
+            before_wildcard = len(data)
             data = self.add_wildcards_to_domains(data)
-            wildcard_count = len(data) - original_count
+            wildcard_count = len(data) - before_wildcard
+
             if wildcard_count > 0:
-                logger.info(f"Menambahkan {wildcard_count} wildcard entries untuk domain blacklist")
+                logger.info(f"Wildcard: Menambahkan {wildcard_count} wildcard entries (subdomain, TLD, kombinasi)")
 
         # Remove duplicates dan sort jika dikonfigurasi
         if self.config['settings'].get('remove_duplicates', True):
@@ -192,7 +298,7 @@ class DataProcessor:
         # Tulis semua data ke file
         if all_data:
             mode = self.config['settings'].get('mode', 'append')
-            self.write_data(output_file, all_data, mode)
+            self.write_data(output_file, all_data, mode, category)
         else:
             logger.warning(f"Tidak ada data yang berhasil dikumpulkan untuk kategori {category}")
 

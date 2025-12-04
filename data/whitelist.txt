@@ -1,5 +1,5 @@
-# Last updated: 2025-12-04 02:36:58 UTC
-# Total entries: 122
+# Last updated: 2025-12-04 11:11:44 UTC
+# Total entries: 124
 *.actions.githubusercontent.com
 *.api.github.com
 *.azureedge.net
@@ -28,6 +28,7 @@ ddns.net
 default.exp-tas.com
 docker-proxy.pkg.github.com
 docker.pkg.github.com
+drive.google.com
 fulcio.githubapp.com
 ghcr.io
 github-registry-files.githubusercontent.com
@@ -115,6 +116,7 @@ runnerproxsdc1.actions.githubusercontent.com
 runnerproxweu1.actions.githubusercontent.com
 s.id
 setup-tools.actions.githubusercontent.com
+sites.google.com
 swift.pkg.github.com
 timestamp.githubapp.com
 tokenghub.actions.githubusercontent.com
@@ -122,5 +124,3 @@ tuf-repo.github.com
 vimeo.com
 vstoken.actions.githubusercontent.com
 wa.me
-drive.google.com
-sites.google.com
