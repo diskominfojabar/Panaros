@@ -1,19 +1,10 @@
-# Last updated: 2025-12-04 08:45:21 UTC
-# Total entries: 123
-# Ini dari input manual
-s.id
-blogspot.com
-wa.me
-ddns.net
-*.ddns.net
-vimeo.com
-*.vimeo.com
-
-# Ini dari input workflows
+# Last updated: 2025-12-04 02:36:58 UTC
+# Total entries: 122
 *.actions.githubusercontent.com
 *.api.github.com
 *.azureedge.net
 *.core.windows.net
+*.ddns.net
 *.ghcr.io
 *.github.com
 *.github.dev
@@ -24,13 +15,16 @@ vimeo.com
 *.microsoft.com
 *.msecnd.net
 *.pkg.github.com
+*.vimeo.com
 *.visualstudio.com
 *.vscode-webview.net
 *.windows.net
 api.github.com
+blogspot.com
 broker.actions.githubusercontent.com
 codeload.github.com
 containers.pkg.github.com
+ddns.net
 default.exp-tas.com
 docker-proxy.pkg.github.com
 docker.pkg.github.com
@@ -119,9 +113,12 @@ runnerproxcus1.actions.githubusercontent.com
 runnerproxeau1.actions.githubusercontent.com
 runnerproxsdc1.actions.githubusercontent.com
 runnerproxweu1.actions.githubusercontent.com
+s.id
 setup-tools.actions.githubusercontent.com
 swift.pkg.github.com
 timestamp.githubapp.com
 tokenghub.actions.githubusercontent.com
 tuf-repo.github.com
+vimeo.com
 vstoken.actions.githubusercontent.com
+wa.me
