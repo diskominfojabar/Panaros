@@ -40,6 +40,12 @@ class DataProcessor:
     def load_fetcher(self, fetcher_name: str):
         """Dinamis load fetcher module berdasarkan nama"""
         try:
+            # Tambahkan current directory ke Python path
+            import sys
+            current_dir = Path(__file__).parent.parent
+            if str(current_dir) not in sys.path:
+                sys.path.insert(0, str(current_dir))
+
             module_path = f"scripts.fetchers.{fetcher_name}"
             module = importlib.import_module(module_path)
             return module.fetch

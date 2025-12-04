@@ -32,8 +32,22 @@ def fetch(source: dict) -> Set[str]:
 
         domains = set()
 
+        # Parse CSV - skip baris yang dimulai dengan #, tapi tambahkan header manual
+        lines = []
+        for line in response.text.split('\n'):
+            line = line.strip()
+            if line and not line.startswith('#'):
+                lines.append(line)
+
+        if not lines:
+            logger.warning("Tidak ada data yang valid dari URLhaus")
+            return domains
+
+        # Tambahkan header CSV
+        header = "id,dateadded,url,url_status,last_online,threat,tags,urlhaus_link,reporter"
+        csv_content = header + '\n' + '\n'.join(lines)
+
         # Parse CSV
-        csv_content = response.text
         reader = csv.DictReader(io.StringIO(csv_content), delimiter=',')
 
         for row in reader:
@@ -47,7 +61,20 @@ def fetch(source: dict) -> Set[str]:
                     if domain:
                         # Remove port jika ada
                         domain = domain.split(':')[0]
-                        domains.add(domain)
+                        # Remove username jika ada (user@domain)
+                        if '@' in domain:
+                            domain = domain.split('@')[1]
+
+                        # Filter: HANYA domain, BUKAN IP address
+                        # Skip jika berupa IP address (cek apakah semua bagian adalah digit)
+                        if domain:
+                            # Cek apakah ini IP address
+                            parts = domain.split('.')
+                            is_ip = all(part.isdigit() and 0 <= int(part) <= 255 for part in parts if part) and len(parts) == 4
+
+                            # Hanya tambahkan jika BUKAN IP
+                            if not is_ip:
+                                domains.add(domain)
                 except Exception:
                     continue
 

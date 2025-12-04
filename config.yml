@@ -23,21 +23,35 @@ sources:
       fetcher: "cloudflare_ips"
       requires_api_key: false
 
-    # Contoh sumber lain:
-    # - name: "Google IPs"
-    #   url: "https://www.gstatic.com/ipranges/goog.json"
-    #   fetcher: "google_ips"
-    #   requires_api_key: false
+    - name: "Google IPs"
+      fetcher: "google_ips"
+      requires_api_key: false
+      urls:
+        - "https://developers.google.com/static/search/apis/ipranges/googlebot.json"
+        - "https://developers.google.com/static/search/apis/ipranges/special-crawlers.json"
+        - "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers.json"
+        - "https://developers.google.com/static/search/apis/ipranges/user-triggered-fetchers-google.json"
+
+    - name: "GitHub IPs"
+      url: "https://api.github.com/meta"
+      fetcher: "github_ips"
+      requires_api_key: false
+
+    - name: "AWS IPs"
+      url: "https://ip-ranges.amazonaws.com/ip-ranges.json"
+      fetcher: "aws_ips"
+      requires_api_key: false
 
   # Domain Whitelist - akan disimpan ke whitelist.txt
   domain_whitelist:
-    - name: "Tranco Top Sites"
-      url: "https://tranco-list.eu/top-1m.csv.zip"
-      fetcher: "tranco_domains"
-      requires_api_key: false
-      limit: 10000  # ambil top 10k saja
+    # Tidak ada sumber domain whitelist saat ini
+    # Uncomment dan tambahkan sumber jika diperlukan:
+    # - name: "Tranco Top Sites"
+    #   url: "https://tranco-list.eu/top-1m.csv.zip"
+    #   fetcher: "tranco_domains"
+    #   requires_api_key: false
+    #   limit: 10000
 
-    # Contoh sumber lain:
     # - name: "Custom Whitelist"
     #   url: "https://example.com/whitelist.json"
     #   fetcher: "custom_whitelist"
