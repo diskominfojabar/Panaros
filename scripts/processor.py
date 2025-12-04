@@ -68,7 +68,36 @@ class DataProcessor:
                 logger.warning(f"Gagal membaca file {filepath}: {e}")
         return data
 
-    def write_data(self, filepath: str, data: Set[str], mode: str = "append"):
+    def add_wildcards_to_domains(self, domains: Set[str]) -> Set[str]:
+        """
+        Tambahkan wildcard untuk setiap domain jika belum ada
+        Contoh: thisisporn.net -> *.thisisporn.*
+        """
+        result = set(domains)
+
+        for domain in domains:
+            # Skip jika sudah wildcard
+            if domain.startswith('*'):
+                continue
+
+            # Ekstrak bagian utama domain (tanpa subdomain)
+            # Contoh: sub.thisisporn.net -> thisisporn
+            parts = domain.split('.')
+            if len(parts) >= 2:
+                # Ambil nama domain utama (sebelum TLD)
+                main_domain = parts[-2]
+
+                # Buat wildcard pattern: *.main_domain.*
+                wildcard = f"*.{main_domain}.*"
+
+                # Cek apakah wildcard sudah ada di data
+                if wildcard not in result:
+                    result.add(wildcard)
+                    logger.debug(f"Menambahkan wildcard: {wildcard} untuk domain: {domain}")
+
+        return result
+
+    def write_data(self, filepath: str, data: Set[str], mode: str = "append", category: str = ""):
         """Tulis data ke file"""
         # Buat direktori jika belum ada
         os.makedirs(os.path.dirname(filepath), exist_ok=True)
@@ -77,6 +106,14 @@ class DataProcessor:
             # Gabungkan dengan data yang sudah ada
             existing_data = self.read_existing_data(filepath)
             data = existing_data.union(data)
+
+        # Tambahkan wildcard untuk domain blacklist
+        if category == "domain_blacklist":
+            original_count = len(data)
+            data = self.add_wildcards_to_domains(data)
+            wildcard_count = len(data) - original_count
+            if wildcard_count > 0:
+                logger.info(f"Menambahkan {wildcard_count} wildcard entries untuk domain blacklist")
 
         # Remove duplicates dan sort jika dikonfigurasi
         if self.config['settings'].get('remove_duplicates', True):
