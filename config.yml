@@ -49,7 +49,11 @@ sources:
 
   # Domain Whitelist - akan disimpan ke whitelist.txt
   domain_whitelist:
-    # Tidak ada sumber domain whitelist saat ini
+    - name: "GitHub Domains"
+      url: "https://api.github.com/meta"
+      fetcher: "github_domains"
+      requires_api_key: false
+
     # Uncomment dan tambahkan sumber jika diperlukan:
     # - name: "Tranco Top Sites"
     #   url: "https://tranco-list.eu/top-1m.csv.zip"
