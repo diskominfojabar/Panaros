@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JabarCloud | Verifikasi Domain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Setup Variabel & Reset --- */
+        :root {
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --success: #10b981;
+            --danger: #ef4444;
+            
+            /* Default (Light Mode) */
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --text-input: #2563eb;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-sidebar: rgba(248, 250, 252, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --card-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.12);
+            --bg-gradient-1: #f1f5f9;
+            --bg-gradient-2: #e2e8f0;
+            --bg-gradient-3: #dbeafe;
+            --bg-gradient-4: #eff6ff;
+            --input-bg: rgba(59, 130, 246, 0.05);
+            --title-grad-start: #0f172a;
+            --title-grad-end: #3b82f6;
+            --info-group-bg: rgba(255,255,255,0.6);
+        }
+
+        /* --- DARK MODE OVERRIDES --- */
+        body.dark-mode {
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --text-input: #60a5fa; /* Lighter blue for dark bg */
+            --glass-bg: rgba(15, 23, 42, 0.75); /* Dark Slate with opacity */
+            --glass-sidebar: rgba(30, 41, 59, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1); /* Faint white border */
+            --card-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+            
+            /* Dark Night Gradient */
+            --bg-gradient-1: #020617;
+            --bg-gradient-2: #0f172a;
+            --bg-gradient-3: #1e293b;
+            --bg-gradient-4: #172554;
+            
+            --input-bg: rgba(0, 0, 0, 0.2);
+            --title-grad-start: #f8fafc; /* White start */
+            --title-grad-end: #3b82f6;
+            --info-group-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: var(--text-main);
+            
+            /* Animated Background using variables */
+            background: linear-gradient(-45deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3), var(--bg-gradient-4));
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Background Blobs --- */
+        .blob-cont { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; pointer-events: none; }
+        .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6; animation: floatBlob 20s infinite alternate ease-in-out; }
+        .blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: #60a5fa; }
+        .blob-2 { bottom: -10%; right: -10%; width: 600px; height: 600px; background: #a78bfa; animation-duration: 30s; }
+        .blob-3 { top: 40%; left: 40%; width: 400px; height: 400px; background: #f472b6; animation-duration: 25s; }
+        
+        /* Dark mode blobs opacity adjustment */
+        body.dark-mode .blob { opacity: 0.35; filter: blur(100px); }
+
+        @keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -50px) scale(1.1); } }
+
+        /* --- Main Layout (Unified Card) --- */
+        .main-wrapper {
+            width: 100%;
+            max-width: 1100px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .unified-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            overflow: hidden; 
+            min-height: 550px;
+            position: relative;
+            transition: background 0.5s ease, border 0.5s ease;
+        }
+
+        /* --- LEFT PANEL: Checker (65%) --- */
+        .panel-main {
+            flex: 1.8;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(135deg, var(--title-grad-start) 0%, var(--title-grad-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            font-weight: 400;
+            max-width: 600px;
+        }
+
+        .sentence-wrapper {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.8;
+            color: var(--text-main); /* Changed to variable */
+            width: 100%;
+        }
+
+        .modern-input {
+            font-family: inherit;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-input);
+            background: var(--input-bg);
+            border: none;
+            border-bottom: 3px solid #cbd5e1;
+            border-radius: 4px 4px 0 0;
+            text-align: center;
+            width: 320px;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+            outline: none;
+            display: inline-block;
+        }
+        
+        body.dark-mode .modern-input { border-bottom-color: #475569; }
+
+        .modern-input:focus { background: rgba(59, 130, 246, 0.1); border-bottom-color: var(--primary); }
+        .modern-input.error { background: rgba(239, 68, 68, 0.05); border-bottom-color: var(--danger); color: var(--danger); }
+
+        .validation-hint {
+            font-size: 0.9rem; color: var(--danger); margin-top: 10px;
+            height: 24px; opacity: 0; transition: opacity 0.3s; font-weight: 500;
+        }
+
+        .btn-check {
+            margin-top: 1rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white; border: none; padding: 16px 48px; font-size: 1.05rem; font-weight: 700;
+            border-radius: 50px; cursor: pointer; box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-check:hover { transform: translateY(-2px); box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.5); }
+        .btn-check:disabled { background: #94a3b8; transform: none; cursor: not-allowed; }
+
+        /* --- RIGHT PANEL: Sidebar Info (35%) --- */
+        .panel-side {
+            flex: 1;
+            background: var(--glass-sidebar);
+            border-left: 1px solid rgba(255,255,255,0.5);
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            transition: background 0.5s ease;
+        }
+        
+        body.dark-mode .panel-side { border-left: 1px solid rgba(255,255,255,0.05); }
+
+        .sidebar-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .sidebar-title { font-size: 1rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05em; }
+        .pulse-dot { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 0 rgba(16, 185, 129, 0.4); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+
+        .info-group { background: var(--info-group-bg); padding: 15px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.5); }
+        
+        body.dark-mode .info-group { border: 1px solid rgba(255,255,255,0.1); }
+
+        .info-label { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; margin-bottom: 4px; text-transform: uppercase; }
+        .info-value { font-size: 1.1rem; font-weight: 700; color: var(--text-main); font-family: 'Courier New', monospace; letter-spacing: -0.5px; }
+        .info-sub { font-size: 0.8rem; color: var(--primary); margin-top: 2px; font-weight: 500; line-height: 1.3; }
+
+        /* Badge Pemprov */
+        .asn-badge {
+            display: none;
+            margin-top: auto;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white; padding: 16px; border-radius: 16px;
+            align-items: center; gap: 12px;
+            box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.3);
+            animation: slideUpFade 0.6s ease-out;
+        }
+        .asn-badge.active { display: flex; }
+        .asn-icon { font-size: 1.8rem; }
+        .asn-text { font-size: 0.85rem; font-weight: 600; line-height: 1.4; }
+
+        /* --- Result Area --- */
+        #resultArea { width: 100%; max-width: 600px; margin-top: 2rem; display: none; }
+        #resultArea.show { display: block; animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .result-box { padding: 1.5rem 2rem; border-radius: 20px; text-align: left; border: 1px solid transparent; }
+        
+        /* Light Mode Results */
+        .result-safe { background-color: #f0fdf4; border-color: #bbf7d0; }
+        .result-blocked { background-color: #fef2f2; border-color: #fecaca; }
+
+        /* Dark Mode Results (Override) */
+        body.dark-mode .result-safe { background-color: rgba(6, 95, 70, 0.2); border-color: #064e3b; }
+        body.dark-mode .result-blocked { background-color: rgba(153, 27, 27, 0.2); border-color: #7f1d1d; }
+
+        .result-header { display: flex; gap: 15px; align-items: flex-start; }
+        .status-icon { font-size: 2rem; background: white; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .status-title { font-size: 1.2rem; font-weight: 800; margin: 0 0 4px 0; }
+        .status-desc { font-size: 0.95rem; color: #475569; line-height: 1.5; margin: 0; }
+        
+        /* Update text color for result desc in dark mode */
+        body.dark-mode .status-desc { color: #cbd5e1; }
+
+        .source-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; background: white; padding: 3px 8px; border-radius: 6px; margin-top: 8px; color: #64748b; border: 1px solid #e2e8f0; }
+        
+        body.dark-mode .source-tag { background: #1e293b; color: #cbd5e1; border-color: #334155; }
+
+        .action-link { display: inline-flex; align-items: center; margin-top: 12px; font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: opacity 0.2s; }
+        .action-link:hover { opacity: 0.8; }
+
+        /* Footer */
+        .footer { text-align: center; padding: 20px; color: #64748b; font-size: 0.875rem; font-weight: 500; opacity: 0.8; }
+
+        /* Loading Spinner */
+        .spinner { width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #fff; animation: spin 1s ease-in-out infinite; display: none; }
+        .btn-check:disabled .spinner { display: block; }
+        .btn-check:disabled span.icon { display: none; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .skeleton { height: 18px; background: rgba(0,0,0,0.06); border-radius: 4px; width: 80%; animation: pulseBG 1.5s infinite; }
+        
+        body.dark-mode .skeleton { background: rgba(255,255,255,0.1); }
+
+        @keyframes pulseBG { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .unified-card { flex-direction: column; height: auto; }
+            .panel-main { padding: 3rem 1.5rem; order: 1; }
+            .panel-side { border-left: none; border-top: 1px solid rgba(255,255,255,0.5); padding: 2rem; order: 2; gap: 15px; background: rgba(255,255,255,0.5); }
+            body.dark-mode .panel-side { background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255,255,255,0.1); }
+            .modern-input { width: 100%; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blob-cont">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="unified-card">
+            <div class="panel-main">
+                <h1>Pastikan Domain atau IP Tujuanmu Aman</h1>
+                <p class="subtitle"><b>Diskominfo Jabar</b> melakukan pemantauan siber aktif. Periksa alamat tujuanmu sebelum mengakses untuk menghindari ancaman keamanan.</p>
+                
+                <div class="sentence-wrapper">
+                    Saya ingin mengecek status
+                    <input type="text" id="targetInput" class="modern-input" placeholder="domain atau IP" autocomplete="off" spellcheck="false">
+                    <br>apakah aman untuk diakses?
+                </div>
+                <div id="validationMsg" class="validation-hint">Mohon masukkan format Domain (contoh.com) atau IP yang valid.</div>
+
+                <button class="btn-check" id="btnCheck" onclick="performCheck()">
+                    <div class="spinner"></div>
+                    <span class="icon">🔍</span> 
+                    <span>Periksa Sekarang</span>
+                </button>
+
+                <div id="resultArea"></div>
+            </div>
+
+            <div class="panel-side">
+                <div class="sidebar-header">
+                    <div class="pulse-dot"></div>
+                    <span class="sidebar-title">Koneksi Anda</span>
+                </div>
+
+                <div class="info-group">
+                    <div class="info-label">IP Publik</div>
+                    <div class="info-value" id="userIp"><div class="skeleton"></div></div>
+                    <div class="info-sub" id="userAsn">Mendeteksi ISP...</div>
+                </div>
+
+                <div class="info-group">
+                    <div class="info-label">IP Lokal (Private)</div>
+                    <div class="info-value" id="userLocalIp"><div class="skeleton" style="width:50%"></div></div>
+                    <div class="info-sub" style="color: #94a3b8; font-size: 0.7rem;">Visible via WebRTC</div>
+                </div>
+
+                <div class="info-group">
+                    <div class="info-label">DNS Resolver / ISP</div>
+                    <div class="info-value" id="userDns" style="font-size: 1rem;"><div class="skeleton"></div></div>
+                </div>
+
+                <div id="jabarBadge" class="asn-badge">
+                    <div class="asn-icon">🏢</div>
+                    <div class="asn-text">
+                        Terdeteksi menggunakan<br>Jaringan Internet Pemprov Jabar
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        Powered by <strong>JabarCloud</strong> since 2019
+    </footer>
+
+    <script>
+        // --- Configuration ---
+        const sources = [
+            { name: 'Domain Blacklist', url: 'https://raw.githubusercontent.com/diskominfojabar/hosts/refs/heads/main/blacklist.txt' },
+            { name: "DROP (Don't Route or Peer)", url: 'https://raw.githubusercontent.com/diskominfojabar/hosts/refs/heads/main/drop.txt' },
+        ];
+
+        const inputField = document.getElementById('targetInput');
+        const btnCheck = document.getElementById('btnCheck');
+        const resultArea = document.getElementById('resultArea');
+        const validationMsg = document.getElementById('validationMsg');
+
+        // --- Helper Function: Theme Check (New) ---
+        function checkTheme() {
+            const now = new Date();
+            const hour = now.getHours();
+            // Aktifkan dark mode jika jam >= 18 (6 PM) ATAU jam < 6 (6 AM)
+            if (hour >= 18 || hour < 6) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        }
+
+        // --- Helper Function: Cloudflare Trace ---
+        function parseTrace(data) {
+            let lines = data.split('\n');
+            let keyval = {};
+            lines.forEach(line => {
+                let parts = line.split('=');
+                if (parts.length === 2) {
+                    keyval[parts[0]] = parts[1];
+                }
+            });
+            return keyval;
+        }
+
+        // --- Helper Function: Get Local IP (WebRTC) ---
+        function getLocalIP() {
+            const localIpEl = document.getElementById('userLocalIp');
+            try {
+                const rtc = new RTCPeerConnection({iceServers:[]});
+                rtc.createDataChannel('');
+                rtc.onicecandidate = e => {
+                    if (!e.candidate) return;
+                    const match = e.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3})/);
+                    if (match) { localIpEl.innerText = match[1]; rtc.close(); }
+                };
+                rtc.createOffer().then(o => rtc.setLocalDescription(o));
+                setTimeout(() => {
+                    if (localIpEl.innerHTML.includes('skeleton')) {
+                        localIpEl.innerText = "Hidden by Browser";
+                        localIpEl.style.color = "#94a3b8";
+                        localIpEl.style.fontSize = "0.9rem";
+                    }
+                }, 3000);
+            } catch (e) { localIpEl.innerText = "Restricted"; }
+        }
+
+        // --- Core Logic: User Info (Anti-AdBlock Version) ---
+        async function fetchUserInfo() {
+            const ipEl = document.getElementById('userIp');
+            const asnEl = document.getElementById('userAsn');
+            const dnsEl = document.getElementById('userDns');
+
+            ipEl.innerHTML = '<div class="skeleton"></div>';
+            
+            let data = null;
+
+            try {
+                const res1 = await fetch('https://ipwho.is/', { signal: AbortSignal.timeout(3000) });
+                if (res1.ok) {
+                    const json = await res1.json();
+                    if (json.success) {
+                        data = { ip: json.ip, asn: json.connection.asn, org: json.connection.org, isp: json.connection.isp };
+                    }
+                }
+            } catch (e) { console.log("Source 1 blocked/failed, trying backup..."); }
+
+            if (!data) {
+                try {
+                    const res2 = await fetch('https://api.db-ip.com/v2/free/self', { signal: AbortSignal.timeout(3000) });
+                    if (res2.ok) {
+                        const json = await res2.json();
+                        data = { ip: json.ipAddress, asn: 0, org: json.org || json.isp, isp: json.isp };
+                    }
+                } catch (e) { console.log("Source 2 blocked/failed, trying emergency..."); }
+            }
+
+            if (!data) {
+                try {
+                    const res3 = await fetch('https://www.cloudflare.com/cdn-cgi/trace', { signal: AbortSignal.timeout(3000) });
+                    if (res3.ok) {
+                        const text = await res3.text();
+                        const parsed = parseTrace(text); 
+                        data = { ip: parsed.ip, asn: 0, org: "Cloudflare Detected", isp: "Unknown (AdBlock Active)" };
+                    }
+                } catch (e) { console.log("All sources failed.", e); }
+            }
+
+            if (data) {
+                ipEl.innerText = data.ip;
+                if(data.isp === "Unknown (AdBlock Active)") {
+                    asnEl.innerText = "Informasi ISP disembunyikan AdBlock";
+                    dnsEl.innerText = "-";
+                    asnEl.style.color = "var(--danger)";
+                } else {
+                    asnEl.innerText = (data.asn ? `AS${data.asn} - ` : '') + data.org;
+                    dnsEl.innerText = data.isp;
+                }
+                if (data.asn == 138050) {
+                    document.getElementById('jabarBadge').classList.add('active');
+                }
+            } else {
+                ipEl.innerText = "Gagal Memuat";
+                asnEl.innerText = "Koneksi Terblokir";
+                dnsEl.innerText = "-";
+            }
+            getLocalIP();
+        }
+
+        // --- Core Logic: Check Domain/IP ---
+        function isValidDomainOrIP(str) {
+            const ipRegex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
+            const domainRegex = /^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/;
+            return ipRegex.test(str) || domainRegex.test(str);
+        }
+
+        async function performCheck() {
+            const rawInput = inputField.value.trim().toLowerCase();
+            
+            if (!rawInput || !isValidDomainOrIP(rawInput)) {
+                validationMsg.style.opacity = '1'; return;
+            }
+
+            btnCheck.disabled = true;
+            resultArea.style.display = 'none';
+            let foundIn = [];
+
+            try {
+                const promises = sources.map(src => fetch(src.url).then(res => res.ok ? res.text() : "").then(text => ({ name: src.name, data: text })));
+                const results = await Promise.all(promises);
+
+                results.forEach(source => {
+                    if (source.data) {
+                        const lines = source.data.split('\n');
+                        const isFound = lines.some(line => {
+                            let cleanLine = line.trim();
+                            if (cleanLine.startsWith('#') || cleanLine.startsWith(';') || cleanLine === "") return false;
+                            
+                            const parts = cleanLine.split(/\s+/);
+                            let pattern = (parts.length >= 2 && (parts[0] === '0.0.0.0' || parts[0] === '127.0.0.1')) ? parts[1] : parts[0];
+                            
+                            if (!pattern) return false;
+                            pattern = pattern.toLowerCase();
+
+                            if (pattern.includes('*')) {
+                                const escapedPattern = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
+                                const regexString = '^' + escapedPattern.replace(/\*/g, '.*') + '$';
+                                const regex = new RegExp(regexString);
+                                return regex.test(rawInput);
+                            } else {
+                                if (pattern === rawInput) return true;
+                                if (rawInput.endsWith('.' + pattern)) return true;
+                                return false;
+                            }
+                        });
+                        if (isFound) foundIn.push(source.name);
+                    }
+                });
+                displayResult(foundIn, rawInput);
+            } catch (e) {
+                console.error(e);
+                alert("Gagal terhubung ke server data atau terjadi kesalahan parsing.");
+            } finally {
+                btnCheck.disabled = false;
+            }
+        }
+
+        function displayResult(foundList, query) {
+            let html = '';
+            let visitUrl = query.startsWith('http') ? query : 'http://' + query;
+            const waLink = `https://wa.me/6281255559400?text=${encodeURIComponent('Halo Admin, request whitelist untuk: ' + query)}`;
+
+            resultArea.style.display = 'block';
+            if (foundList.length > 0) {
+                // BLOCKED
+                html = `
+                    <div class="result-box result-blocked">
+                        <div class="result-header">
+                            <div class="status-icon">🚫</div>
+                            <div>
+                                <h3 class="status-title" style="color: #991b1b;">Akses Diblokir!</h3>
+                                <p class="status-desc">
+                                    Domain <strong>${query}</strong> terdeteksi berbahaya atau masuk dalam kriteria blokir kami.
+                                </p>
+                                <div style="margin-top:5px">${foundList.map(src => `<span class="source-tag">📂 ${src}</span>`).join(' ')}</div>
+                            </div>
+                        </div>
+                        <div style="margin-top:15px; padding-top:10px; border-top:1px solid rgba(0,0,0,0.05)">
+                            <a href="${waLink}" target="_blank" class="action-link" style="color:#ef4444;">
+                                📞 Ajukan Whitelisting
+                            </a>
+                        </div>
+                    </div>`;
+            } else {
+                // SAFE
+                html = `
+                    <div class="result-box result-safe">
+                        <div class="result-header">
+                            <div class="status-icon">✅</div>
+                            <div>
+                                <h3 class="status-title" style="color: #065f46;">Kemungkinan Aman!</h3>
+                                <p class="status-desc">
+                                    Tidak ditemukan masalah pada <strong>${query}</strong>. Anda dimungkinkan untuk mengaksesnya selama tidak diblokir oleh <strong>Komdigi</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-top:15px;">
+                            <a href="${visitUrl}" target="_blank" class="action-link" style="color:#10b981;">
+                                🌐 Coba Kunjungi Sekarang ➔
+                            </a>
+                        </div>
+                    </div>`;
+            }
+            resultArea.innerHTML = html;
+            void resultArea.offsetWidth; 
+            resultArea.classList.add('show');
+        }
+
+        // --- Initialization ---
+        window.onload = () => {
+            checkTheme(); // Check theme first!
+            inputField.focus();
+            fetchUserInfo();
+        };
+
+        inputField.addEventListener("keypress", (e) => { if (e.key === "Enter") { e.preventDefault(); performCheck(); } });
+        inputField.addEventListener("input", () => {
+            if(resultArea.style.display === 'block') resultArea.style.display = 'none';
+            validationMsg.style.opacity = '0';
+        });
+    </script>
+</body>
+</html>

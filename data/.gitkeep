@@ -1,0 +1,5 @@
+# Direktori ini akan berisi file hasil fetching:
+# - drop.txt (IP blacklist)
+# - pass.txt (IP whitelist)
+# - blacklist.txt (Domain blacklist)
+# - whitelist.txt (Domain whitelist)

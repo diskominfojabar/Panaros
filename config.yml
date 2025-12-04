@@ -1,0 +1,76 @@
+# Konfigurasi untuk fetching data dari berbagai sumber
+# Untuk menambahkan sumber baru, tambahkan entri di bawah kategori yang sesuai
+
+sources:
+  # IP Blacklist - akan disimpan ke drop.txt
+  ip_blacklist:
+    - name: "AbuseIPDB"
+      url: "https://api.abuseipdb.com/api/v2/blacklist"
+      fetcher: "abuseipdb_ip"
+      requires_api_key: true
+      api_key_env: "ABUSEIPDB_API_KEY"
+
+    # Contoh sumber lain (uncomment dan sesuaikan):
+    # - name: "Spamhaus DROP"
+    #   url: "https://www.spamhaus.org/drop/drop.txt"
+    #   fetcher: "spamhaus_drop"
+    #   requires_api_key: false
+
+  # IP Whitelist - akan disimpan ke pass.txt
+  ip_whitelist:
+    - name: "Cloudflare IPs"
+      url: "https://www.cloudflare.com/ips-v4"
+      fetcher: "cloudflare_ips"
+      requires_api_key: false
+
+    # Contoh sumber lain:
+    # - name: "Google IPs"
+    #   url: "https://www.gstatic.com/ipranges/goog.json"
+    #   fetcher: "google_ips"
+    #   requires_api_key: false
+
+  # Domain Whitelist - akan disimpan ke whitelist.txt
+  domain_whitelist:
+    - name: "Tranco Top Sites"
+      url: "https://tranco-list.eu/top-1m.csv.zip"
+      fetcher: "tranco_domains"
+      requires_api_key: false
+      limit: 10000  # ambil top 10k saja
+
+    # Contoh sumber lain:
+    # - name: "Custom Whitelist"
+    #   url: "https://example.com/whitelist.json"
+    #   fetcher: "custom_whitelist"
+    #   requires_api_key: false
+
+  # Domain Blacklist - akan disimpan ke blacklist.txt
+  domain_blacklist:
+    - name: "URLhaus Malware Domains"
+      url: "https://urlhaus.abuse.ch/downloads/csv_recent/"
+      fetcher: "urlhaus_domains"
+      requires_api_key: false
+
+    # Contoh sumber lain:
+    # - name: "PhishTank"
+    #   url: "http://data.phishtank.com/data/online-valid.json"
+    #   fetcher: "phishtank_domains"
+    #   requires_api_key: false
+
+# Output files
+output:
+  ip_blacklist: "data/drop.txt"
+  ip_whitelist: "data/pass.txt"
+  domain_whitelist: "data/whitelist.txt"
+  domain_blacklist: "data/blacklist.txt"
+
+# Settings
+settings:
+  # Mode: 'append' untuk menambahkan data baru tanpa menghapus yang lama
+  # Mode: 'replace' untuk mengganti semua data
+  mode: "append"
+
+  # Hapus duplikat setelah append
+  remove_duplicates: true
+
+  # Sort hasil akhir
+  sort_output: true
