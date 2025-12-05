@@ -189,3 +189,10 @@ Total: 31,265 entries
 ---
 
 **Built for automated security data aggregation** 🛡️
+
+
+## 📊 Monthly Statistics History
+
+| Month | Blacklist | Drop (IPs) | Whitelist | Pass (IPs) | Hosts | Total |
+|-------|-----------|------------|-----------|------------|-------|-------|
+| 2025-12 | 4,234 | 17,512 | 116 | 16,995 | 4,234 | **43,091** |

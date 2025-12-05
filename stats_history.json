@@ -1,0 +1,15 @@
+{
+  "monthly": [
+    {
+      "month": "2025-12",
+      "stats": {
+        "blacklist": 4234,
+        "drop": 17512,
+        "whitelist": 116,
+        "pass": 16995,
+        "hosts": 4234
+      },
+      "updated": "2025-12-05T20:06:48.153524"
+    }
+  ]
+}
