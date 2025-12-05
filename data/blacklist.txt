@@ -1652,8 +1652,6 @@
 *.google-authenticator.info
 *.google-meet-app.*
 *.google-meet-app.icu
-*.googleapis.*
-*.googleapis.com
 *.goolges-tikitok.*
 *.goolges-tikitok.sbs
 *.goramobil.*
