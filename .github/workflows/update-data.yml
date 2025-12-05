@@ -50,9 +50,13 @@ jobs:
         run: |
           python scripts/generate_hosts.py
 
-      - name: Resolve domains to IPs
+      - name: Resolve whitelist domains to IPs
         run: |
-          python scripts/resolve_domains.py
+          python scripts/resolve_whitelist.py
+
+      - name: Resolve blacklist domains to IPs
+        run: |
+          python scripts/resolve_blacklist.py
 
       - name: Generate monthly statistics
         run: |

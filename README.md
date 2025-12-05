@@ -193,6 +193,6 @@ Total: 31,265 entries
 
 ## 📊 Monthly Statistics History
 
-| Month | Blacklist | Drop (IPs) | Whitelist | Pass (IPs) | Hosts | Total |
-|-------|-----------|------------|-----------|------------|-------|-------|
-| 2025-12 | 4,234 | 17,799 | 116 | 16,995 | 4,234 | **43,378** |
+| Month | Blacklist Domains | Blacklist IPs | Drop (Segments) | Whitelist Domains | Whitelist IPs | Pass (Segments) | Hosts | Total |
+|-------|-------------------|---------------|-----------------|-------------------|---------------|-----------------|-------|-------|
+| 2025-12 | 4,234 | 280 | 17,510 | 116 | 85 | 16,995 | 4,234 | **43,454** |

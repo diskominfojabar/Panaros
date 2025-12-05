@@ -34,8 +34,10 @@ def get_current_stats(data_dir: Path) -> Dict[str, int]:
     """Get current statistics from all data files"""
     return {
         'blacklist': count_entries(str(data_dir / 'blacklist.txt')),
+        'blacklist_specific': count_entries(str(data_dir / 'blacklist-specific.txt')),
         'drop': count_entries(str(data_dir / 'drop.txt')),
         'whitelist': count_entries(str(data_dir / 'whitelist.txt')),
+        'whitelist_specific': count_entries(str(data_dir / 'whitelist-specific.txt')),
         'pass': count_entries(str(data_dir / 'pass.txt')),
         'hosts': count_entries(str(data_dir / 'hosts.txt')),
     }
@@ -63,8 +65,8 @@ def update_readme(readme_file: Path, history: Dict):
 
     # Generate statistics table
     stats_table = "## 📊 Monthly Statistics History\n\n"
-    stats_table += "| Month | Blacklist | Drop (IPs) | Whitelist | Pass (IPs) | Hosts | Total |\n"
-    stats_table += "|-------|-----------|------------|-----------|------------|-------|-------|\n"
+    stats_table += "| Month | Blacklist Domains | Blacklist IPs | Drop (Segments) | Whitelist Domains | Whitelist IPs | Pass (Segments) | Hosts | Total |\n"
+    stats_table += "|-------|-------------------|---------------|-----------------|-------------------|---------------|-----------------|-------|-------|\n"
 
     # Show last 12 months
     for entry in history['monthly'][-12:]:
@@ -73,11 +75,13 @@ def update_readme(readme_file: Path, history: Dict):
         total = sum(stats.values())
 
         stats_table += f"| {month} | "
-        stats_table += f"{stats['blacklist']:,} | "
-        stats_table += f"{stats['drop']:,} | "
-        stats_table += f"{stats['whitelist']:,} | "
-        stats_table += f"{stats['pass']:,} | "
-        stats_table += f"{stats['hosts']:,} | "
+        stats_table += f"{stats.get('blacklist', 0):,} | "
+        stats_table += f"{stats.get('blacklist_specific', 0):,} | "
+        stats_table += f"{stats.get('drop', 0):,} | "
+        stats_table += f"{stats.get('whitelist', 0):,} | "
+        stats_table += f"{stats.get('whitelist_specific', 0):,} | "
+        stats_table += f"{stats.get('pass', 0):,} | "
+        stats_table += f"{stats.get('hosts', 0):,} | "
         stats_table += f"**{total:,}** |\n"
 
     # Read existing README
@@ -133,10 +137,12 @@ def main():
     total = sum(current_stats.values())
 
     logger.info(f"Current statistics for {current_month}:")
-    logger.info(f"  - blacklist.txt: {current_stats['blacklist']:,} entries")
-    logger.info(f"  - drop.txt: {current_stats['drop']:,} entries")
-    logger.info(f"  - whitelist.txt: {current_stats['whitelist']:,} entries")
-    logger.info(f"  - pass.txt: {current_stats['pass']:,} entries")
+    logger.info(f"  - blacklist.txt (domains): {current_stats['blacklist']:,} entries")
+    logger.info(f"  - blacklist-specific.txt (IPs): {current_stats['blacklist_specific']:,} entries")
+    logger.info(f"  - drop.txt (segments): {current_stats['drop']:,} entries")
+    logger.info(f"  - whitelist.txt (domains): {current_stats['whitelist']:,} entries")
+    logger.info(f"  - whitelist-specific.txt (IPs): {current_stats['whitelist_specific']:,} entries")
+    logger.info(f"  - pass.txt (segments): {current_stats['pass']:,} entries")
     logger.info(f"  - hosts.txt: {current_stats['hosts']:,} entries")
     logger.info(f"  - TOTAL: {total:,} entries")
 

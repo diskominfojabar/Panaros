@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Script untuk resolve DNS dari blacklist domains ke IP addresses
-Menambahkan IP hasil resolve ke drop.txt dengan tracking domain asal
+Script untuk resolve DNS dari whitelist domains ke IP addresses
+Menyimpan hasil ke whitelist-specific.txt (IP Spesifik dari domain whitelist)
 """
 
 import os
@@ -20,9 +20,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def read_blacklist_domains(filepath: str) -> Dict[str, str]:
+def read_whitelist_domains(filepath: str) -> Dict[str, str]:
     """
-    Baca domain dari blacklist.txt
+    Baca domain dari whitelist.txt
     Returns: {domain: source}
     """
     domains = {}
@@ -42,15 +42,15 @@ def read_blacklist_domains(filepath: str) -> Dict[str, str]:
                         else:
                             if not line.startswith('*'):
                                 domains[line] = "Unknown Source"
-            logger.info(f"Loaded {len(domains)} domains from blacklist")
+            logger.info(f"Loaded {len(domains)} domains from whitelist.txt")
         except Exception as e:
-            logger.error(f"Error reading blacklist: {e}")
+            logger.error(f"Error reading whitelist: {e}")
     return domains
 
 
-def read_drop_txt(filepath: str) -> Dict[str, str]:
+def read_specific_ips(filepath: str) -> Dict[str, str]:
     """
-    Baca IP dari drop.txt
+    Baca IP dari whitelist-specific.txt
     Returns: {ip: source}
     """
     ips = {}
@@ -66,9 +66,9 @@ def read_drop_txt(filepath: str) -> Dict[str, str]:
                             ips[ip.strip()] = source.strip()
                         else:
                             ips[line] = "Unknown Source"
-            logger.info(f"Loaded {len(ips)} IPs from drop.txt")
+            logger.info(f"Loaded {len(ips)} IPs from {os.path.basename(filepath)}")
         except Exception as e:
-            logger.error(f"Error reading drop.txt: {e}")
+            logger.error(f"Error reading {filepath}: {e}")
     return ips
 
 
@@ -97,29 +97,29 @@ def resolve_domain_to_ips(domain: str) -> Set[str]:
     return ips
 
 
-def generate_domain_ip_mappings(blacklist_domains: Dict[str, str]) -> Dict[str, str]:
+def generate_domain_ip_mappings(whitelist_domains: Dict[str, str]) -> Dict[str, str]:
     """
-    Resolve semua domain di blacklist ke IP
-    Returns: {ip: "IP dari domain.com (Original Source)"}
+    Resolve semua domain di whitelist ke IP
+    Returns: {ip: "Berasal dari IP domain xxxx (Original Source)"}
     """
     domain_ips = {}
     resolved_count = 0
     failed_count = 0
 
-    logger.info(f"Resolving {len(blacklist_domains)} domains...")
+    logger.info(f"Resolving {len(whitelist_domains)} whitelist domains...")
 
-    for domain, source in blacklist_domains.items():
+    for domain, source in whitelist_domains.items():
         ips = resolve_domain_to_ips(domain)
 
         if ips:
             resolved_count += 1
             for ip in ips:
-                # Format: "IP dari domain.com (URLhaus Malware Domains)"
-                domain_ips[ip] = f"IP dari {domain} ({source})"
+                # Format: "Berasal dari IP domain xxxx (GitHub Domains)"
+                domain_ips[ip] = f"Berasal dari IP domain {domain} ({source})"
         else:
             failed_count += 1
 
-    logger.info(f"Resolution complete:")
+    logger.info(f"Whitelist resolution complete:")
     logger.info(f"  - Resolved: {resolved_count} domains")
     logger.info(f"  - Failed: {failed_count} domains")
     logger.info(f"  - Total IPs: {len(domain_ips)}")
@@ -127,27 +127,28 @@ def generate_domain_ip_mappings(blacklist_domains: Dict[str, str]) -> Dict[str, 
     return domain_ips
 
 
-def cleanup_old_domain_ips(drop_data: Dict[str, str], current_domain_ips: Dict[str, str]) -> Dict[str, str]:
+def cleanup_old_domain_ips(existing_data: Dict[str, str], current_domain_ips: Dict[str, str]) -> Dict[str, str]:
     """
-    Hapus IP dari domain yang sudah tidak ada di blacklist
-    Hanya hapus yang memiliki marker "IP dari"
+    Hapus IP dari domain yang sudah tidak ada di whitelist
+    Hanya hapus yang memiliki marker "Berasal dari IP domain"
+    IP manual (tanpa marker) tidak akan dihapus
     """
     cleaned = {}
     removed_count = 0
 
-    for ip, source in drop_data.items():
+    for ip, source in existing_data.items():
         # Check if this is a domain-resolved IP
-        if source.startswith("IP dari "):
+        if source.startswith("Berasal dari IP domain "):
             # Check if still valid (IP masih di current_domain_ips)
             if ip in current_domain_ips:
                 # Update dengan source terbaru
                 cleaned[ip] = current_domain_ips[ip]
             else:
-                # IP tidak lagi resolve dari domain di blacklist - hapus
+                # IP tidak lagi resolve dari domain di whitelist - hapus
                 removed_count += 1
                 logger.debug(f"Removing outdated IP {ip} ({source})")
         else:
-            # Bukan domain-resolved IP, keep as is
+            # IP manual, keep as is (tidak akan dihapus otomatis)
             cleaned[ip] = source
 
     if removed_count > 0:
@@ -156,13 +157,13 @@ def cleanup_old_domain_ips(drop_data: Dict[str, str], current_domain_ips: Dict[s
     return cleaned
 
 
-def merge_domain_ips(drop_data: Dict[str, str], domain_ips: Dict[str, str]) -> Dict[str, str]:
+def merge_domain_ips(existing_data: Dict[str, str], domain_ips: Dict[str, str]) -> Dict[str, str]:
     """
-    Merge domain-resolved IPs dengan drop.txt yang sudah ada
+    Merge domain-resolved IPs dengan data yang sudah ada
     Domain-resolved IPs akan override jika IP sama
     """
-    # Start with cleaned drop data
-    merged = dict(drop_data)
+    # Start with cleaned existing data
+    merged = dict(existing_data)
 
     # Add/update domain-resolved IPs
     added_count = 0
@@ -178,22 +179,27 @@ def merge_domain_ips(drop_data: Dict[str, str], domain_ips: Dict[str, str]) -> D
             added_count += 1
             merged[ip] = source
 
-    logger.info(f"Merged domain IPs:")
+    logger.info(f"Merged whitelist domain IPs:")
     logger.info(f"  - New IPs: {added_count}")
     logger.info(f"  - Updated IPs: {updated_count}")
 
     return merged
 
 
-def write_drop_txt(filepath: str, data: Dict[str, str]):
-    """Write drop.txt dengan sorted data"""
+def write_specific_txt(filepath: str, data: Dict[str, str]):
+    """Write whitelist-specific.txt dengan sorted data"""
     try:
         sorted_items = sorted(data.items(), key=lambda x: x[0])
 
         with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(f"# Whitelist IP Spesifik - IP dari domain whitelist.txt\n")
             f.write(f"# Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n")
             f.write(f"# Total entries: {len(sorted_items)}\n")
-            f.write(f"# Format: <entry> # <source>\n")
+            f.write(f"# Format: <ip> # <source>\n")
+            f.write("#\n")
+            f.write("# PRIORITAS: Level 1 - Whitelist IP Spesifik (Tertinggi)\n")
+            f.write("# IP dengan marker 'Berasal dari IP domain' akan di-update otomatis\n")
+            f.write("# IP manual (tanpa marker) tidak akan dihapus otomatis\n")
             f.write("#\n")
 
             for ip, source in sorted_items:
@@ -201,56 +207,56 @@ def write_drop_txt(filepath: str, data: Dict[str, str]):
 
         logger.info(f"Successfully wrote {len(sorted_items)} entries to {filepath}")
     except Exception as e:
-        logger.error(f"Error writing drop.txt: {e}")
+        logger.error(f"Error writing {filepath}: {e}")
         raise
 
 
 def main():
     """Main function"""
     logger.info("=" * 60)
-    logger.info("Domain to IP Resolution for Blacklist")
+    logger.info("Whitelist Domain to IP Resolution")
     logger.info("=" * 60)
 
     project_root = Path(__file__).parent.parent
-    blacklist_file = project_root / "data" / "blacklist.txt"
-    drop_file = project_root / "data" / "drop.txt"
+    whitelist_file = project_root / "data" / "whitelist.txt"
+    specific_file = project_root / "data" / "whitelist-specific.txt"
 
-    # 1. Load blacklist domains
-    logger.info("Step 1: Loading blacklist domains...")
-    blacklist_domains = read_blacklist_domains(str(blacklist_file))
+    # 1. Load whitelist domains
+    logger.info("Step 1: Loading whitelist domains...")
+    whitelist_domains = read_whitelist_domains(str(whitelist_file))
 
-    if not blacklist_domains:
-        logger.warning("No domains found in blacklist!")
+    if not whitelist_domains:
+        logger.warning("No domains found in whitelist!")
         return
 
-    # 2. Load existing drop.txt
-    logger.info("\nStep 2: Loading existing drop.txt...")
-    drop_data = read_drop_txt(str(drop_file))
+    # 2. Load existing whitelist-specific.txt
+    logger.info("\nStep 2: Loading existing whitelist-specific.txt...")
+    existing_data = read_specific_ips(str(specific_file))
 
-    # 3. Resolve all blacklist domains to IPs
+    # 3. Resolve all whitelist domains to IPs
     logger.info("\nStep 3: Resolving domains to IPs...")
-    domain_ips = generate_domain_ip_mappings(blacklist_domains)
+    domain_ips = generate_domain_ip_mappings(whitelist_domains)
 
-    # 4. Cleanup old domain-resolved IPs
+    # 4. Cleanup old domain-resolved IPs (keep manual IPs)
     logger.info("\nStep 4: Cleaning up outdated domain IPs...")
-    cleaned_drop_data = cleanup_old_domain_ips(drop_data, domain_ips)
+    cleaned_data = cleanup_old_domain_ips(existing_data, domain_ips)
 
     # 5. Merge dengan domain IPs yang baru
     logger.info("\nStep 5: Merging domain IPs...")
-    final_data = merge_domain_ips(cleaned_drop_data, domain_ips)
+    final_data = merge_domain_ips(cleaned_data, domain_ips)
 
-    # 6. Write back to drop.txt
-    logger.info("\nStep 6: Writing to drop.txt...")
-    write_drop_txt(str(drop_file), final_data)
+    # 6. Write back to whitelist-specific.txt
+    logger.info("\nStep 6: Writing to whitelist-specific.txt...")
+    write_specific_txt(str(specific_file), final_data)
 
     # Summary
     logger.info("\n" + "=" * 60)
     logger.info("Summary:")
-    logger.info(f"  - Blacklist domains: {len(blacklist_domains)}")
+    logger.info(f"  - Whitelist domains: {len(whitelist_domains)}")
     logger.info(f"  - Domain-resolved IPs: {len(domain_ips)}")
-    logger.info(f"  - Total IPs in drop.txt: {len(final_data)}")
+    logger.info(f"  - Total IPs in whitelist-specific.txt: {len(final_data)}")
     logger.info("=" * 60)
-    logger.info("DNS Resolution complete!")
+    logger.info("Whitelist DNS Resolution complete!")
     logger.info("=" * 60)
 
 
