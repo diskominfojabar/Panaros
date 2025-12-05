@@ -2293,9 +2293,7 @@
 0.0.0.0 gic-sn.online
 0.0.0.0 giowrust.*
 0.0.0.0 giowrust.ru
-0.0.0.0 gitlab.*
 0.0.0.0 gitlab.bzctoons.net
-0.0.0.0 gitlab.com
 0.0.0.0 gjin.ever-mint.ru
 0.0.0.0 gk.quartz-leaf.ru
 0.0.0.0 gk0.bl1zpond.ru
@@ -2435,7 +2433,6 @@
 0.0.0.0 google-authenticator.info
 0.0.0.0 google-meet-app.*
 0.0.0.0 google-meet-app.icu
-0.0.0.0 googleapis.*
 0.0.0.0 googleplay-mercadolivre.pages.dev
 0.0.0.0 goolges-tikitok.*
 0.0.0.0 goolges-tikitok.sbs
