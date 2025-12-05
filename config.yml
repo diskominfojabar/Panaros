@@ -78,6 +78,11 @@ sources:
       fetcher: "sbcio_gambling_porn"
       requires_api_key: false
 
+    - name: "StevenBlack Fake News"
+      url: "http://sbc.io/hosts/alternates/fakenews-only/hosts"
+      fetcher: "sbcio_fakenews"
+      requires_api_key: false
+
     # Contoh sumber lain:
     # - name: "PhishTank"
     #   url: "http://data.phishtank.com/data/online-valid.json"

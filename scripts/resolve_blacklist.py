@@ -140,6 +140,47 @@ def cleanup_old_domain_ips(existing_data: Dict[str, str], current_domain_ips: Di
     return cleaned
 
 
+def remove_whitelisted_ips(blacklist_data: Dict[str, str]) -> Dict[str, str]:
+    """
+    Remove IPs yang ada di whitelist-specific.txt dari blacklist
+    Whitelist memiliki prioritas lebih tinggi
+    """
+    project_root = Path(__file__).parent.parent
+    whitelist_file = project_root / "data" / "whitelist-specific.txt"
+
+    whitelist_ips = set()
+    if whitelist_file.exists():
+        try:
+            with open(whitelist_file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        if ' # ' in line:
+                            ip = line.split(' # ')[0].strip()
+                            whitelist_ips.add(ip)
+        except Exception as e:
+            logger.warning(f"Error reading whitelist-specific.txt: {e}")
+
+    if not whitelist_ips:
+        return blacklist_data
+
+    # Remove whitelisted IPs
+    cleaned = {}
+    removed_count = 0
+
+    for ip, source in blacklist_data.items():
+        if ip in whitelist_ips:
+            removed_count += 1
+            logger.debug(f"Removing whitelisted IP: {ip}")
+        else:
+            cleaned[ip] = source
+
+    if removed_count > 0:
+        logger.info(f"Removed {removed_count} IPs that are in whitelist (whitelist priority)")
+
+    return cleaned
+
+
 def merge_domain_ips(existing_data: Dict[str, str], domain_ips: Dict[str, str]) -> Dict[str, str]:
     """
     Merge domain-resolved IPs dengan data yang sudah ada
@@ -228,8 +269,12 @@ def main():
     logger.info("\nStep 5: Merging domain IPs...")
     final_data = merge_domain_ips(cleaned_data, domain_ips)
 
-    # 6. Write back to blacklist-specific.txt
-    logger.info("\nStep 6: Writing to blacklist-specific.txt...")
+    # 6. Remove whitelisted IPs (whitelist priority)
+    logger.info("\nStep 6: Removing whitelisted IPs...")
+    final_data = remove_whitelisted_ips(final_data)
+
+    # 7. Write back to blacklist-specific.txt
+    logger.info("\nStep 7: Writing to blacklist-specific.txt...")
     write_specific_txt(str(specific_file), final_data)
 
     # Summary
