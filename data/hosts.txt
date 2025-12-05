@@ -1,6 +1,6 @@
 # Hosts file format for domain blacklist
-# Generated: 2025-12-05 22:11:23 UTC
-# Total entries: 4234
+# Generated: 2025-12-05 17:13:37 UTC
+# Total entries: 4235
 #
 # Format: 0.0.0.0 domain.tld
 # This file can be used with /etc/hosts or DNS servers
@@ -958,6 +958,7 @@
 0.0.0.0 dampf.frostgipfel.ru
 0.0.0.0 dap.ventrill.ru
 0.0.0.0 dark.a5pirbo0rda.ru
+0.0.0.0 darkside.cy
 0.0.0.0 data.br1ghtwave.ru
 0.0.0.0 dawn-mirror.ru
 0.0.0.0 dawn.brightf1eld.ru

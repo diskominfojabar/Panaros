@@ -1,20 +1,29 @@
 # Whitelist IP Spesifik - IP dari domain whitelist.txt
-# Last updated: 2025-12-05 22:32:20 UTC
-# Total entries: 85
+# Last updated: 2025-12-05 17:13:39 UTC
+# Total entries: 90
 # Format: <ip> # <source>
 #
 # PRIORITAS: Level 1 - Whitelist IP Spesifik (Tertinggi)
 # IP dengan marker 'Berasal dari IP domain' akan di-update otomatis
 # IP manual (tanpa marker) tidak akan dihapus otomatis
 #
-0.0.0.0 # Berasal dari IP domain default.exp-tas.com (GitHub Domains)
 128.203.146.171 # Berasal dari IP domain pipelinesproxcus1.actions.githubusercontent.com (GitHub Domains)
 128.203.164.142 # Berasal dari IP domain runnerproxcus1.actions.githubusercontent.com (GitHub Domains)
-13.107.213.59 # Berasal dari IP domain setup-tools.actions.githubusercontent.com (GitHub Domains)
-13.107.246.59 # Berasal dari IP domain setup-tools.actions.githubusercontent.com (GitHub Domains)
+13.107.213.51 # Berasal dari IP domain setup-tools.actions.githubusercontent.com (GitHub Domains)
+13.107.246.51 # Berasal dari IP domain setup-tools.actions.githubusercontent.com (GitHub Domains)
 13.107.42.16 # Berasal dari IP domain vstoken.actions.githubusercontent.com (GitHub Domains)
+13.107.5.93 # Berasal dari IP domain default.exp-tas.com (GitHub Domains)
 130.107.153.191 # Berasal dari IP domain pipelinesproxcnc1.actions.githubusercontent.com (GitHub Domains)
-140.82.113.22 # Berasal dari IP domain timestamp.githubapp.com (GitHub Domains)
+140.82.112.21 # Berasal dari IP domain runner-auth.actions.githubusercontent.com (GitHub Domains)
+140.82.112.34 # Berasal dari IP domain docker.pkg.github.com (GitHub Domains)
+140.82.113.3 # Berasal dari IP domain github.com (GitHub Domains)
+140.82.113.33 # Berasal dari IP domain pypi.pkg.github.com (GitHub Domains)
+140.82.113.34 # Berasal dari IP domain swift.pkg.github.com (GitHub Domains)
+140.82.113.6 # Berasal dari IP domain api.github.com (GitHub Domains)
+140.82.114.21 # Berasal dari IP domain timestamp.githubapp.com (GitHub Domains)
+140.82.114.33 # Berasal dari IP domain maven.pkg.github.com (GitHub Domains)
+140.82.114.34 # Berasal dari IP domain nuget.pkg.github.com (GitHub Domains)
+140.82.114.9 # Berasal dari IP domain codeload.github.com (GitHub Domains)
 172.65.251.78 # Berasal dari IP domain gitlab.com (Unknown Source)
 185.199.108.133 # Berasal dari IP domain release-assets.githubusercontent.com (GitHub Domains)
 185.199.108.153 # Berasal dari IP domain tuf-repo.github.com (GitHub Domains)
@@ -39,10 +48,6 @@
 20.14.42.190 # Berasal dari IP domain runnerghubwus31.actions.githubusercontent.com (GitHub Domains)
 20.150.82.228 # Berasal dari IP domain productionresultssa9.blob.core.windows.net (GitHub Domains)
 20.150.88.228 # Berasal dari IP domain productionresultssa9.blob.core.windows.net (GitHub Domains)
-20.205.243.164 # Berasal dari IP domain swift.pkg.github.com (GitHub Domains)
-20.205.243.165 # Berasal dari IP domain codeload.github.com (GitHub Domains)
-20.205.243.166 # Berasal dari IP domain github.com (GitHub Domains)
-20.205.243.168 # Berasal dari IP domain api.github.com (GitHub Domains)
 20.209.112.225 # Berasal dari IP domain productionresultssa6.blob.core.windows.net (GitHub Domains)
 20.209.113.193 # Berasal dari IP domain productionresultssa6.blob.core.windows.net (GitHub Domains)
 20.209.178.193 # Berasal dari IP domain productionresultssa6.blob.core.windows.net (GitHub Domains)

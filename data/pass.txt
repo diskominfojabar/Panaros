@@ -1,10 +1,6 @@
-# Whitelist IP Segmen - Good ISP dari upstream
-# Last updated: 2025-12-05 22:40:09 UTC
+# Last updated: 2025-12-05 17:13:37 UTC
 # Total entries: 16999
-# Format: <ip/cidr> # <source>
-#
-# PRIORITAS: Level 4 - Whitelist IP Segmen
-# File ini berisi IP ranges dari upstream (Cloudflare, Google, GitHub, AWS)
+# Format: <entry> # <source>
 #
 1.178.1.0/24 # AWS IPs
 1.178.10.0/24 # AWS IPs
@@ -5187,7 +5183,6 @@
 20.98.192.0/18 # GitHub IPs
 20.98.64.0/18 # GitHub IPs
 20.99.128.0/17 # GitHub IPs
-202.58.242.0/24 # Manual Jabar IPs
 2001:3fc0:800::/40 # AWS IPs
 2001:3fc1:8000::/36 # AWS IPs
 2001:3fc2:8000::/36 # AWS IPs
@@ -5708,6 +5703,7 @@
 2001:4860:4801:c::/64 # Google IPs
 2001:4860:4801:f::/64 # Google IPs
 202.174.132.0/22 # AWS IPs
+202.58.242.0/24 # Manual Jabar IPs
 203.83.220.0/22 # AWS IPs
 204.152.18.0/31 # GitHub IPs
 204.152.18.32/27 # GitHub IPs
