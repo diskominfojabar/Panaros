@@ -40,12 +40,22 @@ def read_blacklist(filepath: str) -> Set[str]:
             for line in f:
                 line = line.strip()
 
-                # Skip comments, empty lines, dan wildcard
-                if not line or line.startswith('#') or line.startswith('*'):
+                # Skip comments dan empty lines
+                if not line or line.startswith('#'):
+                    continue
+
+                # Parse line dengan format: "domain # Source"
+                if ' # ' in line:
+                    domain = line.split(' # ', 1)[0].strip()
+                else:
+                    domain = line
+
+                # Skip wildcard domains
+                if domain.startswith('*'):
                     continue
 
                 # Tambahkan domain yang valid
-                domains.add(line)
+                domains.add(domain)
 
         logger.info(f"Berhasil membaca {len(domains)} domain dari {filepath}")
         return domains

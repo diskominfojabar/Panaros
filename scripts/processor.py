@@ -53,32 +53,43 @@ class DataProcessor:
             logger.error(f"Gagal memuat fetcher '{fetcher_name}': {e}")
             return None
 
-    def read_existing_data(self, filepath: str) -> Set[str]:
-        """Baca data yang sudah ada dari file"""
-        data = set()
+    def read_existing_data(self, filepath: str) -> dict:
+        """
+        Baca data yang sudah ada dari file
+        Returns dict dengan format: {entry: source_name}
+        """
+        data = {}
         if os.path.exists(filepath):
             try:
                 with open(filepath, 'r', encoding='utf-8') as f:
                     for line in f:
                         line = line.strip()
                         if line and not line.startswith('#'):
-                            data.add(line)
+                            # Parse line dengan format: "entry # Source"
+                            if ' # ' in line:
+                                parts = line.split(' # ', 1)
+                                entry = parts[0].strip()
+                                source = parts[1].strip()
+                                data[entry] = source
+                            else:
+                                # Backward compatibility: line tanpa source comment
+                                data[line] = "Unknown Source"
                 logger.info(f"Membaca {len(data)} entri dari {filepath}")
             except Exception as e:
                 logger.warning(f"Gagal membaca file {filepath}: {e}")
         return data
 
-    def remove_whitelisted_domains(self, blacklist_domains: Set[str], whitelist_path: str) -> Set[str]:
+    def remove_whitelisted_domains(self, blacklist_domains: dict, whitelist_path: str) -> dict:
         """
         Hapus domain dari blacklist jika ada di whitelist
         Whitelist diprioritaskan untuk mencegah false positive
 
         Args:
-            blacklist_domains: Set of domain blacklist
+            blacklist_domains: Dict of domain blacklist {entry: source}
             whitelist_path: Path ke file whitelist.txt
 
         Returns:
-            Set of filtered blacklist domains
+            Dict of filtered blacklist domains
         """
         # Baca whitelist
         whitelist = self.read_existing_data(whitelist_path)
@@ -91,7 +102,7 @@ class DataProcessor:
         whitelist_patterns = set()
         whitelist_exact = set()
 
-        for entry in whitelist:
+        for entry in whitelist.keys():
             if '*' in entry:
                 # Wildcard pattern
                 whitelist_patterns.add(entry)
@@ -100,10 +111,10 @@ class DataProcessor:
                 whitelist_exact.add(entry)
 
         # Filter blacklist
-        filtered = set()
+        filtered = {}
         removed_count = 0
 
-        for domain in blacklist_domains:
+        for domain, source in blacklist_domains.items():
             should_remove = False
 
             # Check exact match
@@ -124,7 +135,7 @@ class DataProcessor:
                         break
 
             if not should_remove:
-                filtered.add(domain)
+                filtered[domain] = source
             else:
                 removed_count += 1
 
@@ -133,15 +144,25 @@ class DataProcessor:
 
         return filtered
 
-    def write_data(self, filepath: str, data: Set[str], mode: str = "append", category: str = ""):
-        """Tulis data ke file"""
+    def write_data(self, filepath: str, data: dict, mode: str = "append", category: str = ""):
+        """
+        Tulis data ke file dengan source comments
+
+        Args:
+            filepath: Path ke output file
+            data: Dict dengan format {entry: source_name}
+            mode: "append" atau "replace"
+            category: Kategori data (untuk special processing)
+        """
         # Buat direktori jika belum ada
         os.makedirs(os.path.dirname(filepath), exist_ok=True)
 
         if mode == "append":
             # Gabungkan dengan data yang sudah ada
             existing_data = self.read_existing_data(filepath)
-            data = existing_data.union(data)
+            # Merge: data baru override data lama jika entry sama
+            existing_data.update(data)
+            data = existing_data
 
         # Proses khusus untuk domain blacklist
         if category == "domain_blacklist":
@@ -156,22 +177,24 @@ class DataProcessor:
             if removed_count > 0:
                 logger.info(f"Cross-check whitelist: {removed_count} domain dihapus dari blacklist")
 
-        # Remove duplicates dan sort jika dikonfigurasi
-        if self.config['settings'].get('remove_duplicates', True):
-            data = set(data)
-
-        data_list = list(data)
+        # Sort data by entry
         if self.config['settings'].get('sort_output', True):
-            data_list.sort()
+            sorted_items = sorted(data.items(), key=lambda x: x[0])
+        else:
+            sorted_items = list(data.items())
 
-        # Tulis ke file
+        # Tulis ke file dengan source comments
         try:
             with open(filepath, 'w', encoding='utf-8') as f:
                 f.write(f"# Last updated: {self.get_timestamp()}\n")
-                f.write(f"# Total entries: {len(data_list)}\n")
-                for item in data_list:
-                    f.write(f"{item}\n")
-            logger.info(f"Berhasil menulis {len(data_list)} entri ke {filepath}")
+                f.write(f"# Total entries: {len(sorted_items)}\n")
+                f.write(f"# Format: <entry> # <source>\n")
+                f.write("#\n")
+
+                for entry, source in sorted_items:
+                    f.write(f"{entry} # {source}\n")
+
+            logger.info(f"Berhasil menulis {len(sorted_items)} entri ke {filepath}")
         except Exception as e:
             logger.error(f"Gagal menulis ke file {filepath}: {e}")
 
@@ -192,7 +215,8 @@ class DataProcessor:
         logger.info(f"Output file: {output_file}")
         logger.info(f"{'='*60}")
 
-        all_data = set()
+        # Dictionary untuk menyimpan data dengan source info: {entry: source_name}
+        all_data = {}
 
         for source in sources:
             name = source.get('name')
@@ -220,7 +244,9 @@ class DataProcessor:
                     data = fetcher(source)
                     if data:
                         logger.info(f"Berhasil mengambil {len(data)} entri dari {name}")
-                        all_data.update(data)
+                        # Simpan data dengan source info
+                        for entry in data:
+                            all_data[entry] = name
                     else:
                         logger.warning(f"Tidak ada data dari {name}")
                 except Exception as e:

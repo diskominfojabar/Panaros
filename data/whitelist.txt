@@ -1,118 +1,120 @@
-# Last updated: 2025-12-05 18:38:31 UTC
-# Total entries: 115
-*.actions.githubusercontent.com
-*.api.github.com
-*.azureedge.net
-*.core.windows.net
-*.ghcr.io
-*.github.com
-*.github.dev
-*.github.io
-*.githubassets.com
-*.githubcopilot.com
-*.githubusercontent.com
-*.microsoft.com
-*.msecnd.net
-*.pkg.github.com
-*.visualstudio.com
-*.vscode-webview.net
-*.windows.net
-api.github.com
-broker.actions.githubusercontent.com
-codeload.github.com
-containers.pkg.github.com
-default.exp-tas.com
-docker-proxy.pkg.github.com
-docker.pkg.github.com
-fulcio.githubapp.com
-ghcr.io
-github-registry-files.githubusercontent.com
-github-releases.githubusercontent.com
-github.com
-launch.actions.githubusercontent.com
-maven.pkg.github.com
-mavenregistryv2prod.blob.core.windows.net
-mpsghub.actions.githubusercontent.com
-npm-beta-proxy.pkg.github.com
-npm-beta.pkg.github.com
-npm-proxy.pkg.github.com
-npm.pkg.github.com
-npmregistryv2prod.blob.core.windows.net
-nuget.pkg.github.com
-nugetregistryv2prod.blob.core.windows.net
-objects-origin.githubusercontent.com
-objects.githubusercontent.com
-pipelinesghubeus1.actions.githubusercontent.com
-pipelinesghubeus10.actions.githubusercontent.com
-pipelinesghubeus11.actions.githubusercontent.com
-pipelinesghubeus12.actions.githubusercontent.com
-pipelinesghubeus13.actions.githubusercontent.com
-pipelinesghubeus14.actions.githubusercontent.com
-pipelinesghubeus15.actions.githubusercontent.com
-pipelinesghubeus2.actions.githubusercontent.com
-pipelinesghubeus20.actions.githubusercontent.com
-pipelinesghubeus21.actions.githubusercontent.com
-pipelinesghubeus22.actions.githubusercontent.com
-pipelinesghubeus23.actions.githubusercontent.com
-pipelinesghubeus24.actions.githubusercontent.com
-pipelinesghubeus25.actions.githubusercontent.com
-pipelinesghubeus26.actions.githubusercontent.com
-pipelinesghubeus3.actions.githubusercontent.com
-pipelinesghubeus4.actions.githubusercontent.com
-pipelinesghubeus5.actions.githubusercontent.com
-pipelinesghubeus6.actions.githubusercontent.com
-pipelinesghubeus7.actions.githubusercontent.com
-pipelinesghubeus8.actions.githubusercontent.com
-pipelinesghubeus9.actions.githubusercontent.com
-pipelinesproxcnc1.actions.githubusercontent.com
-pipelinesproxcus1.actions.githubusercontent.com
-pipelinesproxeau1.actions.githubusercontent.com
-pipelinesproxsdc1.actions.githubusercontent.com
-pipelinesproxweu1.actions.githubusercontent.com
-pipelinesproxwus31.actions.githubusercontent.com
-pkg.actions.githubusercontent.com
-productionresultssa0.blob.core.windows.net
-productionresultssa1.blob.core.windows.net
-productionresultssa10.blob.core.windows.net
-productionresultssa11.blob.core.windows.net
-productionresultssa12.blob.core.windows.net
-productionresultssa13.blob.core.windows.net
-productionresultssa14.blob.core.windows.net
-productionresultssa15.blob.core.windows.net
-productionresultssa16.blob.core.windows.net
-productionresultssa17.blob.core.windows.net
-productionresultssa18.blob.core.windows.net
-productionresultssa19.blob.core.windows.net
-productionresultssa2.blob.core.windows.net
-productionresultssa3.blob.core.windows.net
-productionresultssa4.blob.core.windows.net
-productionresultssa5.blob.core.windows.net
-productionresultssa6.blob.core.windows.net
-productionresultssa7.blob.core.windows.net
-productionresultssa8.blob.core.windows.net
-productionresultssa9.blob.core.windows.net
-pypi.pkg.github.com
-release-assets.githubusercontent.com
-results-receiver.actions.githubusercontent.com
-rubygems.pkg.github.com
-rubygemsregistryv2prod.blob.core.windows.net
-run-actions-1-azure-eastus.actions.githubusercontent.com
-run-actions-2-azure-eastus.actions.githubusercontent.com
-run-actions-3-azure-eastus.actions.githubusercontent.com
-runner-auth.actions.githubusercontent.com
-runnerghubeus1.actions.githubusercontent.com
-runnerghubeus20.actions.githubusercontent.com
-runnerghubeus21.actions.githubusercontent.com
-runnerghubwus31.actions.githubusercontent.com
-runnerproxcnc1.actions.githubusercontent.com
-runnerproxcus1.actions.githubusercontent.com
-runnerproxeau1.actions.githubusercontent.com
-runnerproxsdc1.actions.githubusercontent.com
-runnerproxweu1.actions.githubusercontent.com
-setup-tools.actions.githubusercontent.com
-swift.pkg.github.com
-timestamp.githubapp.com
-tokenghub.actions.githubusercontent.com
-tuf-repo.github.com
-vstoken.actions.githubusercontent.com
-gitlab.com
+# Last updated: 2025-12-05 19:41:36 UTC
+# Total entries: 116
+# Format: <entry> # <source>
+#
+*.actions.githubusercontent.com # GitHub Domains
+*.api.github.com # GitHub Domains
+*.azureedge.net # GitHub Domains
+*.core.windows.net # GitHub Domains
+*.ghcr.io # GitHub Domains
+*.github.com # GitHub Domains
+*.github.dev # GitHub Domains
+*.github.io # GitHub Domains
+*.githubassets.com # GitHub Domains
+*.githubcopilot.com # GitHub Domains
+*.githubusercontent.com # GitHub Domains
+*.microsoft.com # GitHub Domains
+*.msecnd.net # GitHub Domains
+*.pkg.github.com # GitHub Domains
+*.visualstudio.com # GitHub Domains
+*.vscode-webview.net # GitHub Domains
+*.windows.net # GitHub Domains
+api.github.com # GitHub Domains
+broker.actions.githubusercontent.com # GitHub Domains
+codeload.github.com # GitHub Domains
+containers.pkg.github.com # GitHub Domains
+default.exp-tas.com # GitHub Domains
+docker-proxy.pkg.github.com # GitHub Domains
+docker.pkg.github.com # GitHub Domains
+fulcio.githubapp.com # GitHub Domains
+ghcr.io # GitHub Domains
+github-registry-files.githubusercontent.com # GitHub Domains
+github-releases.githubusercontent.com # GitHub Domains
+github.com # GitHub Domains
+gitlab.com # Unknown Source
+launch.actions.githubusercontent.com # GitHub Domains
+maven.pkg.github.com # GitHub Domains
+mavenregistryv2prod.blob.core.windows.net # GitHub Domains
+mpsghub.actions.githubusercontent.com # GitHub Domains
+npm-beta-proxy.pkg.github.com # GitHub Domains
+npm-beta.pkg.github.com # GitHub Domains
+npm-proxy.pkg.github.com # GitHub Domains
+npm.pkg.github.com # GitHub Domains
+npmregistryv2prod.blob.core.windows.net # GitHub Domains
+nuget.pkg.github.com # GitHub Domains
+nugetregistryv2prod.blob.core.windows.net # GitHub Domains
+objects-origin.githubusercontent.com # GitHub Domains
+objects.githubusercontent.com # GitHub Domains
+pipelinesghubeus1.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus10.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus11.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus12.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus13.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus14.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus15.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus2.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus20.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus21.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus22.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus23.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus24.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus25.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus26.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus3.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus4.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus5.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus6.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus7.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus8.actions.githubusercontent.com # GitHub Domains
+pipelinesghubeus9.actions.githubusercontent.com # GitHub Domains
+pipelinesproxcnc1.actions.githubusercontent.com # GitHub Domains
+pipelinesproxcus1.actions.githubusercontent.com # GitHub Domains
+pipelinesproxeau1.actions.githubusercontent.com # GitHub Domains
+pipelinesproxsdc1.actions.githubusercontent.com # GitHub Domains
+pipelinesproxweu1.actions.githubusercontent.com # GitHub Domains
+pipelinesproxwus31.actions.githubusercontent.com # GitHub Domains
+pkg.actions.githubusercontent.com # GitHub Domains
+productionresultssa0.blob.core.windows.net # GitHub Domains
+productionresultssa1.blob.core.windows.net # GitHub Domains
+productionresultssa10.blob.core.windows.net # GitHub Domains
+productionresultssa11.blob.core.windows.net # GitHub Domains
+productionresultssa12.blob.core.windows.net # GitHub Domains
+productionresultssa13.blob.core.windows.net # GitHub Domains
+productionresultssa14.blob.core.windows.net # GitHub Domains
+productionresultssa15.blob.core.windows.net # GitHub Domains
+productionresultssa16.blob.core.windows.net # GitHub Domains
+productionresultssa17.blob.core.windows.net # GitHub Domains
+productionresultssa18.blob.core.windows.net # GitHub Domains
+productionresultssa19.blob.core.windows.net # GitHub Domains
+productionresultssa2.blob.core.windows.net # GitHub Domains
+productionresultssa3.blob.core.windows.net # GitHub Domains
+productionresultssa4.blob.core.windows.net # GitHub Domains
+productionresultssa5.blob.core.windows.net # GitHub Domains
+productionresultssa6.blob.core.windows.net # GitHub Domains
+productionresultssa7.blob.core.windows.net # GitHub Domains
+productionresultssa8.blob.core.windows.net # GitHub Domains
+productionresultssa9.blob.core.windows.net # GitHub Domains
+pypi.pkg.github.com # GitHub Domains
+release-assets.githubusercontent.com # GitHub Domains
+results-receiver.actions.githubusercontent.com # GitHub Domains
+rubygems.pkg.github.com # GitHub Domains
+rubygemsregistryv2prod.blob.core.windows.net # GitHub Domains
+run-actions-1-azure-eastus.actions.githubusercontent.com # GitHub Domains
+run-actions-2-azure-eastus.actions.githubusercontent.com # GitHub Domains
+run-actions-3-azure-eastus.actions.githubusercontent.com # GitHub Domains
+runner-auth.actions.githubusercontent.com # GitHub Domains
+runnerghubeus1.actions.githubusercontent.com # GitHub Domains
+runnerghubeus20.actions.githubusercontent.com # GitHub Domains
+runnerghubeus21.actions.githubusercontent.com # GitHub Domains
+runnerghubwus31.actions.githubusercontent.com # GitHub Domains
+runnerproxcnc1.actions.githubusercontent.com # GitHub Domains
+runnerproxcus1.actions.githubusercontent.com # GitHub Domains
+runnerproxeau1.actions.githubusercontent.com # GitHub Domains
+runnerproxsdc1.actions.githubusercontent.com # GitHub Domains
+runnerproxweu1.actions.githubusercontent.com # GitHub Domains
+setup-tools.actions.githubusercontent.com # GitHub Domains
+swift.pkg.github.com # GitHub Domains
+timestamp.githubapp.com # GitHub Domains
+tokenghub.actions.githubusercontent.com # GitHub Domains
+tuf-repo.github.com # GitHub Domains
+vstoken.actions.githubusercontent.com # GitHub Domains
