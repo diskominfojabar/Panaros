@@ -2029,7 +2029,6 @@
 0.0.0.0 files.vk-plusing.ru
 0.0.0.0 fin5er.g0ldfish.ru
 0.0.0.0 fir3wd.firew0rd.ru
-0.0.0.0 firebasestorage.googleapis.com
 0.0.0.0 fireciiff.*
 0.0.0.0 fireh0rn.*
 0.0.0.0 firekirinonline.*
@@ -2429,11 +2428,6 @@
 0.0.0.0 golesya.*
 0.0.0.0 golesya.pro
 0.0.0.0 golesya.site
-0.0.0.0 google-authenticator.*
-0.0.0.0 google-authenticator.info
-0.0.0.0 google-meet-app.*
-0.0.0.0 google-meet-app.icu
-0.0.0.0 googleplay-mercadolivre.pages.dev
 0.0.0.0 goolges-tikitok.*
 0.0.0.0 goolges-tikitok.sbs
 0.0.0.0 goramobil.*
