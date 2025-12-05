@@ -360,7 +360,12 @@
 
     <script>
         // --- Configuration ---
-        const sources = [
+        // IMPORTANT: Whitelist has PRIORITY over blacklist!
+        const whitelistSources = [
+            { name: 'Domain Whitelist', url: 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/whitelist.txt' },
+        ];
+
+        const blacklistSources = [
             { name: 'Domain Blacklist', url: 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/blacklist.txt' },
             { name: 'Blacklist IP Specific', url: 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/blacklist-specific.txt' },
             { name: "DROP (Don't Route or Peer)", url: 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/drop.txt' },
@@ -541,11 +546,61 @@
 
             btnCheck.disabled = true;
             resultArea.style.display = 'none';
+            let isWhitelisted = false;
             let foundMatches = []; // Changed to store {source, reason}
 
             try {
-                const promises = sources.map(src => fetch(src.url).then(res => res.ok ? res.text() : "").then(text => ({ name: src.name, data: text })));
-                const results = await Promise.all(promises);
+                // Step 1: Check WHITELIST first (priority!)
+                const whitelistPromises = whitelistSources.map(src => fetch(src.url).then(res => res.ok ? res.text() : "").then(text => ({ name: src.name, data: text })));
+                const whitelistResults = await Promise.all(whitelistPromises);
+
+                whitelistResults.forEach(source => {
+                    if (source.data && !isWhitelisted) {
+                        const lines = source.data.split('\n');
+                        for (let line of lines) {
+                            let cleanLine = line.trim();
+                            if (cleanLine.startsWith('#') || cleanLine.startsWith(';') || cleanLine === "") continue;
+
+                            // Extract pattern
+                            let pattern;
+                            const parts = cleanLine.split(/\s+/);
+                            if (cleanLine.includes(' # ')) {
+                                pattern = cleanLine.split(' # ')[0].trim();
+                            } else {
+                                pattern = parts[0];
+                            }
+
+                            if (!pattern) continue;
+                            pattern = pattern.toLowerCase();
+
+                            // Check wildcard matching
+                            let matched = false;
+                            if (pattern.includes('*')) {
+                                const escapedPattern = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
+                                const regexString = '^' + escapedPattern.replace(/\*/g, '.*') + '$';
+                                const regex = new RegExp(regexString);
+                                matched = regex.test(rawInput);
+                            } else {
+                                matched = (pattern === rawInput) || rawInput.endsWith('.' + pattern);
+                            }
+
+                            if (matched) {
+                                isWhitelisted = true;
+                                break;
+                            }
+                        }
+                    }
+                });
+
+                // If whitelisted, immediately show SAFE result
+                if (isWhitelisted) {
+                    displayResult([], rawInput); // Empty array = SAFE
+                    return;
+                }
+
+                // Step 2: Check BLACKLIST only if NOT whitelisted
+                const blacklistPromises = blacklistSources.map(src => fetch(src.url).then(res => res.ok ? res.text() : "").then(text => ({ name: src.name, data: text })));
+                const results = await Promise.all(blacklistPromises);
 
                 results.forEach(source => {
                     if (source.data) {
