@@ -1,10 +1,9 @@
-# Last updated: 2025-12-04 11:11:44 UTC
-# Total entries: 124
+# Last updated: 2025-12-05 18:38:31 UTC
+# Total entries: 115
 *.actions.githubusercontent.com
 *.api.github.com
 *.azureedge.net
 *.core.windows.net
-*.ddns.net
 *.ghcr.io
 *.github.com
 *.github.dev
@@ -15,20 +14,16 @@
 *.microsoft.com
 *.msecnd.net
 *.pkg.github.com
-*.vimeo.com
 *.visualstudio.com
 *.vscode-webview.net
 *.windows.net
 api.github.com
-blogspot.com
 broker.actions.githubusercontent.com
 codeload.github.com
 containers.pkg.github.com
-ddns.net
 default.exp-tas.com
 docker-proxy.pkg.github.com
 docker.pkg.github.com
-drive.google.com
 fulcio.githubapp.com
 ghcr.io
 github-registry-files.githubusercontent.com
@@ -114,15 +109,9 @@ runnerproxcus1.actions.githubusercontent.com
 runnerproxeau1.actions.githubusercontent.com
 runnerproxsdc1.actions.githubusercontent.com
 runnerproxweu1.actions.githubusercontent.com
-s.id
 setup-tools.actions.githubusercontent.com
-sites.google.com
 swift.pkg.github.com
 timestamp.githubapp.com
 tokenghub.actions.githubusercontent.com
 tuf-repo.github.com
-vimeo.com
 vstoken.actions.githubusercontent.com
-wa.me
-*.netlify.app
-netlify.*

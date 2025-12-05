@@ -133,63 +133,6 @@ class DataProcessor:
 
         return filtered
 
-    def add_wildcards_to_domains(self, domains: Set[str]) -> Set[str]:
-        """
-        Tambahkan wildcard untuk setiap domain untuk memblokir subdomain dan variasi
-
-        Untuk domain: example.com, akan ditambahkan:
-        - *.example.com (semua subdomain)
-        - example.* (semua TLD variations)
-        - *.example.* (kombinasi subdomain + TLD)
-
-        Args:
-            domains: Set of domain names
-
-        Returns:
-            Set dengan domain asli + wildcard variations
-        """
-        result = set(domains)
-        wildcard_added = 0
-
-        for domain in domains:
-            # Skip jika sudah wildcard
-            if domain.startswith('*'):
-                continue
-
-            # Ekstrak bagian domain
-            parts = domain.split('.')
-
-            if len(parts) >= 2:
-                # Ambil nama domain utama (sebelum TLD)
-                main_domain = parts[-2]
-                tld = parts[-1]
-
-                # 1. Wildcard subdomain: *.example.com
-                wildcard_subdomain = f"*.{main_domain}.{tld}"
-                if wildcard_subdomain not in result:
-                    result.add(wildcard_subdomain)
-                    wildcard_added += 1
-                    logger.debug(f"Tambah wildcard subdomain: {wildcard_subdomain}")
-
-                # 2. Wildcard TLD: example.*
-                wildcard_tld = f"{main_domain}.*"
-                if wildcard_tld not in result:
-                    result.add(wildcard_tld)
-                    wildcard_added += 1
-                    logger.debug(f"Tambah wildcard TLD: {wildcard_tld}")
-
-                # 3. Wildcard kombinasi: *.example.*
-                wildcard_both = f"*.{main_domain}.*"
-                if wildcard_both not in result:
-                    result.add(wildcard_both)
-                    wildcard_added += 1
-                    logger.debug(f"Tambah wildcard kombinasi: {wildcard_both}")
-
-        if wildcard_added > 0:
-            logger.info(f"Menambahkan {wildcard_added} wildcard entries")
-
-        return result
-
     def write_data(self, filepath: str, data: Set[str], mode: str = "append", category: str = ""):
         """Tulis data ke file"""
         # Buat direktori jika belum ada
@@ -202,7 +145,7 @@ class DataProcessor:
 
         # Proses khusus untuk domain blacklist
         if category == "domain_blacklist":
-            # 1. Cross-check dengan whitelist (prioritas whitelist)
+            # Cross-check dengan whitelist (prioritas whitelist)
             output_config = self.config.get('output', {})
             whitelist_path = output_config.get('domain_whitelist', 'data/whitelist.txt')
 
@@ -212,14 +155,6 @@ class DataProcessor:
 
             if removed_count > 0:
                 logger.info(f"Cross-check whitelist: {removed_count} domain dihapus dari blacklist")
-
-            # 2. Tambahkan wildcard variations
-            before_wildcard = len(data)
-            data = self.add_wildcards_to_domains(data)
-            wildcard_count = len(data) - before_wildcard
-
-            if wildcard_count > 0:
-                logger.info(f"Wildcard: Menambahkan {wildcard_count} wildcard entries (subdomain, TLD, kombinasi)")
 
         # Remove duplicates dan sort jika dikonfigurasi
         if self.config['settings'].get('remove_duplicates', True):
