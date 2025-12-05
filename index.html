@@ -362,8 +362,54 @@
         // --- Configuration ---
         const sources = [
             { name: 'Domain Blacklist', url: 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/blacklist.txt' },
+            { name: 'Blacklist IP Specific', url: 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/blacklist-specific.txt' },
             { name: "DROP (Don't Route or Peer)", url: 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/drop.txt' },
         ];
+
+        // Mapping source marker to user-friendly blocking reasons
+        const reasonMap = {
+            'URLhaus Malware Domains': '🦠 Malware Distribution Site',
+            'StevenBlack Gambling & Porn': '🔞 Adult Content / Gambling Site',
+            'StevenBlack Fake News': '📰 Fake News / Misinformation Source',
+            'StevenBlack Gambling': '🎰 Gambling Site',
+            'StevenBlack Porn': '🔞 Adult Content Site',
+            'AbuseIPDB': '⚠️ Reported Malicious IP (Abuse Database)',
+            'URLhaus Malware IPs': '🦠 Malware Distribution IP',
+            'Manual Input': '🔒 Manually Blacklisted by Admin',
+            'GitHub Domains': '✅ Trusted Source (GitHub)',
+            'Cloudflare IPs': '✅ CDN / Cloud Service',
+            'Google IPs': '✅ Google Service',
+            'AWS IPs': '✅ Amazon Web Services',
+            'Unknown Source': '❓ Blacklisted (Unknown Reason)'
+        };
+
+        // Function to extract blocking reason from source marker
+        function getBlockingReason(sourceLine) {
+            // Parse comment after # symbol
+            if (!sourceLine.includes(' # ')) return null;
+
+            const comment = sourceLine.split(' # ')[1].trim();
+
+            // Check if it's from a domain resolution (extract original source)
+            if (comment.startsWith('Berasal dari IP domain')) {
+                // Format: "Berasal dari IP domain example.com (URLhaus Malware Domains)"
+                const match = comment.match(/\((.*?)\)/);
+                if (match && match[1]) {
+                    return reasonMap[match[1]] || `🌐 IP from ${match[1]}`;
+                }
+                return '🌐 Domain-resolved IP';
+            }
+
+            // Direct source mapping
+            for (const [key, value] of Object.entries(reasonMap)) {
+                if (comment.includes(key)) {
+                    return value;
+                }
+            }
+
+            // Return the raw comment if no mapping found
+            return `📋 ${comment}`;
+        }
 
         const inputField = document.getElementById('targetInput');
         const btnCheck = document.getElementById('btnCheck');
@@ -488,14 +534,14 @@
 
         async function performCheck() {
             const rawInput = inputField.value.trim().toLowerCase();
-            
+
             if (!rawInput || !isValidDomainOrIP(rawInput)) {
                 validationMsg.style.opacity = '1'; return;
             }
 
             btnCheck.disabled = true;
             resultArea.style.display = 'none';
-            let foundIn = [];
+            let foundMatches = []; // Changed to store {source, reason}
 
             try {
                 const promises = sources.map(src => fetch(src.url).then(res => res.ok ? res.text() : "").then(text => ({ name: src.name, data: text })));
@@ -504,31 +550,48 @@
                 results.forEach(source => {
                     if (source.data) {
                         const lines = source.data.split('\n');
-                        const isFound = lines.some(line => {
+                        for (let line of lines) {
                             let cleanLine = line.trim();
-                            if (cleanLine.startsWith('#') || cleanLine.startsWith(';') || cleanLine === "") return false;
-                            
+                            if (cleanLine.startsWith('#') || cleanLine.startsWith(';') || cleanLine === "") continue;
+
+                            // Extract pattern and reason
+                            let pattern, fullLine = cleanLine;
                             const parts = cleanLine.split(/\s+/);
-                            let pattern = (parts.length >= 2 && (parts[0] === '0.0.0.0' || parts[0] === '127.0.0.1')) ? parts[1] : parts[0];
-                            
-                            if (!pattern) return false;
+
+                            // Check if it's hosts format (0.0.0.0 domain) or IP format (IP # comment)
+                            if (parts[0] === '0.0.0.0' || parts[0] === '127.0.0.1') {
+                                pattern = parts[1]; // hosts format
+                            } else {
+                                // Check for comment marker #
+                                if (cleanLine.includes(' # ')) {
+                                    pattern = cleanLine.split(' # ')[0].trim();
+                                } else {
+                                    pattern = parts[0];
+                                }
+                            }
+
+                            if (!pattern) continue;
                             pattern = pattern.toLowerCase();
 
+                            let matched = false;
                             if (pattern.includes('*')) {
                                 const escapedPattern = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
                                 const regexString = '^' + escapedPattern.replace(/\*/g, '.*') + '$';
                                 const regex = new RegExp(regexString);
-                                return regex.test(rawInput);
+                                matched = regex.test(rawInput);
                             } else {
-                                if (pattern === rawInput) return true;
-                                if (rawInput.endsWith('.' + pattern)) return true;
-                                return false;
+                                matched = (pattern === rawInput) || rawInput.endsWith('.' + pattern);
                             }
-                        });
-                        if (isFound) foundIn.push(source.name);
+
+                            if (matched) {
+                                const reason = getBlockingReason(fullLine);
+                                foundMatches.push({ source: source.name, reason: reason });
+                                break; // Stop after first match in this source
+                            }
+                        }
                     }
                 });
-                displayResult(foundIn, rawInput);
+                displayResult(foundMatches, rawInput);
             } catch (e) {
                 console.error(e);
                 alert("Gagal terhubung ke server data atau terjadi kesalahan parsing.");
@@ -544,7 +607,10 @@
 
             resultArea.style.display = 'block';
             if (foundList.length > 0) {
-                // BLOCKED
+                // BLOCKED - foundList now contains {source, reason} objects
+                const primaryReason = foundList[0].reason || '🚫 Blacklisted';
+                const sources = foundList.map(match => match.source).join(', ');
+
                 html = `
                     <div class="result-box result-blocked">
                         <div class="result-header">
@@ -554,7 +620,12 @@
                                 <p class="status-desc">
                                     Domain <strong>${query}</strong> terdeteksi berbahaya atau masuk dalam kriteria blokir kami.
                                 </p>
-                                <div style="margin-top:5px">${foundList.map(src => `<span class="source-tag">📂 ${src}</span>`).join(' ')}</div>
+                                <div style="margin-top:10px; padding:8px 12px; background-color:rgba(153,27,27,0.1); border-radius:6px; border-left:3px solid #991b1b;">
+                                    <strong style="color:#991b1b; font-size:14px;">${primaryReason}</strong>
+                                </div>
+                                <div style="margin-top:8px; font-size:12px; color:#6b7280;">
+                                    <strong>Sumber:</strong> ${foundList.map(match => `<span class="source-tag">📂 ${match.source}</span>`).join(' ')}
+                                </div>
                             </div>
                         </div>
                         <div style="margin-top:15px; padding-top:10px; border-top:1px solid rgba(0,0,0,0.05)">
