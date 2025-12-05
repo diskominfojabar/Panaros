@@ -125,3 +125,4 @@ vimeo.com
 vstoken.actions.githubusercontent.com
 wa.me
 *.netlify.app
+netlify.*
