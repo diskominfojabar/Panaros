@@ -50,6 +50,10 @@ jobs:
         run: |
           python scripts/generate_hosts.py
 
+      - name: Resolve domains to IPs
+        run: |
+          python scripts/resolve_domains.py
+
       - name: Generate monthly statistics
         run: |
           python scripts/generate_stats.py
