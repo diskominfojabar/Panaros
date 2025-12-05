@@ -32,6 +32,9 @@
 100.28.206.0/24 # AWS IPs
 100.28.208.0/23 # AWS IPs
 100.48.0.0/12 # AWS IPs
+103.122.5.0/24 # Manual Jabar IPs
+103.125.88.0/23 # Manual Jabar IPs
+103.147.222.0/24 # Manual Jabar IPs
 103.21.244.0/22 # Cloudflare IPs
 103.22.200.0/22 # Cloudflare IPs
 103.246.148.0/23 # AWS IPs
@@ -5184,6 +5187,7 @@
 20.98.192.0/18 # GitHub IPs
 20.98.64.0/18 # GitHub IPs
 20.99.128.0/17 # GitHub IPs
+202.58.242.0/24 # Manual Jabar IPs
 2001:3fc0:800::/40 # AWS IPs
 2001:3fc1:8000::/36 # AWS IPs
 2001:3fc2:8000::/36 # AWS IPs
