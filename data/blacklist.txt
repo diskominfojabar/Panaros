@@ -1599,8 +1599,6 @@
 *.gic-sn.online
 *.giowrust.*
 *.giowrust.ru
-*.gitlab.*
-*.gitlab.com
 *.gl0wmist.*
 *.gl0wmist.ru
 *.gl1nterbay.*
