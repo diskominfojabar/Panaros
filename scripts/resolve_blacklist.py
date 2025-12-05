@@ -27,6 +27,32 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def read_whitelist_domains(filepath: str) -> Set[str]:
+    """
+    Baca domain dari whitelist.txt (untuk shared IP protection)
+    Returns: Set of domains (non-wildcard saja untuk resolving)
+    """
+    domains = set()
+    if os.path.exists(filepath):
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        # Parse: "domain # Source"
+                        if ' # ' in line:
+                            domain = line.split(' # ', 1)[0].strip()
+                        else:
+                            domain = line
+                        # Skip wildcards untuk resolve, tapi simpan untuk matching nanti
+                        if not domain.startswith('*'):
+                            domains.add(domain.lower())
+            logger.info(f"Loaded {len(domains)} non-wildcard domains from whitelist.txt")
+        except Exception as e:
+            logger.error(f"Error reading whitelist: {e}")
+    return domains
+
+
 def read_blacklist_domains(filepath: str) -> Dict[str, str]:
     """
     Baca domain dari blacklist.txt
@@ -79,12 +105,47 @@ def read_specific_ips(filepath: str) -> Dict[str, str]:
     return ips
 
 
-def generate_domain_ip_mappings(blacklist_domains: Dict[str, str]) -> Dict[str, str]:
+def get_whitelist_shared_ips(whitelist_domains: Set[str]) -> Set[str]:
+    """
+    Resolve whitelist domains untuk mendapatkan shared IPs
+    IP ini TIDAK BOLEH masuk blacklist-specific (shared IP protection)
+    Returns: Set of IPs used by whitelist domains
+    """
+    if not whitelist_domains:
+        return set()
+
+    logger.info(f"Resolving {len(whitelist_domains)} whitelist domains for shared IP protection...")
+
+    resolver = DNSResolver(
+        max_workers=100,
+        timeout=3.0,
+        cache_enabled=True
+    )
+
+    domain_list = list(whitelist_domains)
+    resolved_ips = resolver.resolve_domains(domain_list, show_progress=True)
+
+    # Collect all IPs
+    shared_ips = set()
+    for domain, ips in resolved_ips.items():
+        shared_ips.update(ips)
+
+    logger.info(f"Found {len(shared_ips)} shared IPs from whitelist domains")
+    return shared_ips
+
+
+def generate_domain_ip_mappings(blacklist_domains: Dict[str, str], whitelist_shared_ips: Set[str] = None) -> Dict[str, str]:
     """
     Resolve semua domain di blacklist ke IP menggunakan optimized resolver
+    SKIP IPs yang ada di whitelist_shared_ips (shared IP protection)
     Returns: {ip: "Berasal dari IP domain xxxx (Original Source)"}
     """
+    if whitelist_shared_ips is None:
+        whitelist_shared_ips = set()
+
     logger.info(f"Resolving {len(blacklist_domains)} blacklist domains...")
+    if whitelist_shared_ips:
+        logger.info(f"Shared IP protection enabled: {len(whitelist_shared_ips)} IPs will be skipped")
 
     # Use optimized DNS resolver dengan concurrent queries
     resolver = DNSResolver(
@@ -97,15 +158,26 @@ def generate_domain_ip_mappings(blacklist_domains: Dict[str, str]) -> Dict[str, 
     domain_list = list(blacklist_domains.keys())
     resolved_ips = resolver.resolve_domains(domain_list, show_progress=True)
 
-    # Map IPs to sources
+    # Map IPs to sources (SKIP shared IPs)
     domain_ips = {}
+    skipped_count = 0
+
     for domain, ips in resolved_ips.items():
         source = blacklist_domains[domain]
         for ip in ips:
+            # SKIP if IP is used by whitelist domains (shared IP protection)
+            if ip in whitelist_shared_ips:
+                skipped_count += 1
+                logger.debug(f"Skipping shared IP {ip} from {domain} (used by whitelist domains)")
+                continue
+
             # Format: "Berasal dari IP domain xxxx (URLhaus Malware Domains)"
             # Jika IP sudah ada, simpan yang pertama (FIFO)
             if ip not in domain_ips:
                 domain_ips[ip] = f"Berasal dari IP domain {domain} ({source})"
+
+    if skipped_count > 0:
+        logger.info(f"Skipped {skipped_count} shared IPs (used by whitelist domains)")
 
     return domain_ips
 
@@ -238,50 +310,61 @@ def write_specific_txt(filepath: str, data: Dict[str, str]):
 def main():
     """Main function"""
     logger.info("=" * 60)
-    logger.info("Blacklist Domain to IP Resolution")
+    logger.info("Blacklist Domain to IP Resolution (with Shared IP Protection)")
     logger.info("=" * 60)
 
     project_root = Path(__file__).parent.parent
     blacklist_file = project_root / "data" / "blacklist.txt"
+    whitelist_file = project_root / "data" / "whitelist.txt"
     specific_file = project_root / "data" / "blacklist-specific.txt"
 
-    # 1. Load blacklist domains
-    logger.info("Step 1: Loading blacklist domains...")
+    # 1. Load whitelist domains for shared IP protection
+    logger.info("Step 1: Loading whitelist domains for shared IP protection...")
+    whitelist_domains = read_whitelist_domains(str(whitelist_file))
+
+    # 2. Resolve whitelist domains to get shared IPs
+    logger.info("\nStep 2: Resolving whitelist domains to get shared IPs...")
+    whitelist_shared_ips = get_whitelist_shared_ips(whitelist_domains)
+
+    # 3. Load blacklist domains
+    logger.info("\nStep 3: Loading blacklist domains...")
     blacklist_domains = read_blacklist_domains(str(blacklist_file))
 
     if not blacklist_domains:
         logger.warning("No domains found in blacklist!")
         return
 
-    # 2. Load existing blacklist-specific.txt
-    logger.info("\nStep 2: Loading existing blacklist-specific.txt...")
+    # 4. Load existing blacklist-specific.txt
+    logger.info("\nStep 4: Loading existing blacklist-specific.txt...")
     existing_data = read_specific_ips(str(specific_file))
 
-    # 3. Resolve all blacklist domains to IPs
-    logger.info("\nStep 3: Resolving domains to IPs...")
-    domain_ips = generate_domain_ip_mappings(blacklist_domains)
+    # 5. Resolve all blacklist domains to IPs (SKIP shared IPs)
+    logger.info("\nStep 5: Resolving blacklist domains to IPs (with shared IP protection)...")
+    domain_ips = generate_domain_ip_mappings(blacklist_domains, whitelist_shared_ips)
 
-    # 4. Cleanup old domain-resolved IPs (keep manual IPs)
-    logger.info("\nStep 4: Cleaning up outdated domain IPs...")
+    # 6. Cleanup old domain-resolved IPs (keep manual IPs)
+    logger.info("\nStep 6: Cleaning up outdated domain IPs...")
     cleaned_data = cleanup_old_domain_ips(existing_data, domain_ips)
 
-    # 5. Merge dengan domain IPs yang baru
-    logger.info("\nStep 5: Merging domain IPs...")
+    # 7. Merge dengan domain IPs yang baru
+    logger.info("\nStep 7: Merging domain IPs...")
     final_data = merge_domain_ips(cleaned_data, domain_ips)
 
-    # 6. Remove whitelisted IPs (whitelist priority)
-    logger.info("\nStep 6: Removing whitelisted IPs...")
+    # 8. Remove whitelisted IPs (whitelist priority)
+    logger.info("\nStep 8: Removing whitelisted IPs...")
     final_data = remove_whitelisted_ips(final_data)
 
-    # 7. Write back to blacklist-specific.txt
-    logger.info("\nStep 7: Writing to blacklist-specific.txt...")
+    # 9. Write back to blacklist-specific.txt
+    logger.info("\nStep 9: Writing to blacklist-specific.txt...")
     write_specific_txt(str(specific_file), final_data)
 
     # Summary
     logger.info("\n" + "=" * 60)
     logger.info("Summary:")
+    logger.info(f"  - Whitelist domains resolved: {len(whitelist_domains)}")
+    logger.info(f"  - Shared IPs protected: {len(whitelist_shared_ips)}")
     logger.info(f"  - Blacklist domains: {len(blacklist_domains)}")
-    logger.info(f"  - Domain-resolved IPs: {len(domain_ips)}")
+    logger.info(f"  - Domain-resolved IPs (after shared IP protection): {len(domain_ips)}")
     logger.info(f"  - Total IPs in blacklist-specific.txt: {len(final_data)}")
     logger.info("=" * 60)
     logger.info("Blacklist DNS Resolution complete!")

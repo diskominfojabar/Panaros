@@ -1,5 +1,5 @@
-# Last updated: 2025-12-05 17:13:37 UTC
-# Total entries: 116
+# Last updated: 2025-12-06 08:30:00 UTC
+# Total entries: 130
 # Format: <entry> # <source>
 #
 *.actions.githubusercontent.com # GitHub Domains
@@ -118,3 +118,17 @@ timestamp.githubapp.com # GitHub Domains
 tokenghub.actions.githubusercontent.com # GitHub Domains
 tuf-repo.github.com # GitHub Domains
 vstoken.actions.githubusercontent.com # GitHub Domains
+*.netlify.app # Netlify Hosting (Shared IP Protection)
+*.netlify.com # Netlify Hosting (Shared IP Protection)
+*.vercel.app # Vercel Hosting (Shared IP Protection)
+*.vercel.com # Vercel Hosting (Shared IP Protection)
+*.herokuapp.com # Heroku Hosting (Shared IP Protection)
+*.herokussl.com # Heroku SSL (Shared IP Protection)
+*.cloudfront.net # AWS CloudFront CDN (Shared IP Protection)
+*.s3.amazonaws.com # AWS S3 (Shared IP Protection)
+*.s3-website*.amazonaws.com # AWS S3 Website (Shared IP Protection)
+*.elasticbeanstalk.com # AWS Elastic Beanstalk (Shared IP Protection)
+*.azurewebsites.net # Azure Web Apps (Shared IP Protection)
+*.cloudflareaccess.com # Cloudflare Access (Shared IP Protection)
+*.pages.dev # Cloudflare Pages (Shared IP Protection)
+*.workers.dev # Cloudflare Workers (Shared IP Protection)
