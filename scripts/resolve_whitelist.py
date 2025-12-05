@@ -6,11 +6,18 @@ Menyimpan hasil ke whitelist-specific.txt (IP Spesifik dari domain whitelist)
 
 import os
 import sys
-import socket
 import logging
 from pathlib import Path
 from typing import Dict, Set
 from datetime import datetime
+
+# Import optimized DNS resolver
+try:
+    from dns_resolver import DNSResolver
+except ImportError:
+    # Add parent directory to path
+    sys.path.insert(0, str(Path(__file__).parent))
+    from dns_resolver import DNSResolver
 
 # Setup logging
 logging.basicConfig(
@@ -72,57 +79,33 @@ def read_specific_ips(filepath: str) -> Dict[str, str]:
     return ips
 
 
-def resolve_domain_to_ips(domain: str) -> Set[str]:
-    """
-    Resolve domain ke IP addresses
-    Returns: Set of IP addresses
-    """
-    ips = set()
-    try:
-        # Get all IP addresses for domain
-        addr_info = socket.getaddrinfo(domain, None)
-        for info in addr_info:
-            ip = info[4][0]
-            # Only IPv4 for now
-            if ':' not in ip:
-                ips.add(ip)
-
-        if ips:
-            logger.debug(f"Resolved {domain} -> {', '.join(ips)}")
-    except socket.gaierror:
-        logger.debug(f"Could not resolve {domain}")
-    except Exception as e:
-        logger.debug(f"Error resolving {domain}: {e}")
-
-    return ips
-
-
 def generate_domain_ip_mappings(whitelist_domains: Dict[str, str]) -> Dict[str, str]:
     """
-    Resolve semua domain di whitelist ke IP
+    Resolve semua domain di whitelist ke IP menggunakan optimized resolver
     Returns: {ip: "Berasal dari IP domain xxxx (Original Source)"}
     """
-    domain_ips = {}
-    resolved_count = 0
-    failed_count = 0
-
     logger.info(f"Resolving {len(whitelist_domains)} whitelist domains...")
 
-    for domain, source in whitelist_domains.items():
-        ips = resolve_domain_to_ips(domain)
+    # Use optimized DNS resolver dengan concurrent queries
+    resolver = DNSResolver(
+        max_workers=100,  # 100 concurrent threads untuk speed
+        timeout=3.0,      # 3 detik timeout per domain
+        cache_enabled=True  # Enable caching
+    )
 
-        if ips:
-            resolved_count += 1
-            for ip in ips:
-                # Format: "Berasal dari IP domain xxxx (GitHub Domains)"
+    # Resolve all domains concurrently
+    domain_list = list(whitelist_domains.keys())
+    resolved_ips = resolver.resolve_domains(domain_list, show_progress=True)
+
+    # Map IPs to sources
+    domain_ips = {}
+    for domain, ips in resolved_ips.items():
+        source = whitelist_domains[domain]
+        for ip in ips:
+            # Format: "Berasal dari IP domain xxxx (GitHub Domains)"
+            # Jika IP sudah ada, simpan yang pertama (FIFO)
+            if ip not in domain_ips:
                 domain_ips[ip] = f"Berasal dari IP domain {domain} ({source})"
-        else:
-            failed_count += 1
-
-    logger.info(f"Whitelist resolution complete:")
-    logger.info(f"  - Resolved: {resolved_count} domains")
-    logger.info(f"  - Failed: {failed_count} domains")
-    logger.info(f"  - Total IPs: {len(domain_ips)}")
 
     return domain_ips
 

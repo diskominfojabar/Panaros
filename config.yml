@@ -73,6 +73,11 @@ sources:
       fetcher: "urlhaus_domains"
       requires_api_key: false
 
+    - name: "StevenBlack Gambling & Porn"
+      url: "http://sbc.io/hosts/alternates/gambling-porn-only/hosts"
+      fetcher: "sbcio_gambling_porn"
+      requires_api_key: false
+
     # Contoh sumber lain:
     # - name: "PhishTank"
     #   url: "http://data.phishtank.com/data/online-valid.json"
