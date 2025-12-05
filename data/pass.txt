@@ -1,6 +1,6 @@
 # Whitelist IP Segmen - Good ISP dari upstream
-# Last updated: 2025-12-05 22:31:09 UTC
-# Total entries: 16995
+# Last updated: 2025-12-05 22:40:09 UTC
+# Total entries: 16999
 # Format: <ip/cidr> # <source>
 #
 # PRIORITAS: Level 4 - Whitelist IP Segmen
