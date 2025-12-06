@@ -241,11 +241,14 @@
         #resultArea.show { display: block; animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .result-box { padding: 1.5rem 2rem; border-radius: 20px; text-align: left; border: 1px solid transparent; }
-        
+        .result-box { padding: 1.5rem 2rem; border-radius: 20px; text-align: left; border: 1px solid transparent; position: relative; overflow: hidden; }
+        .result-box::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+
         /* Light Mode Results */
         .result-safe { background-color: #f0fdf4; border-color: #bbf7d0; }
+        .result-safe::before { background: linear-gradient(to bottom, #10b981, #059669); }
         .result-blocked { background-color: #fef2f2; border-color: #fecaca; }
+        .result-blocked::before { background: linear-gradient(to bottom, #ef4444, #dc2626); }
 
         /* Dark Mode Results (Override) */
         body.dark-mode .result-safe { background-color: rgba(6, 95, 70, 0.2); border-color: #064e3b; }
@@ -468,65 +471,190 @@
             } catch (e) { localIpEl.innerText = "Restricted"; }
         }
 
-        // --- Core Logic: User Info (Anti-AdBlock Version) ---
+        // --- Core Logic: User Info (Enhanced Multi-Source AdBlock-Proof Version) ---
         async function fetchUserInfo() {
             const ipEl = document.getElementById('userIp');
             const asnEl = document.getElementById('userAsn');
             const dnsEl = document.getElementById('userDns');
 
             ipEl.innerHTML = '<div class="skeleton"></div>';
-            
+
             let data = null;
+            let sourceUsed = null;
 
-            try {
-                const res1 = await fetch('https://ipwho.is/', { signal: AbortSignal.timeout(3000) });
-                if (res1.ok) {
-                    const json = await res1.json();
-                    if (json.success) {
-                        data = { ip: json.ip, asn: json.connection.asn, org: json.connection.org, isp: json.connection.isp };
+            // Primary Source 1: ipwho.is (Free, comprehensive)
+            if (!data) {
+                try {
+                    const res1 = await fetch('https://ipwho.is/', {
+                        signal: AbortSignal.timeout(3000),
+                        cache: 'no-cache'
+                    });
+                    if (res1.ok) {
+                        const json = await res1.json();
+                        if (json.success && json.ip) {
+                            data = {
+                                ip: json.ip,
+                                asn: json.connection?.asn || 0,
+                                org: json.connection?.org || json.connection?.isp || 'Unknown Provider',
+                                isp: json.connection?.isp || json.connection?.org || 'Unknown ISP'
+                            };
+                            sourceUsed = 'ipwho.is';
+                        }
                     }
+                } catch (e) {
+                    console.log("Primary source (ipwho.is) blocked/failed, trying backups...");
                 }
-            } catch (e) { console.log("Source 1 blocked/failed, trying backup..."); }
-
-            if (!data) {
-                try {
-                    const res2 = await fetch('https://api.db-ip.com/v2/free/self', { signal: AbortSignal.timeout(3000) });
-                    if (res2.ok) {
-                        const json = await res2.json();
-                        data = { ip: json.ipAddress, asn: 0, org: json.org || json.isp, isp: json.isp };
-                    }
-                } catch (e) { console.log("Source 2 blocked/failed, trying emergency..."); }
             }
 
+            // Backup Source 2: ipify.org + ipapi.co combination (Widely used, AdBlock resistant)
             if (!data) {
                 try {
-                    const res3 = await fetch('https://www.cloudflare.com/cdn-cgi/trace', { signal: AbortSignal.timeout(3000) });
+                    const ipRes = await fetch('https://api.ipify.org?format=json', {
+                        signal: AbortSignal.timeout(3000),
+                        cache: 'no-cache'
+                    });
+                    if (ipRes.ok) {
+                        const ipJson = await ipRes.json();
+                        if (ipJson.ip) {
+                            // Try to get ASN/ISP info from ipapi.co
+                            try {
+                                const infoRes = await fetch(`https://ipapi.co/${ipJson.ip}/json/`, {
+                                    signal: AbortSignal.timeout(3000)
+                                });
+                                if (infoRes.ok) {
+                                    const info = await infoRes.json();
+                                    data = {
+                                        ip: ipJson.ip,
+                                        asn: info.asn || 0,
+                                        org: info.org || info.isp || 'Unknown Provider',
+                                        isp: info.isp || info.org || 'Unknown ISP'
+                                    };
+                                    sourceUsed = 'ipify + ipapi';
+                                }
+                            } catch (e) {
+                                // ipapi failed, use IP only
+                                data = {
+                                    ip: ipJson.ip,
+                                    asn: 0,
+                                    org: 'IP Detected (ISP Hidden)',
+                                    isp: 'Unknown (Info Blocked)'
+                                };
+                                sourceUsed = 'ipify (partial)';
+                            }
+                        }
+                    }
+                } catch (e) {
+                    console.log("Backup source 2 (ipify) blocked/failed...");
+                }
+            }
+
+            // Backup Source 3: db-ip.com (AdBlock resistant)
+            if (!data) {
+                try {
+                    const res3 = await fetch('https://api.db-ip.com/v2/free/self', {
+                        signal: AbortSignal.timeout(3000),
+                        cache: 'no-cache'
+                    });
                     if (res3.ok) {
-                        const text = await res3.text();
-                        const parsed = parseTrace(text); 
-                        data = { ip: parsed.ip, asn: 0, org: "Cloudflare Detected", isp: "Unknown (AdBlock Active)" };
+                        const json = await res3.json();
+                        if (json.ipAddress) {
+                            data = {
+                                ip: json.ipAddress,
+                                asn: 0,
+                                org: json.organization || json.isp || 'Unknown Provider',
+                                isp: json.isp || json.organization || 'Unknown ISP'
+                            };
+                            sourceUsed = 'db-ip.com';
+                        }
                     }
-                } catch (e) { console.log("All sources failed.", e); }
+                } catch (e) {
+                    console.log("Backup source 3 (db-ip) blocked/failed...");
+                }
             }
 
+            // Emergency Source 4: Cloudflare CDN Trace (Highly reliable, CDN-based)
+            if (!data) {
+                try {
+                    const res4 = await fetch('https://www.cloudflare.com/cdn-cgi/trace', {
+                        signal: AbortSignal.timeout(3000),
+                        cache: 'no-cache'
+                    });
+                    if (res4.ok) {
+                        const text = await res4.text();
+                        const parsed = parseTrace(text);
+                        if (parsed.ip) {
+                            data = {
+                                ip: parsed.ip,
+                                asn: 0,
+                                org: "Detected via Cloudflare CDN",
+                                isp: "ISP Info Blocked by AdBlock"
+                            };
+                            sourceUsed = 'Cloudflare CDN';
+                        }
+                    }
+                } catch (e) {
+                    console.log("Emergency source (Cloudflare) blocked/failed...");
+                }
+            }
+
+            // Last Resort Source 5: icanhazip.com (Simple, text-based, very AdBlock resistant)
+            if (!data) {
+                try {
+                    const res5 = await fetch('https://icanhazip.com', {
+                        signal: AbortSignal.timeout(3000),
+                        cache: 'no-cache'
+                    });
+                    if (res5.ok) {
+                        const ip = (await res5.text()).trim();
+                        if (ip && /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(ip)) {
+                            data = {
+                                ip: ip,
+                                asn: 0,
+                                org: "IP Detected (AdBlock Active)",
+                                isp: "ISP Info Unavailable"
+                            };
+                            sourceUsed = 'icanhazip.com';
+                        }
+                    }
+                } catch (e) {
+                    console.log("Last resort (icanhazip) failed...");
+                }
+            }
+
+            // Display results
             if (data) {
                 ipEl.innerText = data.ip;
-                if(data.isp === "Unknown (AdBlock Active)") {
-                    asnEl.innerText = "Informasi ISP disembunyikan AdBlock";
-                    dnsEl.innerText = "-";
+
+                // Enhanced ISP/ASN display
+                if (data.isp.includes('Blocked') || data.isp.includes('Unavailable') || data.isp.includes('Unknown')) {
+                    asnEl.innerHTML = '⚠️ ISP Info Blocked by AdBlock';
+                    dnsEl.innerHTML = '<span style="font-size:0.85rem;">Use VPN or disable AdBlock for full details</span>';
                     asnEl.style.color = "var(--danger)";
+                    asnEl.style.fontSize = "0.9rem";
                 } else {
-                    asnEl.innerText = (data.asn ? `AS${data.asn} - ` : '') + data.org;
+                    asnEl.innerText = (data.asn && data.asn !== 0 ? `AS${data.asn} - ` : '') + data.org;
                     dnsEl.innerText = data.isp;
+                    asnEl.style.color = "var(--text-muted)";
+                    asnEl.style.fontSize = "";
                 }
+
+                // Pemprov Jabar Badge Detection
                 if (data.asn == 138050) {
                     document.getElementById('jabarBadge').classList.add('active');
                 }
+
+                // Debug info (show source used in console)
+                console.log(`✅ IP Info retrieved from: ${sourceUsed}`);
             } else {
-                ipEl.innerText = "Gagal Memuat";
-                asnEl.innerText = "Koneksi Terblokir";
-                dnsEl.innerText = "-";
+                // All sources failed - show friendly error message
+                ipEl.innerHTML = '<span style="font-size:0.9rem; color:var(--danger);">❌ Unable to Detect</span>';
+                asnEl.innerHTML = '<span style="font-size:0.85rem;">All API sources blocked</span>';
+                dnsEl.innerHTML = '<span style="font-size:0.85rem;">Please disable AdBlock</span>';
+                asnEl.style.color = "var(--danger)";
+                console.error("All IP detection sources failed. AdBlock or network restriction likely.");
             }
+
+            // Always try to get local IP via WebRTC
             getLocalIP();
         }
 
