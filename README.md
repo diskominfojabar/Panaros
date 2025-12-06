@@ -1,4 +1,4 @@
-# 🛡️ Pangrosan - Security Data Aggregator
+# 🛡️ Panaros - Security Data Aggregator
 
 > Automated firewall blacklist/whitelist data aggregation with DNS-based IP resolution and infrastructure protection
 
