@@ -1,0 +1,64 @@
+# Infrastructure Whitelist - Critical Internet Infrastructure IPs
+# Last updated: 2025-12-06 09:00:00 UTC
+# Format: <ip> # <service>
+#
+# IMPORTANT: These IPs are PROTECTED from blacklisting
+# Even if malicious domains return fake DNS records pointing to these IPs,
+# they will NEVER be blacklisted automatically
+#
+# Only manual additions by admin can override this protection
+#
+
+# === Public DNS Servers ===
+1.1.1.1 # Cloudflare DNS Primary
+1.0.0.1 # Cloudflare DNS Secondary
+8.8.8.8 # Google DNS Primary
+8.8.4.4 # Google DNS Secondary
+9.9.9.9 # Quad9 DNS Primary
+149.112.112.112 # Quad9 DNS Secondary
+208.67.222.222 # OpenDNS Primary
+208.67.220.220 # OpenDNS Secondary
+64.6.64.6 # Verisign DNS Primary
+64.6.65.6 # Verisign DNS Secondary
+
+# === Cloudflare Infrastructure ===
+1.1.1.0/24 # Cloudflare DNS Range
+1.0.0.0/24 # Cloudflare DNS Range
+
+# === Reserved/Bogon IPs (RFC 1918, RFC 5735) ===
+0.0.0.0 # Invalid/Unspecified Address (RFC 5735)
+127.0.0.1 # Localhost
+127.0.0.0/8 # Loopback Range
+10.0.0.0/8 # Private Network Class A
+172.16.0.0/12 # Private Network Class B
+192.168.0.0/16 # Private Network Class C
+169.254.0.0/16 # Link-Local (APIPA)
+224.0.0.0/4 # Multicast
+240.0.0.0/4 # Reserved
+255.255.255.255 # Broadcast
+
+# === Critical Internet Services ===
+# Root DNS Servers
+198.41.0.4 # a.root-servers.net
+199.9.14.201 # b.root-servers.net
+192.33.4.12 # c.root-servers.net
+199.7.91.13 # d.root-servers.net
+192.203.230.10 # e.root-servers.net
+192.5.5.241 # f.root-servers.net
+192.112.36.4 # g.root-servers.net
+198.97.190.53 # h.root-servers.net
+192.36.148.17 # i.root-servers.net
+192.58.128.30 # j.root-servers.net
+193.0.14.129 # k.root-servers.net
+199.7.83.42 # l.root-servers.net
+202.12.27.33 # m.root-servers.net
+
+# === NTP Time Servers ===
+132.163.96.1 # time.nist.gov
+129.6.15.28 # time-a.nist.gov
+129.6.15.29 # time-b.nist.gov
+129.6.15.30 # time-c.nist.gov
+
+# === CDN Infrastructure (Major Providers) ===
+# Note: CDN IPs are highly dynamic, domain-level whitelisting is preferred
+# This is just for critical known infrastructure endpoints

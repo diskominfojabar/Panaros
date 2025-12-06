@@ -2,11 +2,17 @@
 """
 Script untuk resolve DNS dari blacklist domains ke IP addresses
 Menyimpan hasil ke blacklist-specific.txt (IP Spesifik dari domain blacklist)
+
+CRITICAL PROTECTION:
+- Infrastructure IPs (DNS servers, root servers, etc) are NEVER blacklisted
+- Bogon/Reserved IPs (0.0.0.0, 127.0.0.1, private ranges) are filtered
+- Protection against fake DNS records from malicious domains
 """
 
 import os
 import sys
 import logging
+import ipaddress
 from pathlib import Path
 from typing import Dict, Set
 from datetime import datetime
@@ -25,6 +31,124 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
+def load_infrastructure_whitelist(filepath: str) -> Set[str]:
+    """
+    Load protected infrastructure IPs
+    These IPs are NEVER blacklisted, even if malicious domains return fake DNS records
+
+    Returns: Set of protected IPs
+    """
+    protected_ips = set()
+
+    if not os.path.exists(filepath):
+        logger.warning(f"Infrastructure whitelist not found: {filepath}")
+        return protected_ips
+
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#'):
+                    # Parse: "ip # comment"
+                    if ' # ' in line:
+                        ip_or_range = line.split(' # ', 1)[0].strip()
+                    else:
+                        ip_or_range = line
+
+                    # Handle CIDR ranges
+                    if '/' in ip_or_range:
+                        try:
+                            network = ipaddress.ip_network(ip_or_range, strict=False)
+                            # Expand CIDR to individual IPs (only for small ranges)
+                            if network.num_addresses <= 256:
+                                for ip in network.hosts():
+                                    protected_ips.add(str(ip))
+                            else:
+                                # For large ranges, store as range marker
+                                protected_ips.add(ip_or_range)
+                        except ValueError:
+                            logger.warning(f"Invalid CIDR range: {ip_or_range}")
+                    else:
+                        # Single IP
+                        protected_ips.add(ip_or_range)
+
+        logger.info(f"Loaded {len(protected_ips)} protected infrastructure IPs/ranges")
+    except Exception as e:
+        logger.error(f"Error reading infrastructure whitelist: {e}")
+
+    return protected_ips
+
+
+def is_bogon_ip(ip: str) -> bool:
+    """
+    Check if IP is a bogon/reserved/invalid IP
+
+    Bogon IPs include:
+    - 0.0.0.0 (invalid/unspecified)
+    - 127.0.0.0/8 (loopback)
+    - 10.0.0.0/8 (private Class A)
+    - 172.16.0.0/12 (private Class B)
+    - 192.168.0.0/16 (private Class C)
+    - 169.254.0.0/16 (link-local/APIPA)
+    - 224.0.0.0/4 (multicast)
+    - 240.0.0.0/4 (reserved)
+    - 255.255.255.255 (broadcast)
+
+    Returns: True if bogon, False if routable public IP
+    """
+    try:
+        ip_obj = ipaddress.ip_address(ip)
+
+        # Check for special/reserved addresses
+        if (ip_obj.is_private or
+            ip_obj.is_loopback or
+            ip_obj.is_link_local or
+            ip_obj.is_multicast or
+            ip_obj.is_reserved or
+            ip_obj.is_unspecified):
+            return True
+
+        # Additional check for broadcast
+        if str(ip) == '255.255.255.255':
+            return True
+
+        return False
+    except ValueError:
+        logger.warning(f"Invalid IP format: {ip}")
+        return True  # Treat invalid IPs as bogon
+
+
+def is_protected_ip(ip: str, protected_ips: Set[str]) -> bool:
+    """
+    Check if IP is in protected infrastructure list
+
+    Supports:
+    - Exact IP match: "1.1.1.1"
+    - CIDR range match: "1.1.1.0/24"
+
+    Returns: True if protected, False otherwise
+    """
+    # Exact match
+    if ip in protected_ips:
+        return True
+
+    # Check CIDR ranges
+    try:
+        ip_obj = ipaddress.ip_address(ip)
+        for entry in protected_ips:
+            if '/' in entry:
+                try:
+                    network = ipaddress.ip_network(entry, strict=False)
+                    if ip_obj in network:
+                        return True
+                except ValueError:
+                    continue
+    except ValueError:
+        pass
+
+    return False
 
 
 def read_whitelist_domains(filepath: str) -> Set[str]:
@@ -134,18 +258,31 @@ def get_whitelist_shared_ips(whitelist_domains: Set[str]) -> Set[str]:
     return shared_ips
 
 
-def generate_domain_ip_mappings(blacklist_domains: Dict[str, str], whitelist_shared_ips: Set[str] = None) -> Dict[str, str]:
+def generate_domain_ip_mappings(
+    blacklist_domains: Dict[str, str],
+    whitelist_shared_ips: Set[str] = None,
+    protected_infrastructure_ips: Set[str] = None
+) -> Dict[str, str]:
     """
     Resolve semua domain di blacklist ke IP menggunakan optimized resolver
-    SKIP IPs yang ada di whitelist_shared_ips (shared IP protection)
+
+    PROTECTIONS:
+    1. SKIP IPs yang ada di whitelist_shared_ips (shared IP protection)
+    2. SKIP infrastructure IPs (DNS servers, root servers, etc) - CRITICAL!
+    3. SKIP bogon/reserved IPs (0.0.0.0, 127.0.0.1, private ranges, etc)
+
     Returns: {ip: "Berasal dari IP domain xxxx (Original Source)"}
     """
     if whitelist_shared_ips is None:
         whitelist_shared_ips = set()
+    if protected_infrastructure_ips is None:
+        protected_infrastructure_ips = set()
 
     logger.info(f"Resolving {len(blacklist_domains)} blacklist domains...")
     if whitelist_shared_ips:
         logger.info(f"Shared IP protection enabled: {len(whitelist_shared_ips)} IPs will be skipped")
+    if protected_infrastructure_ips:
+        logger.info(f"Infrastructure protection enabled: {len(protected_infrastructure_ips)} IPs/ranges protected")
 
     # Use optimized DNS resolver dengan concurrent queries
     resolver = DNSResolver(
@@ -158,17 +295,31 @@ def generate_domain_ip_mappings(blacklist_domains: Dict[str, str], whitelist_sha
     domain_list = list(blacklist_domains.keys())
     resolved_ips = resolver.resolve_domains(domain_list, show_progress=True)
 
-    # Map IPs to sources (SKIP shared IPs)
+    # Map IPs to sources (with TRIPLE PROTECTION)
     domain_ips = {}
-    skipped_count = 0
+    skipped_shared = 0
+    skipped_infrastructure = 0
+    skipped_bogon = 0
 
     for domain, ips in resolved_ips.items():
         source = blacklist_domains[domain]
         for ip in ips:
-            # SKIP if IP is used by whitelist domains (shared IP protection)
+            # PROTECTION 1: SKIP if IP is used by whitelist domains (shared IP protection)
             if ip in whitelist_shared_ips:
-                skipped_count += 1
+                skipped_shared += 1
                 logger.debug(f"Skipping shared IP {ip} from {domain} (used by whitelist domains)")
+                continue
+
+            # PROTECTION 2: SKIP if IP is protected infrastructure (CRITICAL!)
+            if is_protected_ip(ip, protected_infrastructure_ips):
+                skipped_infrastructure += 1
+                logger.warning(f"🚨 PROTECTED: Skipping infrastructure IP {ip} from {domain} (DNS/critical service)")
+                continue
+
+            # PROTECTION 3: SKIP if IP is bogon/reserved
+            if is_bogon_ip(ip):
+                skipped_bogon += 1
+                logger.debug(f"Skipping bogon IP {ip} from {domain} (reserved/private)")
                 continue
 
             # Format: "Berasal dari IP domain xxxx (URLhaus Malware Domains)"
@@ -176,8 +327,12 @@ def generate_domain_ip_mappings(blacklist_domains: Dict[str, str], whitelist_sha
             if ip not in domain_ips:
                 domain_ips[ip] = f"Berasal dari IP domain {domain} ({source})"
 
-    if skipped_count > 0:
-        logger.info(f"Skipped {skipped_count} shared IPs (used by whitelist domains)")
+    # Log protection statistics
+    logger.info(f"Protection Statistics:")
+    logger.info(f"  - Shared IPs skipped: {skipped_shared}")
+    logger.info(f"  - Infrastructure IPs skipped: {skipped_infrastructure} 🛡️")
+    logger.info(f"  - Bogon/Reserved IPs skipped: {skipped_bogon}")
+    logger.info(f"  - Total protected: {skipped_shared + skipped_infrastructure + skipped_bogon}")
 
     return domain_ips
 
@@ -308,67 +463,80 @@ def write_specific_txt(filepath: str, data: Dict[str, str]):
 
 
 def main():
-    """Main function"""
-    logger.info("=" * 60)
-    logger.info("Blacklist Domain to IP Resolution (with Shared IP Protection)")
-    logger.info("=" * 60)
+    """Main function with TRIPLE PROTECTION"""
+    logger.info("=" * 80)
+    logger.info("🛡️  Blacklist Domain to IP Resolution with Infrastructure Protection")
+    logger.info("=" * 80)
 
     project_root = Path(__file__).parent.parent
     blacklist_file = project_root / "data" / "blacklist.txt"
     whitelist_file = project_root / "data" / "whitelist.txt"
+    infrastructure_file = project_root / "data" / "infrastructure-whitelist.txt"
     specific_file = project_root / "data" / "blacklist-specific.txt"
 
-    # 1. Load whitelist domains for shared IP protection
-    logger.info("Step 1: Loading whitelist domains for shared IP protection...")
+    # 1. Load infrastructure whitelist (CRITICAL PROTECTION!)
+    logger.info("Step 1: Loading protected infrastructure IPs (DNS, root servers, etc)...")
+    protected_infrastructure_ips = load_infrastructure_whitelist(str(infrastructure_file))
+
+    # 2. Load whitelist domains for shared IP protection
+    logger.info("\nStep 2: Loading whitelist domains for shared IP protection...")
     whitelist_domains = read_whitelist_domains(str(whitelist_file))
 
-    # 2. Resolve whitelist domains to get shared IPs
-    logger.info("\nStep 2: Resolving whitelist domains to get shared IPs...")
+    # 3. Resolve whitelist domains to get shared IPs
+    logger.info("\nStep 3: Resolving whitelist domains to get shared IPs...")
     whitelist_shared_ips = get_whitelist_shared_ips(whitelist_domains)
 
-    # 3. Load blacklist domains
-    logger.info("\nStep 3: Loading blacklist domains...")
+    # 4. Load blacklist domains
+    logger.info("\nStep 4: Loading blacklist domains...")
     blacklist_domains = read_blacklist_domains(str(blacklist_file))
 
     if not blacklist_domains:
         logger.warning("No domains found in blacklist!")
         return
 
-    # 4. Load existing blacklist-specific.txt
-    logger.info("\nStep 4: Loading existing blacklist-specific.txt...")
+    # 5. Load existing blacklist-specific.txt
+    logger.info("\nStep 5: Loading existing blacklist-specific.txt...")
     existing_data = read_specific_ips(str(specific_file))
 
-    # 5. Resolve all blacklist domains to IPs (SKIP shared IPs)
-    logger.info("\nStep 5: Resolving blacklist domains to IPs (with shared IP protection)...")
-    domain_ips = generate_domain_ip_mappings(blacklist_domains, whitelist_shared_ips)
+    # 6. Resolve all blacklist domains to IPs (TRIPLE PROTECTION!)
+    logger.info("\nStep 6: Resolving blacklist domains to IPs (with TRIPLE protection)...")
+    logger.info("  🛡️  Protection 1: Shared IP Protection (CDN/Hosting)")
+    logger.info("  🛡️  Protection 2: Infrastructure Protection (DNS/Root Servers)")
+    logger.info("  🛡️  Protection 3: Bogon/Reserved IP Filtering")
+    domain_ips = generate_domain_ip_mappings(
+        blacklist_domains,
+        whitelist_shared_ips,
+        protected_infrastructure_ips
+    )
 
-    # 6. Cleanup old domain-resolved IPs (keep manual IPs)
-    logger.info("\nStep 6: Cleaning up outdated domain IPs...")
+    # 7. Cleanup old domain-resolved IPs (keep manual IPs)
+    logger.info("\nStep 7: Cleaning up outdated domain IPs...")
     cleaned_data = cleanup_old_domain_ips(existing_data, domain_ips)
 
-    # 7. Merge dengan domain IPs yang baru
-    logger.info("\nStep 7: Merging domain IPs...")
+    # 8. Merge dengan domain IPs yang baru
+    logger.info("\nStep 8: Merging domain IPs...")
     final_data = merge_domain_ips(cleaned_data, domain_ips)
 
-    # 8. Remove whitelisted IPs (whitelist priority)
-    logger.info("\nStep 8: Removing whitelisted IPs...")
+    # 9. Remove whitelisted IPs (whitelist priority)
+    logger.info("\nStep 9: Removing whitelisted IPs...")
     final_data = remove_whitelisted_ips(final_data)
 
-    # 9. Write back to blacklist-specific.txt
-    logger.info("\nStep 9: Writing to blacklist-specific.txt...")
+    # 10. Write back to blacklist-specific.txt
+    logger.info("\nStep 10: Writing to blacklist-specific.txt...")
     write_specific_txt(str(specific_file), final_data)
 
     # Summary
-    logger.info("\n" + "=" * 60)
+    logger.info("\n" + "=" * 80)
     logger.info("Summary:")
+    logger.info(f"  - Protected infrastructure IPs: {len(protected_infrastructure_ips)} 🛡️")
     logger.info(f"  - Whitelist domains resolved: {len(whitelist_domains)}")
     logger.info(f"  - Shared IPs protected: {len(whitelist_shared_ips)}")
     logger.info(f"  - Blacklist domains: {len(blacklist_domains)}")
-    logger.info(f"  - Domain-resolved IPs (after shared IP protection): {len(domain_ips)}")
+    logger.info(f"  - Domain-resolved IPs (after TRIPLE protection): {len(domain_ips)}")
     logger.info(f"  - Total IPs in blacklist-specific.txt: {len(final_data)}")
-    logger.info("=" * 60)
-    logger.info("Blacklist DNS Resolution complete!")
-    logger.info("=" * 60)
+    logger.info("=" * 80)
+    logger.info("✅ Blacklist DNS Resolution complete with Infrastructure Protection!")
+    logger.info("=" * 80)
 
 
 if __name__ == "__main__":
