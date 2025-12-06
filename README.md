@@ -477,3 +477,10 @@ MIT License - See [LICENSE](LICENSE) file
 **Auto-Update:** Monthly (1st day)
 
 🛡️ **Built for production security by Diskominfo Jabar**
+
+
+## 📊 Monthly Statistics History
+
+| Month | Blacklist Domains | Blacklist IPs | Drop (Segments) | Whitelist Domains | Whitelist IPs | Pass (Segments) | Hosts | Total |
+|-------|-------------------|---------------|-----------------|-------------------|---------------|-----------------|-------|-------|
+| 2025-12 | 88,568 | 39,561 | 26,282 | 207 | 180 | 17,000 | 88,568 | **260,366** |
