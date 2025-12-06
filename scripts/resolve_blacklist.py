@@ -33,54 +33,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def load_infrastructure_whitelist(filepath: str) -> Set[str]:
-    """
-    Load protected infrastructure IPs
-    These IPs are NEVER blacklisted, even if malicious domains return fake DNS records
-
-    Returns: Set of protected IPs
-    """
-    protected_ips = set()
-
-    if not os.path.exists(filepath):
-        logger.warning(f"Infrastructure whitelist not found: {filepath}")
-        return protected_ips
-
-    try:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith('#'):
-                    # Parse: "ip # comment"
-                    if ' # ' in line:
-                        ip_or_range = line.split(' # ', 1)[0].strip()
-                    else:
-                        ip_or_range = line
-
-                    # Handle CIDR ranges
-                    if '/' in ip_or_range:
-                        try:
-                            network = ipaddress.ip_network(ip_or_range, strict=False)
-                            # Expand CIDR to individual IPs (only for small ranges)
-                            if network.num_addresses <= 256:
-                                for ip in network.hosts():
-                                    protected_ips.add(str(ip))
-                            else:
-                                # For large ranges, store as range marker
-                                protected_ips.add(ip_or_range)
-                        except ValueError:
-                            logger.warning(f"Invalid CIDR range: {ip_or_range}")
-                    else:
-                        # Single IP
-                        protected_ips.add(ip_or_range)
-
-        logger.info(f"Loaded {len(protected_ips)} protected infrastructure IPs/ranges")
-    except Exception as e:
-        logger.error(f"Error reading infrastructure whitelist: {e}")
-
-    return protected_ips
-
-
 def is_bogon_ip(ip: str) -> bool:
     """
     Check if IP is a bogon/reserved/invalid IP
@@ -122,33 +74,11 @@ def is_bogon_ip(ip: str) -> bool:
 
 def is_protected_ip(ip: str, protected_ips: Set[str]) -> bool:
     """
-    Check if IP is in protected infrastructure list
-
-    Supports:
-    - Exact IP match: "1.1.1.1"
-    - CIDR range match: "1.1.1.0/24"
+    Check if IP is in protected infrastructure list (whitelist-specific.txt)
 
     Returns: True if protected, False otherwise
     """
-    # Exact match
-    if ip in protected_ips:
-        return True
-
-    # Check CIDR ranges
-    try:
-        ip_obj = ipaddress.ip_address(ip)
-        for entry in protected_ips:
-            if '/' in entry:
-                try:
-                    network = ipaddress.ip_network(entry, strict=False)
-                    if ip_obj in network:
-                        return True
-                except ValueError:
-                    continue
-    except ValueError:
-        pass
-
-    return False
+    return ip in protected_ips
 
 
 def read_whitelist_domains(filepath: str) -> Set[str]:
@@ -471,12 +401,14 @@ def main():
     project_root = Path(__file__).parent.parent
     blacklist_file = project_root / "data" / "blacklist.txt"
     whitelist_file = project_root / "data" / "whitelist.txt"
-    infrastructure_file = project_root / "data" / "infrastructure-whitelist.txt"
+    whitelist_specific_file = project_root / "data" / "whitelist-specific.txt"
     specific_file = project_root / "data" / "blacklist-specific.txt"
 
-    # 1. Load infrastructure whitelist (CRITICAL PROTECTION!)
-    logger.info("Step 1: Loading protected infrastructure IPs (DNS, root servers, etc)...")
-    protected_infrastructure_ips = load_infrastructure_whitelist(str(infrastructure_file))
+    # 1. Load whitelist-specific.txt for infrastructure protection (CRITICAL!)
+    logger.info("Step 1: Loading whitelist-specific.txt (includes infrastructure protection)...")
+    whitelist_specific_data = read_specific_ips(str(whitelist_specific_file))
+    protected_infrastructure_ips = set(whitelist_specific_data.keys())
+    logger.info(f"Loaded {len(protected_infrastructure_ips)} protected IPs from whitelist-specific.txt")
 
     # 2. Load whitelist domains for shared IP protection
     logger.info("\nStep 2: Loading whitelist domains for shared IP protection...")

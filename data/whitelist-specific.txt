@@ -1,42 +1,70 @@
-# Whitelist IP Spesifik - IP dari domain whitelist.txt
-# Last updated: 2025-12-05 17:13:39 UTC
-# Total entries: 90
+# Whitelist IP Spesifik - VIP/Critical Infrastructure & Trusted IPs
+# Last updated: 2025-12-06 10:00:00 UTC
+# Total entries: 109
 # Format: <ip> # <source>
 #
 # PRIORITAS: Level 1 - Whitelist IP Spesifik (Tertinggi)
+# Firewall Priority Order:
+#   1. Whitelist IP Spesifik (THIS FILE) - Always allowed
+#   2. Blacklist IP Spesifik
+#   3. Blacklist IP Segmen (DROP)
+#   4. Whitelist IP Segmen (PASS)
+#   5. Drop All
+#
 # IP dengan marker 'Berasal dari IP domain' akan di-update otomatis
 # IP manual (tanpa marker) tidak akan dihapus otomatis
 #
+
+# ============================================================================
+# CRITICAL INFRASTRUCTURE - Public DNS Servers (NEVER BLOCK!)
+# ============================================================================
+# Protection against DNS poisoning attacks where malicious domains
+# return fake DNS records pointing to these critical IPs
+1.1.1.1 # Cloudflare DNS Primary (Infrastructure Protection)
+1.0.0.1 # Cloudflare DNS Secondary (Infrastructure Protection)
+8.8.8.8 # Google DNS Primary (Infrastructure Protection)
+8.8.4.4 # Google DNS Secondary (Infrastructure Protection)
+9.9.9.9 # Quad9 DNS Primary (Infrastructure Protection)
+149.112.112.112 # Quad9 DNS Secondary (Infrastructure Protection)
+208.67.222.222 # OpenDNS Primary (Infrastructure Protection)
+208.67.220.220 # OpenDNS Secondary (Infrastructure Protection)
+64.6.64.6 # Verisign DNS Primary (Infrastructure Protection)
+64.6.65.6 # Verisign DNS Secondary (Infrastructure Protection)
+
+# ============================================================================
+# CRITICAL INFRASTRUCTURE - Root DNS Servers (NEVER BLOCK!)
+# ============================================================================
+198.41.0.4 # a.root-servers.net (Infrastructure Protection)
+199.9.14.201 # b.root-servers.net (Infrastructure Protection)
+192.33.4.12 # c.root-servers.net (Infrastructure Protection)
+199.7.91.13 # d.root-servers.net (Infrastructure Protection)
+192.203.230.10 # e.root-servers.net (Infrastructure Protection)
+192.5.5.241 # f.root-servers.net (Infrastructure Protection)
+192.112.36.4 # g.root-servers.net (Infrastructure Protection)
+198.97.190.53 # h.root-servers.net (Infrastructure Protection)
+192.36.148.17 # i.root-servers.net (Infrastructure Protection)
+192.58.128.30 # j.root-servers.net (Infrastructure Protection)
+193.0.14.129 # k.root-servers.net (Infrastructure Protection)
+199.7.83.42 # l.root-servers.net (Infrastructure Protection)
+202.12.27.33 # m.root-servers.net (Infrastructure Protection)
+
+# ============================================================================
+# CRITICAL INFRASTRUCTURE - NTP Time Servers
+# ============================================================================
+132.163.96.1 # time.nist.gov (Infrastructure Protection)
+129.6.15.28 # time-a.nist.gov (Infrastructure Protection)
+129.6.15.29 # time-b.nist.gov (Infrastructure Protection)
+129.6.15.30 # time-c.nist.gov (Infrastructure Protection)
+
+# ============================================================================
+# GITHUB INFRASTRUCTURE - Actions, Packages, Assets
+# ============================================================================
+# GitHub Actions Runners & Pipelines
 128.203.146.171 # Berasal dari IP domain pipelinesproxcus1.actions.githubusercontent.com (GitHub Domains)
 128.203.164.142 # Berasal dari IP domain runnerproxcus1.actions.githubusercontent.com (GitHub Domains)
-13.107.213.51 # Berasal dari IP domain setup-tools.actions.githubusercontent.com (GitHub Domains)
-13.107.246.51 # Berasal dari IP domain setup-tools.actions.githubusercontent.com (GitHub Domains)
-13.107.42.16 # Berasal dari IP domain vstoken.actions.githubusercontent.com (GitHub Domains)
-13.107.5.93 # Berasal dari IP domain default.exp-tas.com (GitHub Domains)
 130.107.153.191 # Berasal dari IP domain pipelinesproxcnc1.actions.githubusercontent.com (GitHub Domains)
 140.82.112.21 # Berasal dari IP domain runner-auth.actions.githubusercontent.com (GitHub Domains)
-140.82.112.34 # Berasal dari IP domain docker.pkg.github.com (GitHub Domains)
-140.82.113.3 # Berasal dari IP domain github.com (GitHub Domains)
-140.82.113.33 # Berasal dari IP domain pypi.pkg.github.com (GitHub Domains)
-140.82.113.34 # Berasal dari IP domain swift.pkg.github.com (GitHub Domains)
-140.82.113.6 # Berasal dari IP domain api.github.com (GitHub Domains)
 140.82.114.21 # Berasal dari IP domain timestamp.githubapp.com (GitHub Domains)
-140.82.114.33 # Berasal dari IP domain maven.pkg.github.com (GitHub Domains)
-140.82.114.34 # Berasal dari IP domain nuget.pkg.github.com (GitHub Domains)
-140.82.114.9 # Berasal dari IP domain codeload.github.com (GitHub Domains)
-172.65.251.78 # Berasal dari IP domain gitlab.com (Unknown Source)
-185.199.108.133 # Berasal dari IP domain release-assets.githubusercontent.com (GitHub Domains)
-185.199.108.153 # Berasal dari IP domain tuf-repo.github.com (GitHub Domains)
-185.199.108.154 # Berasal dari IP domain pkg.actions.githubusercontent.com (GitHub Domains)
-185.199.109.133 # Berasal dari IP domain release-assets.githubusercontent.com (GitHub Domains)
-185.199.109.153 # Berasal dari IP domain tuf-repo.github.com (GitHub Domains)
-185.199.109.154 # Berasal dari IP domain pkg.actions.githubusercontent.com (GitHub Domains)
-185.199.110.133 # Berasal dari IP domain release-assets.githubusercontent.com (GitHub Domains)
-185.199.110.153 # Berasal dari IP domain tuf-repo.github.com (GitHub Domains)
-185.199.110.154 # Berasal dari IP domain pkg.actions.githubusercontent.com (GitHub Domains)
-185.199.111.133 # Berasal dari IP domain release-assets.githubusercontent.com (GitHub Domains)
-185.199.111.153 # Berasal dari IP domain tuf-repo.github.com (GitHub Domains)
-185.199.111.154 # Berasal dari IP domain pkg.actions.githubusercontent.com (GitHub Domains)
 20.10.226.54 # Berasal dari IP domain pipelinesghubeus22.actions.githubusercontent.com (GitHub Domains)
 20.102.35.120 # Berasal dari IP domain pipelinesghubeus14.actions.githubusercontent.com (GitHub Domains)
 20.102.36.236 # Berasal dari IP domain pipelinesghubeus3.actions.githubusercontent.com (GitHub Domains)
@@ -46,17 +74,6 @@
 20.106.107.180 # Berasal dari IP domain pipelinesproxwus31.actions.githubusercontent.com (GitHub Domains)
 20.124.56.57 # Berasal dari IP domain pipelinesghubeus15.actions.githubusercontent.com (GitHub Domains)
 20.14.42.190 # Berasal dari IP domain runnerghubwus31.actions.githubusercontent.com (GitHub Domains)
-20.150.82.228 # Berasal dari IP domain productionresultssa9.blob.core.windows.net (GitHub Domains)
-20.150.88.228 # Berasal dari IP domain productionresultssa9.blob.core.windows.net (GitHub Domains)
-20.209.112.225 # Berasal dari IP domain productionresultssa6.blob.core.windows.net (GitHub Domains)
-20.209.113.193 # Berasal dari IP domain productionresultssa6.blob.core.windows.net (GitHub Domains)
-20.209.178.193 # Berasal dari IP domain productionresultssa6.blob.core.windows.net (GitHub Domains)
-20.209.226.1 # Berasal dari IP domain productionresultssa14.blob.core.windows.net (GitHub Domains)
-20.209.226.129 # Berasal dari IP domain productionresultssa14.blob.core.windows.net (GitHub Domains)
-20.209.227.33 # Berasal dari IP domain productionresultssa14.blob.core.windows.net (GitHub Domains)
-20.209.52.65 # Berasal dari IP domain rubygemsregistryv2prod.blob.core.windows.net (GitHub Domains)
-20.209.74.225 # Berasal dari IP domain rubygemsregistryv2prod.blob.core.windows.net (GitHub Domains)
-20.209.75.97 # Berasal dari IP domain rubygemsregistryv2prod.blob.core.windows.net (GitHub Domains)
 20.22.118.40 # Berasal dari IP domain mpsghub.actions.githubusercontent.com (GitHub Domains)
 20.22.166.15 # Berasal dari IP domain pipelinesghubeus21.actions.githubusercontent.com (GitHub Domains)
 20.22.22.84 # Berasal dari IP domain pipelinesghubeus26.actions.githubusercontent.com (GitHub Domains)
@@ -72,8 +89,6 @@
 20.31.193.160 # Berasal dari IP domain runnerproxweu1.actions.githubusercontent.com (GitHub Domains)
 20.4.161.108 # Berasal dari IP domain pipelinesproxweu1.actions.githubusercontent.com (GitHub Domains)
 20.53.114.78 # Berasal dari IP domain runnerproxeau1.actions.githubusercontent.com (GitHub Domains)
-20.60.128.68 # Berasal dari IP domain mavenregistryv2prod.blob.core.windows.net (GitHub Domains)
-20.60.7.132 # Berasal dari IP domain npmregistryv2prod.blob.core.windows.net (GitHub Domains)
 20.65.21.88 # Berasal dari IP domain runnerghubeus21.actions.githubusercontent.com (GitHub Domains)
 20.72.125.48 # Berasal dari IP domain pipelinesghubeus25.actions.githubusercontent.com (GitHub Domains)
 20.75.4.210 # Berasal dari IP domain runnerghubeus20.actions.githubusercontent.com (GitHub Domains)
@@ -85,6 +100,51 @@
 40.82.185.52 # Berasal dari IP domain runnerproxcnc1.actions.githubusercontent.com (GitHub Domains)
 40.88.239.133 # Berasal dari IP domain pipelinesghubeus9.actions.githubusercontent.com (GitHub Domains)
 40.88.240.168 # Berasal dari IP domain runnerghubeus1.actions.githubusercontent.com (GitHub Domains)
+74.241.192.231 # Berasal dari IP domain pipelinesproxsdc1.actions.githubusercontent.com (GitHub Domains)
+74.241.204.117 # Berasal dari IP domain runnerproxsdc1.actions.githubusercontent.com (GitHub Domains)
+
+# GitHub Package Registries & CDN
+140.82.112.34 # Berasal dari IP domain docker.pkg.github.com (GitHub Domains)
+140.82.113.33 # Berasal dari IP domain pypi.pkg.github.com (GitHub Domains)
+140.82.113.34 # Berasal dari IP domain swift.pkg.github.com (GitHub Domains)
+140.82.114.33 # Berasal dari IP domain maven.pkg.github.com (GitHub Domains)
+140.82.114.34 # Berasal dari IP domain nuget.pkg.github.com (GitHub Domains)
+185.199.108.133 # Berasal dari IP domain release-assets.githubusercontent.com (GitHub Domains)
+185.199.108.153 # Berasal dari IP domain tuf-repo.github.com (GitHub Domains)
+185.199.108.154 # Berasal dari IP domain pkg.actions.githubusercontent.com (GitHub Domains)
+185.199.109.133 # Berasal dari IP domain release-assets.githubusercontent.com (GitHub Domains)
+185.199.109.153 # Berasal dari IP domain tuf-repo.github.com (GitHub Domains)
+185.199.109.154 # Berasal dari IP domain pkg.actions.githubusercontent.com (GitHub Domains)
+185.199.110.133 # Berasal dari IP domain release-assets.githubusercontent.com (GitHub Domains)
+185.199.110.153 # Berasal dari IP domain tuf-repo.github.com (GitHub Domains)
+185.199.110.154 # Berasal dari IP domain pkg.actions.githubusercontent.com (GitHub Domains)
+185.199.111.133 # Berasal dari IP domain release-assets.githubusercontent.com (GitHub Domains)
+185.199.111.153 # Berasal dari IP domain tuf-repo.github.com (GitHub Domains)
+185.199.111.154 # Berasal dari IP domain pkg.actions.githubusercontent.com (GitHub Domains)
+
+# GitHub API & Core Services
+13.107.213.51 # Berasal dari IP domain setup-tools.actions.githubusercontent.com (GitHub Domains)
+13.107.246.51 # Berasal dari IP domain setup-tools.actions.githubusercontent.com (GitHub Domains)
+13.107.42.16 # Berasal dari IP domain vstoken.actions.githubusercontent.com (GitHub Domains)
+13.107.5.93 # Berasal dari IP domain default.exp-tas.com (GitHub Domains)
+140.82.113.3 # Berasal dari IP domain github.com (GitHub Domains)
+140.82.113.6 # Berasal dari IP domain api.github.com (GitHub Domains)
+140.82.114.9 # Berasal dari IP domain codeload.github.com (GitHub Domains)
+
+# GitHub Azure Blob Storage (Package Registries)
+20.150.82.228 # Berasal dari IP domain productionresultssa9.blob.core.windows.net (GitHub Domains)
+20.150.88.228 # Berasal dari IP domain productionresultssa9.blob.core.windows.net (GitHub Domains)
+20.209.112.225 # Berasal dari IP domain productionresultssa6.blob.core.windows.net (GitHub Domains)
+20.209.113.193 # Berasal dari IP domain productionresultssa6.blob.core.windows.net (GitHub Domains)
+20.209.178.193 # Berasal dari IP domain productionresultssa6.blob.core.windows.net (GitHub Domains)
+20.209.226.1 # Berasal dari IP domain productionresultssa14.blob.core.windows.net (GitHub Domains)
+20.209.226.129 # Berasal dari IP domain productionresultssa14.blob.core.windows.net (GitHub Domains)
+20.209.227.33 # Berasal dari IP domain productionresultssa14.blob.core.windows.net (GitHub Domains)
+20.209.52.65 # Berasal dari IP domain rubygemsregistryv2prod.blob.core.windows.net (GitHub Domains)
+20.209.74.225 # Berasal dari IP domain rubygemsregistryv2prod.blob.core.windows.net (GitHub Domains)
+20.209.75.97 # Berasal dari IP domain rubygemsregistryv2prod.blob.core.windows.net (GitHub Domains)
+20.60.128.68 # Berasal dari IP domain mavenregistryv2prod.blob.core.windows.net (GitHub Domains)
+20.60.7.132 # Berasal dari IP domain npmregistryv2prod.blob.core.windows.net (GitHub Domains)
 52.239.172.36 # Berasal dari IP domain productionresultssa9.blob.core.windows.net (GitHub Domains)
 57.150.26.97 # Berasal dari IP domain nugetregistryv2prod.blob.core.windows.net (GitHub Domains)
 57.150.27.1 # Berasal dari IP domain productionresultssa4.blob.core.windows.net (GitHub Domains)
@@ -95,5 +155,8 @@
 57.150.86.193 # Berasal dari IP domain nugetregistryv2prod.blob.core.windows.net (GitHub Domains)
 57.150.87.1 # Berasal dari IP domain nugetregistryv2prod.blob.core.windows.net (GitHub Domains)
 57.150.87.97 # Berasal dari IP domain productionresultssa4.blob.core.windows.net (GitHub Domains)
-74.241.192.231 # Berasal dari IP domain pipelinesproxsdc1.actions.githubusercontent.com (GitHub Domains)
-74.241.204.117 # Berasal dari IP domain runnerproxsdc1.actions.githubusercontent.com (GitHub Domains)
+
+# ============================================================================
+# OTHER TRUSTED SERVICES
+# ============================================================================
+172.65.251.78 # Berasal dari IP domain gitlab.com (Unknown Source)
