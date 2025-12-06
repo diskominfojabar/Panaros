@@ -1,0 +1,170 @@
+# Major Linux/Unix Distribution Repositories
+# Official and verified regional mirrors
+# Last updated: 2025-12-06
+
+ubuntu:
+  official:
+    - archive.ubuntu.com
+    - security.ubuntu.com
+    - ports.ubuntu.com
+    - old-releases.ubuntu.com
+  regional_mirrors:
+    # Indonesia
+    - kambing.ui.ac.id/ubuntu
+    - mirror.unej.ac.id/ubuntu
+    - mirror.its.ac.id/ubuntu
+    - repo.ugm.ac.id/ubuntu
+    - mirror.unpad.ac.id/ubuntu
+    - buaya.klas.or.id/ubuntu
+    - foss.itb.ac.id/ubuntu
+    # Asia Pacific
+    - ftp.jaist.ac.jp/pub/Linux/ubuntu
+    - mirror.nus.edu.sg/ubuntu
+    - mirror.nux.ro/ubuntu
+    - ftp.kaist.ac.kr/ubuntu
+    # Global Mirrors
+    - mirrors.kernel.org/ubuntu
+    - mirror.us.leaseweb.net/ubuntu
+    - mirror.nl.leaseweb.net/ubuntu
+
+debian:
+  official:
+    - deb.debian.org
+    - ftp.debian.org
+    - security.debian.org
+    - archive.debian.org
+  regional_mirrors:
+    # Indonesia
+    - kartolo.sby.datautama.net.id/debian
+    - mirror.unej.ac.id/debian
+    - kambing.ui.ac.id/debian
+    - mirror.its.ac.id/debian
+    # Asia Pacific
+    - ftp.jp.debian.org/debian
+    - ftp.kr.debian.org/debian
+    - ftp.sg.debian.org/debian
+    - mirror.aarnet.edu.au/debian
+    # Global
+    - mirrors.kernel.org/debian
+    - mirror.us.leaseweb.net/debian
+
+fedora:
+  official:
+    - download.fedoraproject.org
+    - mirrors.fedoraproject.org
+    - dl.fedoraproject.org
+  regional_mirrors:
+    # Indonesia
+    - repo.ugm.ac.id/fedora
+    - mirror.unej.ac.id/fedora
+    - kambing.ui.ac.id/fedora
+    # Asia Pacific
+    - ftp.riken.jp/Linux/fedora
+    - mirror.nus.edu.sg/fedora
+    # Global
+    - mirrors.kernel.org/fedora
+
+centos:
+  official:
+    - mirror.centos.org
+    - vault.centos.org
+    - mirrorlist.centos.org
+  regional_mirrors:
+    # Indonesia
+    - kambing.ui.ac.id/centos
+    - mirror.unej.ac.id/centos
+    - buaya.klas.or.id/centos
+    # Asia Pacific
+    - ftp.jaist.ac.jp/pub/Linux/CentOS
+    - mirror.nus.edu.sg/centos
+    # Global
+    - mirrors.kernel.org/centos
+
+redhat:
+  official:
+    - cdn.redhat.com
+    - access.redhat.com
+    - download.redhat.com
+
+rocky:
+  official:
+    - download.rockylinux.org
+    - dl.rockylinux.org
+  regional_mirrors:
+    - mirror.unej.ac.id/rocky
+    - mirrors.kernel.org/rocky
+
+almalinux:
+  official:
+    - repo.almalinux.org
+    - rsync.repo.almalinux.org
+  regional_mirrors:
+    - mirror.unej.ac.id/almalinux
+    - mirrors.kernel.org/almalinux
+
+arch:
+  official:
+    - archlinux.org/download
+    - mirror.archlinux.org
+  regional_mirrors:
+    # Indonesia
+    - mirror.unej.ac.id/archlinux
+    - kambing.ui.ac.id/archlinux
+    - ftp.itb.ac.id/archlinux
+    # Asia Pacific
+    - ftp.jaist.ac.jp/pub/Linux/ArchLinux
+    - mirror.nus.edu.sg/archlinux
+    # Global
+    - mirrors.kernel.org/archlinux
+
+opensuse:
+  official:
+    - download.opensuse.org
+    - ftp.opensuse.org
+  regional_mirrors:
+    - mirror.unej.ac.id/opensuse
+    - ftp.jaist.ac.jp/pub/Linux/openSUSE
+    - mirrors.kernel.org/opensuse
+
+alpine:
+  official:
+    - dl-cdn.alpinelinux.org
+    - uk.alpinelinux.org
+  regional_mirrors:
+    - mirrors.kernel.org/alpine
+
+freebsd:
+  official:
+    - download.freebsd.org
+    - ftp.freebsd.org
+  regional_mirrors:
+    - ftp.jp.freebsd.org
+    - mirrors.kernel.org/freebsd
+
+# Package Management CDNs
+package_cdns:
+  - packages.cloud.google.com  # Google Cloud packages
+  - packages.microsoft.com      # Microsoft packages
+  - rpm.releases.hashicorp.com  # HashiCorp packages
+  - apt.releases.hashicorp.com
+  - packagecloud.io             # Package Cloud CDN
+  - dl.k8s.io                   # Kubernetes packages
+  - pkgs.k8s.io
+  - download.docker.com         # Docker packages
+  - apt.dockerproject.org
+  - yum.dockerproject.org
+  - registry.npmjs.org          # NPM registry
+  - registry.yarnpkg.com        # Yarn registry
+  - pypi.org                    # Python Package Index
+  - files.pythonhosted.org
+  - rubygems.org                # Ruby Gems
+  - crates.io                   # Rust Crates
+  - repo.maven.apache.org       # Maven Central
+  - central.maven.org
+
+# CDN Providers for Package Delivery
+cdn_providers:
+  - cdn.jsdelivr.net
+  - unpkg.com
+  - fastly.com
+  - cloudflare-dns.com

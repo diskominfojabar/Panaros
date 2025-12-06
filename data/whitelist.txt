@@ -1,7 +1,115 @@
-# Last updated: 2025-12-06 08:30:00 UTC
-# Total entries: 130
-# Format: <entry> # <source>
+# Whitelist Domains - Trusted Sites & Infrastructure
+# Last updated: 2025-12-06 18:01:41 UTC
+# Total entries: 207
+# Format: <domain> # <source>
 #
+# PRIORITAS: Level 4 - Domain Whitelist
+# Domain dengan marker akan di-update otomatis
+# Domain manual (tanpa marker) tidak akan dihapus otomatis
+#
+
+# AWS CloudFront CDN (Shared IP Protection)
+*.cloudfront.net # AWS CloudFront CDN (Shared IP Protection)
+
+# AWS Elastic Beanstalk (Shared IP Protection)
+*.elasticbeanstalk.com # AWS Elastic Beanstalk (Shared IP Protection)
+
+# AWS S3 (Shared IP Protection)
+*.s3.amazonaws.com # AWS S3 (Shared IP Protection)
+
+# AWS S3 Website (Shared IP Protection)
+*.s3-website*.amazonaws.com # AWS S3 Website (Shared IP Protection)
+
+# Almalinux Mirrors
+mirror.unej.ac.id/almalinux # Almalinux Mirrors
+mirrors.kernel.org/almalinux # Almalinux Mirrors
+
+# Almalinux Official
+repo.almalinux.org # Almalinux Official
+rsync.repo.almalinux.org # Almalinux Official
+
+# Alpine Mirrors
+mirrors.kernel.org/alpine # Alpine Mirrors
+
+# Alpine Official
+dl-cdn.alpinelinux.org # Alpine Official
+uk.alpinelinux.org # Alpine Official
+
+# Arch Mirrors
+ftp.itb.ac.id/archlinux # Arch Mirrors
+ftp.jaist.ac.jp/pub/Linux/ArchLinux # Arch Mirrors
+kambing.ui.ac.id/archlinux # Arch Mirrors
+mirror.nus.edu.sg/archlinux # Arch Mirrors
+mirror.unej.ac.id/archlinux # Arch Mirrors
+mirrors.kernel.org/archlinux # Arch Mirrors
+
+# Arch Official
+archlinux.org/download # Arch Official
+
+# Azure Web Apps (Shared IP Protection)
+*.azurewebsites.net # Azure Web Apps (Shared IP Protection)
+
+# Centos Mirrors
+buaya.klas.or.id/centos # Centos Mirrors
+ftp.jaist.ac.jp/pub/Linux/CentOS # Centos Mirrors
+kambing.ui.ac.id/centos # Centos Mirrors
+mirror.nus.edu.sg/centos # Centos Mirrors
+mirror.unej.ac.id/centos # Centos Mirrors
+mirrors.kernel.org/centos # Centos Mirrors
+
+# Centos Official
+mirror.centos.org # Centos Official
+vault.centos.org # Centos Official
+
+# Cloudflare Access (Shared IP Protection)
+*.cloudflareaccess.com # Cloudflare Access (Shared IP Protection)
+
+# Cloudflare Pages (Shared IP Protection)
+*.pages.dev # Cloudflare Pages (Shared IP Protection)
+
+# Cloudflare Workers (Shared IP Protection)
+*.workers.dev # Cloudflare Workers (Shared IP Protection)
+
+# Debian Mirrors
+ftp.jp.debian.org/debian # Debian Mirrors
+ftp.kr.debian.org/debian # Debian Mirrors
+ftp.sg.debian.org/debian # Debian Mirrors
+kambing.ui.ac.id/debian # Debian Mirrors
+kartolo.sby.datautama.net.id/debian # Debian Mirrors
+mirror.aarnet.edu.au/debian # Debian Mirrors
+mirror.its.ac.id/debian # Debian Mirrors
+mirror.unej.ac.id/debian # Debian Mirrors
+mirror.us.leaseweb.net/debian # Debian Mirrors
+mirrors.kernel.org/debian # Debian Mirrors
+
+# Debian Official
+archive.debian.org # Debian Official
+deb.debian.org # Debian Official
+ftp.debian.org # Debian Official
+security.debian.org # Debian Official
+
+# Fedora Mirrors
+ftp.riken.jp/Linux/fedora # Fedora Mirrors
+kambing.ui.ac.id/fedora # Fedora Mirrors
+mirror.nus.edu.sg/fedora # Fedora Mirrors
+mirror.unej.ac.id/fedora # Fedora Mirrors
+mirrors.kernel.org/fedora # Fedora Mirrors
+repo.ugm.ac.id/fedora # Fedora Mirrors
+
+# Fedora Official
+dl.fedoraproject.org # Fedora Official
+download.fedoraproject.org # Fedora Official
+mirrors.fedoraproject.org # Fedora Official
+
+# Freebsd Mirrors
+ftp.jp.freebsd.org # Freebsd Mirrors
+mirrors.kernel.org/freebsd # Freebsd Mirrors
+
+# Freebsd Official
+download.freebsd.org # Freebsd Official
+ftp.freebsd.org # Freebsd Official
+
+# GitHub Domains
 *.actions.githubusercontent.com # GitHub Domains
 *.api.github.com # GitHub Domains
 *.azureedge.net # GitHub Domains
@@ -31,7 +139,6 @@ ghcr.io # GitHub Domains
 github-registry-files.githubusercontent.com # GitHub Domains
 github-releases.githubusercontent.com # GitHub Domains
 github.com # GitHub Domains
-gitlab.com # Unknown Source
 launch.actions.githubusercontent.com # GitHub Domains
 maven.pkg.github.com # GitHub Domains
 mavenregistryv2prod.blob.core.windows.net # GitHub Domains
@@ -118,17 +225,63 @@ timestamp.githubapp.com # GitHub Domains
 tokenghub.actions.githubusercontent.com # GitHub Domains
 tuf-repo.github.com # GitHub Domains
 vstoken.actions.githubusercontent.com # GitHub Domains
+
+# Heroku Hosting (Shared IP Protection)
+*.herokuapp.com # Heroku Hosting (Shared IP Protection)
+
+# Heroku SSL (Shared IP Protection)
+*.herokussl.com # Heroku SSL (Shared IP Protection)
+
+# Netlify Hosting (Shared IP Protection)
 *.netlify.app # Netlify Hosting (Shared IP Protection)
 *.netlify.com # Netlify Hosting (Shared IP Protection)
+
+# Opensuse Mirrors
+ftp.jaist.ac.jp/pub/Linux/openSUSE # Opensuse Mirrors
+mirror.unej.ac.id/opensuse # Opensuse Mirrors
+mirrors.kernel.org/opensuse # Opensuse Mirrors
+
+# Opensuse Official
+download.opensuse.org # Opensuse Official
+ftp.opensuse.org # Opensuse Official
+
+# Redhat Official
+access.redhat.com # Redhat Official
+cdn.redhat.com # Redhat Official
+
+# Rocky Mirrors
+mirror.unej.ac.id/rocky # Rocky Mirrors
+mirrors.kernel.org/rocky # Rocky Mirrors
+
+# Rocky Official
+dl.rockylinux.org # Rocky Official
+download.rockylinux.org # Rocky Official
+
+# Ubuntu Mirrors
+buaya.klas.or.id/ubuntu # Ubuntu Mirrors
+ftp.jaist.ac.jp/pub/Linux/ubuntu # Ubuntu Mirrors
+ftp.kaist.ac.kr/ubuntu # Ubuntu Mirrors
+kambing.ui.ac.id/ubuntu # Ubuntu Mirrors
+mirror.its.ac.id/ubuntu # Ubuntu Mirrors
+mirror.nl.leaseweb.net/ubuntu # Ubuntu Mirrors
+mirror.nus.edu.sg/ubuntu # Ubuntu Mirrors
+mirror.nux.ro/ubuntu # Ubuntu Mirrors
+mirror.unej.ac.id/ubuntu # Ubuntu Mirrors
+mirror.unpad.ac.id/ubuntu # Ubuntu Mirrors
+mirror.us.leaseweb.net/ubuntu # Ubuntu Mirrors
+mirrors.kernel.org/ubuntu # Ubuntu Mirrors
+repo.ugm.ac.id/ubuntu # Ubuntu Mirrors
+
+# Ubuntu Official
+archive.ubuntu.com # Ubuntu Official
+old-releases.ubuntu.com # Ubuntu Official
+ports.ubuntu.com # Ubuntu Official
+security.ubuntu.com # Ubuntu Official
+
+# Unknown Source
+gitlab.com # Unknown Source
+
+# Vercel Hosting (Shared IP Protection)
 *.vercel.app # Vercel Hosting (Shared IP Protection)
 *.vercel.com # Vercel Hosting (Shared IP Protection)
-*.herokuapp.com # Heroku Hosting (Shared IP Protection)
-*.herokussl.com # Heroku SSL (Shared IP Protection)
-*.cloudfront.net # AWS CloudFront CDN (Shared IP Protection)
-*.s3.amazonaws.com # AWS S3 (Shared IP Protection)
-*.s3-website*.amazonaws.com # AWS S3 Website (Shared IP Protection)
-*.elasticbeanstalk.com # AWS Elastic Beanstalk (Shared IP Protection)
-*.azurewebsites.net # Azure Web Apps (Shared IP Protection)
-*.cloudflareaccess.com # Cloudflare Access (Shared IP Protection)
-*.pages.dev # Cloudflare Pages (Shared IP Protection)
-*.workers.dev # Cloudflare Workers (Shared IP Protection)
+
