@@ -3,15 +3,15 @@
     {
       "month": "2025-12",
       "stats": {
-        "blacklist": 88568,
+        "blacklist": 207145,
         "blacklist_specific": 39561,
-        "drop": 26282,
+        "drop": 26477,
         "whitelist": 207,
         "whitelist_specific": 180,
         "pass": 17000,
-        "hosts": 88568
+        "hosts": 207134
       },
-      "updated": "2025-12-06T17:18:55.170492"
+      "updated": "2025-12-07T08:14:31.026357"
     }
   ]
 }

@@ -15,6 +15,11 @@ sources:
       fetcher: "urlhaus_ips"
       requires_api_key: false
 
+    - name: "AdGuard DNS Filter IPs"
+      url: "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt"
+      fetcher: "adguard_ips"
+      requires_api_key: false
+
     # Contoh sumber lain (uncomment dan sesuaikan):
     # - name: "Spamhaus DROP"
     #   url: "https://www.spamhaus.org/drop/drop.txt"
