@@ -83,6 +83,11 @@ sources:
       fetcher: "sbcio_fakenews"
       requires_api_key: false
 
+    - name: "AdGuard DNS Filter"
+      url: "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt"
+      fetcher: "adguard_dns"
+      requires_api_key: false
+
     # Contoh sumber lain:
     # - name: "PhishTank"
     #   url: "http://data.phishtank.com/data/online-valid.json"
