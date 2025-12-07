@@ -271,10 +271,12 @@ class DataProcessor:
 
         output_config = self.config.get('output', {})
 
-        # Process setiap kategori
+        # Process setiap kategori dengan urutan yang benar
         categories = [
-            ('ip_blacklist', output_config.get('ip_blacklist', 'data/drop.txt')),
-            ('ip_whitelist', output_config.get('ip_whitelist', 'data/pass.txt')),
+            ('ip_blacklist_specific', output_config.get('ip_blacklist_specific', 'data/blacklist-specific.txt')),
+            ('ip_blacklist_segment', output_config.get('ip_blacklist_segment', 'data/drop.txt')),
+            ('ip_whitelist_specific', output_config.get('ip_whitelist_specific', 'data/whitelist-specific.txt')),
+            ('ip_whitelist_segment', output_config.get('ip_whitelist_segment', 'data/pass.txt')),
             ('domain_whitelist', output_config.get('domain_whitelist', 'data/whitelist.txt')),
             ('domain_blacklist', output_config.get('domain_blacklist', 'data/blacklist.txt'))
         ]

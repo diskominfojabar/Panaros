@@ -2,8 +2,8 @@
 # Untuk menambahkan sumber baru, tambahkan entri di bawah kategori yang sesuai
 
 sources:
-  # IP Blacklist - akan disimpan ke drop.txt
-  ip_blacklist:
+  # IP Blacklist Specific - Individual IPs (non-subnet) → blacklist-specific.txt
+  ip_blacklist_specific:
     - name: "AbuseIPDB"
       url: "https://api.abuseipdb.com/api/v2/blacklist"
       fetcher: "abuseipdb_ip"
@@ -20,14 +20,15 @@ sources:
       fetcher: "adguard_ips"
       requires_api_key: false
 
-    # Contoh sumber lain (uncomment dan sesuaikan):
-    # - name: "Spamhaus DROP"
-    #   url: "https://www.spamhaus.org/drop/drop.txt"
-    #   fetcher: "spamhaus_drop"
-    #   requires_api_key: false
+  # IP Blacklist Segment - Subnets/CIDR ranges → drop.txt
+  ip_blacklist_segment:
+    - name: "Spamhaus DROP"
+      url: "https://www.spamhaus.org/drop/drop.txt"
+      fetcher: "spamhaus_drop"
+      requires_api_key: false
 
-  # IP Whitelist - akan disimpan ke pass.txt
-  ip_whitelist:
+  # IP Whitelist Segment - Subnets/CIDR ranges → pass.txt
+  ip_whitelist_segment:
     - name: "Cloudflare IPs"
       url: "https://www.cloudflare.com/ips-v4"
       fetcher: "cloudflare_ips"
@@ -101,10 +102,12 @@ sources:
 
 # Output files
 output:
-  ip_blacklist: "data/drop.txt"
-  ip_whitelist: "data/pass.txt"
-  domain_whitelist: "data/whitelist.txt"
-  domain_blacklist: "data/blacklist.txt"
+  ip_blacklist_specific: "data/blacklist-specific.txt"  # Individual IPs
+  ip_blacklist_segment: "data/drop.txt"                 # IP Subnets/CIDR
+  ip_whitelist_specific: "data/whitelist-specific.txt"   # Individual IPs
+  ip_whitelist_segment: "data/pass.txt"                  # IP Subnets/CIDR
+  domain_whitelist: "data/whitelist.txt"                 # Domains only
+  domain_blacklist: "data/blacklist.txt"                 # Domains only
 
 # Settings
 settings:
