@@ -1,11 +1,15 @@
-# Last updated: 2025-12-07 10:34:33 UTC
-# Total entries: 115
+# Last updated: 2025-12-07 03:44:35 UTC
+# Total entries: 207
 # Format: <entry> # <source>
 #
 *.actions.githubusercontent.com # GitHub Domains
 *.api.github.com # GitHub Domains
 *.azureedge.net # GitHub Domains
+*.azurewebsites.net # Azure Web Apps (Shared IP Protection)
+*.cloudflareaccess.com # Cloudflare Access (Shared IP Protection)
+*.cloudfront.net # AWS CloudFront CDN (Shared IP Protection)
 *.core.windows.net # GitHub Domains
+*.elasticbeanstalk.com # AWS Elastic Beanstalk (Shared IP Protection)
 *.ghcr.io # GitHub Domains
 *.github.com # GitHub Domains
 *.github.dev # GitHub Domains
@@ -13,27 +17,105 @@
 *.githubassets.com # GitHub Domains
 *.githubcopilot.com # GitHub Domains
 *.githubusercontent.com # GitHub Domains
+*.herokuapp.com # Heroku Hosting (Shared IP Protection)
+*.herokussl.com # Heroku SSL (Shared IP Protection)
 *.microsoft.com # GitHub Domains
 *.msecnd.net # GitHub Domains
+*.netlify.app # Netlify Hosting (Shared IP Protection)
+*.netlify.com # Netlify Hosting (Shared IP Protection)
+*.pages.dev # Cloudflare Pages (Shared IP Protection)
 *.pkg.github.com # GitHub Domains
+*.s3-website*.amazonaws.com # AWS S3 Website (Shared IP Protection)
+*.s3.amazonaws.com # AWS S3 (Shared IP Protection)
+*.vercel.app # Vercel Hosting (Shared IP Protection)
+*.vercel.com # Vercel Hosting (Shared IP Protection)
 *.visualstudio.com # GitHub Domains
 *.vscode-webview.net # GitHub Domains
 *.windows.net # GitHub Domains
+*.workers.dev # Cloudflare Workers (Shared IP Protection)
+access.redhat.com # Redhat Official
 api.github.com # GitHub Domains
+archive.debian.org # Debian Official
+archive.ubuntu.com # Ubuntu Official
+archlinux.org/download # Arch Official
 broker.actions.githubusercontent.com # GitHub Domains
+buaya.klas.or.id/centos # Centos Mirrors
+buaya.klas.or.id/ubuntu # Ubuntu Mirrors
+cdn.redhat.com # Redhat Official
 codeload.github.com # GitHub Domains
 containers.pkg.github.com # GitHub Domains
+deb.debian.org # Debian Official
 default.exp-tas.com # GitHub Domains
+dl-cdn.alpinelinux.org # Alpine Official
+dl.fedoraproject.org # Fedora Official
+dl.rockylinux.org # Rocky Official
 docker-proxy.pkg.github.com # GitHub Domains
 docker.pkg.github.com # GitHub Domains
+download.fedoraproject.org # Fedora Official
+download.freebsd.org # Freebsd Official
+download.opensuse.org # Opensuse Official
+download.rockylinux.org # Rocky Official
+ftp.debian.org # Debian Official
+ftp.freebsd.org # Freebsd Official
+ftp.itb.ac.id/archlinux # Arch Mirrors
+ftp.jaist.ac.jp/pub/Linux/ArchLinux # Arch Mirrors
+ftp.jaist.ac.jp/pub/Linux/CentOS # Centos Mirrors
+ftp.jaist.ac.jp/pub/Linux/openSUSE # Opensuse Mirrors
+ftp.jaist.ac.jp/pub/Linux/ubuntu # Ubuntu Mirrors
+ftp.jp.debian.org/debian # Debian Mirrors
+ftp.jp.freebsd.org # Freebsd Mirrors
+ftp.kaist.ac.kr/ubuntu # Ubuntu Mirrors
+ftp.kr.debian.org/debian # Debian Mirrors
+ftp.opensuse.org # Opensuse Official
+ftp.riken.jp/Linux/fedora # Fedora Mirrors
+ftp.sg.debian.org/debian # Debian Mirrors
 fulcio.githubapp.com # GitHub Domains
 ghcr.io # GitHub Domains
 github-registry-files.githubusercontent.com # GitHub Domains
 github-releases.githubusercontent.com # GitHub Domains
 github.com # GitHub Domains
+gitlab.com # Unknown Source
+kambing.ui.ac.id/archlinux # Arch Mirrors
+kambing.ui.ac.id/centos # Centos Mirrors
+kambing.ui.ac.id/debian # Debian Mirrors
+kambing.ui.ac.id/fedora # Fedora Mirrors
+kambing.ui.ac.id/ubuntu # Ubuntu Mirrors
+kartolo.sby.datautama.net.id/debian # Debian Mirrors
 launch.actions.githubusercontent.com # GitHub Domains
 maven.pkg.github.com # GitHub Domains
 mavenregistryv2prod.blob.core.windows.net # GitHub Domains
+mirror.aarnet.edu.au/debian # Debian Mirrors
+mirror.centos.org # Centos Official
+mirror.its.ac.id/debian # Debian Mirrors
+mirror.its.ac.id/ubuntu # Ubuntu Mirrors
+mirror.nl.leaseweb.net/ubuntu # Ubuntu Mirrors
+mirror.nus.edu.sg/archlinux # Arch Mirrors
+mirror.nus.edu.sg/centos # Centos Mirrors
+mirror.nus.edu.sg/fedora # Fedora Mirrors
+mirror.nus.edu.sg/ubuntu # Ubuntu Mirrors
+mirror.nux.ro/ubuntu # Ubuntu Mirrors
+mirror.unej.ac.id/almalinux # Almalinux Mirrors
+mirror.unej.ac.id/archlinux # Arch Mirrors
+mirror.unej.ac.id/centos # Centos Mirrors
+mirror.unej.ac.id/debian # Debian Mirrors
+mirror.unej.ac.id/fedora # Fedora Mirrors
+mirror.unej.ac.id/opensuse # Opensuse Mirrors
+mirror.unej.ac.id/rocky # Rocky Mirrors
+mirror.unej.ac.id/ubuntu # Ubuntu Mirrors
+mirror.unpad.ac.id/ubuntu # Ubuntu Mirrors
+mirror.us.leaseweb.net/debian # Debian Mirrors
+mirror.us.leaseweb.net/ubuntu # Ubuntu Mirrors
+mirrors.fedoraproject.org # Fedora Official
+mirrors.kernel.org/almalinux # Almalinux Mirrors
+mirrors.kernel.org/alpine # Alpine Mirrors
+mirrors.kernel.org/archlinux # Arch Mirrors
+mirrors.kernel.org/centos # Centos Mirrors
+mirrors.kernel.org/debian # Debian Mirrors
+mirrors.kernel.org/fedora # Fedora Mirrors
+mirrors.kernel.org/freebsd # Freebsd Mirrors
+mirrors.kernel.org/opensuse # Opensuse Mirrors
+mirrors.kernel.org/rocky # Rocky Mirrors
+mirrors.kernel.org/ubuntu # Ubuntu Mirrors
 mpsghub.actions.githubusercontent.com # GitHub Domains
 npm-beta-proxy.pkg.github.com # GitHub Domains
 npm-beta.pkg.github.com # GitHub Domains
@@ -44,6 +126,7 @@ nuget.pkg.github.com # GitHub Domains
 nugetregistryv2prod.blob.core.windows.net # GitHub Domains
 objects-origin.githubusercontent.com # GitHub Domains
 objects.githubusercontent.com # GitHub Domains
+old-releases.ubuntu.com # Ubuntu Official
 pipelinesghubeus1.actions.githubusercontent.com # GitHub Domains
 pipelinesghubeus10.actions.githubusercontent.com # GitHub Domains
 pipelinesghubeus11.actions.githubusercontent.com # GitHub Domains
@@ -73,6 +156,7 @@ pipelinesproxsdc1.actions.githubusercontent.com # GitHub Domains
 pipelinesproxweu1.actions.githubusercontent.com # GitHub Domains
 pipelinesproxwus31.actions.githubusercontent.com # GitHub Domains
 pkg.actions.githubusercontent.com # GitHub Domains
+ports.ubuntu.com # Ubuntu Official
 productionresultssa0.blob.core.windows.net # GitHub Domains
 productionresultssa1.blob.core.windows.net # GitHub Domains
 productionresultssa10.blob.core.windows.net # GitHub Domains
@@ -95,7 +179,11 @@ productionresultssa8.blob.core.windows.net # GitHub Domains
 productionresultssa9.blob.core.windows.net # GitHub Domains
 pypi.pkg.github.com # GitHub Domains
 release-assets.githubusercontent.com # GitHub Domains
+repo.almalinux.org # Almalinux Official
+repo.ugm.ac.id/fedora # Fedora Mirrors
+repo.ugm.ac.id/ubuntu # Ubuntu Mirrors
 results-receiver.actions.githubusercontent.com # GitHub Domains
+rsync.repo.almalinux.org # Almalinux Official
 rubygems.pkg.github.com # GitHub Domains
 rubygemsregistryv2prod.blob.core.windows.net # GitHub Domains
 run-actions-1-azure-eastus.actions.githubusercontent.com # GitHub Domains
@@ -111,9 +199,13 @@ runnerproxcus1.actions.githubusercontent.com # GitHub Domains
 runnerproxeau1.actions.githubusercontent.com # GitHub Domains
 runnerproxsdc1.actions.githubusercontent.com # GitHub Domains
 runnerproxweu1.actions.githubusercontent.com # GitHub Domains
+security.debian.org # Debian Official
+security.ubuntu.com # Ubuntu Official
 setup-tools.actions.githubusercontent.com # GitHub Domains
 swift.pkg.github.com # GitHub Domains
 timestamp.githubapp.com # GitHub Domains
 tokenghub.actions.githubusercontent.com # GitHub Domains
 tuf-repo.github.com # GitHub Domains
+uk.alpinelinux.org # Alpine Official
+vault.centos.org # Centos Official
 vstoken.actions.githubusercontent.com # GitHub Domains
