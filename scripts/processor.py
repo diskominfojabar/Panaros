@@ -144,13 +144,46 @@ class DataProcessor:
 
         return filtered
 
+    def is_ipv6(self, ip: str) -> bool:
+        """
+        Check if IP address is IPv6 (contains colon)
+
+        Args:
+            ip: IP address string
+
+        Returns:
+            True if IPv6, False if IPv4
+        """
+        return ':' in ip
+
+    def add_ip_prefix(self, ip: str) -> str:
+        """
+        Add appropriate CIDR prefix based on IP version
+        - IPv4: /32 for individual IPs
+        - IPv6: /128 for individual IPs
+
+        Args:
+            ip: IP address (may already have prefix)
+
+        Returns:
+            IP address with appropriate prefix
+        """
+        if '/' in ip:
+            return ip  # Already has prefix
+
+        return f"{ip}/128" if self.is_ipv6(ip) else f"{ip}/32"
+
     def ip_sort_key(self, ip_or_cidr: str):
         """
         Generate sort key untuk IP address atau CIDR (numerical sorting)
+        Supports both IPv4 and IPv6
 
         Examples:
-            9.255.255.255 → (9, 255, 255, 255, 32)
-            10.0.0.0/24 → (10, 0, 0, 0, 24)
+            IPv4:
+                9.255.255.255 → (4, 9, 255, 255, 255, 32)
+                10.0.0.0/24 → (4, 10, 0, 0, 0, 24)
+            IPv6:
+                2001:4860::/32 → (6, 0x2001, 0x4860, 0, 0, 0, 0, 0, 0, 32)
         """
         try:
             # Split IP and CIDR
@@ -159,14 +192,45 @@ class DataProcessor:
                 cidr = int(cidr_part)
             else:
                 ip_part = ip_or_cidr
-                cidr = 32  # Default untuk IP individual
+                # Detect default CIDR based on IP version
+                cidr = 128 if self.is_ipv6(ip_part) else 32
 
-            # Parse octets
-            octets = tuple(int(octet) for octet in ip_part.split('.'))
-            return octets + (cidr,)
+            # IPv6 sorting
+            if self.is_ipv6(ip_part):
+                # Expand IPv6 to full form and parse segments
+                # Split by colons and convert hex to int
+                segments = ip_part.split(':')
+                # Handle :: abbreviation by padding with zeros
+                if '' in segments:
+                    idx = segments.index('')
+                    missing = 8 - len([s for s in segments if s])
+                    segments = segments[:idx] + ['0'] * missing + segments[idx+1:]
+
+                # Convert hex segments to integers, pad to 8 segments
+                int_segments = []
+                for seg in segments:
+                    if seg:
+                        int_segments.append(int(seg, 16))
+                    else:
+                        int_segments.append(0)
+
+                # Pad to 8 segments if needed
+                while len(int_segments) < 8:
+                    int_segments.append(0)
+
+                # Return tuple: (6, segment1, segment2, ..., segment8, cidr)
+                return tuple([6] + int_segments[:8] + [cidr])
+
+            # IPv4 sorting
+            else:
+                # Parse octets
+                octets = tuple(int(octet) for octet in ip_part.split('.'))
+                # Return tuple: (4, octet1, octet2, octet3, octet4, cidr)
+                return tuple([4] + list(octets) + [cidr])
         except:
             # Fallback ke string sorting jika parsing gagal
-            return (0, 0, 0, 0, 0)
+            # Put errors at the end
+            return tuple([9] + [0] * 8 + [0])
 
     def write_data(self, filepath: str, data: dict, mode: str = "append", category: str = ""):
         """
@@ -201,17 +265,26 @@ class DataProcessor:
             if removed_count > 0:
                 logger.info(f"Cross-check whitelist: {removed_count} domain dihapus dari blacklist")
 
-        # Add /32 prefix untuk IP individual (specific categories)
+        # Add appropriate CIDR prefix untuk IP individual (specific categories)
+        # IPv4 gets /32, IPv6 gets /128
         if category in ['ip_blacklist_specific', 'ip_whitelist_specific']:
             processed_data = {}
+            ipv4_count = 0
+            ipv6_count = 0
+
             for entry, source in data.items():
-                # Jika belum ada prefix CIDR, tambahkan /32
-                if '/' not in entry:
-                    processed_data[f"{entry}/32"] = source
+                # Add appropriate prefix based on IP version
+                prefixed_entry = self.add_ip_prefix(entry)
+                processed_data[prefixed_entry] = source
+
+                # Count by version
+                if self.is_ipv6(entry):
+                    ipv6_count += 1
                 else:
-                    processed_data[entry] = source
+                    ipv4_count += 1
+
             data = processed_data
-            logger.info(f"Added /32 prefix to {len(data)} individual IPs")
+            logger.info(f"Added CIDR prefix: {ipv4_count} IPv4 (/32), {ipv6_count} IPv6 (/128)")
 
         # Sort data by entry
         if self.config['settings'].get('sort_output', True):

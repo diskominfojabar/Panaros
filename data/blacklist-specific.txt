@@ -1,5 +1,5 @@
-# Last updated: 2025-12-07 10:17:25 UTC
-# Total entries: 7532
+# Last updated: 2025-12-07 10:34:27 UTC
+# Total entries: 7534
 # Format: <entry> # <source>
 #
 1.2.185.44/32 # URLhaus Malware IPs
@@ -890,6 +890,7 @@
 42.176.117.16/32 # URLhaus Malware IPs
 42.176.121.141/32 # URLhaus Malware IPs
 42.176.122.18/32 # URLhaus Malware IPs
+42.176.123.10/32 # URLhaus Malware IPs
 42.176.123.159/32 # URLhaus Malware IPs
 42.176.193.40/32 # URLhaus Malware IPs
 42.176.240.222/32 # URLhaus Malware IPs
@@ -2769,6 +2770,7 @@
 110.37.17.122/32 # URLhaus Malware IPs
 110.37.18.179/32 # URLhaus Malware IPs
 110.37.19.73/32 # URLhaus Malware IPs
+110.37.19.208/32 # URLhaus Malware IPs
 110.37.19.211/32 # URLhaus Malware IPs
 110.37.26.68/32 # URLhaus Malware IPs
 110.37.26.193/32 # URLhaus Malware IPs
