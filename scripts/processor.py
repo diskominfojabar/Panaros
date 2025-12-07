@@ -144,6 +144,30 @@ class DataProcessor:
 
         return filtered
 
+    def ip_sort_key(self, ip_or_cidr: str):
+        """
+        Generate sort key untuk IP address atau CIDR (numerical sorting)
+
+        Examples:
+            9.255.255.255 → (9, 255, 255, 255, 32)
+            10.0.0.0/24 → (10, 0, 0, 0, 24)
+        """
+        try:
+            # Split IP and CIDR
+            if '/' in ip_or_cidr:
+                ip_part, cidr_part = ip_or_cidr.split('/')
+                cidr = int(cidr_part)
+            else:
+                ip_part = ip_or_cidr
+                cidr = 32  # Default untuk IP individual
+
+            # Parse octets
+            octets = tuple(int(octet) for octet in ip_part.split('.'))
+            return octets + (cidr,)
+        except:
+            # Fallback ke string sorting jika parsing gagal
+            return (0, 0, 0, 0, 0)
+
     def write_data(self, filepath: str, data: dict, mode: str = "append", category: str = ""):
         """
         Tulis data ke file dengan source comments
@@ -177,9 +201,27 @@ class DataProcessor:
             if removed_count > 0:
                 logger.info(f"Cross-check whitelist: {removed_count} domain dihapus dari blacklist")
 
+        # Add /32 prefix untuk IP individual (specific categories)
+        if category in ['ip_blacklist_specific', 'ip_whitelist_specific']:
+            processed_data = {}
+            for entry, source in data.items():
+                # Jika belum ada prefix CIDR, tambahkan /32
+                if '/' not in entry:
+                    processed_data[f"{entry}/32"] = source
+                else:
+                    processed_data[entry] = source
+            data = processed_data
+            logger.info(f"Added /32 prefix to {len(data)} individual IPs")
+
         # Sort data by entry
         if self.config['settings'].get('sort_output', True):
-            sorted_items = sorted(data.items(), key=lambda x: x[0])
+            # Numerical sorting untuk IP categories
+            if category in ['ip_blacklist_specific', 'ip_blacklist_segment',
+                           'ip_whitelist_specific', 'ip_whitelist_segment']:
+                sorted_items = sorted(data.items(), key=lambda x: self.ip_sort_key(x[0]))
+            else:
+                # Alphabetical sorting untuk domains
+                sorted_items = sorted(data.items(), key=lambda x: x[0])
         else:
             sorted_items = list(data.items())
 
