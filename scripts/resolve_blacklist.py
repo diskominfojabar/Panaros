@@ -367,16 +367,108 @@ def merge_domain_ips(existing_data: Dict[str, str], domain_ips: Dict[str, str]) 
     return merged
 
 
-def write_specific_txt(filepath: str, data: Dict[str, str]):
-    """Write blacklist-specific.txt dengan sorted data"""
+def is_ipv6(ip: str) -> bool:
+    """Check if IP is IPv6 (contains colon)"""
+    return ':' in ip
+
+
+def add_ip_prefix(ip: str) -> str:
+    """
+    Add appropriate CIDR prefix based on IP version
+    - IPv4: /32 for individual IPs
+    - IPv6: /128 for individual IPs
+    """
+    if '/' in ip:
+        return ip  # Already has prefix
+    return f"{ip}/128" if is_ipv6(ip) else f"{ip}/32"
+
+
+def ip_sort_key(ip_or_cidr: str):
+    """
+    Generate sort key untuk IP address atau CIDR (numerical sorting)
+    Supports both IPv4 and IPv6
+    IPv4 addresses sorted first, then IPv6
+    """
     try:
-        sorted_items = sorted(data.items(), key=lambda x: x[0])
+        # Split IP and CIDR
+        if '/' in ip_or_cidr:
+            ip_part, cidr_part = ip_or_cidr.split('/')
+            cidr = int(cidr_part)
+        else:
+            ip_part = ip_or_cidr
+            # Detect default CIDR based on IP version
+            cidr = 128 if is_ipv6(ip_part) else 32
+
+        # IPv6 sorting
+        if is_ipv6(ip_part):
+            # Expand IPv6 to full form and parse segments
+            segments = ip_part.split(':')
+            # Handle :: abbreviation
+            if '' in segments:
+                idx = segments.index('')
+                missing = 8 - len([s for s in segments if s])
+                segments = segments[:idx] + ['0'] * missing + segments[idx+1:]
+
+            # Convert hex segments to integers
+            int_segments = []
+            for seg in segments:
+                if seg:
+                    int_segments.append(int(seg, 16))
+                else:
+                    int_segments.append(0)
+
+            # Pad to 8 segments if needed
+            while len(int_segments) < 8:
+                int_segments.append(0)
+
+            # Return tuple: (6, segment1, segment2, ..., segment8, cidr)
+            return tuple([6] + int_segments[:8] + [cidr])
+
+        # IPv4 sorting
+        else:
+            # Parse octets
+            octets = tuple(int(octet) for octet in ip_part.split('.'))
+            # Return tuple: (4, octet1, octet2, octet3, octet4, cidr)
+            return tuple([4] + list(octets) + [cidr])
+    except:
+        # Fallback: put errors at the end
+        return tuple([9] + [0] * 8 + [0])
+
+
+def write_specific_txt(filepath: str, data: Dict[str, str]):
+    """
+    Write blacklist-specific.txt dengan sorted data
+    Automatically adds CIDR prefix: /32 for IPv4, /128 for IPv6
+    Numerical sorting: IPv4 first, then IPv6
+    """
+    try:
+        # Add CIDR prefix to all IPs
+        processed_data = {}
+        ipv4_count = 0
+        ipv6_count = 0
+
+        for ip, source in data.items():
+            prefixed_ip = add_ip_prefix(ip)
+            processed_data[prefixed_ip] = source
+
+            # Count by version
+            if is_ipv6(ip):
+                ipv6_count += 1
+            else:
+                ipv4_count += 1
+
+        logger.info(f"Added CIDR prefix: {ipv4_count} IPv4 (/32), {ipv6_count} IPv6 (/128)")
+
+        # Sort numerically (IPv4 first, then IPv6)
+        sorted_items = sorted(processed_data.items(), key=lambda x: ip_sort_key(x[0]))
 
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(f"# Blacklist IP Spesifik - IP dari domain blacklist.txt\n")
             f.write(f"# Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n")
             f.write(f"# Total entries: {len(sorted_items)}\n")
-            f.write(f"# Format: <ip> # <source>\n")
+            f.write(f"# Format: <ip/prefix> # <source>\n")
+            f.write(f"# IPv4: {ipv4_count} entries with /32 prefix\n")
+            f.write(f"# IPv6: {ipv6_count} entries with /128 prefix\n")
             f.write("#\n")
             f.write("# PRIORITAS: Level 2 - Blacklist IP Spesifik\n")
             f.write("# IP dengan marker 'Berasal dari IP domain' akan di-update otomatis\n")
@@ -387,6 +479,7 @@ def write_specific_txt(filepath: str, data: Dict[str, str]):
                 f.write(f"{ip} # {source}\n")
 
         logger.info(f"Successfully wrote {len(sorted_items)} entries to {filepath}")
+        logger.info(f"Sorting: IPv4 first ({ipv4_count}), then IPv6 ({ipv6_count})")
     except Exception as e:
         logger.error(f"Error writing {filepath}: {e}")
         raise
