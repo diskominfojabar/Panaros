@@ -1,8 +1,7 @@
-# Last updated: 2025-12-07 17:10:59 UTC
-# Total entries: 207
+# Last updated: 2025-12-08 17:14:48 UTC
+# Total entries: 208
 # Format: <entry> # <source>
 #
-*.jabarprov.go.id # Main Infrastructure
 *.actions.githubusercontent.com # GitHub Domains
 *.api.github.com # GitHub Domains
 *.azureedge.net # GitHub Domains
@@ -20,6 +19,7 @@
 *.githubusercontent.com # GitHub Domains
 *.herokuapp.com # Heroku Hosting (Shared IP Protection)
 *.herokussl.com # Heroku SSL (Shared IP Protection)
+*.jabarprov.go.id # Main Infrastructure
 *.microsoft.com # GitHub Domains
 *.msecnd.net # GitHub Domains
 *.netlify.app # Netlify Hosting (Shared IP Protection)
