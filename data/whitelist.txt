@@ -2,6 +2,7 @@
 # Total entries: 207
 # Format: <entry> # <source>
 #
+*.jabarprov.go.id # Main Infrastructure
 *.actions.githubusercontent.com # GitHub Domains
 *.api.github.com # GitHub Domains
 *.azureedge.net # GitHub Domains
