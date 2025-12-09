@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CIDR Test</title>
+</head>
+<body>
+    <h1>CIDR Matching Test</h1>
+    <div id="results"></div>
+
+    <script>
+        function ipToInt(ip) {
+            return ip.split('.').reduce((int, octet) => (int << 8) + parseInt(octet, 10), 0) >>> 0;
+        }
+
+        function isIPInCIDR(ip, cidr) {
+            if (!cidr.includes('/')) return false;
+
+            const [range, bits] = cidr.split('/');
+            const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
+
+            return (ipToInt(ip) & mask) === (ipToInt(range) & mask);
+        }
+
+        function isValidIP(str) {
+            const ipRegex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
+            if (!ipRegex.test(str)) return false;
+
+            const parts = str.split('.');
+            return parts.every(part => {
+                const num = parseInt(part, 10);
+                return num >= 0 && num <= 255;
+            });
+        }
+
+        async function testBlacklist() {
+            const results = document.getElementById('results');
+            const rawInput = '1.34.200.229';
+            const isIPQuery = isValidIP(rawInput);
+
+            results.innerHTML += `<p>Testing IP: ${rawInput}</p>`;
+            results.innerHTML += `<p>Is valid IP: ${isIPQuery}</p>`;
+
+            try {
+                // Fetch blacklist
+                const url = 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/blacklist-specific.txt';
+                results.innerHTML += `<p>Fetching: ${url}</p>`;
+
+                const response = await fetch(url, { cache: 'no-cache' });
+                const text = await response.text();
+
+                results.innerHTML += `<p>Response OK: ${response.ok}</p>`;
+                results.innerHTML += `<p>Data length: ${text.length} bytes</p>`;
+
+                // Parse lines
+                const lines = text.split('\n');
+                results.innerHTML += `<p>Total lines: ${lines.length}</p>`;
+
+                let found = false;
+                let matchedLine = '';
+
+                for (let line of lines) {
+                    let cleanLine = line.trim();
+                    if (cleanLine.startsWith('#') || cleanLine === "") continue;
+
+                    // Extract pattern
+                    let pattern;
+                    if (cleanLine.includes(' # ')) {
+                        pattern = cleanLine.split(' # ')[0].trim();
+                    } else {
+                        pattern = cleanLine.split(/\s+/)[0];
+                    }
+
+                    if (!pattern) continue;
+                    pattern = pattern.toLowerCase();
+
+                    // Check CIDR matching
+                    let matched = false;
+                    if (pattern.includes('/') && isIPQuery) {
+                        matched = isIPInCIDR(rawInput, pattern);
+                    }
+
+                    if (matched) {
+                        found = true;
+                        matchedLine = cleanLine;
+                        break;
+                    }
+                }
+
+                if (found) {
+                    results.innerHTML += `<h2 style="color: red;">✓ IP BLOCKED!</h2>`;
+                    results.innerHTML += `<p>Matched: ${matchedLine}</p>`;
+                } else {
+                    results.innerHTML += `<h2 style="color: green;">✗ IP NOT BLOCKED</h2>`;
+                }
+
+            } catch (e) {
+                results.innerHTML += `<p style="color: red;">ERROR: ${e.message}</p>`;
+                console.error(e);
+            }
+        }
+
+        // Run test on load
+        window.onload = testBlacklist;
+    </script>
+</body>
+</html>

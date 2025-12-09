@@ -827,7 +827,9 @@
                 results.forEach(source => {
                     if (source.data) {
                         const lines = source.data.split('\n');
+                        let lineCount = 0;
                         for (let line of lines) {
+                            lineCount++;
                             let cleanLine = line.trim();
                             if (cleanLine.startsWith('#') || cleanLine.startsWith(';') || cleanLine === "") continue;
 
@@ -860,6 +862,10 @@
                             } else if (pattern.includes('/') && isIPQuery) {
                                 // CIDR range matching for IPs
                                 matched = isIPInCIDR(rawInput, pattern);
+                                // Debug logging for matching IPs
+                                if (pattern.includes(rawInput.split('.')[0] + '.' + rawInput.split('.')[1])) {
+                                    console.log('[DEBUG] CIDR Check Line', lineCount, ':', rawInput, 'vs', pattern, '→', matched ? 'MATCH' : 'no match');
+                                }
                             } else {
                                 // Exact match or domain suffix
                                 matched = (pattern === rawInput) || rawInput.endsWith('.' + pattern);
@@ -868,9 +874,11 @@
                             if (matched) {
                                 const reason = getBlockingReason(fullLine);
                                 foundMatches.push({ source: source.name, reason: reason });
+                                console.log('[DEBUG] ✓ BLOCKED:', rawInput, 'matched', pattern, 'from', source.name);
                                 break; // Stop after first match in this source
                             }
                         }
+                        console.log('[DEBUG]', source.name, '- Checked', lineCount, 'lines, found', foundMatches.filter(m => m.source === source.name).length, 'matches');
                     }
                 });
 
@@ -967,6 +975,13 @@
 
         // --- Initialization ---
         window.onload = () => {
+            // Version info for debugging
+            console.log('%c🔧 JabarCloud Security Checker', 'color: #3b82f6; font-weight: bold; font-size: 14px');
+            console.log('Version: 1.2.0 (2025-12-09)');
+            console.log('Features: CIDR Matching ✓ | WHOIS Display ✓ | Cache Fix ✓');
+            console.log('Debugging: Enabled (check console for match details)');
+            console.log('---');
+
             checkTheme(); // Check theme first!
             inputField.focus();
             fetchUserInfo();
