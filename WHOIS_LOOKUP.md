@@ -14,10 +14,34 @@ Fitur untuk mengecek kepemilikan IP/domain dan status keamanan (blacklist/whitel
 
 **Provider:** IPinfo.io
 **Plan:** Lite (Free)
-**Token:** `13cf963d4e732d`
+**Token:** Set via environment variable `IPINFO_TOKEN` (or defaults to embedded token)
 **Monthly Limit:** 50,000 requests
 **Current Usage:** ~5 requests
 **Remaining:** ~49,995 requests
+
+### Setting API Token (Recommended for Production)
+
+**Local Development:**
+```bash
+export IPINFO_TOKEN="13cf963d4e732d"
+```
+
+**GitHub Actions Secret:**
+1. Go to Repository Settings → Secrets and variables → Actions
+2. Click "New repository secret"
+3. Name: `IPINFO_TOKEN`
+4. Value: `13cf963d4e732d`
+5. Click "Add secret"
+
+**GitHub Actions Workflow:**
+```yaml
+- name: Update WHOIS Cache
+  env:
+    IPINFO_TOKEN: ${{ secrets.IPINFO_TOKEN }}
+  run: python3 scripts/update_whois_cache.py
+```
+
+The script will automatically use the environment variable if set, otherwise falls back to the embedded token.
 
 ### API Capabilities
 
@@ -569,6 +593,53 @@ Found 234 results:
 }
 ```
 
+## 🌐 Web Interface Integration (index.html)
+
+### Features Added (2025-12-09)
+
+**1. CIDR Range Checking**
+- ✅ Automatically detects if IP falls within blacklisted/whitelisted CIDR ranges
+- ✅ Example: IP `10.1.2.3` now correctly matches `10.0.0.0/8` in drop.txt
+- ✅ Works for both blacklist and whitelist subnet files
+
+**2. WHOIS Display in UI**
+- ✅ Shows organization, country, city, ASN for checked IPs
+- ✅ Displays for BOTH blocked and allowed IPs
+- ✅ Data fetched from whois.txt cache
+- ✅ Automatically updates display based on theme (light/dark mode)
+
+**3. Enhanced IP File Coverage**
+- ✅ Now checks whitelist-specific.txt and pass.txt for IP whitelisting
+- ✅ Priority system: Whitelist IPs → Blacklist IPs → DROP subnets → PASS subnets
+
+### Technical Implementation
+
+**CIDR Range Checking:**
+```javascript
+function isIPInCIDR(ip, cidr) {
+    const [range, bits] = cidr.split('/');
+    const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
+    return (ipToInt(ip) & mask) === (ipToInt(range) & mask);
+}
+```
+
+**WHOIS Lookup:**
+```javascript
+async function fetchWhoisInfo(query) {
+    // Fetches from whois.txt cache on GitHub
+    // Returns: {ip, org, country, city, asn, hostname, cached}
+}
+```
+
+**Usage:**
+1. Visit index.html
+2. Enter IP address (e.g., `8.8.8.8` or `10.1.2.3`)
+3. Click "Periksa Sekarang"
+4. Result shows:
+   - Security status (Blocked/Safe)
+   - WHOIS information (if available)
+   - Source file that triggered the match
+
 ## 🎯 Future Enhancements
 
 **Planned Features:**
@@ -580,10 +651,11 @@ Found 234 results:
 - [ ] Integration with abuse.ch API
 - [ ] Historical data tracking
 - [ ] Alert system for high-risk ASNs
+- [ ] Real-time IPinfo.io API fallback in index.html
 
 ---
 
-**Version:** 1.0
+**Version:** 1.1
 **Last Updated:** 2025-12-09
 **API Provider:** IPinfo.io
 **License:** Internal Use

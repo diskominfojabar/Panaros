@@ -374,6 +374,11 @@
             { name: "DROP (Don't Route or Peer)", url: 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/drop.txt' },
         ];
 
+        const whitelistIPSources = [
+            { name: 'Whitelist IP Specific', url: 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/whitelist-specific.txt' },
+            { name: 'PASS (Whitelist Subnets)', url: 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/pass.txt' },
+        ];
+
         // Mapping source marker to user-friendly blocking reasons
         const reasonMap = {
             'URLhaus Malware Domains': '🦠 Malware Distribution Site',
@@ -658,11 +663,74 @@
             getLocalIP();
         }
 
+        // --- Helper Function: CIDR Range Checking ---
+        function ipToInt(ip) {
+            return ip.split('.').reduce((int, octet) => (int << 8) + parseInt(octet, 10), 0) >>> 0;
+        }
+
+        function isIPInCIDR(ip, cidr) {
+            if (!cidr.includes('/')) return false;
+
+            const [range, bits] = cidr.split('/');
+            const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
+
+            return (ipToInt(ip) & mask) === (ipToInt(range) & mask);
+        }
+
+        function isValidIP(str) {
+            const ipRegex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
+            if (!ipRegex.test(str)) return false;
+
+            const parts = str.split('.');
+            return parts.every(part => {
+                const num = parseInt(part, 10);
+                return num >= 0 && num <= 255;
+            });
+        }
+
+        // --- Helper Function: WHOIS Lookup ---
+        async function fetchWhoisInfo(query) {
+            try {
+                // Try to fetch from whois.txt cache first
+                const whoisUrl = 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/whois.txt';
+                const response = await fetch(whoisUrl, {
+                    cache: 'no-cache',
+                    signal: AbortSignal.timeout(5000)
+                });
+
+                if (response.ok) {
+                    const text = await response.text();
+                    const lines = text.split('\n');
+
+                    for (let line of lines) {
+                        if (line.startsWith('#') || !line.trim()) continue;
+
+                        // Format: IP|ORG|COUNTRY|CITY|ASN|HOSTNAME|CACHED_DATE
+                        const parts = line.split('|');
+                        if (parts.length >= 7 && parts[0].trim() === query) {
+                            return {
+                                ip: parts[0].trim(),
+                                org: parts[1].trim(),
+                                country: parts[2].trim(),
+                                city: parts[3].trim(),
+                                asn: parts[4].trim(),
+                                hostname: parts[5].trim(),
+                                cached: parts[6].trim()
+                            };
+                        }
+                    }
+                }
+            } catch (e) {
+                console.log('WHOIS cache not available:', e);
+            }
+
+            return null;
+        }
+
         // --- Core Logic: Check Domain/IP ---
         function isValidDomainOrIP(str) {
-            const ipRegex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
             const domainRegex = /^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/;
-            return ipRegex.test(str) || domainRegex.test(str);
+            return isValidIP(str) || domainRegex.test(str);
         }
 
         async function performCheck() {
@@ -676,11 +744,19 @@
             resultArea.style.display = 'none';
             let isWhitelisted = false;
             let foundMatches = []; // Changed to store {source, reason}
+            const isIPQuery = isValidIP(rawInput);
 
             try {
                 // Step 1: Check WHITELIST first (priority!)
                 const whitelistPromises = whitelistSources.map(src => fetch(src.url).then(res => res.ok ? res.text() : "").then(text => ({ name: src.name, data: text })));
                 const whitelistResults = await Promise.all(whitelistPromises);
+
+                // Also check whitelist IP sources if input is IP
+                if (isIPQuery) {
+                    const whitelistIPPromises = whitelistIPSources.map(src => fetch(src.url).then(res => res.ok ? res.text() : "").then(text => ({ name: src.name, data: text })));
+                    const whitelistIPResults = await Promise.all(whitelistIPPromises);
+                    whitelistResults.push(...whitelistIPResults);
+                }
 
                 whitelistResults.forEach(source => {
                     if (source.data && !isWhitelisted) {
@@ -701,14 +777,19 @@
                             if (!pattern) continue;
                             pattern = pattern.toLowerCase();
 
-                            // Check wildcard matching
+                            // Check matching
                             let matched = false;
                             if (pattern.includes('*')) {
+                                // Wildcard matching for domains
                                 const escapedPattern = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
                                 const regexString = '^' + escapedPattern.replace(/\*/g, '.*') + '$';
                                 const regex = new RegExp(regexString);
                                 matched = regex.test(rawInput);
+                            } else if (pattern.includes('/') && isIPQuery) {
+                                // CIDR range matching for IPs
+                                matched = isIPInCIDR(rawInput, pattern);
                             } else {
+                                // Exact match or domain suffix
                                 matched = (pattern === rawInput) || rawInput.endsWith('.' + pattern);
                             }
 
@@ -720,9 +801,10 @@
                     }
                 });
 
-                // If whitelisted, immediately show SAFE result
+                // If whitelisted, fetch WHOIS and show SAFE result
                 if (isWhitelisted) {
-                    displayResult([], rawInput); // Empty array = SAFE
+                    const whoisData = isIPQuery ? await fetchWhoisInfo(rawInput) : null;
+                    displayResult([], rawInput, whoisData); // Empty array = SAFE
                     return;
                 }
 
@@ -758,11 +840,16 @@
 
                             let matched = false;
                             if (pattern.includes('*')) {
+                                // Wildcard matching for domains
                                 const escapedPattern = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
                                 const regexString = '^' + escapedPattern.replace(/\*/g, '.*') + '$';
                                 const regex = new RegExp(regexString);
                                 matched = regex.test(rawInput);
+                            } else if (pattern.includes('/') && isIPQuery) {
+                                // CIDR range matching for IPs
+                                matched = isIPInCIDR(rawInput, pattern);
                             } else {
+                                // Exact match or domain suffix
                                 matched = (pattern === rawInput) || rawInput.endsWith('.' + pattern);
                             }
 
@@ -774,7 +861,10 @@
                         }
                     }
                 });
-                displayResult(foundMatches, rawInput);
+
+                // Fetch WHOIS data if query is IP
+                const whoisData = isIPQuery ? await fetchWhoisInfo(rawInput) : null;
+                displayResult(foundMatches, rawInput, whoisData);
             } catch (e) {
                 console.error(e);
                 alert("Gagal terhubung ke server data atau terjadi kesalahan parsing.");
@@ -783,10 +873,29 @@
             }
         }
 
-        function displayResult(foundList, query) {
+        function displayResult(foundList, query, whoisData = null) {
             let html = '';
             let visitUrl = query.startsWith('http') ? query : 'http://' + query;
             const waLink = `https://wa.me/6281255559400?text=${encodeURIComponent('Halo Admin, request whitelist untuk: ' + query)}`;
+
+            // WHOIS HTML snippet
+            let whoisHtml = '';
+            if (whoisData) {
+                whoisHtml = `
+                    <div style="margin-top:15px; padding:12px; background-color:rgba(59,130,246,0.08); border-radius:8px; border:1px solid rgba(59,130,246,0.2);">
+                        <div style="font-size:11px; font-weight:700; color:var(--primary); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
+                            📋 WHOIS Information
+                        </div>
+                        <div style="font-size:13px; line-height:1.6; color:var(--text-main);">
+                            <strong>Organization:</strong> ${whoisData.org}<br>
+                            <strong>Country:</strong> ${whoisData.country} | <strong>City:</strong> ${whoisData.city}<br>
+                            <strong>ASN:</strong> ${whoisData.asn}${whoisData.hostname !== 'Unknown' ? ` | <strong>Hostname:</strong> ${whoisData.hostname}` : ''}
+                        </div>
+                        <div style="font-size:10px; color:var(--text-muted); margin-top:6px;">
+                            Cached: ${whoisData.cached}
+                        </div>
+                    </div>`;
+            }
 
             resultArea.style.display = 'block';
             if (foundList.length > 0) {
@@ -801,7 +910,7 @@
                             <div>
                                 <h3 class="status-title" style="color: #991b1b;">Akses Diblokir!</h3>
                                 <p class="status-desc">
-                                    Domain <strong>${query}</strong> terdeteksi berbahaya atau masuk dalam kriteria blokir kami.
+                                    ${isValidIP(query) ? 'IP' : 'Domain'} <strong>${query}</strong> terdeteksi berbahaya atau masuk dalam kriteria blokir kami.
                                 </p>
                                 <div style="margin-top:10px; padding:8px 12px; background-color:rgba(153,27,27,0.1); border-radius:6px; border-left:3px solid #991b1b;">
                                     <strong style="color:#991b1b; font-size:14px;">${primaryReason}</strong>
@@ -811,6 +920,7 @@
                                 </div>
                             </div>
                         </div>
+                        ${whoisHtml}
                         <div style="margin-top:15px; padding-top:10px; border-top:1px solid rgba(0,0,0,0.05)">
                             <a href="${waLink}" target="_blank" class="action-link" style="color:#ef4444;">
                                 📞 Ajukan Whitelisting
@@ -830,6 +940,7 @@
                                 </p>
                             </div>
                         </div>
+                        ${whoisHtml}
                         <div style="margin-top:15px;">
                             <a href="${visitUrl}" target="_blank" class="action-link" style="color:#10b981;">
                                 🌐 Coba Kunjungi Sekarang ➔
@@ -838,7 +949,7 @@
                     </div>`;
             }
             resultArea.innerHTML = html;
-            void resultArea.offsetWidth; 
+            void resultArea.offsetWidth;
             resultArea.classList.add('show');
         }
 

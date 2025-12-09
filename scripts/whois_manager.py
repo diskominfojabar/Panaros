@@ -29,11 +29,18 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # IPinfo Configuration
-IPINFO_TOKEN = "13cf963d4e732d"
+# Token can be set via environment variable IPINFO_TOKEN or defaults to embedded token
+IPINFO_TOKEN = os.getenv('IPINFO_TOKEN', '13cf963d4e732d')
 IPINFO_API = "https://ipinfo.io"
 MONTHLY_LIMIT = 50000
 BATCH_SIZE = 100  # Process 100 IPs at a time
 RATE_LIMIT_DELAY = 0.1  # 100ms between requests
+
+# Log token source for debugging
+if os.getenv('IPINFO_TOKEN'):
+    logger.info("Using IPINFO_TOKEN from environment variable")
+else:
+    logger.info("Using default IPINFO_TOKEN (consider setting IPINFO_TOKEN environment variable)")
 
 
 class WhoisManager:
