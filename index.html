@@ -336,10 +336,11 @@
                     <div class="info-sub" id="userAsn">Mendeteksi ISP...</div>
                 </div>
 
-                <div class="info-group">
-                    <div class="info-label">IP Lokal (Private)</div>
-                    <div class="info-value" id="userLocalIp"><div class="skeleton" style="width:50%"></div></div>
-                    <div class="info-sub" style="color: #94a3b8; font-size: 0.7rem;">Visible via WebRTC</div>
+                <div class="info-group" id="checkedIpWhois" style="display: none;">
+                    <div class="info-label">📋 Kepemilikan IP/Domain</div>
+                    <div class="info-value" id="whoisOrg" style="font-size: 0.9rem; font-weight: 600;">-</div>
+                    <div class="info-sub" id="whoisCountry" style="color: #94a3b8; font-size: 0.75rem;">-</div>
+                    <div class="info-sub" id="whoisAsn" style="color: #94a3b8; font-size: 0.7rem; margin-top: 4px;">-</div>
                 </div>
 
                 <div class="info-group">
@@ -677,6 +678,40 @@
             return ip.split('.').reduce((int, octet) => (int << 8) + parseInt(octet, 10), 0) >>> 0;
         }
 
+        // IPv6 address normalization and expansion
+        function normalizeIPv6(ip) {
+            // Remove brackets if present
+            ip = ip.replace(/^\[|\]$/g, '');
+
+            // Handle :: expansion
+            if (ip.includes('::')) {
+                const sides = ip.split('::');
+                const leftGroups = sides[0] ? sides[0].split(':') : [];
+                const rightGroups = sides[1] ? sides[1].split(':') : [];
+                const missingGroups = 8 - leftGroups.length - rightGroups.length;
+                const middleGroups = Array(missingGroups).fill('0000');
+                const allGroups = [...leftGroups, ...middleGroups, ...rightGroups];
+                ip = allGroups.join(':');
+            }
+
+            // Pad each group to 4 digits
+            return ip.split(':').map(g => g.padStart(4, '0')).join(':');
+        }
+
+        // Convert IPv6 to BigInt for comparison
+        function ipv6ToBigInt(ip) {
+            const normalized = normalizeIPv6(ip);
+            const groups = normalized.split(':');
+            let result = BigInt(0);
+
+            for (let i = 0; i < groups.length; i++) {
+                const value = BigInt(parseInt(groups[i], 16));
+                result = (result << BigInt(16)) | value;
+            }
+
+            return result;
+        }
+
         function isIPInCIDR(ip, cidr) {
             if (!cidr.includes('/')) return false;
 
@@ -691,13 +726,29 @@
                 return false;
             }
 
-            // Only handle IPv4 for now (IPv6 requires different logic)
-            if (!ipIsV4) {
-                return false;
+            // Handle IPv4
+            if (ipIsV4) {
+                const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
+                return (ipToInt(ip) & mask) === (ipToInt(range) & mask);
             }
 
-            const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
-            return (ipToInt(ip) & mask) === (ipToInt(range) & mask);
+            // Handle IPv6
+            if (isIPv6(ip) && isIPv6(range)) {
+                try {
+                    const ipInt = ipv6ToBigInt(ip);
+                    const rangeInt = ipv6ToBigInt(range);
+                    const prefixLen = parseInt(bits, 10);
+
+                    // Compare first prefixLen bits by shifting right
+                    const shift = BigInt(128 - prefixLen);
+                    return (ipInt >> shift) === (rangeInt >> shift);
+                } catch (e) {
+                    console.error('[DEBUG] IPv6 CIDR matching error:', e.message);
+                    return false;
+                }
+            }
+
+            return false;
         }
 
         function isValidIP(str) {
@@ -725,27 +776,44 @@
                     const data = await response.json();
                     console.log('[DEBUG] IPinfo response for', ip, ':', data);
 
-                    // Extract network prefix (e.g., "103.125.88.0/24")
-                    // IPinfo doesn't provide this directly, so we'll construct common prefixes
-                    const octets = ip.split('.');
+                    // Check if this is IPv4 or IPv6
+                    if (isIPv4(ip)) {
+                        // IPv4: Generate possible network prefixes
+                        const octets = ip.split('.');
+                        const possiblePrefixes = [
+                            `${ip}/32`,  // Specific IP
+                            `${octets[0]}.${octets[1]}.${octets[2]}.0/24`,  // /24 network
+                            `${octets[0]}.${octets[1]}.0.0/16`,  // /16 network
+                            `${octets[0]}.0.0.0/8`,  // /8 network
+                        ];
+                        console.log('[DEBUG] IPv4 network prefixes to check:', possiblePrefixes);
+                        return possiblePrefixes;
+                    } else if (isIPv6(ip)) {
+                        // IPv6: Generate possible network prefixes
+                        const normalized = normalizeIPv6(ip);
+                        const groups = normalized.split(':');
 
-                    // Generate possible network prefixes to check
-                    const possiblePrefixes = [
-                        `${ip}/32`,  // Specific IP
-                        `${octets[0]}.${octets[1]}.${octets[2]}.0/24`,  // /24 network
-                        `${octets[0]}.${octets[1]}.0.0/16`,  // /16 network
-                        `${octets[0]}.0.0.0/8`,  // /8 network
-                    ];
-
-                    console.log('[DEBUG] Network prefixes to check:', possiblePrefixes);
-                    return possiblePrefixes;
+                        const possiblePrefixes = [
+                            `${ip}/128`,  // Specific IP
+                            `${groups.slice(0, 4).join(':')}::/64`,  // /64 network (common)
+                            `${groups.slice(0, 3).join(':')}::/48`,  // /48 network
+                            `${groups.slice(0, 2).join(':')}::/32`,  // /32 network
+                        ];
+                        console.log('[DEBUG] IPv6 network prefixes to check:', possiblePrefixes);
+                        return possiblePrefixes;
+                    }
                 }
             } catch (e) {
                 console.log('[DEBUG] Network prefix lookup failed:', e.message);
             }
 
-            // Fallback: just return /32
-            return [`${ip}/32`];
+            // Fallback: return appropriate prefix based on IP type
+            if (isIPv4(ip)) {
+                return [`${ip}/32`];
+            } else if (isIPv6(ip)) {
+                return [`${ip}/128`];
+            }
+            return [`${ip}`];
         }
 
         // --- Helper Function: WHOIS Lookup ---
@@ -973,7 +1041,24 @@
             let visitUrl = query.startsWith('http') ? query : 'http://' + query;
             const waLink = `https://wa.me/6281255559400?text=${encodeURIComponent('Halo Admin, request whitelist untuk: ' + query)}`;
 
-            // WHOIS HTML snippet
+            // Update sidebar WHOIS section
+            const checkedWhoisSection = document.getElementById('checkedIpWhois');
+            const whoisOrgEl = document.getElementById('whoisOrg');
+            const whoisCountryEl = document.getElementById('whoisCountry');
+            const whoisAsnEl = document.getElementById('whoisAsn');
+
+            if (whoisData && checkedWhoisSection) {
+                // Show the section and populate with WHOIS data
+                checkedWhoisSection.style.display = 'block';
+                whoisOrgEl.textContent = whoisData.org || 'Unknown Organization';
+                whoisCountryEl.textContent = `${whoisData.country || 'Unknown'} | ${whoisData.city || 'Unknown'}`;
+                whoisAsnEl.textContent = `${whoisData.asn || 'Unknown ASN'}${whoisData.hostname !== 'Unknown' ? ' | ' + whoisData.hostname : ''}`;
+            } else {
+                // Hide the section if no WHOIS data
+                checkedWhoisSection.style.display = 'none';
+            }
+
+            // WHOIS HTML snippet for result card
             let whoisHtml = '';
             if (whoisData) {
                 whoisHtml = `
@@ -1052,7 +1137,7 @@
         window.onload = () => {
             // Version info for debugging
             console.log('%c🔧 JabarCloud Security Checker', 'color: #3b82f6; font-weight: bold; font-size: 14px');
-            console.log('Version: 1.3.0 (2025-12-09)');
+            console.log('Version: 1.4.0 (2025-12-09) - IPv6 support added');
             console.log('Features: CIDR Matching ✓ | WHOIS Display ✓ | Network Prefix Lookup ✓');
             console.log('Fixes: IPv4/IPv6 Type Validation ✓ | Multi-Prefix Checking ✓');
             console.log('Debugging: Enabled (check console for match details)');

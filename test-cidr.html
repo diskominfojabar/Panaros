@@ -12,8 +12,43 @@
             return /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(str);
         }
 
+        function isIPv6(str) {
+            return str.includes(':');
+        }
+
         function ipToInt(ip) {
             return ip.split('.').reduce((int, octet) => (int << 8) + parseInt(octet, 10), 0) >>> 0;
+        }
+
+        // IPv6 address normalization and expansion
+        function normalizeIPv6(ip) {
+            ip = ip.replace(/^\[|\]$/g, '');
+
+            if (ip.includes('::')) {
+                const sides = ip.split('::');
+                const leftGroups = sides[0] ? sides[0].split(':') : [];
+                const rightGroups = sides[1] ? sides[1].split(':') : [];
+                const missingGroups = 8 - leftGroups.length - rightGroups.length;
+                const middleGroups = Array(missingGroups).fill('0000');
+                const allGroups = [...leftGroups, ...middleGroups, ...rightGroups];
+                ip = allGroups.join(':');
+            }
+
+            return ip.split(':').map(g => g.padStart(4, '0')).join(':');
+        }
+
+        // Convert IPv6 to BigInt for comparison
+        function ipv6ToBigInt(ip) {
+            const normalized = normalizeIPv6(ip);
+            const groups = normalized.split(':');
+            let result = BigInt(0);
+
+            for (let i = 0; i < groups.length; i++) {
+                const value = BigInt(parseInt(groups[i], 16));
+                result = (result << BigInt(16)) | value;
+            }
+
+            return result;
         }
 
         function isIPInCIDR(ip, cidr) {
@@ -30,13 +65,29 @@
                 return false;
             }
 
-            // Only handle IPv4 for now
-            if (!ipIsV4) {
-                return false;
+            // Handle IPv4
+            if (ipIsV4) {
+                const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
+                return (ipToInt(ip) & mask) === (ipToInt(range) & mask);
             }
 
-            const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
-            return (ipToInt(ip) & mask) === (ipToInt(range) & mask);
+            // Handle IPv6
+            if (isIPv6(ip) && isIPv6(range)) {
+                try {
+                    const ipInt = ipv6ToBigInt(ip);
+                    const rangeInt = ipv6ToBigInt(range);
+                    const prefixLen = parseInt(bits, 10);
+
+                    // Compare first prefixLen bits by shifting right
+                    const shift = BigInt(128 - prefixLen);
+                    return (ipInt >> shift) === (rangeInt >> shift);
+                } catch (e) {
+                    console.error('[DEBUG] IPv6 CIDR matching error:', e.message);
+                    return false;
+                }
+            }
+
+            return false;
         }
 
         function isValidIP(str) {
