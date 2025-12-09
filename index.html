@@ -748,12 +748,20 @@
 
             try {
                 // Step 1: Check WHITELIST first (priority!)
-                const whitelistPromises = whitelistSources.map(src => fetch(src.url).then(res => res.ok ? res.text() : "").then(text => ({ name: src.name, data: text })));
+                const whitelistPromises = whitelistSources.map(src =>
+                    fetch(src.url, { cache: 'no-cache' })
+                        .then(res => res.ok ? res.text() : "")
+                        .then(text => ({ name: src.name, data: text }))
+                );
                 const whitelistResults = await Promise.all(whitelistPromises);
 
                 // Also check whitelist IP sources if input is IP
                 if (isIPQuery) {
-                    const whitelistIPPromises = whitelistIPSources.map(src => fetch(src.url).then(res => res.ok ? res.text() : "").then(text => ({ name: src.name, data: text })));
+                    const whitelistIPPromises = whitelistIPSources.map(src =>
+                        fetch(src.url, { cache: 'no-cache' })
+                            .then(res => res.ok ? res.text() : "")
+                            .then(text => ({ name: src.name, data: text }))
+                    );
                     const whitelistIPResults = await Promise.all(whitelistIPPromises);
                     whitelistResults.push(...whitelistIPResults);
                 }
@@ -809,7 +817,11 @@
                 }
 
                 // Step 2: Check BLACKLIST only if NOT whitelisted
-                const blacklistPromises = blacklistSources.map(src => fetch(src.url).then(res => res.ok ? res.text() : "").then(text => ({ name: src.name, data: text })));
+                const blacklistPromises = blacklistSources.map(src =>
+                    fetch(src.url, { cache: 'no-cache' })
+                        .then(res => res.ok ? res.text() : "")
+                        .then(text => ({ name: src.name, data: text }))
+                );
                 const results = await Promise.all(blacklistPromises);
 
                 results.forEach(source => {
