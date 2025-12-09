@@ -663,6 +663,15 @@
             getLocalIP();
         }
 
+        // --- Helper Function: IP Type Detection ---
+        function isIPv4(str) {
+            return /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(str);
+        }
+
+        function isIPv6(str) {
+            return str.includes(':');
+        }
+
         // --- Helper Function: CIDR Range Checking ---
         function ipToInt(ip) {
             return ip.split('.').reduce((int, octet) => (int << 8) + parseInt(octet, 10), 0) >>> 0;
@@ -672,8 +681,22 @@
             if (!cidr.includes('/')) return false;
 
             const [range, bits] = cidr.split('/');
-            const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
 
+            // CRITICAL FIX: Validate both IP and range are same type (IPv4 or IPv6)
+            const ipIsV4 = isIPv4(ip);
+            const rangeIsV4 = isIPv4(range);
+
+            // Skip if types don't match (prevents IPv4 matching IPv6)
+            if (ipIsV4 !== rangeIsV4) {
+                return false;
+            }
+
+            // Only handle IPv4 for now (IPv6 requires different logic)
+            if (!ipIsV4) {
+                return false;
+            }
+
+            const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
             return (ipToInt(ip) & mask) === (ipToInt(range) & mask);
         }
 
@@ -686,6 +709,43 @@
                 const num = parseInt(part, 10);
                 return num >= 0 && num <= 255;
             });
+        }
+
+        // --- Helper Function: Get Network Prefix from IPinfo ---
+        async function getNetworkPrefix(ip) {
+            try {
+                // Use IPinfo.io API to get network information
+                const apiUrl = `https://ipinfo.io/${ip}/json?token=13cf963d4e732d`;
+                const response = await fetch(apiUrl, {
+                    cache: 'no-cache',
+                    signal: AbortSignal.timeout(5000)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('[DEBUG] IPinfo response for', ip, ':', data);
+
+                    // Extract network prefix (e.g., "103.125.88.0/24")
+                    // IPinfo doesn't provide this directly, so we'll construct common prefixes
+                    const octets = ip.split('.');
+
+                    // Generate possible network prefixes to check
+                    const possiblePrefixes = [
+                        `${ip}/32`,  // Specific IP
+                        `${octets[0]}.${octets[1]}.${octets[2]}.0/24`,  // /24 network
+                        `${octets[0]}.${octets[1]}.0.0/16`,  // /16 network
+                        `${octets[0]}.0.0.0/8`,  // /8 network
+                    ];
+
+                    console.log('[DEBUG] Network prefixes to check:', possiblePrefixes);
+                    return possiblePrefixes;
+                }
+            } catch (e) {
+                console.log('[DEBUG] Network prefix lookup failed:', e.message);
+            }
+
+            // Fallback: just return /32
+            return [`${ip}/32`];
         }
 
         // --- Helper Function: WHOIS Lookup ---
@@ -745,6 +805,15 @@
             let isWhitelisted = false;
             let foundMatches = []; // Changed to store {source, reason}
             const isIPQuery = isValidIP(rawInput);
+
+            // Get network prefixes to check (for IP queries)
+            let ipPrefixesToCheck = [rawInput];  // Default: check exact IP
+            if (isIPQuery) {
+                console.log('[DEBUG] Looking up network prefixes for:', rawInput);
+                const networkPrefixes = await getNetworkPrefix(rawInput);
+                ipPrefixesToCheck = networkPrefixes;
+                console.log('[DEBUG] Will check these prefixes:', ipPrefixesToCheck);
+            }
 
             try {
                 // Step 1: Check WHITELIST first (priority!)
@@ -860,11 +929,17 @@
                                 const regex = new RegExp(regexString);
                                 matched = regex.test(rawInput);
                             } else if (pattern.includes('/') && isIPQuery) {
-                                // CIDR range matching for IPs
-                                matched = isIPInCIDR(rawInput, pattern);
-                                // Debug logging for matching IPs
-                                if (pattern.includes(rawInput.split('.')[0] + '.' + rawInput.split('.')[1])) {
-                                    console.log('[DEBUG] CIDR Check Line', lineCount, ':', rawInput, 'vs', pattern, '→', matched ? 'MATCH' : 'no match');
+                                // CIDR range matching for IPs - check ALL possible prefixes
+                                for (const prefix of ipPrefixesToCheck) {
+                                    // Check if pattern matches any of our IP prefixes
+                                    const prefixMatch = isIPInCIDR(rawInput, pattern);
+                                    const exactMatch = (pattern === prefix);
+
+                                    if (prefixMatch || exactMatch) {
+                                        matched = true;
+                                        console.log('[DEBUG] CIDR Match Line', lineCount, ':', rawInput, 'prefix', prefix, 'vs', pattern, '→ MATCH');
+                                        break;
+                                    }
                                 }
                             } else {
                                 // Exact match or domain suffix
@@ -977,8 +1052,9 @@
         window.onload = () => {
             // Version info for debugging
             console.log('%c🔧 JabarCloud Security Checker', 'color: #3b82f6; font-weight: bold; font-size: 14px');
-            console.log('Version: 1.2.0 (2025-12-09)');
-            console.log('Features: CIDR Matching ✓ | WHOIS Display ✓ | Cache Fix ✓');
+            console.log('Version: 1.3.0 (2025-12-09)');
+            console.log('Features: CIDR Matching ✓ | WHOIS Display ✓ | Network Prefix Lookup ✓');
+            console.log('Fixes: IPv4/IPv6 Type Validation ✓ | Multi-Prefix Checking ✓');
             console.log('Debugging: Enabled (check console for match details)');
             console.log('---');
 

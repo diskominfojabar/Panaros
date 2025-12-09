@@ -8,6 +8,10 @@
     <div id="results"></div>
 
     <script>
+        function isIPv4(str) {
+            return /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(str);
+        }
+
         function ipToInt(ip) {
             return ip.split('.').reduce((int, octet) => (int << 8) + parseInt(octet, 10), 0) >>> 0;
         }
@@ -16,8 +20,22 @@
             if (!cidr.includes('/')) return false;
 
             const [range, bits] = cidr.split('/');
-            const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
 
+            // CRITICAL FIX: Validate both IP and range are same type (IPv4 or IPv6)
+            const ipIsV4 = isIPv4(ip);
+            const rangeIsV4 = isIPv4(range);
+
+            // Skip if types don't match (prevents IPv4 matching IPv6)
+            if (ipIsV4 !== rangeIsV4) {
+                return false;
+            }
+
+            // Only handle IPv4 for now
+            if (!ipIsV4) {
+                return false;
+            }
+
+            const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1);
             return (ipToInt(ip) & mask) === (ipToInt(range) & mask);
         }
 
@@ -34,7 +52,7 @@
 
         async function testBlacklist() {
             const results = document.getElementById('results');
-            const rawInput = '1.34.200.229';
+            const rawInput = '103.125.88.1';
             const isIPQuery = isValidIP(rawInput);
 
             results.innerHTML += `<p>Testing IP: ${rawInput}</p>`;
