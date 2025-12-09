@@ -836,6 +836,7 @@
                         // Format: IP|ORG|COUNTRY|CITY|ASN|HOSTNAME|CACHED_DATE
                         const parts = line.split('|');
                         if (parts.length >= 7 && parts[0].trim() === query) {
+                            console.log('[WHOIS] Found in cache:', query);
                             return {
                                 ip: parts[0].trim(),
                                 org: parts[1].trim(),
@@ -848,8 +849,31 @@
                         }
                     }
                 }
+
+                // Fallback: Fetch directly from IPinfo.io API if not in cache
+                console.log('[WHOIS] Not in cache, fetching from IPinfo.io:', query);
+                const apiUrl = `https://ipinfo.io/${query}/json?token=13cf963d4e732d`;
+                const apiResponse = await fetch(apiUrl, {
+                    cache: 'no-cache',
+                    signal: AbortSignal.timeout(5000)
+                });
+
+                if (apiResponse.ok) {
+                    const data = await apiResponse.json();
+                    console.log('[WHOIS] IPinfo.io response:', data);
+
+                    return {
+                        ip: query,
+                        org: data.org || 'Unknown Organization',
+                        country: data.country || 'Unknown',
+                        city: data.city || 'Unknown',
+                        asn: data.org ? data.org.split(' ')[0] : 'Unknown',
+                        hostname: data.hostname || 'Unknown',
+                        cached: 'Real-time API'
+                    };
+                }
             } catch (e) {
-                console.log('WHOIS cache not available:', e);
+                console.log('[WHOIS] Lookup failed:', e.message);
             }
 
             return null;
@@ -1137,7 +1161,7 @@
         window.onload = () => {
             // Version info for debugging
             console.log('%c🔧 JabarCloud Security Checker', 'color: #3b82f6; font-weight: bold; font-size: 14px');
-            console.log('Version: 1.4.0 (2025-12-09) - IPv6 support added');
+            console.log('Version: 1.4.1 (2025-12-09) - Real-time WHOIS API fallback');
             console.log('Features: CIDR Matching ✓ | WHOIS Display ✓ | Network Prefix Lookup ✓');
             console.log('Fixes: IPv4/IPv6 Type Validation ✓ | Multi-Prefix Checking ✓');
             console.log('Debugging: Enabled (check console for match details)');
