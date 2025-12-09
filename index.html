@@ -816,11 +816,52 @@
             return [`${ip}`];
         }
 
+        // --- Helper Function: Resolve Domain to IP ---
+        async function resolveDomainToIP(domain) {
+            try {
+                // Use Cloudflare DNS-over-HTTPS to resolve domain
+                const dohUrl = `https://cloudflare-dns.com/dns-query?name=${domain}&type=A`;
+                const response = await fetch(dohUrl, {
+                    headers: { 'Accept': 'application/dns-json' },
+                    cache: 'no-cache',
+                    signal: AbortSignal.timeout(5000)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.Answer && data.Answer.length > 0) {
+                        // Get first A record
+                        const aRecord = data.Answer.find(r => r.type === 1); // Type 1 = A record
+                        if (aRecord && aRecord.data) {
+                            console.log('[DNS] Resolved', domain, '→', aRecord.data);
+                            return aRecord.data;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.log('[DNS] Resolution failed:', e.message);
+            }
+            return null;
+        }
+
         // --- Helper Function: WHOIS Lookup ---
         async function fetchWhoisInfo(query) {
             try {
-                // For domains, use the domain name directly (IPinfo supports domains)
-                const lookupQuery = query;
+                let lookupQuery = query;
+                let isDomain = !isValidIP(query);
+
+                // If it's a domain, resolve to IP first
+                if (isDomain) {
+                    console.log('[WHOIS] Query is domain, resolving to IP first:', query);
+                    const resolvedIP = await resolveDomainToIP(query);
+                    if (resolvedIP) {
+                        lookupQuery = resolvedIP;
+                        console.log('[WHOIS] Using resolved IP for WHOIS lookup:', lookupQuery);
+                    } else {
+                        console.log('[WHOIS] DNS resolution failed, cannot get WHOIS');
+                        return null;
+                    }
+                }
 
                 // Try to fetch from whois.txt cache first
                 const whoisUrl = 'https://raw.githubusercontent.com/diskominfojabar/Panaros/refs/heads/main/data/whois.txt';
@@ -841,7 +882,7 @@
                         if (parts.length >= 7 && parts[0].trim() === lookupQuery) {
                             console.log('[WHOIS] Found in cache:', lookupQuery);
                             return {
-                                query: lookupQuery,
+                                query: isDomain ? `${query} (${lookupQuery})` : lookupQuery,
                                 org: parts[1].trim(),
                                 country: parts[2].trim(),
                                 city: parts[3].trim(),
@@ -865,10 +906,10 @@
                     const data = await apiResponse.json();
                     console.log('[WHOIS] IPinfo.io response:', data);
 
-                    // For domains, IPinfo returns the resolved IP info
+                    // Return WHOIS info with hosting details
                     return {
-                        query: lookupQuery,
-                        org: data.org || (isValidIP(lookupQuery) ? 'Unknown Organization' : lookupQuery),
+                        query: isDomain ? `${query} (${lookupQuery})` : lookupQuery,
+                        org: data.org || 'Unknown Organization',
                         country: data.country || 'Unknown',
                         city: data.city || 'Unknown',
                         asn: data.org ? data.org.split(' ')[0] : 'Unknown',
@@ -1144,7 +1185,7 @@
         window.onload = () => {
             // Version info for debugging
             console.log('%c🔧 JabarCloud Security Checker', 'color: #3b82f6; font-weight: bold; font-size: 14px');
-            console.log('Version: 1.5.0 (2025-12-09) - WHOIS sidebar only + domain support');
+            console.log('Version: 1.5.1 (2025-12-09) - DNS resolution for domain WHOIS');
             console.log('Features: CIDR Matching ✓ | WHOIS Display ✓ | Network Prefix Lookup ✓');
             console.log('Fixes: IPv4/IPv6 Type Validation ✓ | Multi-Prefix Checking ✓');
             console.log('Debugging: Enabled (check console for match details)');
