@@ -444,7 +444,7 @@ Pangrosan/
 
 - **Issues**: [GitHub Issues](https://github.com/diskominfojabar/Panaros/issues)
 - **Documentation**: This README + code comments
-- **Web Checker**: [https://diskominfojabar.github.io/Panaros/](https://diskominfojabar.github.io/Panaros/)
+- **Web Checker**: [https://egov.jabarprov.go.id/cek](https://egov.jabarprov.go.id/cek)
 
 ---
 
