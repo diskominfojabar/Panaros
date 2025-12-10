@@ -357,7 +357,7 @@ python3 scripts/update_whitelist_smart.py
 
 ### Check Domain/IP Status
 
-Visit: [https://diskominfojabar.github.io/Panaros/](https://diskominfojabar.github.io/Panaros/)
+Visit: [https://egov.jabarprov.go.id/cek](https://egov.jabarprov.go.id/cek)
 
 Features:
 - 🔍 Real-time domain/IP checker
