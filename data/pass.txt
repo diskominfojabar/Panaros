@@ -1,5 +1,5 @@
-# Last updated: 2026-02-11 17:52:50 UTC
-# Total entries: 17903
+# Last updated: 2026-02-12 17:52:41 UTC
+# Total entries: 17907
 # Format: <entry> # <source>
 #
 1.178.1.0/24 # AWS IPs
@@ -13866,6 +13866,7 @@
 2406:da18:8000::/36 # AWS IPs
 2406:da19::/36 # AWS IPs
 2406:da19:14b:8c00::/56 # AWS IPs
+2406:da1a::/35 # AWS IPs
 2406:da1a::/36 # AWS IPs
 2406:da1a:74a:4b00::/56 # AWS IPs
 2406:da1a:8000::/36 # AWS IPs
@@ -17145,6 +17146,7 @@
 2606:7b40:10ff:f000::/56 # AWS IPs
 2606:7b40:10ff:f270::/60 # AWS IPs
 2606:7b40:10ff:ff00::/56 # AWS IPs
+2606:7b40:1800::/40 # AWS IPs
 2606:7b40:1800::/48 # AWS IPs
 2606:7b40:1a2c:330::/60 # AWS IPs
 2606:7b40:1a2f:c200::/60 # AWS IPs
@@ -17155,10 +17157,12 @@
 2606:7b40:1a3f:c310::/60 # AWS IPs
 2606:7b40:1a3f:c320::/60 # AWS IPs
 2606:7b40:1a3f:c330::/60 # AWS IPs
+2606:7b40:1a4c:330::/60 # AWS IPs
 2606:7b40:1a4f:c200::/60 # AWS IPs
 2606:7b40:1a4f:c240::/60 # AWS IPs
 2606:7b40:1a4f:c310::/60 # AWS IPs
 2606:7b40:1a4f:c320::/60 # AWS IPs
+2606:7b40:1a4f:c330::/60 # AWS IPs
 2606:7b40:1b00:500::/56 # AWS IPs
 2606:7b40:1b00:600::/56 # AWS IPs
 2606:7b40:1b00:700::/56 # AWS IPs
