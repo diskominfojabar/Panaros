@@ -1,5 +1,5 @@
-# Last updated: 2026-03-07 17:15:20 UTC
-# Total entries: 208
+# Last updated: 2026-03-09 17:41:45 UTC
+# Total entries: 211
 # Format: <entry> # <source>
 #
 *.actions.githubusercontent.com # GitHub Domains
@@ -210,7 +210,6 @@ tuf-repo.github.com # GitHub Domains
 uk.alpinelinux.org # Alpine Official
 vault.centos.org # Centos Official
 vstoken.actions.githubusercontent.com # GitHub Domains
-
-www.facebook.com
-www.x.com
-www.twitter.com
+www.facebook.com # Unknown Source
+www.twitter.com # Unknown Source
+www.x.com # Unknown Source
