@@ -1,5 +1,5 @@
-# Last updated: 2026-03-19 17:49:04 UTC
-# Total entries: 18568
+# Last updated: 2026-03-20 17:30:34 UTC
+# Total entries: 18572
 # Format: <entry> # <source>
 #
 1.178.1.0/24 # AWS IPs
@@ -4836,6 +4836,7 @@
 34.127.133.32/27 # Google IPs
 34.127.133.64/27 # Google IPs
 34.127.133.96/27 # Google IPs
+34.127.133.128/27 # Google IPs
 34.127.134.0/27 # Google IPs
 34.127.134.32/27 # Google IPs
 34.127.134.64/27 # Google IPs
@@ -6696,6 +6697,7 @@
 40.195.0.0/16 # AWS IPs
 40.201.0.0/16 # AWS IPs
 40.235.64.0/18 # AWS IPs
+40.235.192.0/18 # AWS IPs
 40.238.0.0/16 # AWS IPs
 40.239.0.0/16 # AWS IPs
 43.192.0.0/16 # AWS IPs
@@ -15369,6 +15371,7 @@
 2600:1900:0:3d1::/64 # Google IPs
 2600:1900:0:3d2::/64 # Google IPs
 2600:1900:0:3d3::/64 # Google IPs
+2600:1900:0:3d4::/64 # Google IPs
 2600:1f00:1000::/40 # AWS IPs
 2600:1f00:2000::/40 # AWS IPs
 2600:1f00:4000::/40 # AWS IPs
@@ -16378,6 +16381,7 @@
 2600:f0f0:c048::/48 # AWS IPs
 2600:f0f0:c049::/48 # AWS IPs
 2600:f0f1:10::/47 # AWS IPs
+2600:f0f1:12::/47 # AWS IPs
 2600:f0f1:80::/48 # AWS IPs
 2600:f0f1:81::/48 # AWS IPs
 2600:f0f1:82::/48 # AWS IPs
