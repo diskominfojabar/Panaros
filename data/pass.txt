@@ -1,5 +1,5 @@
-# Last updated: 2026-03-20 17:30:34 UTC
-# Total entries: 18572
+# Last updated: 2026-03-21 17:19:44 UTC
+# Total entries: 18573
 # Format: <entry> # <source>
 #
 1.178.1.0/24 # AWS IPs
@@ -17979,6 +17979,7 @@
 2631:0:9::/48 # AWS IPs
 2631:0:a::/48 # AWS IPs
 2631:0:1800::/39 # AWS IPs
+2631:1:101::/48 # AWS IPs
 2631:1:105::/48 # AWS IPs
 2631:1:45c0::/48 # AWS IPs
 2631:1:4680::/48 # AWS IPs
