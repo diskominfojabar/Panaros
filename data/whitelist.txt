@@ -1,5 +1,5 @@
-# Last updated: 2026-04-09 17:54:20 UTC
-# Total entries: 211
+# Last updated: 2026-04-10 17:41:22 UTC
+# Total entries: 216
 # Format: <entry> # <source>
 #
 *.actions.githubusercontent.com # GitHub Domains
@@ -14,6 +14,7 @@
 *.github.com # GitHub Domains
 *.github.dev # GitHub Domains
 *.github.io # GitHub Domains
+*.githubapp.com # GitHub Domains
 *.githubassets.com # GitHub Domains
 *.githubcopilot.com # GitHub Domains
 *.githubusercontent.com # GitHub Domains
@@ -76,6 +77,10 @@ github-registry-files.githubusercontent.com # GitHub Domains
 github-releases.githubusercontent.com # GitHub Domains
 github.com # GitHub Domains
 gitlab.com # Unknown Source
+hosted-compute-request-orchestrator-prod-eus-01.githubapp.com # GitHub Domains
+hosted-compute-request-orchestrator-prod-eus-02.githubapp.com # GitHub Domains
+hosted-compute-request-orchestrator-prod-iad-01.githubapp.com # GitHub Domains
+hosted-compute-request-orchestrator-prod-iad-02.githubapp.com # GitHub Domains
 kambing.ui.ac.id/archlinux # Arch Mirrors
 kambing.ui.ac.id/centos # Centos Mirrors
 kambing.ui.ac.id/debian # Debian Mirrors
