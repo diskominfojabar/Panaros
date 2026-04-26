@@ -1,5 +1,5 @@
-# Last updated: 2026-04-25 17:32:24 UTC
-# Total entries: 19169
+# Last updated: 2026-04-26 17:32:51 UTC
+# Total entries: 19171
 # Format: <entry> # <source>
 #
 1.178.1.0/24 # AWS IPs
@@ -18176,6 +18176,8 @@
 2605:b140:1000::/48 # AWS IPs
 2605:b140:9800::/48 # AWS IPs
 2605:b140:9801::/48 # AWS IPs
+2605:b140:9802::/48 # AWS IPs
+2605:b140:9803::/48 # AWS IPs
 2606:f40::/39 # AWS IPs
 2606:f40:400::/39 # AWS IPs
 2606:f40:800::/40 # AWS IPs
