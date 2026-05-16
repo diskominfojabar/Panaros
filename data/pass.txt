@@ -1,5 +1,5 @@
-# Last updated: 2026-05-15 18:17:42 UTC
-# Total entries: 19727
+# Last updated: 2026-05-16 17:50:00 UTC
+# Total entries: 19728
 # Format: <entry> # <source>
 #
 1.178.1.0/24 # AWS IPs
@@ -1522,6 +1522,7 @@
 13.248.79.0/24 # AWS IPs
 13.248.80.0/24 # AWS IPs
 13.248.81.0/24 # AWS IPs
+13.248.82.0/24 # AWS IPs
 13.248.96.0/24 # AWS IPs
 13.248.97.0/24 # AWS IPs
 13.248.98.0/24 # AWS IPs

@@ -68,15 +68,15 @@
     {
       "month": "2026-05",
       "stats": {
-        "blacklist": 318890,
-        "blacklist_specific": 275023,
+        "blacklist": 319180,
+        "blacklist_specific": 276515,
         "drop": 1923,
         "whitelist": 216,
-        "whitelist_specific": 174,
-        "pass": 19727,
-        "hosts": 318879
+        "whitelist_specific": 173,
+        "pass": 19728,
+        "hosts": 319169
       },
-      "updated": "2026-05-15T20:05:52.295877"
+      "updated": "2026-05-16T19:06:37.975367"
     }
   ]
 }
