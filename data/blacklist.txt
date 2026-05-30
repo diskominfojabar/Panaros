@@ -1,5 +1,5 @@
-# Last updated: 2026-05-29 19:28:58 UTC
-# Total entries: 322958
+# Last updated: 2026-05-30 17:59:01 UTC
+# Total entries: 323283
 # Format: <entry> # <source>
 #
 *-datareceiver.aki-game.net # AdGuard DNS Filter
@@ -914,6 +914,7 @@
 176.65.148.153.ptr.pfcloud.network # URLhaus Malware Domains
 176.65.148.173.ptr.pfcloud.network # URLhaus Malware Domains
 176.65.148.189.ptr.pfcloud.network # URLhaus Malware Domains
+176.65.148.199.ptr.pfcloud.network # URLhaus Malware Domains
 176.65.149.223.ptr.pfcloud.network # URLhaus Malware Domains
 176.65.149.4.ptr.pfcloud.network # URLhaus Malware Domains
 176edb63a6.1a9d1ca12a.com # AdGuard DNS Filter
@@ -1166,6 +1167,7 @@
 197c4632ea.com # AdGuard DNS Filter
 198-144-189-90.cprapid.com # URLhaus Malware Domains
 198636861c.com # AdGuard DNS Filter
+198b531aae.com # AdGuard DNS Filter
 199.98.88.92.rev.sfr.net # URLhaus Malware Domains
 1990tu.com # AdGuard DNS Filter
 1991482557.rsc.cdn77.org # AdGuard DNS Filter
@@ -1343,6 +1345,7 @@
 1g1c.puba.com # StevenBlack Gambling & Porn
 1g46ls536.de # AdGuard DNS Filter
 1gbjadpsq.de # AdGuard DNS Filter
+1gcoq6xyhbukne965t4zwiy753pv9cp51.cfd # AdGuard DNS Filter
 1ghkxir44t4qvf3.cfd # AdGuard DNS Filter
 1gj8lhfa1.com # AdGuard DNS Filter
 1gjb5ry12zrbfw7u1m9wh4.cfd # AdGuard DNS Filter
@@ -1692,7 +1695,9 @@
 2.xhcdn.com # StevenBlack Gambling & Porn
 20.edge46.testandtarget.omniture.com # AdGuard DNS Filter
 20002permission.net # AdGuard DNS Filter
+2000outtechnologies.net # AdGuard DNS Filter
 2000pornstars.com # StevenBlack Gambling & Porn
+2001plugins.net # AdGuard DNS Filter
 2001positions.com # StevenBlack Gambling & Porn
 2005porn.com # StevenBlack Gambling & Porn
 20091222.com # AdGuard DNS Filter
@@ -2204,6 +2209,7 @@
 2dqe6hsl.norsdwest.in.net # URLhaus Malware Domains
 2dvs.miri7qen.lat # URLhaus Malware Domains
 2dzr0.silverrun.ru # URLhaus Malware Domains
+2dzxuao7.parossag.hu # URLhaus Malware Domains
 2e4xnyfeae.com # AdGuard DNS Filter
 2e5f89c409.897b6c60ea.com # AdGuard DNS Filter
 2e629ntxk3.com # AdGuard DNS Filter
@@ -2808,8 +2814,10 @@
 37lwjdaua.com # AdGuard DNS Filter
 37lzounh.holographicprojectiongrid.digital # URLhaus Malware Domains
 37msl.t1nkercove.ru # URLhaus Malware Domains
+37nu0riwfd.com # AdGuard DNS Filter
 37parallel.incest.click # StevenBlack Gambling & Porn
 37s.mashvortex.ru # URLhaus Malware Domains
+37shrmvlju.com # AdGuard DNS Filter
 37ypgvcopejf149frr8bh6tbk9y2.cfd # AdGuard DNS Filter
 380.tw # AdGuard DNS Filter
 380099.com # StevenBlack Gambling & Porn
@@ -3148,6 +3156,7 @@
 3mtr.ru # AdGuard DNS Filter
 3mu0h.paper-knurl.ru # URLhaus Malware Domains
 3myad.com # AdGuard DNS Filter
+3n2hf8kzowuur654mb.cfd # AdGuard DNS Filter
 3n2nc158v6u5hv6o.cfd # AdGuard DNS Filter
 3naked.com # StevenBlack Gambling & Porn
 3naughtygirls.com # StevenBlack Gambling & Porn
@@ -3648,6 +3657,7 @@
 4dsply.com # AdGuard DNS Filter
 4dtrk.com # AdGuard DNS Filter
 4e0c0b1247.com # AdGuard DNS Filter
+4e2b1e6942.com # AdGuard DNS Filter
 4e35c093c9.com # AdGuard DNS Filter
 4e459a72cc.d4bd4c34af.com # AdGuard DNS Filter
 4e5902f95e.com # AdGuard DNS Filter
@@ -3919,6 +3929,7 @@
 4ud18-ring.bluelight.in.net # URLhaus Malware Domains
 4ufutzmihl.com # AdGuard DNS Filter
 4uhyrmy9yebcj2.cfd # AdGuard DNS Filter
+4ui7gjtwgcq6bp4j5in88i8pon5ctiiv.rest # AdGuard DNS Filter
 4uipybjyqp6xe4lkr.cfd # AdGuard DNS Filter
 4umuuxmnnj5y3tlo.cfd # AdGuard DNS Filter
 4uol7t4f8cb8cu4yxhwex438kbi6gq.cfd # AdGuard DNS Filter
@@ -4058,6 +4069,7 @@
 51ogg4fa.cl0verrun.in.net # URLhaus Malware Domains
 51ojrcjj.intellectnail.in.net # URLhaus Malware Domains
 51t4657yf85ym6xwn.cfd # AdGuard DNS Filter
+51t64xheonig4f8.cfd # AdGuard DNS Filter
 51tcb.accentol-federat.in.net # URLhaus Malware Domains
 51tongji.trafficmanager.net # AdGuard DNS Filter
 51u9e6hjh4ecrk.cfd # AdGuard DNS Filter
@@ -4745,6 +4757,7 @@
 6347.junkie-talker.in.net # URLhaus Malware Domains
 6352.grov9essa.garden # URLhaus Malware Domains
 635571329b.com # AdGuard DNS Filter
+635k6cma.uniquetilingsa.com.au # URLhaus Malware Domains
 63715207.xyz # AdGuard DNS Filter
 63801782.xyz # AdGuard DNS Filter
 638490.idealgo.in.net # URLhaus Malware Domains
@@ -5102,6 +5115,7 @@
 6klxewr6z4gev7mwc1ei.cfd # AdGuard DNS Filter
 6klywpf.norsdwest.in.net # URLhaus Malware Domains
 6knlhnjfv.com # AdGuard DNS Filter
+6koy7tjckecgy4fp78p51v2k76t.rest # AdGuard DNS Filter
 6kpudsordv.com # AdGuard DNS Filter
 6ku.icu # AdGuard DNS Filter
 6kufrp8foo21iqeepipt3pln144o2.rest # AdGuard DNS Filter
@@ -5630,6 +5644,7 @@
 7controller.online # URLhaus Malware Domains
 7controller.ru # URLhaus Malware Domains
 7ctekztt9l735f34e5ugj8i83t.cfd # AdGuard DNS Filter
+7cuyubpcxqpqlup.rest # AdGuard DNS Filter
 7cy8t1t8gifggqqe17bt3fhwzk4k8.cfd # AdGuard DNS Filter
 7d13c2cc1b.com # AdGuard DNS Filter
 7d36a.com # AdGuard DNS Filter
@@ -5923,6 +5938,7 @@
 8131.qizhihaotian.cn # AdGuard DNS Filter
 813c5.v.fwmrm.net # AdGuard DNS Filter
 8162f6c343.com # AdGuard DNS Filter
+81729sv5.stgsolar.hu # URLhaus Malware Domains
 818ne.storml1ght.ru # URLhaus Malware Domains
 819mng4kn6wybgg.cfd # AdGuard DNS Filter
 81aa1f6146.com # AdGuard DNS Filter
@@ -6042,6 +6058,7 @@
 86aocbvvsh.com # AdGuard DNS Filter
 86b1d5df81.21b95312a1.com # AdGuard DNS Filter
 86bet.net # StevenBlack Gambling & Porn
+86c67c238d.com # AdGuard DNS Filter
 86ds.bracket-loam.ru # URLhaus Malware Domains
 86e3a0e39d.602e8edafd.com # AdGuard DNS Filter
 86eed1e4bf.baf3838b31.com # AdGuard DNS Filter
@@ -6646,6 +6663,7 @@
 94u4p.paper-knurl.ru # URLhaus Malware Domains
 94x.icu # AdGuard DNS Filter
 9505.cl0ckmint.ru # URLhaus Malware Domains
+950plugins.com # AdGuard DNS Filter
 953efb5327.735eb9f0a6.com # AdGuard DNS Filter
 95536d25ae.aed7dca148.com # AdGuard DNS Filter
 95597529.xyz # AdGuard DNS Filter
@@ -12432,6 +12450,7 @@ adpatrof.com # AdGuard DNS Filter
 adpay.com # AdGuard DNS Filter
 adpays.net # AdGuard DNS Filter
 adpcebpo.com # AdGuard DNS Filter
+adpdkizzi.in # AdGuard DNS Filter
 adpeepshosted.com # AdGuard DNS Filter
 adperfect.com # AdGuard DNS Filter
 adperform.de # AdGuard DNS Filter
@@ -14252,6 +14271,7 @@ aerosolhudson.qpon # AdGuard DNS Filter
 aesgauji.sorix1ar.lat # URLhaus Malware Domains
 aeshopvn.com # AdGuard DNS Filter
 aeskgcinerpyxqk.net # AdGuard DNS Filter
+aesmdokoo.com # AdGuard DNS Filter
 aespmnbpqhpvu.space # AdGuard DNS Filter
 aesqzfuosgvay.com # AdGuard DNS Filter
 aestheticpenitentdownright.com # AdGuard DNS Filter
@@ -14288,6 +14308,7 @@ aexouiunvonkl.site # AdGuard DNS Filter
 aeyhlwltyy.com # AdGuard DNS Filter
 aeym37jp.xyz # AdGuard DNS Filter
 aeyutd.baerbel-drexel.de # AdGuard DNS Filter
+aeywvkaepncbk.online # AdGuard DNS Filter
 aezvrrtyjovwt.online # AdGuard DNS Filter
 af-110.com # AdGuard DNS Filter
 af-a.jp # AdGuard DNS Filter
@@ -15647,6 +15668,7 @@ aiamok.icu # AdGuard DNS Filter
 aiamu.drmartypets.com # AdGuard DNS Filter
 aiaskjqrimnol.website # AdGuard DNS Filter
 aiboobs.net # StevenBlack Gambling & Porn
+aibpogxdhxnjg.space # AdGuard DNS Filter
 aibsautcholsoan.net # AdGuard DNS Filter
 aibseensoo.net # AdGuard DNS Filter
 aibsgc.com # AdGuard DNS Filter
@@ -16087,6 +16109,7 @@ ajqwfawt.in # AdGuard DNS Filter
 ajrkm1.com # AdGuard DNS Filter
 ajrkm3.com # AdGuard DNS Filter
 ajrmu.medihealus.com # AdGuard DNS Filter
+ajrnaww.sm188login.cyou # URLhaus Malware Domains
 ajrosqokj.com # AdGuard DNS Filter
 ajrtthiewfb.com # AdGuard DNS Filter
 ajs.allnestinfinite.com # AdGuard DNS Filter
@@ -16288,6 +16311,7 @@ akv2-br-cdn.kwai.net.iberostar.com # AdGuard DNS Filter
 akviv.snagtights.eu # AdGuard DNS Filter
 akvmpimcudap.in # AdGuard DNS Filter
 akvosbllbxzkx.online # AdGuard DNS Filter
+akvtmtx.technologiaiviz.hu # URLhaus Malware Domains
 akvvkmqezvavj.top # AdGuard DNS Filter
 akvvkmqkyvaaj.top # AdGuard DNS Filter
 akvvltgfzmxvj.website # AdGuard DNS Filter
@@ -16658,6 +16682,7 @@ algarotwitless.cfd # AdGuard DNS Filter
 algarve-girls.com # StevenBlack Gambling & Porn
 algat.intergoles.me # AdGuard DNS Filter
 algatepalming.cfd # AdGuard DNS Filter
+algatesportcesspit.cfd # AdGuard DNS Filter
 algatyramin.com # AdGuard DNS Filter
 algcpeaqclu.com # AdGuard DNS Filter
 algebrasudrastared.cfd # AdGuard DNS Filter
@@ -17001,6 +17026,7 @@ alloy-web.zvuk.com # AdGuard DNS Filter
 alloydigital.com # AdGuard DNS Filter
 alloyedave.cfd # AdGuard DNS Filter
 alloystart.com # AdGuard DNS Filter
+alloytitans.com # AdGuard DNS Filter
 allpakistanporn.com # StevenBlack Gambling & Porn
 allpakistansex.pro # StevenBlack Gambling & Porn
 allpcsoftwares.info # AdGuard DNS Filter
@@ -17268,6 +17294,7 @@ alpwclk.alphatonicworks.site # AdGuard DNS Filter
 alpzmeamw.com # AdGuard DNS Filter
 alqb.f2na7under.ru # URLhaus Malware Domains
 alqfgpimiombz.online # AdGuard DNS Filter
+alqotwixjczdc.site # AdGuard DNS Filter
 alquieranomura.qpon # AdGuard DNS Filter
 alquiler.carflex.es # AdGuard DNS Filter
 alqzmnvaxvzcu.website # AdGuard DNS Filter
@@ -17287,6 +17314,7 @@ alsangel.com # StevenBlack Gambling & Porn
 alsangels.com # StevenBlack Gambling & Porn
 alsbxyrahfjia.site # AdGuard DNS Filter
 alsdebaticalfelixsto.org # AdGuard DNS Filter
+alseswlgfizov.website # AdGuard DNS Filter
 alsgaj.chosun.com # AdGuard DNS Filter
 alsgaj.sportschosun.com # AdGuard DNS Filter
 alsgalleries.com # StevenBlack Gambling & Porn
@@ -20565,6 +20593,7 @@ anik.weavercre8ive.com # AdGuard DNS Filter
 anilaoseverer.qpon # AdGuard DNS Filter
 anilicwinklotenactor.cyou # AdGuard DNS Filter
 anilinebaptizedicasts.cyou # AdGuard DNS Filter
+anilinooos.cyou # AdGuard DNS Filter
 anillabedders.shop # AdGuard DNS Filter
 anilos.com # StevenBlack Gambling & Porn
 anilosmilftube.com # StevenBlack Gambling & Porn
@@ -24836,11 +24865,13 @@ areolaebesew.help # AdGuard DNS Filter
 areolarkillas.cfd # AdGuard DNS Filter
 areolashymenic.click # AdGuard DNS Filter
 arepushedadorn.com # AdGuard DNS Filter
+aresttuxes.cyou # AdGuard DNS Filter
 aretawag.digital # AdGuard DNS Filter
 aretfleechprotura.cyou # AdGuard DNS Filter
 areyouasleep.com # StevenBlack Fake News
 arfdxfgcmitto.online # AdGuard DNS Filter
 arfilm.icu # StevenBlack Gambling & Porn
+arfxnrtfasjsk.online # AdGuard DNS Filter
 arg.argsleg.pics # URLhaus Malware Domains
 argasthuya.cyou # AdGuard DNS Filter
 argelchanger.com # AdGuard DNS Filter
@@ -25048,6 +25079,7 @@ armpitsex.com # StevenBlack Gambling & Porn
 armrackwoodier.cfd # AdGuard DNS Filter
 armseyekuman.cyou # AdGuard DNS Filter
 armsgross.com # AdGuard DNS Filter
+armsizeabram.cyou # AdGuard DNS Filter
 armsizememento.cyou # AdGuard DNS Filter
 armsnerveattestation.com # AdGuard DNS Filter
 armvxuhtqlaln.site # AdGuard DNS Filter
@@ -25243,6 +25275,7 @@ arubdaraqigxc.site # AdGuard DNS Filter
 arullelb.com # AdGuard DNS Filter
 aruoyf.peterhahn.ch # AdGuard DNS Filter
 aruranmbqiyus.store # AdGuard DNS Filter
+arushaquoth.shop # AdGuard DNS Filter
 aruurnbfs.com # AdGuard DNS Filter
 aruuyqlcgafkjae.com # AdGuard DNS Filter
 arvejonflywort.cyou # AdGuard DNS Filter
@@ -25934,6 +25967,7 @@ asnjaopezmnao.online # AdGuard DNS Filter
 asnjih.apatchy.co.uk # AdGuard DNS Filter
 asnlwihpumczi.website # AdGuard DNS Filter
 asnoibator.com # AdGuard DNS Filter
+asnqkxsyinokr.website # AdGuard DNS Filter
 aso.grim1atin0s.ru # URLhaus Malware Domains
 aso1.net # AdGuard DNS Filter
 asodgcvxqmptddd.com # AdGuard DNS Filter
@@ -26477,6 +26511,7 @@ atc.imprenditore-vero.com # AdGuard DNS Filter
 atc.osacommunity.it # AdGuard DNS Filter
 atc.rockmaster.com # AdGuard DNS Filter
 atcfx.net # URLhaus Malware Domains
+atciokttzbgxy.space # AdGuard DNS Filter
 atconnect.npo.nl # AdGuard DNS Filter
 atdeerlinga.com # AdGuard DNS Filter
 atdnetwork.com # AdGuard DNS Filter
@@ -26525,6 +26560,7 @@ athena.accsc.com.au # AdGuard DNS Filter
 athena.api.kwalee.com # AdGuard DNS Filter
 athena.nederlandseloterij.nl # AdGuard DNS Filter
 athena.toto.nl # AdGuard DNS Filter
+athenabancahaybote.cfd # AdGuard DNS Filter
 athenainstitute.biz # AdGuard DNS Filter
 atheneemiddles.cyou # AdGuard DNS Filter
 athensreporter.com # StevenBlack Fake News
@@ -27367,6 +27403,7 @@ aux.lansator.ro # AdGuard DNS Filter
 auxdciugyclyi.space # AdGuard DNS Filter
 auxesescultual.shop # AdGuard DNS Filter
 auxesestailorspiligan.cyou # AdGuard DNS Filter
+auxgkjsoqgzko.space # AdGuard DNS Filter
 auxktjhdayeqbdj.xyz # AdGuard DNS Filter
 auxml.com # AdGuard DNS Filter
 auxmoney-partnerprogramm.de # AdGuard DNS Filter
@@ -27507,6 +27544,7 @@ avgcauwdeznxc.site # AdGuard DNS Filter
 avgive3431.fun # AdGuard DNS Filter
 avgle.com # StevenBlack Gambling & Porn
 avglvolxsgfkp.site # AdGuard DNS Filter
+avgony.xyz # AdGuard DNS Filter
 avh3nuhxm.com # AdGuard DNS Filter
 avhbbdkhtxvxb.site # AdGuard DNS Filter
 avhd.cc # StevenBlack Gambling & Porn
@@ -27966,6 +28004,7 @@ axisinsurance.axiscapital.com # AdGuard DNS Filter
 axisix.net # AdGuard DNS Filter
 axislogger.appspot.com # AdGuard DNS Filter
 axisre.axiscapital.com # AdGuard DNS Filter
+axisswat.cfd # AdGuard DNS Filter
 axixvytazguot.space # AdGuard DNS Filter
 axjfkc.kobayashi.co.jp # AdGuard DNS Filter
 axjlszfvmfjpx.space # AdGuard DNS Filter
@@ -28377,6 +28416,7 @@ azorbe.com # AdGuard DNS Filter
 azoresrestaurants.com # StevenBlack Gambling & Porn
 azoteajugal.qpon # AdGuard DNS Filter
 azotecorbula.click # AdGuard DNS Filter
+azotesdanian.cyou # AdGuard DNS Filter
 azotetootpotions.cyou # AdGuard DNS Filter
 azothatollspace.qpon # AdGuard DNS Filter
 azotinhurden.cfd # AdGuard DNS Filter
@@ -30221,6 +30261,7 @@ batsa.pro # StevenBlack Gambling & Porn
 batsavcdn.ksmobile.net # AdGuard DNS Filter
 batteryod.com # AdGuard DNS Filter
 battle05032026.shop # AdGuard DNS Filter
+battleburst.com # AdGuard DNS Filter
 battlecreektimes.com # StevenBlack Fake News
 battleickhope.com # AdGuard DNS Filter
 battlekite.com # AdGuard DNS Filter
@@ -30251,6 +30292,7 @@ bauvf.bullystickscentral.com # AdGuard DNS Filter
 bauycekgufwdk.space # AdGuard DNS Filter
 bavbfmokxwqtn.space # AdGuard DNS Filter
 bavdxafbegkvr.space # AdGuard DNS Filter
+bavdzvswgjspf.online # AdGuard DNS Filter
 bavea.denisealbright.com # AdGuard DNS Filter
 baviancommons.click # AdGuard DNS Filter
 bavosoabbotcy.shop # AdGuard DNS Filter
@@ -30546,6 +30588,7 @@ bbybqq.levi.co.id # AdGuard DNS Filter
 bbyoaowyljswd.site # AdGuard DNS Filter
 bbysa.aprica.com # AdGuard DNS Filter
 bbyybvrspsjdp.site # AdGuard DNS Filter
+bbyyqitxuplnz.site # AdGuard DNS Filter
 bbznqba.boxgenie.com # AdGuard DNS Filter
 bbztmceiyhybz.space # AdGuard DNS Filter
 bc-news.net # AdGuard DNS Filter
@@ -31473,6 +31516,7 @@ begnawnenbloccake.cfd # AdGuard DNS Filter
 begoihuh.com # AdGuard DNS Filter
 begolbatan.com # AdGuard DNS Filter
 begonaoidausek.com # AdGuard DNS Filter
+begonia20.com # AdGuard DNS Filter
 begoniathule.cfd # AdGuard DNS Filter
 begony.xyz # AdGuard DNS Filter
 begraysprags.qpon # AdGuard DNS Filter
@@ -32779,6 +32823,7 @@ bffcv.1866nippers.com # AdGuard DNS Filter
 bffgkbixozjff.space # AdGuard DNS Filter
 bffigvvwoyybr.website # AdGuard DNS Filter
 bffs.com # StevenBlack Gambling & Porn
+bffvwaroejqlj.online # AdGuard DNS Filter
 bffyuucqyjsih.website # AdGuard DNS Filter
 bfgbwzp559rfyl.rest # AdGuard DNS Filter
 bfgmavzduljma.space # AdGuard DNS Filter
@@ -34237,6 +34282,7 @@ bkboeceimtmkj.space # AdGuard DNS Filter
 bkdafdwsckqdi.space # AdGuard DNS Filter
 bkdlmujfobbk.com # AdGuard DNS Filter
 bkefmqobaybqm.site # AdGuard DNS Filter
+bkezgkhgnqcpb.online # AdGuard DNS Filter
 bkfkbdwuzpsos.online # AdGuard DNS Filter
 bkfuuothzxgnm.site # AdGuard DNS Filter
 bkg-fix.com # URLhaus Malware Domains
@@ -34611,6 +34657,7 @@ blendlayout.rassvet.in.net # URLhaus Malware Domains
 blendortenacle.cfd # AdGuard DNS Filter
 blendsubslot.rest # AdGuard DNS Filter
 blepsbey.com # AdGuard DNS Filter
+blesmolwhelve.shop # AdGuard DNS Filter
 blessedhurtdismantle.com # AdGuard DNS Filter
 blessedsophia.com # AdGuard DNS Filter
 blessedveiners.shop # AdGuard DNS Filter
@@ -36693,6 +36740,7 @@ bpftoyh.chamelo.com # AdGuard DNS Filter
 bpgbcl.coconala.com # AdGuard DNS Filter
 bpgwsiqunmadx.online # AdGuard DNS Filter
 bphgwntdzzyxs.space # AdGuard DNS Filter
+bphiipa.evaz.io # URLhaus Malware Domains
 bphtlhrntspkk.site # AdGuard DNS Filter
 bphunbyla.com # AdGuard DNS Filter
 bpifosgceukau.space # AdGuard DNS Filter
@@ -37072,6 +37120,7 @@ brawl-stars-xxx.xyz # StevenBlack Gambling & Porn
 brawledsqueege.cfd # AdGuard DNS Filter
 brawlysenjamb.com # AdGuard DNS Filter
 brawnednonegotipper.qpon # AdGuard DNS Filter
+braxyupsides.shop # AdGuard DNS Filter
 brayezz.com # StevenBlack Gambling & Porn
 brayinglegions.click # AdGuard DNS Filter
 brayingrastus.shop # AdGuard DNS Filter
@@ -38242,6 +38291,7 @@ bughemisphere.com # AdGuard DNS Filter
 bugleczmoidgxo.com # AdGuard DNS Filter
 buglersoogone.cyou # AdGuard DNS Filter
 buglossulexitebisons.cfd # AdGuard DNS Filter
+bugongpestify.shop # AdGuard DNS Filter
 bugourtuftas.com # AdGuard DNS Filter
 bugout.news # StevenBlack Fake News
 bugpizza.com # AdGuard DNS Filter
@@ -39102,6 +39152,7 @@ bwnxh.peaceoutskincare.com # AdGuard DNS Filter
 bwodskyelhpbn.space # AdGuard DNS Filter
 bwofuzfzhgqnp.website # AdGuard DNS Filter
 bwojlhkqvgvxe.online # AdGuard DNS Filter
+bwomnahwaglzj.site # AdGuard DNS Filter
 bwomzivfbzrtm.online # AdGuard DNS Filter
 bwonmgbuuqrjglw.com # AdGuard DNS Filter
 bwoorvop.com # AdGuard DNS Filter
@@ -39260,6 +39311,7 @@ by.addrecipes.com # AdGuard DNS Filter
 by.cloudreach.ru # URLhaus Malware Domains
 by.dyq.cn # AdGuard DNS Filter
 by.mywd.com # AdGuard DNS Filter
+by2lc7429r.com # AdGuard DNS Filter
 by3goh56cvrnu5eu.cfd # AdGuard DNS Filter
 by42.officeco.in.net # URLhaus Malware Domains
 by46beo2.bracketmurmur.ru # URLhaus Malware Domains
@@ -39341,6 +39393,7 @@ byqxpmummjet.com # AdGuard DNS Filter
 byremanjokish.cfd # AdGuard DNS Filter
 byrlawaeratedtensile.qpon # AdGuard DNS Filter
 byrniessilky.com # AdGuard DNS Filter
+byrristrowed.cfd # AdGuard DNS Filter
 byryqaysgfpwz.website # AdGuard DNS Filter
 bysbpc.teufelaudio.nl # AdGuard DNS Filter
 byscy.cn # AdGuard DNS Filter
@@ -41668,6 +41721,7 @@ cappingvic.qpon # AdGuard DNS Filter
 capriblewits.qpon # AdGuard DNS Filter
 capriceawelessaweless.com # AdGuard DNS Filter
 capriciouscorn.com # AdGuard DNS Filter
+caprinefussereurous.cyou # AdGuard DNS Filter
 caprisalipedslhota.cyou # AdGuard DNS Filter
 caprizecaprizeflagfur.com # AdGuard DNS Filter
 caprofitx.com # AdGuard DNS Filter
@@ -42050,6 +42104,7 @@ cartoontube69.com # StevenBlack Gambling & Porn
 cartoonvalley.com # StevenBlack Gambling & Porn
 cartoonwoman.net # StevenBlack Gambling & Porn
 cartoonxxxcomix.com # StevenBlack Gambling & Porn
+cartopgrid.shop # AdGuard DNS Filter
 cartrigepromised.com # AdGuard DNS Filter
 cartrigestale.com # AdGuard DNS Filter
 carts.guru # AdGuard DNS Filter
@@ -42112,6 +42167,7 @@ cascadion.thermofisher.com # AdGuard DNS Filter
 cascllychd.com # AdGuard DNS Filter
 case-nl.tlsext.com # StevenBlack Gambling & Porn
 caseaseravened.qpon # AdGuard DNS Filter
+caseatetamed.cfd # AdGuard DNS Filter
 caseboxramus.cyou # AdGuard DNS Filter
 casefulautist.shop # AdGuard DNS Filter
 casefulbalafo.cyou # AdGuard DNS Filter
@@ -42292,6 +42348,7 @@ casumo.com # StevenBlack Gambling & Porn
 casumoaffiliates.com # AdGuard DNS Filter
 casxivamrczi.com # AdGuard DNS Filter
 casyetnx.pw # URLhaus Malware Domains
+casyttqicyhpk.online # AdGuard DNS Filter
 cat-clothes.angelfire.com # StevenBlack Gambling & Porn
 cat.beunitedinchrist.com # AdGuard DNS Filter
 cat.fiore.ai # AdGuard DNS Filter
@@ -45651,6 +45708,7 @@ centwrite.com # AdGuard DNS Filter
 cenzao.com.br # StevenBlack Gambling & Porn
 ceoapr.donjoyperformance.com # AdGuard DNS Filter
 ceoctd.lylon.co.kr # AdGuard DNS Filter
+ceoksgxcwged.com # AdGuard DNS Filter
 ceopu.com # AdGuard DNS Filter
 ceowyn.eseltree.com # AdGuard DNS Filter
 cephalokal.com # StevenBlack Gambling & Porn
@@ -47759,6 +47817,7 @@ cjrdcfqmbfjbv.space # AdGuard DNS Filter
 cjree.brinoxal.in.net # URLhaus Malware Domains
 cjrhml.snipes.ch # AdGuard DNS Filter
 cjriqheskyceo.online # AdGuard DNS Filter
+cjrlpledgxvll.space # AdGuard DNS Filter
 cjrlsw.info # AdGuard DNS Filter
 cjrtwtmauargd.website # AdGuard DNS Filter
 cjsebonyporn.com # StevenBlack Gambling & Porn
@@ -48140,6 +48199,7 @@ clarium.global.ssl.fastly.net # AdGuard DNS Filter
 clarivoy.com # AdGuard DNS Filter
 clarkeunionnews.com # StevenBlack Fake News
 clarksvilletimes.com # StevenBlack Fake News
+clarova2021.net # AdGuard DNS Filter
 clarune.life # URLhaus Malware Domains
 claryn.cloudrift.ru # URLhaus Malware Domains
 claryne.xyz # AdGuard DNS Filter
@@ -49174,6 +49234,7 @@ cloakedjesses.cfd # AdGuard DNS Filter
 clobberabluentweeded.cyou # AdGuard DNS Filter
 clobberprocurertightwad.com # AdGuard DNS Filter
 cloblmsvwkjvy.site # AdGuard DNS Filter
+clochemealed.cyou # AdGuard DNS Filter
 clock.st0negate.ru # URLhaus Malware Domains
 clockangrilypotter.com # AdGuard DNS Filter
 clockinaugurateounce.com # AdGuard DNS Filter
@@ -49576,6 +49637,7 @@ clysmicdeposal.digital # AdGuard DNS Filter
 clyss.customlanyard.net # AdGuard DNS Filter
 clystracapfin.com # URLhaus Malware Domains
 clzl.pro # AdGuard DNS Filter
+clzncrttntei.com # AdGuard DNS Filter
 clzr2h4s.pr2gzigza8.ru # URLhaus Malware Domains
 cm-exchange.toast.com # AdGuard DNS Filter
 cm-h-ph.rdtcdn.com # StevenBlack Gambling & Porn
@@ -49924,6 +49986,7 @@ cnddwrfdedudq.online # AdGuard DNS Filter
 cndkpvokgivtq.website # AdGuard DNS Filter
 cnduoumdmxtrt.online # AdGuard DNS Filter
 cnect.heggerty.org # AdGuard DNS Filter
+cnemicsynthol.qpon # AdGuard DNS Filter
 cnemxc.fursource.com # AdGuard DNS Filter
 cnesnnavxumlh.online # AdGuard DNS Filter
 cnet.technick.sbs # URLhaus Malware Domains
@@ -51329,6 +51392,7 @@ compttracing.cyou # AdGuard DNS Filter
 compuserviceonline.com.br # URLhaus Malware Domains
 compute-comp.cytolo-gyywniak.in.net # URLhaus Malware Domains
 computing.news # StevenBlack Fake News
+computing2services.com # AdGuard DNS Filter
 comscore.com # AdGuard DNS Filter
 comtecangues.world # AdGuard DNS Filter
 comtelitalia.alcatel-lucent.com # AdGuard DNS Filter
@@ -51411,6 +51475,7 @@ concrete-occasion.com # AdGuard DNS Filter
 concreteminor.pro # AdGuard DNS Filter
 concretetom.com # AdGuard DNS Filter
 concurfortunes.com # AdGuard DNS Filter
+concurscannoli.cyou # AdGuard DNS Filter
 concussion33.top # AdGuard DNS Filter
 condancing.com # AdGuard DNS Filter
 condandthi.cfd # AdGuard DNS Filter
@@ -52892,6 +52957,7 @@ coryphaquerns.cfd # AdGuard DNS Filter
 coryphstoma.com # AdGuard DNS Filter
 coryphthrifty.qpon # AdGuard DNS Filter
 coryzaproximarowport.cyou # AdGuard DNS Filter
+coryzasdarat.cfd # AdGuard DNS Filter
 cos1999.top # AdGuard DNS Filter
 coseierblowstalipat.cfd # AdGuard DNS Filter
 cosetengarb.com # AdGuard DNS Filter
@@ -52900,6 +52966,7 @@ coseyskilij.cyou # AdGuard DNS Filter
 coshesdecafidlongies.cfd # AdGuard DNS Filter
 coshingcyano.qpon # AdGuard DNS Filter
 coshoansurdoms.net # AdGuard DNS Filter
+cosinchukor.qpon # AdGuard DNS Filter
 cosinecoot.cfd # AdGuard DNS Filter
 cosineupslip.shop # AdGuard DNS Filter
 cosinjalet.qpon # AdGuard DNS Filter
@@ -52964,6 +53031,7 @@ cotingnonbank.click # AdGuard DNS Filter
 cotisehotspur.cfd # AdGuard DNS Filter
 cotlandupbring.qpon # AdGuard DNS Filter
 cotrck.com # AdGuard DNS Filter
+cottaeinglesaforold.qpon # AdGuard DNS Filter
 cottages-resolutions-grew-indirect.trycloudflare.com # URLhaus Malware Domains
 cottisetelinga.shop # AdGuard DNS Filter
 cottoncabbage.com # AdGuard DNS Filter
@@ -53302,6 +53370,7 @@ coyizl.embracon.com.br # AdGuard DNS Filter
 coylycaptate.com # AdGuard DNS Filter
 coylytankard.cyou # AdGuard DNS Filter
 coynyeautoed.com # AdGuard DNS Filter
+coyosethrogs.qpon # AdGuard DNS Filter
 coyote.gnx.cloud # AdGuard DNS Filter
 coyote.nickgurney.com # AdGuard DNS Filter
 coyote.pbnbuilds.com # AdGuard DNS Filter
@@ -53713,6 +53782,7 @@ cr4ft-pulse.importantserv.in.net # URLhaus Malware Domains
 cr4ft-vector.thornbyte.in.net # URLhaus Malware Domains
 cr4ft9-core.skyl1tfern.in.net # URLhaus Malware Domains
 cr4t-flow.ashenkite.in.net # URLhaus Malware Domains
+cr9i8up3.stgsolar.hu # URLhaus Malware Domains
 cra.hum.works # AdGuard DNS Filter
 craaledbootied.click # AdGuard DNS Filter
 crab.dunkeldbutchers.co.uk # AdGuard DNS Filter
@@ -54884,6 +54954,7 @@ cst.docciatime.it # AdGuard DNS Filter
 cstats.sankakucomplex.com # AdGuard DNS Filter
 cstavionictapism.cyou # AdGuard DNS Filter
 cstor.com # StevenBlack Gambling & Porn
+cstousygub.com # AdGuard DNS Filter
 cstsmonjsepr.com # AdGuard DNS Filter
 cstwpush.com # AdGuard DNS Filter
 csucsvideok.hu # StevenBlack Gambling & Porn
@@ -55072,6 +55143,7 @@ ctthreip.cyou # AdGuard DNS Filter
 cttidjdivuexl.website # AdGuard DNS Filter
 cttnmjpplccxm.website # AdGuard DNS Filter
 ctubhxbaew.com # AdGuard DNS Filter
+ctuljhkylzlik.com # AdGuard DNS Filter
 ctuqitwpic.com # AdGuard DNS Filter
 ctusolution.com # AdGuard DNS Filter
 ctv-ads.api.leiniao.com # AdGuard DNS Filter
@@ -56221,6 +56293,7 @@ cxajgzjwemsjd.website # AdGuard DNS Filter
 cxalid.turtlebeach.com # AdGuard DNS Filter
 cxamupwxndqat.online # AdGuard DNS Filter
 cxasci.sprzedajemy.pl # AdGuard DNS Filter
+cxaxqwe.sm188login.cfd # URLhaus Malware Domains
 cxbogbmqugqqy.store # AdGuard DNS Filter
 cxcmidfyr.com # AdGuard DNS Filter
 cxcsrgntzjolw.online # AdGuard DNS Filter
@@ -57837,6 +57910,7 @@ danceryteatswinged.cyou # AdGuard DNS Filter
 dancingbear.com # StevenBlack Gambling & Porn
 dancylozengy.qpon # AdGuard DNS Filter
 dandadorobo.cyou # AdGuard DNS Filter
+danderpotrero.cyou # AdGuard DNS Filter
 dandiewealful.com # AdGuard DNS Filter
 dandisbehen.cyou # AdGuard DNS Filter
 dandisinstyle.world # AdGuard DNS Filter
@@ -65291,6 +65365,7 @@ despeedmatzas.cfd # AdGuard DNS Filter
 despendcaitiff.cyou # AdGuard DNS Filter
 desperate-housewives.ws # StevenBlack Gambling & Porn
 desperateamateurs.com # StevenBlack Gambling & Porn
+despisekirkmen.cfd # AdGuard DNS Filter
 despoteavesdropblazing.com # AdGuard DNS Filter
 despumetangos.shop # AdGuard DNS Filter
 desrayabstortangareb.cyou # AdGuard DNS Filter
@@ -65377,6 +65452,7 @@ detourgame.com # AdGuard DNS Filter
 detourgumby.cyou # AdGuard DNS Filter
 detoxifylagoonsnugness.com # AdGuard DNS Filter
 detroitcitywire.com # StevenBlack Fake News
+detruckloessalkimono.qpon # AdGuard DNS Filter
 deturbcordies.com # AdGuard DNS Filter
 deturbsparged.help # AdGuard DNS Filter
 detvtjbbegrf.com # AdGuard DNS Filter
@@ -66094,6 +66170,7 @@ dhbfsbanlrmqm.website # AdGuard DNS Filter
 dhbligjfopnac.online # AdGuard DNS Filter
 dhbuznztkqdqx.site # AdGuard DNS Filter
 dhcanelzoyomw.space # AdGuard DNS Filter
+dhckj73qr3.com # AdGuard DNS Filter
 dhcp-100-248-59-5.metro86.ru # URLhaus Malware Domains
 dhcp-53-248-59-5.metro86.ru # URLhaus Malware Domains
 dhcqlbteygqeg.site # AdGuard DNS Filter
@@ -66944,6 +67021,7 @@ diplopyapianboracic.cfd # AdGuard DNS Filter
 diplopyrely.cyou # AdGuard DNS Filter
 dipnoicurdlyannulli.qpon # AdGuard DNS Filter
 dipnoidserpens.click # AdGuard DNS Filter
+dipolartylarigawsie.cyou # AdGuard DNS Filter
 dipoleinchain.cfd # AdGuard DNS Filter
 diporpamahone.shop # AdGuard DNS Filter
 dipperflightrecommend.com # AdGuard DNS Filter
@@ -67866,6 +67944,7 @@ dlig.cn # AdGuard DNS Filter
 dlisted.com # StevenBlack Gambling & Porn
 dlisuq.wbw-nail.com # AdGuard DNS Filter
 dljdgn.e-lens.com.br # AdGuard DNS Filter
+dljecqtjpbsdp.online # AdGuard DNS Filter
 dljecxbxgaosn.online # AdGuard DNS Filter
 dljlwolqttjup.online # AdGuard DNS Filter
 dljtc.paradiseunderthestars.com # AdGuard DNS Filter
@@ -68099,6 +68178,7 @@ dmv.uqoo.nl # URLhaus Malware Domains
 dmv2ddsm.mozillacola.digital # URLhaus Malware Domains
 dmvbdfblevxvx.com # AdGuard DNS Filter
 dmvbpz.swimoutlet.com # AdGuard DNS Filter
+dmvrsoswhzthb.online # AdGuard DNS Filter
 dmvvcithlwutz.space # AdGuard DNS Filter
 dmwbspizchjlu.website # AdGuard DNS Filter
 dmxleo.dailymotion.com # AdGuard DNS Filter
@@ -68731,6 +68811,7 @@ dondoofntvix.com # AdGuard DNS Filter
 done-task6.kiv5leren.in.net # URLhaus Malware Domains
 donecperficiam.net # AdGuard DNS Filter
 donfreeporn.com # StevenBlack Gambling & Porn
+dongateratic.cyou # AdGuard DNS Filter
 dongbuscarl.cyou # AdGuard DNS Filter
 dongfeng.serveftp.com # URLhaus Malware Domains
 donggai.pro # StevenBlack Gambling & Porn
@@ -69214,6 +69295,7 @@ dozemarchedconserve.com # AdGuard DNS Filter
 dozenshallow.com # AdGuard DNS Filter
 dozepokinganthem.com # AdGuard DNS Filter
 dozerstubbist.rest # AdGuard DNS Filter
+dozeskeekersybo.cyou # AdGuard DNS Filter
 dozlek.juren0ksco1d.ru # URLhaus Malware Domains
 dozqil.hier2r5ivuc.ru # URLhaus Malware Domains
 dozrel.com # StevenBlack Gambling & Porn
@@ -69789,6 +69871,7 @@ droversaberrecut.qpon # AdGuard DNS Filter
 droversfeering.cfd # AdGuard DNS Filter
 drownhewchevy.com # AdGuard DNS Filter
 drowsyhagbolt.click # AdGuard DNS Filter
+drozhhgsejvhn.space # AdGuard DNS Filter
 drp.greenenergygroup.org # URLhaus Malware Domains
 drpep.crossoversymmetry.com # AdGuard DNS Filter
 drpmwiratqmxc.space # AdGuard DNS Filter
@@ -69995,6 +70078,7 @@ dshcvnslkctijpy.com # AdGuard DNS Filter
 dshqj1.getron.in.net # URLhaus Malware Domains
 dshqtbvicbyvr.space # AdGuard DNS Filter
 dsifi.toms.com # AdGuard DNS Filter
+dsiflqhqyfmp.com # AdGuard DNS Filter
 dsiljgnplyejw.website # AdGuard DNS Filter
 dsj4qf77pyncykf2dki6isfcuy0orwhc.lambda-url.eu-west-1.on.aws # AdGuard DNS Filter
 dsjoiyflhvxpq.website # AdGuard DNS Filter
@@ -70122,6 +70206,7 @@ dsvthltqnv.com # AdGuard DNS Filter
 dsvucxtj.aanhangwagendirect.nl # AdGuard DNS Filter
 dswagqnjedlcq.site # AdGuard DNS Filter
 dswckxxivdrjj.website # AdGuard DNS Filter
+dswepngsrbhza.space # AdGuard DNS Filter
 dswgtcjlborgg.xyz # AdGuard DNS Filter
 dswiqasjjcvsa.online # AdGuard DNS Filter
 dsxgwwrkecsxd.online # AdGuard DNS Filter
@@ -71061,6 +71146,7 @@ dxawqqsqrvdhef.com # AdGuard DNS Filter
 dxbbxfsjgco.net # AdGuard DNS Filter
 dxblg.workoutwithdorci.com # URLhaus Malware Domains
 dxbzufvkoahib.space # AdGuard DNS Filter
+dxclneq.webrevelem.hu # URLhaus Malware Domains
 dxcqdvrjbdaie.website # AdGuard DNS Filter
 dxcvqzxyycraw.website # AdGuard DNS Filter
 dxd.pr0wlmint.ru # URLhaus Malware Domains
@@ -71099,6 +71185,7 @@ dxozhspzbfkwk.online # AdGuard DNS Filter
 dxp.baidu.com # AdGuard DNS Filter
 dxpcfccbgxlmy.online # AdGuard DNS Filter
 dxpogtsfwveup.space # AdGuard DNS Filter
+dxppedjnfsiwn.online # AdGuard DNS Filter
 dxpxgy.jdsports.com # AdGuard DNS Filter
 dxq8uuq0d.com # AdGuard DNS Filter
 dxqbfo.capfun.nl # AdGuard DNS Filter
@@ -71486,6 +71573,7 @@ e0c8eba8be.8ffea74ec5.com # AdGuard DNS Filter
 e0d7lwti.xyz # AdGuard DNS Filter
 e0dc0c0e85.e8853962d1.com # AdGuard DNS Filter
 e0qmla61cb.com # AdGuard DNS Filter
+e0vt7hv0.saostar.biz # URLhaus Malware Domains
 e1.0prichpe7ch.ru # URLhaus Malware Domains
 e1.drtst.com # StevenBlack Gambling & Porn
 e1.nvdst.com # StevenBlack Gambling & Porn
@@ -73165,6 +73253,7 @@ eefcdueqqznvm.click # AdGuard DNS Filter
 eefteeftoa.net # AdGuard DNS Filter
 eeftopsouvimord.net # AdGuard DNS Filter
 eeftorsoalouh.net # AdGuard DNS Filter
+eefvlrnilw.com # AdGuard DNS Filter
 eegcdeyi.com # AdGuard DNS Filter
 eeglaithoughie.net # AdGuard DNS Filter
 eegmp3.com # StevenBlack Gambling & Porn
@@ -73183,6 +73272,7 @@ eeigvdirpfmob.online # AdGuard DNS Filter
 eeiinjqsioicn.site # AdGuard DNS Filter
 eeimwqijxvcoj.website # AdGuard DNS Filter
 eejestonsou.net # AdGuard DNS Filter
+eejfjzadnqxcg.site # AdGuard DNS Filter
 eejnmmactnixs.website # AdGuard DNS Filter
 eekbhhrgusizj.website # AdGuard DNS Filter
 eekekseecke.net # AdGuard DNS Filter
@@ -73369,6 +73459,7 @@ efg.zle.com # AdGuard DNS Filter
 efgebmmcngkp.com # AdGuard DNS Filter
 efgh.5lu.com # AdGuard DNS Filter
 efglbp.baur.de # AdGuard DNS Filter
+efhaluqmntgpo.website # AdGuard DNS Filter
 efhd.net # StevenBlack Gambling & Porn
 efhljy.trendhim.bg # AdGuard DNS Filter
 efiarz.merit-susyuka.in.net # URLhaus Malware Domains
@@ -73442,6 +73533,7 @@ eg56fukm7tglfl3hzcfxf8lwnok.rest # AdGuard DNS Filter
 eg719pc8yiruec.cfd # AdGuard DNS Filter
 egadvertising.com # AdGuard DNS Filter
 egafd.com # StevenBlack Gambling & Porn
+egalcxytgrtpy.com # AdGuard DNS Filter
 egamingbets.com # StevenBlack Gambling & Porn
 egamingonline.com # AdGuard DNS Filter
 egamiplatform.tv # AdGuard DNS Filter
@@ -73905,6 +73997,7 @@ ejzbrokenangelz.com # StevenBlack Gambling & Porn
 ejzdijlxrxwlg.site # AdGuard DNS Filter
 ek-tracker.ekitan.com # AdGuard DNS Filter
 ek8.voyage-prive.com # AdGuard DNS Filter
+ek946br7uy.com # AdGuard DNS Filter
 ekaacdiilusiw.space # AdGuard DNS Filter
 ekabdtoe.net # AdGuard DNS Filter
 ekabsouksal.net # AdGuard DNS Filter
@@ -74286,6 +74379,7 @@ elmersasine.shop # AdGuard DNS Filter
 elmmmgfvzerqt.space # AdGuard DNS Filter
 elmolkyqhjfwn.online # AdGuard DNS Filter
 elmpbkx43uy5lxh.rest # AdGuard DNS Filter
+elmqfzy.zsatom.hu # URLhaus Malware Domains
 elmundoporno.com # StevenBlack Gambling & Porn
 elmyhorrent.cyou # AdGuard DNS Filter
 elnbz.qualitylogic.com # AdGuard DNS Filter
@@ -74443,6 +74537,7 @@ elqfscookie.penetrator.jp # AdGuard DNS Filter
 elqfscookie.test-pe.com # AdGuard DNS Filter
 elqfsq.icu # AdGuard DNS Filter
 elqhgsxjyeouy.online # AdGuard DNS Filter
+elqpwdfyixeod.space # AdGuard DNS Filter
 elqtrack.info.estatenyheter.no # AdGuard DNS Filter
 elqtrack.kubotausa.com # AdGuard DNS Filter
 elqtrack.logarithmicsolutions.com # AdGuard DNS Filter
@@ -74988,6 +75083,7 @@ emissionidiompolygon.com # AdGuard DNS Filter
 emitmicaciv.cfd # AdGuard DNS Filter
 emitprocured.com # AdGuard DNS Filter
 emivjymhpovva.com # AdGuard DNS Filter
+emiyesfsilkzx.online # AdGuard DNS Filter
 emiyvktgfxb.xyz # AdGuard DNS Filter
 emjp1vs.woodfor.lat # URLhaus Malware Domains
 emjrwypl.xyz # AdGuard DNS Filter
@@ -76291,6 +76387,7 @@ eoredi.com # AdGuard DNS Filter
 eoreu.stellacarakasi.com # AdGuard DNS Filter
 eorientalporn.com # StevenBlack Gambling & Porn
 eorimblasvzgx.space # AdGuard DNS Filter
+eorkmgovqyswa.website # AdGuard DNS Filter
 eosmwqvnmnjuh.com # AdGuard DNS Filter
 eostvofsqqsvi.site # AdGuard DNS Filter
 eoszovqcxtbzi.space # AdGuard DNS Filter
@@ -76302,6 +76399,7 @@ eou.andresalata.com.br # AdGuard DNS Filter
 eoucn.lovehoney.com # AdGuard DNS Filter
 eov9nolzlp1qr7.cfd # AdGuard DNS Filter
 eoveukrnme.org # AdGuard DNS Filter
+eowbdqtsy.com # AdGuard DNS Filter
 eowdedvtujftf.site # AdGuard DNS Filter
 eowpmq.vinoseleccion.com # AdGuard DNS Filter
 eoxmqlvcylamr.online # AdGuard DNS Filter
@@ -76340,6 +76438,7 @@ epeatcfzdosqo.site # AdGuard DNS Filter
 epeex.io # AdGuard DNS Filter
 epehhg.tsfurniture.co.kr # AdGuard DNS Filter
 epeiraarabia.cyou # AdGuard DNS Filter
+epeiridmazilycotula.cfd # AdGuard DNS Filter
 epeooudy.com # AdGuard DNS Filter
 eperfectdata.com # AdGuard DNS Filter
 epersaonwhois.com # AdGuard DNS Filter
@@ -77166,6 +77265,7 @@ ertfu9pm.piculi5tep.in.net # URLhaus Malware Domains
 erthfeoveukrn.org # AdGuard DNS Filter
 ertko.annieandoak.com # AdGuard DNS Filter
 eru5tdmbuwxm.com # AdGuard DNS Filter
+erucaballers.qpon # AdGuard DNS Filter
 erucinundergo.cyou # AdGuard DNS Filter
 erucmouopjy.com # AdGuard DNS Filter
 eructedjoyhop.life # AdGuard DNS Filter
@@ -77183,6 +77283,7 @@ erv9wlwzq6qvcb9j1nunyng8g.rest # AdGuard DNS Filter
 ervaring.theqlounge.nl # AdGuard DNS Filter
 erveo7rb.xyz # URLhaus Malware Domains
 erviljarbotsmoodge.cyou # AdGuard DNS Filter
+ervksfgqsljjf.website # AdGuard DNS Filter
 ervrievipczam.site # AdGuard DNS Filter
 ervtdgkyqbsdd.website # AdGuard DNS Filter
 ervwyrdicmuvz.space # AdGuard DNS Filter
@@ -79267,6 +79368,7 @@ exclkplat.com # AdGuard DNS Filter
 exclplatmain.com # AdGuard DNS Filter
 excludegusteight.com # AdGuard DNS Filter
 exclusive.bannedcelebs.com # StevenBlack Gambling & Porn
+exclusive2010.net # AdGuard DNS Filter
 exclusivebrass.com # AdGuard DNS Filter
 exclusiveclicks.com # AdGuard DNS Filter
 exclusivelearnt.com # AdGuard DNS Filter
@@ -81498,6 +81600,7 @@ faroffteaching.pro # AdGuard DNS Filter
 faroukwinnow.com # AdGuard DNS Filter
 faroz.offer.farozamart.com # AdGuard DNS Filter
 farphrasedirect.com # AdGuard DNS Filter
+farragorelineversus.cfd # AdGuard DNS Filter
 farrahsuperstar.vividceleb.com # StevenBlack Gambling & Porn
 farrantchopin.shop # AdGuard DNS Filter
 farrelwaspier.cyou # AdGuard DNS Filter
@@ -85422,6 +85525,7 @@ flndboy.net # StevenBlack Gambling & Porn
 flneureditcliack.cyou # AdGuard DNS Filter
 flnjn.coachoutlet.com # AdGuard DNS Filter
 flnkmj.hometogo.fr # AdGuard DNS Filter
+floatercarcangruffed.qpon # AdGuard DNS Filter
 floatersooted.shop # AdGuard DNS Filter
 floatingpresentedshopping.com # AdGuard DNS Filter
 floatjav09212026.shop # AdGuard DNS Filter
@@ -89929,7 +90033,9 @@ funmwzj.net # StevenBlack Gambling & Porn
 funnel.saunaplace.com # AdGuard DNS Filter
 funneld.com # AdGuard DNS Filter
 funnelytics.io # AdGuard DNS Filter
+funnieslepid.shop # AdGuard DNS Filter
 funnilyerenach.qpon # AdGuard DNS Filter
+funnilylouted.qpon # AdGuard DNS Filter
 funninglimpers.com # AdGuard DNS Filter
 funny-dot.pro # AdGuard DNS Filter
 funny-quality.pro # AdGuard DNS Filter
@@ -90218,6 +90324,7 @@ fvbaffiliate.com # AdGuard DNS Filter
 fvbtyoj.movementsheptun.in.net # URLhaus Malware Domains
 fvc.alcatel-lucent.com # AdGuard DNS Filter
 fvcccifbvygvb.space # AdGuard DNS Filter
+fvcdntopaiujy.com # AdGuard DNS Filter
 fvcgngrnxvhbng.xyz # AdGuard DNS Filter
 fvcm.net # AdGuard DNS Filter
 fvcpwhaaucotc.com # AdGuard DNS Filter
@@ -90974,6 +91081,7 @@ gadslimz.com # AdGuard DNS Filter
 gadsme.com # AdGuard DNS Filter
 gadspms.com # AdGuard DNS Filter
 gadspmz.com # AdGuard DNS Filter
+gadvzmy.lampaoszlopbolt.hu # URLhaus Malware Domains
 gae.karte.io # AdGuard DNS Filter
 gaeawatchethardset.qpon # AdGuard DNS Filter
 gaeawoodmen.qpon # AdGuard DNS Filter
@@ -91493,6 +91601,7 @@ gamerjackpot.com # StevenBlack Gambling & Porn
 gamersad.com # AdGuard DNS Filter
 gamersshield.com # AdGuard DNS Filter
 gamersterritory.com # AdGuard DNS Filter
+games-point.com # URLhaus Malware Domains
 games-porno.net # StevenBlack Gambling & Porn
 games.filestube.com # StevenBlack Gambling & Porn
 games.payos.cfd # URLhaus Malware Domains
@@ -91586,6 +91695,7 @@ gankana.com # AdGuard DNS Filter
 gannetsprigs.cfd # AdGuard DNS Filter
 gannett.gcion.com # AdGuard DNS Filter
 ganon.yahoo.com # AdGuard DNS Filter
+ganserspeans.shop # AdGuard DNS Filter
 ganstagirls.com # StevenBlack Gambling & Porn
 gantangelliot.cyou # AdGuard DNS Filter
 gantotireofhisl.com # AdGuard DNS Filter
@@ -91776,6 +91886,7 @@ gasparkickxia.cfd # AdGuard DNS Filter
 gasparmocha.com # AdGuard DNS Filter
 gaspcommercehermione.com # AdGuard DNS Filter
 gaspedmarkups.qpon # AdGuard DNS Filter
+gaspednugator.qpon # AdGuard DNS Filter
 gaspersliens.qpon # AdGuard DNS Filter
 gaspsoap.com # AdGuard DNS Filter
 gassales.eversource.com # AdGuard DNS Filter
@@ -93168,6 +93279,7 @@ geoedge.be # AdGuard DNS Filter
 geoengineering.news # StevenBlack Fake News
 geofamily.ru # AdGuard DNS Filter
 geoff-banks.com # StevenBlack Gambling & Porn
+geogenyretired.qpon # AdGuard DNS Filter
 geogenyveered.com # AdGuard DNS Filter
 geographicalpaperworkmovie.com # AdGuard DNS Filter
 geoidcaccia.com # AdGuard DNS Filter
@@ -93251,6 +93363,7 @@ ger.paselo.de # AdGuard DNS Filter
 ger.subosan.com # AdGuard DNS Filter
 geraldnations.com # AdGuard DNS Filter
 geranintoquet.cyou # AdGuard DNS Filter
+geranium35.top # AdGuard DNS Filter
 geraticimides.com # AdGuard DNS Filter
 gerbebolshiesfm.cyou # AdGuard DNS Filter
 gerbekotwalicaged.cfd # AdGuard DNS Filter
@@ -93626,6 +93739,7 @@ gfdlnadm.georgjensen-damask.com # AdGuard DNS Filter
 gfdlnadm.georgjensen-damask.de # AdGuard DNS Filter
 gfdlnadm.georgjensen-damask.no # AdGuard DNS Filter
 gfdlnadm.georgjensen-damask.se # AdGuard DNS Filter
+gfdoxjo.zsatom.hu # URLhaus Malware Domains
 gfdpjfngu.com # AdGuard DNS Filter
 gfdrj.bravevro.in.net # URLhaus Malware Domains
 gfdru.diarrablu.com # AdGuard DNS Filter
@@ -93977,6 +94091,7 @@ ghaudhur.com # AdGuard DNS Filter
 ghautspuckish.cyou # AdGuard DNS Filter
 ghawbdktdopmt.online # AdGuard DNS Filter
 ghazallibri.help # AdGuard DNS Filter
+ghazidismarkmout.qpon # AdGuard DNS Filter
 ghazismtextus.qpon # AdGuard DNS Filter
 ghbmzavwyznoo.space # AdGuard DNS Filter
 ghbornoosers.cfd # AdGuard DNS Filter
@@ -94170,6 +94285,7 @@ giarrahuddles.cyou # AdGuard DNS Filter
 giaumusnsj.com # AdGuard DNS Filter
 giaythethaonuhcm.com # AdGuard DNS Filter
 gib9tyuu.v0xentwine.ru # URLhaus Malware Domains
+gibaeiftycplt.space # AdGuard DNS Filter
 gibbalsleonite.qpon # AdGuard DNS Filter
 gibbalslucerne.rest # AdGuard DNS Filter
 gibbolheterosdiking.qpon # AdGuard DNS Filter
@@ -95622,6 +95738,7 @@ gmufag.wday.ru # AdGuard DNS Filter
 gmufag.woman.ru # AdGuard DNS Filter
 gmurs.jewells.com # AdGuard DNS Filter
 gmusgr.millesima.ch # AdGuard DNS Filter
+gmuygkfncrt.com # AdGuard DNS Filter
 gmvovcfhjgrvt.online # AdGuard DNS Filter
 gmwmnbopsfb.com # AdGuard DNS Filter
 gmwqpgq.top # AdGuard DNS Filter
@@ -96971,6 +97088,7 @@ goodiesonan.cfd # AdGuard DNS Filter
 goodiesproctor.help # AdGuard DNS Filter
 goodindianporn.pro # StevenBlack Gambling & Porn
 goodingcere.shop # AdGuard DNS Filter
+goodingcoapt.qpon # AdGuard DNS Filter
 gooditem2.qi5maren.in.net # URLhaus Malware Domains
 goodlyboys.com # StevenBlack Gambling & Porn
 goodmanmuggily.qpon # AdGuard DNS Filter
@@ -98940,6 +99058,7 @@ gthin.site # AdGuard DNS Filter
 gthpikcqpuiqd.space # AdGuard DNS Filter
 gthug.agrenappliance.com # AdGuard DNS Filter
 gtikswysv.com # AdGuard DNS Filter
+gtilzmqdvwnuy.website # AdGuard DNS Filter
 gtiqupisxnouh.site # AdGuard DNS Filter
 gtixbb.ekosport.es # AdGuard DNS Filter
 gtj1myjla.com # AdGuard DNS Filter
@@ -103455,6 +103574,7 @@ gts.qodo.ai # AdGuard DNS Filter
 gts.thatsagrowth.com # AdGuard DNS Filter
 gttaints.com # AdGuard DNS Filter
 gtthvpzlnmueh.store # AdGuard DNS Filter
+gttmehelya.cyou # AdGuard DNS Filter
 gttpqreoakted.space # AdGuard DNS Filter
 gttzmulc.com # AdGuard DNS Filter
 gtuduqaklah.com # AdGuard DNS Filter
@@ -103904,6 +104024,7 @@ gvgotlyefgqek.site # AdGuard DNS Filter
 gvgsprjhhbpxvn.com # AdGuard DNS Filter
 gvhgjycebsmtxdk.xyz # AdGuard DNS Filter
 gvhunuh1y1qe6ch.cfd # AdGuard DNS Filter
+gvicbjudcykvw.com # AdGuard DNS Filter
 gvintwtnastmd.space # AdGuard DNS Filter
 gvipoocgyjjzm.website # AdGuard DNS Filter
 gvisit.com # AdGuard DNS Filter
@@ -104038,6 +104159,7 @@ gwlrbbtxmguuz.today # AdGuard DNS Filter
 gwm.admc-me.com # AdGuard DNS Filter
 gwmtracking.com # AdGuard DNS Filter
 gwnueyysgcczh.com # AdGuard DNS Filter
+gwojndiulsyva.online # AdGuard DNS Filter
 gwopnbrpekmvc.space # AdGuard DNS Filter
 gwotxytfckfor.store # AdGuard DNS Filter
 gwpbaleac.com # AdGuard DNS Filter
@@ -104126,6 +104248,7 @@ gxfrctjcgfstn.website # AdGuard DNS Filter
 gxfwfmlhfcnd.com # AdGuard DNS Filter
 gxgjbfopbiiva.space # AdGuard DNS Filter
 gxhjj4ctmzwm72.cfd # AdGuard DNS Filter
+gxhkg.sm188dvlv.skin # URLhaus Malware Domains
 gxhpviwyvvctoi.net # AdGuard DNS Filter
 gxhpviwyvvctoi.xyz # AdGuard DNS Filter
 gxhqspkdoasg.com # AdGuard DNS Filter
@@ -104225,6 +104348,7 @@ gynohq.com # StevenBlack Gambling & Porn
 gynosex.tv # StevenBlack Gambling & Porn
 gyntiongwxbnnig.net # AdGuard DNS Filter
 gynwljwicddmd.site # AdGuard DNS Filter
+gyoaveggvb.com # AdGuard DNS Filter
 gyooocelofurv.store # AdGuard DNS Filter
 gyoqnunyfy.com # AdGuard DNS Filter
 gyowmnuryvjty.website # AdGuard DNS Filter
@@ -104352,6 +104476,7 @@ gzuvq.sanitairkamer.nl # AdGuard DNS Filter
 gzvknriwrcwtt.website # AdGuard DNS Filter
 gzvsfzls.vym7lixar.in.net # URLhaus Malware Domains
 gzxndiiqkcpgt.space # AdGuard DNS Filter
+gzxrgq4a.saostar.biz # URLhaus Malware Domains
 gzxvxwivyjocg.online # AdGuard DNS Filter
 gzybuvohk.com # AdGuard DNS Filter
 gzyctfuc.xyz # URLhaus Malware Domains
@@ -104956,6 +105081,7 @@ handlergasman.qpon # AdGuard DNS Filter
 handlerharvest.fewhtml.surf # URLhaus Malware Domains
 handlerric.family-man.surf # URLhaus Malware Domains
 handlerspool.inept-tail.in.net # URLhaus Malware Domains
+handlesdenoted.qpon # AdGuard DNS Filter
 handlesmoves.qpon # AdGuard DNS Filter
 handleteeth.com # AdGuard DNS Filter
 handlprint.yeldfor.lat # URLhaus Malware Domains
@@ -105335,6 +105461,7 @@ haricolasses.cyou # AdGuard DNS Filter
 hariken.co # AdGuard DNS Filter
 harkedcostly.help # AdGuard DNS Filter
 harkenseringos.cyou # AdGuard DNS Filter
+harksashily.cfd # AdGuard DNS Filter
 harley-quinn-naked.com # StevenBlack Gambling & Porn
 harley-quinn-nude.com # StevenBlack Gambling & Porn
 harleyquinn.us # StevenBlack Gambling & Porn
@@ -105638,6 +105765,7 @@ hawk.makroskop.eu # AdGuard DNS Filter
 hawk.mjsarfatti.com # AdGuard DNS Filter
 hawkabsurd.com # AdGuard DNS Filter
 hawkedbhang.shop # AdGuard DNS Filter
+hawkedsettles.qpon # AdGuard DNS Filter
 hawkerliefer.cyou # AdGuard DNS Filter
 hawkeyereporter.com # StevenBlack Fake News
 hawkierussel.cyou # AdGuard DNS Filter
@@ -105892,6 +106020,7 @@ hcecde.dieti-natura.com # AdGuard DNS Filter
 hcegngzriixcl.site # AdGuard DNS Filter
 hcenuradjm.com # AdGuard DNS Filter
 hcepwysu.in # AdGuard DNS Filter
+hcexudfi.in # AdGuard DNS Filter
 hcf5yqdq3.com # AdGuard DNS Filter
 hcfarche.help # AdGuard DNS Filter
 hcfbcuapo.com # AdGuard DNS Filter
@@ -108402,6 +108531,7 @@ hipstertits.com # StevenBlack Gambling & Porn
 hipup.net # StevenBlack Gambling & Porn
 hipyevyvqxrmm.website # AdGuard DNS Filter
 hiqjgqdjkv.com # AdGuard DNS Filter
+hiqsbbiqrlbok.online # AdGuard DNS Filter
 hiqzxinodvmol.website # AdGuard DNS Filter
 hircinwaste.cfd # AdGuard DNS Filter
 hirdiakamutive.qpon # AdGuard DNS Filter
@@ -110727,6 +110857,7 @@ howsourmoolah.com # AdGuard DNS Filter
 howtothinksexylashio.lexixxx.com # StevenBlack Gambling & Porn
 howwtmrkhjzfb.website # AdGuard DNS Filter
 howzat.com # StevenBlack Gambling & Porn
+hoxagkliugfdu.space # AdGuard DNS Filter
 hoxcrixzesikv.space # AdGuard DNS Filter
 hoxha.nieuwspaal.network # AdGuard DNS Filter
 hoxsin-ad.hoxsin.co.jp # AdGuard DNS Filter
@@ -110796,6 +110927,7 @@ hpjdwjldynrfm.online # AdGuard DNS Filter
 hpjhknrhmzzlp.space # AdGuard DNS Filter
 hpjr.shop # AdGuard DNS Filter
 hpk42r7a.de # AdGuard DNS Filter
+hpkbrqtboplxh.online # AdGuard DNS Filter
 hpkgotrfjkccm.site # AdGuard DNS Filter
 hpksppeewaoyu.website # AdGuard DNS Filter
 hpkuxkhsulgtf.space # AdGuard DNS Filter
@@ -110957,6 +111089,7 @@ hqmatureporno.com # StevenBlack Gambling & Porn
 hqmaturepussy.com # StevenBlack Gambling & Porn
 hqmaturepussy.net # StevenBlack Gambling & Porn
 hqmaturetube.com # StevenBlack Gambling & Porn
+hqmefwjdydfud.online # AdGuard DNS Filter
 hqmetrics.sony.com # AdGuard DNS Filter
 hqmilfsex.com # StevenBlack Gambling & Porn
 hqmilfxxx.com # StevenBlack Gambling & Porn
@@ -111256,6 +111389,7 @@ hscfjrtmjpabs.website # AdGuard DNS Filter
 hsck3.com # StevenBlack Gambling & Porn
 hscollectedforms.net # AdGuard DNS Filter
 hscvk.tnuck.com # AdGuard DNS Filter
+hsczkaehcvcfi.site # AdGuard DNS Filter
 hsdbu.immocenterwitte.de # AdGuard DNS Filter
 hsdps.cc # AdGuard DNS Filter
 hsehk.cn # AdGuard DNS Filter
@@ -111360,6 +111494,7 @@ htahii1lpt4u.boxoffice.adventuretix.com # AdGuard DNS Filter
 htajztellrgmu.space # AdGuard DNS Filter
 htakr.cos.com # AdGuard DNS Filter
 htaospdsuqiwm.online # AdGuard DNS Filter
+htcaqoat.universaltyresautos.com.au # URLhaus Malware Domains
 htcgcwfh.xyz # AdGuard DNS Filter
 htcwyzu.bar # AdGuard DNS Filter
 htdixisbyvulc.store # AdGuard DNS Filter
@@ -111376,6 +111511,7 @@ htflq.lumindrops.com # AdGuard DNS Filter
 htfnjw.jatekotmindenkinek.hu # URLhaus Malware Domains
 htgclhssrgikf.buzz # AdGuard DNS Filter
 htgdeynqbsdpf.site # AdGuard DNS Filter
+htgnqhxhaqnyj.site # AdGuard DNS Filter
 htgtc.altardstate.com # AdGuard DNS Filter
 hth.snareplum.ru # URLhaus Malware Domains
 hth5.windl1nk.ru # URLhaus Malware Domains
@@ -112222,6 +112358,7 @@ hxaksjohngdse.site # AdGuard DNS Filter
 hxaqjykpexu.com # AdGuard DNS Filter
 hxbgxi.seikousa.com # AdGuard DNS Filter
 hxbt.alading123.com # AdGuard DNS Filter
+hxbzadzkjqsst.com # AdGuard DNS Filter
 hxddbxqyibpx.com # AdGuard DNS Filter
 hxdecujrfmyyv.online # AdGuard DNS Filter
 hxdoll.com # StevenBlack Gambling & Porn
@@ -112737,6 +112874,7 @@ i0.cdn2b.image.pornhub.phncdn.com # StevenBlack Gambling & Porn
 i0.wlmediahub.com # StevenBlack Gambling & Porn
 i06s7yrhn1.com # AdGuard DNS Filter
 i08da.backyard.in.net # URLhaus Malware Domains
+i0gxewzq.webuyurcar.com.au # URLhaus Malware Domains
 i0n3-graph.coldcaught.in.net # URLhaus Malware Domains
 i0y0i9vz0.com # AdGuard DNS Filter
 i0zaakp5.monotheism-sled.digital # URLhaus Malware Domains
@@ -113940,6 +114078,7 @@ idealnude.com # StevenBlack Gambling & Porn
 idealnudeteens.com # StevenBlack Gambling & Porn
 idealsex.nl # StevenBlack Gambling & Porn
 idealteentube.com # StevenBlack Gambling & Porn
+idealytumbril.cfd # AdGuard DNS Filter
 ideatessnipy.cyou # AdGuard DNS Filter
 ideatumcerthia.cfd # AdGuard DNS Filter
 ideatumnolos.shop # AdGuard DNS Filter
@@ -114645,6 +114784,7 @@ iiobbnevhyzdq.website # AdGuard DNS Filter
 iionads.com # AdGuard DNS Filter
 iiouzpgmqpftg.website # AdGuard DNS Filter
 iipfowbezxiqj.website # AdGuard DNS Filter
+iiq2cbzwkh94m8w.rest # AdGuard DNS Filter
 iiqetnbmcls.net # AdGuard DNS Filter
 iiqkuzdjjregw.website # AdGuard DNS Filter
 iiqtru.aunworks.jp # AdGuard DNS Filter
@@ -118257,6 +118397,7 @@ impactslam.com # AdGuard DNS Filter
 impaintimamiccondos.cyou # AdGuard DNS Filter
 impairsnonstop.cyou # AdGuard DNS Filter
 impala.vnv.nl # AdGuard DNS Filter
+impalamahoniashawed.qpon # AdGuard DNS Filter
 impalerstrowedattacca.cfd # AdGuard DNS Filter
 impanelsnarling.com # AdGuard DNS Filter
 imparksoptingmacuta.cyou # AdGuard DNS Filter
@@ -121557,6 +121698,7 @@ iogjhbnoypg.com # AdGuard DNS Filter
 iogous.com # AdGuard DNS Filter
 iogpjkoewnxuh.site # AdGuard DNS Filter
 iohfotdzkkstd.website # AdGuard DNS Filter
+iohqwaarinkpi.site # AdGuard DNS Filter
 iohsoavvddvmo.store # AdGuard DNS Filter
 iohzuartnbtpm.online # AdGuard DNS Filter
 ioicafvyjjvu.com # AdGuard DNS Filter
@@ -122649,6 +122791,7 @@ isbycgqyhsze.world # AdGuard DNS Filter
 ischarct.shop # AdGuard DNS Filter
 ischurysannups.cfd # AdGuard DNS Filter
 iscosemarcid.click # AdGuard DNS Filter
+iscpbxp.datastella.co # URLhaus Malware Domains
 iscx3.velorix.life # URLhaus Malware Domains
 isdarot.com # AdGuard DNS Filter
 isddxebre.com # AdGuard DNS Filter
@@ -124118,6 +124261,7 @@ jackao.net # AdGuard DNS Filter
 jackashrocolo.qpon # AdGuard DNS Filter
 jackboxharddrive.com # StevenBlack Gambling & Porn
 jackcivilization.com # AdGuard DNS Filter
+jackersbrown.cfd # AdGuard DNS Filter
 jacketsaerose.cfd # AdGuard DNS Filter
 jacketzerobelieved.com # AdGuard DNS Filter
 jackiegabies.click # AdGuard DNS Filter
@@ -125466,6 +125610,7 @@ jdkwtwtbiv.com # AdGuard DNS Filter
 jdlog.uu.cc # AdGuard DNS Filter
 jdlqivqfhiyjz.site # AdGuard DNS Filter
 jdlqrcmbvrzit.space # AdGuard DNS Filter
+jdlwfcgdvczzs.space # AdGuard DNS Filter
 jdmhadyrjmohh.online # AdGuard DNS Filter
 jdmikhfxhabez.com # AdGuard DNS Filter
 jdmiuypoqflevdy.com # AdGuard DNS Filter
@@ -125967,6 +126112,7 @@ jgmwuf2l.literallukom.in.net # URLhaus Malware Domains
 jgnvpyf2prkcf98oqrbhx2b1kl.rest # AdGuard DNS Filter
 jgnzifxswczpu.site # AdGuard DNS Filter
 jgo1pcbx9.com # AdGuard DNS Filter
+jgodapahvpdraj.com # AdGuard DNS Filter
 jgoodedtayhfm.site # AdGuard DNS Filter
 jgovdupigzozf.online # AdGuard DNS Filter
 jgpfqtvmeehof.space # AdGuard DNS Filter
@@ -126164,6 +126310,7 @@ jihzn.feature.com # AdGuard DNS Filter
 jiibgokugahsyrc.com # AdGuard DNS Filter
 jiibusmr.rend5win8.ru # URLhaus Malware Domains
 jiixywykzgfcm.online # AdGuard DNS Filter
+jijamqodkojs.in # AdGuard DNS Filter
 jijbgf8.regwan.in.net # URLhaus Malware Domains
 jijeahjtjzpxr.space # AdGuard DNS Filter
 jijmvhmeykgilbt.com # AdGuard DNS Filter
@@ -126375,6 +126522,7 @@ jjjgqtzlslhzi.online # AdGuard DNS Filter
 jjjtbiggzzucf.online # AdGuard DNS Filter
 jjjtyrnhbtffqd.com # AdGuard DNS Filter
 jjjusezeikjzn.site # AdGuard DNS Filter
+jjkbtnkrc.com # AdGuard DNS Filter
 jjkcvjpoyplou.website # AdGuard DNS Filter
 jjkhaenclaba.com # AdGuard DNS Filter
 jjkjn.luumlife.com # AdGuard DNS Filter
@@ -128005,6 +128153,7 @@ jtzwbiowsispo.online # AdGuard DNS Filter
 ju.bo1iyp73z387o91neu29u.cyou # AdGuard DNS Filter
 ju.j-0-tchamber.ru # URLhaus Malware Domains
 ju1y4o73qzn54qu1gu.cfd # AdGuard DNS Filter
+ju45zytleeuye76ezj5.rest # AdGuard DNS Filter
 ju52cfzjk2rjlhkfyvt.cfd # AdGuard DNS Filter
 ju6cj4inxex93rcxbnx7f8vweulkwok.cfd # AdGuard DNS Filter
 ju80r.termocenter.in.net # URLhaus Malware Domains
@@ -128108,6 +128257,7 @@ jugurslrrneem.space # AdGuard DNS Filter
 jugvl.transformationprotein.com # AdGuard DNS Filter
 jugxyetqskkgg.com # AdGuard DNS Filter
 juhwzfwrwspkm.website # AdGuard DNS Filter
+juiaaot.visszateritok.hu # URLhaus Malware Domains
 juiceadv.com # AdGuard DNS Filter
 juiceadv.net # AdGuard DNS Filter
 juicebarads.com # AdGuard DNS Filter
@@ -128221,6 +128371,7 @@ jumpvumcmhfhry.com # AdGuard DNS Filter
 jumpyfeature.com # AdGuard DNS Filter
 jumpylevel.com # AdGuard DNS Filter
 jumpyliterature.com # AdGuard DNS Filter
+jumpyshare.pro # AdGuard DNS Filter
 jumpystupid.pro # AdGuard DNS Filter
 jumto.xyz # AdGuard DNS Filter
 jumvsaapqxaed.site # AdGuard DNS Filter
@@ -129273,6 +129424,7 @@ kaamuu.top # StevenBlack Gambling & Porn
 kaan.kakao.com # AdGuard DNS Filter
 kaarheciqa.xyz # AdGuard DNS Filter
 kaascypher.com # AdGuard DNS Filter
+kabardcurite.cfd # AdGuard DNS Filter
 kabayasnozzles.shop # AdGuard DNS Filter
 kabbmedia.com # AdGuard DNS Filter
 kabbo.kabbocollectionbd.com # AdGuard DNS Filter
@@ -129924,6 +130076,7 @@ kdcnqedoikwsx.site # AdGuard DNS Filter
 kdcpgjkj.com # AdGuard DNS Filter
 kddaaqvrlf.net # AdGuard DNS Filter
 kddlljplazsfp.website # AdGuard DNS Filter
+kdecpchqjwxv.com # AdGuard DNS Filter
 kdewa111.familydoctor.com.cn # AdGuard DNS Filter
 kdffa87z.1zarelin.lat # URLhaus Malware Domains
 kdfgi.eatshameless.com # AdGuard DNS Filter
@@ -130489,6 +130642,7 @@ kfsniysgbauxo.space # AdGuard DNS Filter
 kfspytxxuttmm.online # AdGuard DNS Filter
 kftfhp.furusato-tax.jp # AdGuard DNS Filter
 kftgzmjqxjooc.store # AdGuard DNS Filter
+kftla.sm188login.sbs # URLhaus Malware Domains
 kfuaj.californiacowboy.com # AdGuard DNS Filter
 kfucrakibcu.com # AdGuard DNS Filter
 kfudqdhljiutp.site # AdGuard DNS Filter
@@ -130622,6 +130776,7 @@ khaxjxevsnigs.space # AdGuard DNS Filter
 khayaoxydase.cfd # AdGuard DNS Filter
 khazarardeliorewards.cyou # AdGuard DNS Filter
 khazarmilkers.com # StevenBlack Gambling & Porn
+khazenscollut.shop # AdGuard DNS Filter
 khazensmurksrevives.qpon # AdGuard DNS Filter
 khbgpgyoneegd.website # AdGuard DNS Filter
 khcdhu.saraschool.net # AdGuard DNS Filter
@@ -130635,6 +130790,7 @@ khebjhqfhzlzy.website # AdGuard DNS Filter
 khecjfagavaap.com # AdGuard DNS Filter
 khedassphene.com # AdGuard DNS Filter
 khedivasample.top # AdGuard DNS Filter
+kheejcqnll.com # AdGuard DNS Filter
 khegawha.com # AdGuard DNS Filter
 khegritww.com # AdGuard DNS Filter
 khehliets.com # AdGuard DNS Filter
@@ -131707,6 +131863,7 @@ kmqianneng66.com # AdGuard DNS Filter
 kmqqewmthmocc.online # AdGuard DNS Filter
 kmrfinwhizkpe.site # AdGuard DNS Filter
 kmrfxxxyogzka.space # AdGuard DNS Filter
+kmrhwhuztuwd.com # AdGuard DNS Filter
 kmrvvsdgfainp.space # AdGuard DNS Filter
 kms-full.com # AdGuard DNS Filter
 kms-tool.com # AdGuard DNS Filter
@@ -132416,6 +132573,7 @@ kowj.cn # AdGuard DNS Filter
 kownxhruhryeh.site # AdGuard DNS Filter
 koxaixaunsouh.net # AdGuard DNS Filter
 koxk.com # StevenBlack Gambling & Porn
+koyhptvjywrd.com # AdGuard DNS Filter
 koyiwkgxuburh.site # AdGuard DNS Filter
 koytnkgoywyhe.site # AdGuard DNS Filter
 koyydcxemgwzv.site # AdGuard DNS Filter
@@ -132435,6 +132593,7 @@ kpavadoxzrug.com # AdGuard DNS Filter
 kpbmqxucd.com # AdGuard DNS Filter
 kpbzar.warbyparker.com # AdGuard DNS Filter
 kpbzklaehwcaf.online # AdGuard DNS Filter
+kpckilf.visszateritok.hu # URLhaus Malware Domains
 kpcyic.sportisimo.cz # AdGuard DNS Filter
 kpd63519s.com # AdGuard DNS Filter
 kpdgj.adanola.com # AdGuard DNS Filter
@@ -132495,6 +132654,7 @@ kprwyomtkenby.space # AdGuard DNS Filter
 kpscanitwmnmf.site # AdGuard DNS Filter
 kpshx.douguo.com # AdGuard DNS Filter
 kpskd.missionpebble.com # AdGuard DNS Filter
+kpsuswpcsryyq.space # AdGuard DNS Filter
 kpsxmpevuhdwf.space # AdGuard DNS Filter
 kpt32165s.com # AdGuard DNS Filter
 kptc.xamir4al.lat # URLhaus Malware Domains
@@ -133101,6 +133261,7 @@ kunavzhtngwwqa.com # AdGuard DNS Filter
 kuncidunia.com # StevenBlack Gambling & Porn
 kunde.danskespil.dk # AdGuard DNS Filter
 kundun1069.com # StevenBlack Gambling & Porn
+kunhjadqgnd.com # AdGuard DNS Filter
 kuni-x.com # StevenBlack Gambling & Porn
 kunmiutsnirtle.cyou # AdGuard DNS Filter
 kunner.wiesentbote.de # AdGuard DNS Filter
@@ -133164,6 +133325,7 @@ kuv0.dotnetmaniac.com # StevenBlack Gambling & Porn
 kuveres.com # AdGuard DNS Filter
 kuvirixa.com # AdGuard DNS Filter
 kuvisurmh.com # AdGuard DNS Filter
+kuvsqxyjovimx.space # AdGuard DNS Filter
 kuvuwmsnjex.com # AdGuard DNS Filter
 kuvybwjxozbws.website # AdGuard DNS Filter
 kuwaitmarketing.sedgwick.com # AdGuard DNS Filter
@@ -133567,6 +133729,7 @@ kzaftq.hyflowtp.com # URLhaus Malware Domains
 kzagvdulumvgl.site # AdGuard DNS Filter
 kzampgfftpiao.online # AdGuard DNS Filter
 kzbqdbnqlajzk.website # AdGuard DNS Filter
+kzbxkhv.newspaperseng.com # URLhaus Malware Domains
 kzcsv.ehplabs.sg # AdGuard DNS Filter
 kzdfccbgnkarh.site # AdGuard DNS Filter
 kzdlxsnbeeugv.space # AdGuard DNS Filter
@@ -134055,6 +134218,7 @@ lagoo-craft.rockapp.in.net # URLhaus Malware Domains
 lagpetalia.help # AdGuard DNS Filter
 lagt.cloud # AdGuard DNS Filter
 lagunelowing.com # AdGuard DNS Filter
+lagunesgujerat.com # AdGuard DNS Filter
 lagxsntduepv.online # AdGuard DNS Filter
 lagzoids.com # AdGuard DNS Filter
 lahar.com.br # AdGuard DNS Filter
@@ -134491,6 +134655,7 @@ largeptv.com # StevenBlack Gambling & Porn
 largerinscale.cfd # AdGuard DNS Filter
 largetube.net # StevenBlack Gambling & Porn
 laridaetrionfo.top # AdGuard DNS Filter
+lariidattame.qpon # AdGuard DNS Filter
 lariidreenter.qpon # AdGuard DNS Filter
 larimernews.com # StevenBlack Fake News
 larinpayment.com # AdGuard DNS Filter
@@ -135036,6 +135201,7 @@ lbvbv.withjean.com # AdGuard DNS Filter
 lbvmnh.icu # AdGuard DNS Filter
 lbw3ij2h.xyz # URLhaus Malware Domains
 lbwdyjxdrzmia.online # AdGuard DNS Filter
+lbwjhzikhdoci.space # AdGuard DNS Filter
 lbwonrxjqqf2m63fcmn.cfd # AdGuard DNS Filter
 lbwtqscv.arapnik-nosog.in.net # URLhaus Malware Domains
 lbxaeotvtmo.com # AdGuard DNS Filter
@@ -136334,6 +136500,7 @@ lfmhcb.sefamerve.com # AdGuard DNS Filter
 lfmkreaekafry.space # AdGuard DNS Filter
 lfmojneghvivi.com # AdGuard DNS Filter
 lfmoybmwwffjjpn.com # AdGuard DNS Filter
+lfmrpcxdtmane.com # AdGuard DNS Filter
 lfn.lfg.com # AdGuard DNS Filter
 lfnwxpcbfpkcx.website # AdGuard DNS Filter
 lfnxktizblbbc.space # AdGuard DNS Filter
@@ -136860,6 +137027,7 @@ lifestyle.pornhub.com # StevenBlack Gambling & Porn
 lifestyle.tradeshow.globalsources.com # AdGuard DNS Filter
 lifetimeflaginterrogate.com # AdGuard DNS Filter
 lifeystatuaemmew.cyou # AdGuard DNS Filter
+lifgakgobgihkm.com # AdGuard DNS Filter
 liflneszneaak.site # AdGuard DNS Filter
 lifoutbultic.com # AdGuard DNS Filter
 lift.acquia.com # AdGuard DNS Filter
@@ -137020,6 +137188,7 @@ lilbabes.com # StevenBlack Gambling & Porn
 lilblonde.com # StevenBlack Gambling & Porn
 lilcooler-ss.checkoutera.com # AdGuard DNS Filter
 lilhumpers.com # StevenBlack Gambling & Porn
+lilialfcycorach.qpon # AdGuard DNS Filter
 liliboxx.top # StevenBlack Gambling & Porn
 lilieetangelina.free.fr # StevenBlack Gambling & Porn
 lililams.in.net # StevenBlack Gambling & Porn
@@ -138348,6 +138517,7 @@ llrce.goldandhoney.com # AdGuard DNS Filter
 llrcuclntbhft.space # AdGuard DNS Filter
 llrmdpyqhduad.store # AdGuard DNS Filter
 llrmhquivygzh.website # AdGuard DNS Filter
+llrxcyj.laborfotostudio.hu # URLhaus Malware Domains
 lls.lumberliquidators.com # AdGuard DNS Filter
 lls11050ko.com # AdGuard DNS Filter
 lls11060ko.com # AdGuard DNS Filter
@@ -145810,6 +145980,7 @@ loadsabingo.com # StevenBlack Gambling & Porn
 loadsurprise.com # AdGuard DNS Filter
 loadtime.org # AdGuard DNS Filter
 loadtin.dex4lavel.in.net # URLhaus Malware Domains
+loafersonagra.shop # AdGuard DNS Filter
 loafoushuho.com # AdGuard DNS Filter
 loafsfrailesunde.cyou # AdGuard DNS Filter
 loagolden.arch-vivarium.lat # URLhaus Malware Domains
@@ -147890,6 +148061,7 @@ lrcrochet.cfd # AdGuard DNS Filter
 lrczech.wolterskluwer.com # AdGuard DNS Filter
 lrdacssiwbsne.site # AdGuard DNS Filter
 lrdnuu.shopee.co.th # AdGuard DNS Filter
+lrdorrmff.com # AdGuard DNS Filter
 lrduojlvyzzta.website # AdGuard DNS Filter
 lrecfjekpxcgq.today # AdGuard DNS Filter
 lrehgz.orix.co.jp # AdGuard DNS Filter
@@ -148402,6 +148574,7 @@ luggedunhelm.qpon # AdGuard DNS Filter
 lugirsbhpifnl.store # AdGuard DNS Filter
 lugldnhhw.com # AdGuard DNS Filter
 lugleelateech.net # AdGuard DNS Filter
+luglgf6r816982rr45f2.cfd # AdGuard DNS Filter
 lugwzalsqvacb.one # AdGuard DNS Filter
 luhbnpeabgeqf.online # AdGuard DNS Filter
 luhikxgnhksf.com # AdGuard DNS Filter
@@ -149019,6 +149192,7 @@ lwxuo.com # AdGuard DNS Filter
 lwyaqhuejrhtc.online # AdGuard DNS Filter
 lwymacojhcdjrn.com # AdGuard DNS Filter
 lwyqagwixoicl.space # AdGuard DNS Filter
+lwz186utv8m2cmbgexxjwgzovvymp5ube.rest # AdGuard DNS Filter
 lwzgfp.icu # AdGuard DNS Filter
 lwzqvms.clean-sorted.in.net # URLhaus Malware Domains
 lwzrledcyonrw.site # AdGuard DNS Filter
@@ -149231,6 +149405,7 @@ lyrismswainspsychs.cyou # AdGuard DNS Filter
 lyrjntbhjhksh.site # AdGuard DNS Filter
 lyrurusasarite.cfd # AdGuard DNS Filter
 lyrurusaztecs.help # AdGuard DNS Filter
+lysateoscar.shop # AdGuard DNS Filter
 lyscfjtjhogyc.com # AdGuard DNS Filter
 lysidinelemis.qpon # AdGuard DNS Filter
 lysinebinukauunpiped.qpon # AdGuard DNS Filter
@@ -150637,6 +150812,7 @@ maio.jp # AdGuard DNS Filter
 maiphoapaique.net # AdGuard DNS Filter
 maipn.dtxent.com # AdGuard DNS Filter
 maipsoatee.com # AdGuard DNS Filter
+maipureesbay.qpon # AdGuard DNS Filter
 maisaiz.nl # StevenBlack Gambling & Porn
 maisexo.com # StevenBlack Gambling & Porn
 maisonpureconcept.fr # AdGuard DNS Filter
@@ -154227,6 +154403,7 @@ mboshmpgkndsc.site # AdGuard DNS Filter
 mbovegchkeacl.online # AdGuard DNS Filter
 mbox.wegmans.com # AdGuard DNS Filter
 mbperfumes.co # URLhaus Malware Domains
+mbqheboiyxqrp.space # AdGuard DNS Filter
 mbrbamxskwchito.com # AdGuard DNS Filter
 mbreviewer.com # AdGuard DNS Filter
 mbreviews.info # AdGuard DNS Filter
@@ -154527,6 +154704,7 @@ mdvovqpiuabzar.com # AdGuard DNS Filter
 mdvroljwxdbqe.website # AdGuard DNS Filter
 mdvsrvyjsnwds.site # AdGuard DNS Filter
 mdwhgiehfrznp.space # AdGuard DNS Filter
+mdwkkvc.sm188login.rest # URLhaus Malware Domains
 mdws.1stchoicesavings.ca # AdGuard DNS Filter
 mdws.abcu.ca # AdGuard DNS Filter
 mdws.accesscu.ca # AdGuard DNS Filter
@@ -156205,6 +156383,7 @@ metircs.ka-ex.ch # AdGuard DNS Filter
 metis.onzejoost.nl # AdGuard DNS Filter
 metis.truecaller.com # AdGuard DNS Filter
 metis.voysaude.com.br # AdGuard DNS Filter
+metklqryqtgnu.online # AdGuard DNS Filter
 metlculousdates.net # AdGuard DNS Filter
 metnngumcmgxr.site # AdGuard DNS Filter
 metok.sys.miui.com # AdGuard DNS Filter
@@ -158831,6 +159010,7 @@ mh.racket-loom.ru # URLhaus Malware Domains
 mh.theminimalisthub.nl # AdGuard DNS Filter
 mh4j.onepal-liat.in.net # URLhaus Malware Domains
 mh738ng0.reinsurunrock.in.net # URLhaus Malware Domains
+mh98hzxolozboqh.cfd # AdGuard DNS Filter
 mh9qqwotr890.koelewijn.nl # AdGuard DNS Filter
 mhaaconetwork.mhainc.com # AdGuard DNS Filter
 mhaqoffcj7.com # AdGuard DNS Filter
@@ -159098,6 +159278,7 @@ midstegeriaulema.cfd # AdGuard DNS Filter
 midtermedison.qpon # AdGuard DNS Filter
 midvalleyreporter.com # StevenBlack Fake News
 midwaymommer.qpon # AdGuard DNS Filter
+midweekzambac.qpon # AdGuard DNS Filter
 midwestfreaks.com # StevenBlack Gambling & Porn
 midwestsewers.com # StevenBlack Gambling & Porn
 midwifemoist.com # AdGuard DNS Filter
@@ -160196,6 +160377,7 @@ mjttgw.xlmoto.fr # AdGuard DNS Filter
 mjtvcbcsrpejg.site # AdGuard DNS Filter
 mjtzbkdmpbayx.online # AdGuard DNS Filter
 mjufus.icu # AdGuard DNS Filter
+mjugj.sm188dvlv.hair # URLhaus Malware Domains
 mjupoierfw8nnbq.rest # AdGuard DNS Filter
 mjursnb.com # AdGuard DNS Filter
 mjurz.springandmulberry.com # AdGuard DNS Filter
@@ -162493,6 +162675,7 @@ moukewelaimaiho.net # AdGuard DNS Filter
 moulageairbag.cfd # AdGuard DNS Filter
 mouledevests.cyou # AdGuard DNS Filter
 moulinsroust.cyou # AdGuard DNS Filter
+moultscynips.shop # AdGuard DNS Filter
 moulycambersenrobe.cyou # AdGuard DNS Filter
 moumaiphuch.net # AdGuard DNS Filter
 moun4-plate.milo3ren.lat # URLhaus Malware Domains
@@ -162808,6 +162991,7 @@ mpniplgzpqmlx.website # AdGuard DNS Filter
 mpnjigsicbtas.site # AdGuard DNS Filter
 mpnoyjbqtyfht.love # AdGuard DNS Filter
 mpnrs.com # AdGuard DNS Filter
+mpnueynvsdfgh.site # AdGuard DNS Filter
 mpnvbwjjb.com # AdGuard DNS Filter
 mpobixliw.in # AdGuard DNS Filter
 mpocadpbnevwa.site # AdGuard DNS Filter
@@ -164004,6 +164188,7 @@ mundane-soft.pro # AdGuard DNS Filter
 mundanenail.com # AdGuard DNS Filter
 mundanepollution.com # AdGuard DNS Filter
 mundanesilly.com # AdGuard DNS Filter
+mundgixaykbn.com # AdGuard DNS Filter
 mundi.amunxy.com # AdGuard DNS Filter
 mundi.ardenzan.com # AdGuard DNS Filter
 mundi.auntras.com # AdGuard DNS Filter
@@ -165454,6 +165639,7 @@ mzansiporns.co.za # StevenBlack Gambling & Porn
 mzansiporntube.com # StevenBlack Gambling & Porn
 mzansipornvideos.com # StevenBlack Gambling & Porn
 mzansixxx.com # StevenBlack Gambling & Porn
+mzapcfw.wlwyb.com # URLhaus Malware Domains
 mzarqhufj4.com # AdGuard DNS Filter
 mzb60mu3z7.com # AdGuard DNS Filter
 mzcgpmpygdoer.site # AdGuard DNS Filter
@@ -167079,6 +167265,7 @@ neat-price.com # AdGuard DNS Filter
 neatbadger.com # AdGuard DNS Filter
 neatensbridler.cyou # AdGuard DNS Filter
 neatenshyp.help # AdGuard DNS Filter
+neatensmoods.cyou # AdGuard DNS Filter
 neatenswreaksxviii.cfd # AdGuard DNS Filter
 neatexpert.pro # AdGuard DNS Filter
 neathdporn.com # StevenBlack Gambling & Porn
@@ -167110,6 +167297,7 @@ nebula.roole.fr # AdGuard DNS Filter
 nebula501.discount5den.coupons # URLhaus Malware Domains
 nebulacrescent.com # AdGuard DNS Filter
 nebulajubilee.com # AdGuard DNS Filter
+nebulasballed.cfd # AdGuard DNS Filter
 nebulousamusement.com # AdGuard DNS Filter
 nebulousfledwhy.com # AdGuard DNS Filter
 nebulousgarden.com # AdGuard DNS Filter
@@ -169007,6 +169195,7 @@ nickchookie.qpon # AdGuard DNS Filter
 nickdeliverfugitive.com # AdGuard DNS Filter
 nickedmetered.qpon # AdGuard DNS Filter
 nickeldefiancepriest.com # AdGuard DNS Filter
+nickelsligansbernice.qpon # AdGuard DNS Filter
 nickelstapoun.com # AdGuard DNS Filter
 nickessence.com # AdGuard DNS Filter
 nickeyperatae.cfd # AdGuard DNS Filter
@@ -169097,6 +169286,7 @@ nightedict.forbidthen.in.net # URLhaus Malware Domains
 nighter.club # AdGuard DNS Filter
 nighteralkoxy.cyou # AdGuard DNS Filter
 nightlyitzebu.cfd # AdGuard DNS Filter
+nightmare-cheats.cc # URLhaus Malware Domains
 nightmarenomad.com # AdGuard DNS Filter
 nightmarepainful.com # AdGuard DNS Filter
 nightneedle.darkpine.in.net # URLhaus Malware Domains
@@ -169256,6 +169446,7 @@ nio09101lt.com # AdGuard DNS Filter
 niobefrogeye.com # AdGuard DNS Filter
 niobetimote.shop # AdGuard DNS Filter
 niobicfrizers.cyou # AdGuard DNS Filter
+niobitecryable.qpon # AdGuard DNS Filter
 nioks.carowinds.com # AdGuard DNS Filter
 nioljyrbuctyl.space # AdGuard DNS Filter
 niolpwvcjjfvj.website # AdGuard DNS Filter
@@ -169532,6 +169723,7 @@ nkppkj.lacasedecousinpaul.com # AdGuard DNS Filter
 nkqfebxnhwsc.com # AdGuard DNS Filter
 nkqrtwvndvss.com # AdGuard DNS Filter
 nkqxyn.misterspex.co.uk # AdGuard DNS Filter
+nkqzyrf.sm188wing.cyou # URLhaus Malware Domains
 nkraholb.com # AdGuard DNS Filter
 nkredir.com # AdGuard DNS Filter
 nkrrhlqnqiehx.site # AdGuard DNS Filter
@@ -170436,6 +170628,7 @@ nojumqcgndukm.site # AdGuard DNS Filter
 nojzmdvcnawjt.space # AdGuard DNS Filter
 nokakjaulkrgi.site # AdGuard DNS Filter
 nokaut.link # AdGuard DNS Filter
+nokfqejxswrelv.com # AdGuard DNS Filter
 nokontoken.com # AdGuard DNS Filter
 nokymhnsljner.space # AdGuard DNS Filter
 nol.yahoo.com # AdGuard DNS Filter
@@ -170953,6 +171146,7 @@ nova.cyberlayer.surf # URLhaus Malware Domains
 nova.darkf1eld.ru # URLhaus Malware Domains
 nova.de1iainal0s.ru # URLhaus Malware Domains
 nova.dice.net # AdGuard DNS Filter
+nova.dudos.cfd # URLhaus Malware Domains
 nova.eltsunamidemiguel.com # AdGuard DNS Filter
 nova.harmonyraines.com # AdGuard DNS Filter
 nova.ipsetlap.lat # URLhaus Malware Domains
@@ -171503,6 +171697,7 @@ nscrskxrpsezh.site # AdGuard DNS Filter
 nscvsptnki.com # AdGuard DNS Filter
 nsd1.indig5pir1t.ru # URLhaus Malware Domains
 nsdefied.qpon # AdGuard DNS Filter
+nsdoqpvctouus.space # AdGuard DNS Filter
 nsdpdp.skin1004korea.com # AdGuard DNS Filter
 nsdsvc.com # AdGuard DNS Filter
 nsdzyfrgyhzpe.online # AdGuard DNS Filter
@@ -173928,6 +174123,7 @@ oduauledfalmc.online # AdGuard DNS Filter
 odudxqthduokd.com # AdGuard DNS Filter
 odulfytvuuibr.space # AdGuard DNS Filter
 odumprase.rest # AdGuard DNS Filter
+odunekkazajks.site # AdGuard DNS Filter
 odvazhfsnswns.online # AdGuard DNS Filter
 odvzfqavvahla.space # AdGuard DNS Filter
 odx9za7g.suffocturkey.digital # URLhaus Malware Domains
@@ -174030,6 +174226,7 @@ oexcmv.concent.co.jp # AdGuard DNS Filter
 oexe.dawnspire.in.net # URLhaus Malware Domains
 oexk.cn # AdGuard DNS Filter
 oexmijepxabja.online # AdGuard DNS Filter
+oeyvwkv.hitsforge.com # URLhaus Malware Domains
 of-bo.com # AdGuard DNS Filter
 of03juqh.sun5tone.ru # URLhaus Malware Domains
 of2leaks.co # StevenBlack Gambling & Porn
@@ -174229,6 +174426,7 @@ ofmdohtxiotxm.site # AdGuard DNS Filter
 ofmukindwould.org # AdGuard DNS Filter
 ofmxtlbgqp.com # AdGuard DNS Filter
 ofnatlevi-il.com # AdGuard DNS Filter
+ofntikrchswfbw.com # AdGuard DNS Filter
 ofnxzxwfmblhg.online # AdGuard DNS Filter
 ofoatiptoepernis.cfd # AdGuard DNS Filter
 ofoltekbn.com # AdGuard DNS Filter
@@ -174405,6 +174603,7 @@ ogtz5yn2u1.ru # AdGuard DNS Filter
 oguaumtdjyqoe.online # AdGuard DNS Filter
 ogucv.visitkingsisland.com # AdGuard DNS Filter
 ogukky.canadagoose.jp # AdGuard DNS Filter
+ogursteqegwvs.space # AdGuard DNS Filter
 oguuril.angelfire.com # StevenBlack Gambling & Porn
 ogvjkfelpcecw.online # AdGuard DNS Filter
 ogvolbnizk.in # AdGuard DNS Filter
@@ -174584,6 +174783,7 @@ ohyeah1080.com # StevenBlack Gambling & Porn
 ohyqrurmhguhy.store # AdGuard DNS Filter
 ohyxhlictmm.com # AdGuard DNS Filter
 ohzmh.bninolimit.com # URLhaus Malware Domains
+ohznwmmmrlunp.online # AdGuard DNS Filter
 ohzvu.uhp.com # AdGuard DNS Filter
 ohzymacguuuse.website # AdGuard DNS Filter
 oi.429men.com # AdGuard DNS Filter
@@ -175162,6 +175362,7 @@ oldsluts.xyz # StevenBlack Gambling & Porn
 oldslutsporn.com # StevenBlack Gambling & Porn
 oldspunkers.com # StevenBlack Gambling & Porn
 oldstercyathos.cyou # AdGuard DNS Filter
+oldsterfogdogs.shop # AdGuard DNS Filter
 oldtopsex.com # StevenBlack Gambling & Porn
 oldtubefuck.com # StevenBlack Gambling & Porn
 olduse.com # StevenBlack Gambling & Porn
@@ -177548,6 +177749,7 @@ orsvwuqiszi.com # AdGuard DNS Filter
 orthalresshotfiant.qpon # AdGuard DNS Filter
 orthantisabelartar.cyou # AdGuard DNS Filter
 orthislardonwraple.qpon # AdGuard DNS Filter
+orthiteforams.cyou # AdGuard DNS Filter
 ortigaervils.cyou # AdGuard DNS Filter
 ortjpuqzyoggw.online # AdGuard DNS Filter
 ortkrq.damyller.com.br # AdGuard DNS Filter
@@ -177706,6 +177908,7 @@ osjvsmcupjwvk.online # AdGuard DNS Filter
 oskiwood.com # AdGuard DNS Filter
 oskqpsjqpjoo.com # AdGuard DNS Filter
 osldalquhk.in # AdGuard DNS Filter
+osljzcm.salesventure.co # URLhaus Malware Domains
 oslmxqvvugdeh.site # AdGuard DNS Filter
 oslus.theadventurechallenge.com # AdGuard DNS Filter
 osm-onead.cdn.hinet.net # AdGuard DNS Filter
@@ -178085,6 +178288,7 @@ ouptaurdie.net # AdGuard DNS Filter
 oupvfjtyxfxky.site # AdGuard DNS Filter
 oupynmfuvuhms.site # AdGuard DNS Filter
 ouq0y4glur.casesruralscatalunya.com # AdGuard DNS Filter
+ouqk5pur.dvfb-vn.com # URLhaus Malware Domains
 ouqkawhltrcph.site # AdGuard DNS Filter
 ouqmd.sugarbabycare.co # AdGuard DNS Filter
 ouqnsrtmguuyd.site # AdGuard DNS Filter
@@ -178954,6 +179158,7 @@ ozbet.com.au # StevenBlack Gambling & Porn
 ozbfgdzrpioaa.website # AdGuard DNS Filter
 ozbjdgfjoztdc.site # AdGuard DNS Filter
 ozbnagojbop.com # AdGuard DNS Filter
+ozbnudakqvu.in # AdGuard DNS Filter
 ozcarcupboard.com # AdGuard DNS Filter
 ozcid.kolkatachai.co # AdGuard DNS Filter
 ozckerranlakm.online # AdGuard DNS Filter
@@ -180865,6 +181070,7 @@ paleleaf.com # AdGuard DNS Filter
 palelitistsnick.com # AdGuard DNS Filter
 palelotwars.com # AdGuard DNS Filter
 palelouisalife.com # AdGuard DNS Filter
+palenyz.gulshans.com # URLhaus Malware Domains
 paleoladeface.com # AdGuard DNS Filter
 palermooperand.cfd # AdGuard DNS Filter
 palermosonovox.cfd # AdGuard DNS Filter
@@ -181215,6 +181421,7 @@ parcheddustee.life # AdGuard DNS Filter
 parchedsofa.com # AdGuard DNS Filter
 parchedtowhees.click # AdGuard DNS Filter
 parcloud.rivermint.in.net # URLhaus Malware Domains
+parcookgoofah.qpon # AdGuard DNS Filter
 pardahdantist.cfd # AdGuard DNS Filter
 pardaleshurgee.shop # AdGuard DNS Filter
 pardalpyoidguilds.cfd # AdGuard DNS Filter
@@ -182236,6 +182443,7 @@ pattieformin.qpon # AdGuard DNS Filter
 pattuemily.cfd # AdGuard DNS Filter
 pattycolourful.com # AdGuard DNS Filter
 pattyponderstuffy.com # AdGuard DNS Filter
+patucatorilis.cfd # AdGuard DNS Filter
 patuv.aroma360.no # AdGuard DNS Filter
 patvlbqek.com # AdGuard DNS Filter
 patwariwiping.shop # AdGuard DNS Filter
@@ -182442,6 +182650,7 @@ pbludyuznkhk.com # AdGuard DNS Filter
 pblwvhmsgcnse.space # AdGuard DNS Filter
 pblwxn.icu # AdGuard DNS Filter
 pblxcavqmuuh.xyz # AdGuard DNS Filter
+pbm280yc.sieulike.biz # URLhaus Malware Domains
 pbmdmucwvxmrb.space # AdGuard DNS Filter
 pbmfeqqytolng.online # AdGuard DNS Filter
 pbmipgoqdlgnv.site # AdGuard DNS Filter
@@ -182894,6 +183103,7 @@ pedetesspleens.cfd # AdGuard DNS Filter
 pedgwkam.xyz # URLhaus Malware Domains
 pediatrist53.com # AdGuard DNS Filter
 pedjnohpdrthi.site # AdGuard DNS Filter
+pedlerahem.cyou # AdGuard DNS Filter
 pedocaldriller.cfd # AdGuard DNS Filter
 pedropanther.com # AdGuard DNS Filter
 pedxbegjosaew.space # AdGuard DNS Filter
@@ -183651,6 +183861,7 @@ pf149vxmt223eyuul55okp1.rest # AdGuard DNS Filter
 pf1dxwdy.trustsum.in.net # URLhaus Malware Domains
 pf34zdjoeycr.com # AdGuard DNS Filter
 pf4ad.dr0gaguaran.ru # URLhaus Malware Domains
+pf66u634qfvhrj95.cfd # AdGuard DNS Filter
 pf7ad.rec1aimswal1.ru # URLhaus Malware Domains
 pfad.br1ght5tar.ru # URLhaus Malware Domains
 pfad.c2tt1eschlen.ru # URLhaus Malware Domains
@@ -184008,6 +184219,7 @@ phewogungu.net # AdGuard DNS Filter
 phfhernc.com # AdGuard DNS Filter
 phfmm.sundeapparel.com # AdGuard DNS Filter
 phfuhedbph.com # AdGuard DNS Filter
+phfzhmcuazx.com # AdGuard DNS Filter
 phgbh6cb.quartz-sketch.ru # URLhaus Malware Domains
 phgcgsrlwn.com # AdGuard DNS Filter
 phgddnjimcj.com # AdGuard DNS Filter
@@ -184043,6 +184255,7 @@ phieuruttien-thetindungmpos24h.com # AdGuard DNS Filter
 phighaistoot.net # AdGuard DNS Filter
 phignairsoopowe.net # AdGuard DNS Filter
 phihwaactpj.net # AdGuard DNS Filter
+phijdnv.sm188login.cyou # URLhaus Malware Domains
 phikondzio.com # AdGuard DNS Filter
 phil-flash.com # StevenBlack Gambling & Porn
 philacct.com # AdGuard DNS Filter
@@ -186991,6 +187204,7 @@ plexurepuan.qpon # AdGuard DNS Filter
 plexusbawdric.cyou # AdGuard DNS Filter
 plexworks.de # AdGuard DNS Filter
 plexxxx.org # StevenBlack Gambling & Porn
+plfahnzsohcri.space # AdGuard DNS Filter
 plfavetxktgvw.space # AdGuard DNS Filter
 plfcp.strutmasters.com # AdGuard DNS Filter
 plfintgwsaoc.com # AdGuard DNS Filter
@@ -187129,6 +187343,7 @@ plugin.ws # AdGuard DNS Filter
 plugins-costs-nyc-boulevard.trycloudflare.com # URLhaus Malware Domains
 plugins.soclminer.com.br # AdGuard DNS Filter
 plugins12.net # AdGuard DNS Filter
+plugins4enforcer.net # AdGuard DNS Filter
 pluginsjquery.com # AdGuard DNS Filter
 plugkenneth.com # AdGuard DNS Filter
 plugrush.com # AdGuard DNS Filter
@@ -187151,6 +187366,7 @@ plumfield.box671plum.coupons # URLhaus Malware Domains
 plumiervills.help # AdGuard DNS Filter
 plumjjdw.xyz # AdGuard DNS Filter
 plummybonged.cyou # AdGuard DNS Filter
+plumouspilcrow.cyou # AdGuard DNS Filter
 plump-chapter.pro # AdGuard DNS Filter
 plump-message.pro # AdGuard DNS Filter
 plumpchicks.net # StevenBlack Gambling & Porn
@@ -187365,6 +187581,7 @@ pnlgtgdkpyvdy.space # AdGuard DNS Filter
 pnlwakao.santegidio.org # AdGuard DNS Filter
 pnmxahlvqeaaa.space # AdGuard DNS Filter
 pnn3u5nyuhew8ynwomi.rest # AdGuard DNS Filter
+pnniuwu.popi999.net # URLhaus Malware Domains
 pnnjhokq.bateel.com # AdGuard DNS Filter
 pnnmusumficoa.online # AdGuard DNS Filter
 pnnnxfknnbcc.com # AdGuard DNS Filter
@@ -187721,6 +187938,7 @@ politicalblindspot.com # StevenBlack Fake News
 politicalcontrol.pro # AdGuard DNS Filter
 politicalcult.com # StevenBlack Fake News
 politicalears.com # StevenBlack Fake News
+politicalfill.com # AdGuard DNS Filter
 politicalhost.com # AdGuard DNS Filter
 politicallyartisticsocks.com # AdGuard DNS Filter
 politicallyhoistawesome.com # AdGuard DNS Filter
@@ -191627,6 +191845,7 @@ portube4.online # URLhaus Malware Domains
 portuguesinhas.com # StevenBlack Gambling & Porn
 portunitytostar.org # AdGuard DNS Filter
 portvelv.po6vtaren.in.net # URLhaus Malware Domains
+portwayoppian.cyou # AdGuard DNS Filter
 portwinejoke.icu # URLhaus Malware Domains
 porusru.com # StevenBlack Gambling & Porn
 porwo.com # StevenBlack Gambling & Porn
@@ -191750,6 +191969,7 @@ potboydoddardnocked.cfd # AdGuard DNS Filter
 potencebeknit.help # AdGuard DNS Filter
 potencyidrooping.com # AdGuard DNS Filter
 potential-memory.cc # URLhaus Malware Domains
+potentialfrom2100.com # AdGuard DNS Filter
 potentialisland.com # AdGuard DNS Filter
 potentiallypantsreseptivereseptive.com # AdGuard DNS Filter
 potfulsburro.qpon # AdGuard DNS Filter
@@ -192365,6 +192585,7 @@ predictivedna.com # AdGuard DNS Filter
 predictiveresponse.net # AdGuard DNS Filter
 predictplate.com # AdGuard DNS Filter
 predictremnantimportance.com # AdGuard DNS Filter
+predictwithterabit.com # AdGuard DNS Filter
 predietstilton.cyou # AdGuard DNS Filter
 predominantbrutallyscissors.com # AdGuard DNS Filter
 predominantleadingsprout.com # AdGuard DNS Filter
@@ -192669,6 +192890,7 @@ prfwhite.com # AdGuard DNS Filter
 prgdc.com # AdGuard DNS Filter
 prgetejtpuwrs.website # AdGuard DNS Filter
 prgnr.tecovas.com # AdGuard DNS Filter
+prgqvfu.payestation.com # URLhaus Malware Domains
 prgvexaammwrj.online # AdGuard DNS Filter
 prgwoke4c462rkz.cfd # AdGuard DNS Filter
 prhgg.eatrotten.com # AdGuard DNS Filter
@@ -193206,6 +193428,7 @@ process-io.logicmatrix.in.net # URLhaus Malware Domains
 process.global360.com # AdGuard DNS Filter
 processblo.quillridge.in.net # URLhaus Malware Domains
 processedagrarian.com # AdGuard DNS Filter
+processedlizardadjoining.com # AdGuard DNS Filter
 processesdisplease.com # AdGuard DNS Filter
 processesshaken.com # AdGuard DNS Filter
 processestheycod.com # AdGuard DNS Filter
@@ -194425,6 +194648,7 @@ ptgmtfmxpwcoc.website # AdGuard DNS Filter
 ptgsroouwdsya.online # AdGuard DNS Filter
 ptgxwo.toolstoday.com # AdGuard DNS Filter
 pthaktierl.com # AdGuard DNS Filter
+pthjrugmpgmi.com # AdGuard DNS Filter
 pthkhcicpqspq.space # AdGuard DNS Filter
 pthq.boa7dswim.in.net # URLhaus Malware Domains
 pthrumeath.com # AdGuard DNS Filter
@@ -195695,6 +195919,7 @@ pvvxfh.top # AdGuard DNS Filter
 pvwfz.tonimay.com.au # AdGuard DNS Filter
 pvwhphwbkenvo.space # AdGuard DNS Filter
 pvwjsqwndsoqy.store # AdGuard DNS Filter
+pvxdkuvwipwbr.online # AdGuard DNS Filter
 pvxdtqkqx.com # AdGuard DNS Filter
 pvxnrtrynfry.com # AdGuard DNS Filter
 pvxqymkmvudgk.com # AdGuard DNS Filter
@@ -195921,6 +196146,7 @@ pxslenpdvprcb.net # AdGuard DNS Filter
 pxsmfqhdndkce.online # AdGuard DNS Filter
 pxtbkddmw.com # AdGuard DNS Filter
 pxtfv.brickellmensproducts.com # AdGuard DNS Filter
+pxtnuoekmucfd.space # AdGuard DNS Filter
 pxtyrrweur.com # AdGuard DNS Filter
 pxu9czw585r4n3hk.rest # AdGuard DNS Filter
 pxvbnt.top # AdGuard DNS Filter
@@ -195991,6 +196217,7 @@ pymekx.onlinepriset.se # AdGuard DNS Filter
 pymlohbtnvigv.site # AdGuard DNS Filter
 pymoqb.ied.it # AdGuard DNS Filter
 pymx5.com # AdGuard DNS Filter
+pymyajs.pegaadvance.com # URLhaus Malware Domains
 pynhtpjgflnph.online # AdGuard DNS Filter
 pynjcfnchwsui.space # AdGuard DNS Filter
 pynnywwoczyub.website # AdGuard DNS Filter
@@ -196043,6 +196270,7 @@ pywmsqaxkshnlc.com # AdGuard DNS Filter
 pywnivhnlbizh.online # AdGuard DNS Filter
 pyxbidiocnkkl.website # AdGuard DNS Filter
 pyxhad.mo5hnap2sser.ru # URLhaus Malware Domains
+pyxheed.qpon # AdGuard DNS Filter
 pyxis.atp.fox # AdGuard DNS Filter
 pyxiscablese.com # AdGuard DNS Filter
 pyxium.net # AdGuard DNS Filter
@@ -196919,6 +197147,7 @@ qguusmmvndeor.website # AdGuard DNS Filter
 qguwoq.cn # AdGuard DNS Filter
 qguwsuivlnmxr.site # AdGuard DNS Filter
 qgvbpbsqdxnni.store # AdGuard DNS Filter
+qgvflyftumwyj.space # AdGuard DNS Filter
 qgvgqhfuessel.com # AdGuard DNS Filter
 qgvjykjmhtnxz.store # AdGuard DNS Filter
 qgvmfmu.crm.mijn.host # AdGuard DNS Filter
@@ -196991,6 +197220,7 @@ qhhse.themillionroses.com # AdGuard DNS Filter
 qhhtjakrzwtwx.site # AdGuard DNS Filter
 qhhwsnuajqkwsaa.com # AdGuard DNS Filter
 qhiatcfrywgse.click # AdGuard DNS Filter
+qhicehhwmiwpu.space # AdGuard DNS Filter
 qhihoins.com # AdGuard DNS Filter
 qhiluzdpobwu.com # AdGuard DNS Filter
 qhiokgazdlz.com # AdGuard DNS Filter
@@ -197272,6 +197502,7 @@ qkdsppnmfnhxx.space # AdGuard DNS Filter
 qkdzt.gimmebeauty.com # AdGuard DNS Filter
 qkedloyxrfsxx.net # AdGuard DNS Filter
 qkeweajdxbmqy.space # AdGuard DNS Filter
+qkexyga.wlwyb.com # URLhaus Malware Domains
 qkf3pkvqwcpiitj.cfd # AdGuard DNS Filter
 qkf9y6kfnohypc3yi.rest # AdGuard DNS Filter
 qkffv.com # AdGuard DNS Filter
@@ -197727,6 +197958,7 @@ qpiqabthihi.in # AdGuard DNS Filter
 qpjauwnq.xyz # AdGuard DNS Filter
 qpjblxxjdatol.site # AdGuard DNS Filter
 qpjiwtxmjitde.site # AdGuard DNS Filter
+qpjrmfwols.com # AdGuard DNS Filter
 qpjwp8i3zbepp8i.rest # AdGuard DNS Filter
 qpkagebwelxhxtm.com # AdGuard DNS Filter
 qpkiqe.catawiki.nl # AdGuard DNS Filter
@@ -199064,6 +199296,7 @@ qxjrhqhrq.com # AdGuard DNS Filter
 qxjvugdjhxjmm.site # AdGuard DNS Filter
 qxkjouybtbqrw.space # AdGuard DNS Filter
 qxkous.sweet-mommy.com # AdGuard DNS Filter
+qxkvyuyqhht.com # AdGuard DNS Filter
 qxleqwdokgl.com # AdGuard DNS Filter
 qxlkiqdovwubtq.xyz # AdGuard DNS Filter
 qxlshnvo.7oh.com # AdGuard DNS Filter
@@ -199743,6 +199976,7 @@ rainbowupmastervils.cfd # AdGuard DNS Filter
 rainbowvisa.online # URLhaus Malware Domains
 rainbowwhereaccording.com # AdGuard DNS Filter
 rainel.be8ref7ain.ru # URLhaus Malware Domains
+rainexceptionrabbit.com # AdGuard DNS Filter
 raineyeshadowguilty.com # AdGuard DNS Filter
 rainfreig.embassyotolaryn.in.net # URLhaus Malware Domains
 rainierosmite.qpon # AdGuard DNS Filter
@@ -199859,6 +200093,7 @@ ramistbeaborith.cfd # AdGuard DNS Filter
 ramlvunszdcxt.website # AdGuard DNS Filter
 rammassbonasus.cyou # AdGuard DNS Filter
 rammerscackles.qpon # AdGuard DNS Filter
+rammibielby.cyou # AdGuard DNS Filter
 rammieryewnitinol.cyou # AdGuard DNS Filter
 rammishruinous.com # AdGuard DNS Filter
 ramoseemetins.com # AdGuard DNS Filter
@@ -200055,6 +200290,7 @@ rapleapedappear.com # AdGuard DNS Filter
 raplochdebacle.shop # AdGuard DNS Filter
 rapndh.icu # AdGuard DNS Filter
 rapolok.com # AdGuard DNS Filter
+rappealaunt.cfd # AdGuard DNS Filter
 rappingtow.world # AdGuard DNS Filter
 rapsababe.tv # StevenBlack Gambling & Porn
 rapshiera.com # AdGuard DNS Filter
@@ -200356,6 +200592,7 @@ rbaxuqhmkgcvz.space # AdGuard DNS Filter
 rbbgbi.greenline.dk # AdGuard DNS Filter
 rbbgnn.hanshintigers.jp # AdGuard DNS Filter
 rbblbzdvxbes.com # AdGuard DNS Filter
+rbbmdao.popi999.net # URLhaus Malware Domains
 rbbosjoi.com # AdGuard DNS Filter
 rbbpxlxhxccdw.space # AdGuard DNS Filter
 rbcdn.com # AdGuard DNS Filter
@@ -201874,6 +202111,7 @@ referrer.disqus.com # AdGuard DNS Filter
 referrer.website # AdGuard DNS Filter
 refersion.com # AdGuard DNS Filter
 refersoxbird.shop # AdGuard DNS Filter
+refexaejryxbz.online # AdGuard DNS Filter
 reffosweazandkevyn.qpon # AdGuard DNS Filter
 refid-1.pavl9ore.surf # URLhaus Malware Domains
 refid-core.pav6mirex.pics # URLhaus Malware Domains
@@ -203200,6 +203438,7 @@ rev-stripe.com # AdGuard DNS Filter
 rev.frankspeech.com # AdGuard DNS Filter
 revampcdn.com # AdGuard DNS Filter
 revarymutely.cfd # AdGuard DNS Filter
+revaypolecat.qpon # AdGuard DNS Filter
 revbid.net # AdGuard DNS Filter
 revcatch.com # AdGuard DNS Filter
 revcontent.com # AdGuard DNS Filter
@@ -204907,6 +205146,7 @@ robin-flow.com # AdGuard DNS Filter
 robin.shopanaya.com # AdGuard DNS Filter
 robinjsb.sbs # URLhaus Malware Domains
 robinsfcu.fmservice.com # AdGuard DNS Filter
+roblox-execut.net # URLhaus Malware Domains
 robloxviet.vn # AdGuard DNS Filter
 robombsconced.cyou # AdGuard DNS Filter
 robot-api.mechaforge.in.net # URLhaus Malware Domains
@@ -205476,6 +205716,7 @@ roundaboutpoisonousglobe.com # AdGuard DNS Filter
 roundandbrown.com # StevenBlack Gambling & Porn
 rounddescribe.com # AdGuard DNS Filter
 roundedfluencyutilities.com # AdGuard DNS Filter
+roundellobolo.qpon # AdGuard DNS Filter
 rounderica.help # AdGuard DNS Filter
 roundflow.net # AdGuard DNS Filter
 roundleretrial.shop # AdGuard DNS Filter
@@ -205887,6 +206128,7 @@ rrobbybmkwjww.top # AdGuard DNS Filter
 rrokfezlcfilh.online # AdGuard DNS Filter
 rrokkniebae.com # AdGuard DNS Filter
 rrp19gip7kvou3.cfd # AdGuard DNS Filter
+rrpaafci9i.com # AdGuard DNS Filter
 rrpcc.sokolovelaw.com # AdGuard DNS Filter
 rrpcjhtacwgki.space # AdGuard DNS Filter
 rrpsjnegulocc.site # AdGuard DNS Filter
@@ -207549,10 +207791,12 @@ runtime-control-plane.courses # URLhaus Malware Domains
 runtime-control.christmas # URLhaus Malware Domains
 runtime-core-fabric-get.garden # URLhaus Malware Domains
 runtime-processing-node.christmas # URLhaus Malware Domains
+runtime4evolve.com # AdGuard DNS Filter
 runtimeexecutionlayer.wiki # URLhaus Malware Domains
 runtimeport.ky2mloren.in.net # URLhaus Malware Domains
 runtnc.net # AdGuard DNS Filter
 runtslightly.cfd # AdGuard DNS Filter
+runtsneuma.shop # AdGuard DNS Filter
 runvv4-forge.starpit.in.net # URLhaus Malware Domains
 runvv4y4-reach.burrowkislyat.in.net # URLhaus Malware Domains
 runvva-route.lightforge.garden # URLhaus Malware Domains
@@ -207568,6 +207812,7 @@ runwspoo.travixon.in.net # URLhaus Malware Domains
 runyrgidqcoeo.store # AdGuard DNS Filter
 ruoblusdo.com # AdGuard DNS Filter
 ruohpuqvaggas.website # AdGuard DNS Filter
+ruopfddopajte.online # AdGuard DNS Filter
 ruoqyu9r.tr4cefox.in.net # URLhaus Malware Domains
 ruotvwvvkhexn.com # AdGuard DNS Filter
 ruovq.rarecarat.com # AdGuard DNS Filter
@@ -210175,6 +210420,7 @@ sambaads.com # AdGuard DNS Filter
 sambaporno.com # StevenBlack Gambling & Porn
 sambarverruca.cyou # AdGuard DNS Filter
 sambosich.cfd # AdGuard DNS Filter
+sambuksabaism.cyou # AdGuard DNS Filter
 sambukshanked.shop # AdGuard DNS Filter
 sambururaisingdiarial.cfd # AdGuard DNS Filter
 samc.buero-zueri.ch # AdGuard DNS Filter
@@ -210999,6 +211245,7 @@ sawneboenolic.com # AdGuard DNS Filter
 sawneywigger.top # AdGuard DNS Filter
 sawp.cloud # AdGuard DNS Filter
 sawspignus.qpon # AdGuard DNS Filter
+saxaztolh.in # AdGuard DNS Filter
 saxjb.bninolimit.com # URLhaus Malware Domains
 saxophone90.top # AdGuard DNS Filter
 saxumeda.angelfire.com # StevenBlack Gambling & Porn
@@ -212057,6 +212304,7 @@ sdc.meinebav.com # AdGuard DNS Filter
 sdc.risikolebensversicherungen.com # AdGuard DNS Filter
 sdc2.credit-suisse.com # AdGuard DNS Filter
 sdcgnlnlnlayq.store # AdGuard DNS Filter
+sdcpqrz.zsatom.hu # URLhaus Malware Domains
 sdcs.felissimo.co.jp # AdGuard DNS Filter
 sdd.hi1718.com # AdGuard DNS Filter
 sddan.com # AdGuard DNS Filter
@@ -212782,6 +213030,7 @@ securiskbrokers.com # URLhaus Malware Domains
 security-suggestion.com # AdGuard DNS Filter
 security-teamz.com # URLhaus Malware Domains
 security-u.com # AdGuard DNS Filter
+security27000.com # AdGuard DNS Filter
 securityannex.net # AdGuard DNS Filter
 securitycheckonline.com # AdGuard DNS Filter
 securityfax.servemp3.com # URLhaus Malware Domains
@@ -213168,6 +213417,7 @@ semeionerudit.cyou # AdGuard DNS Filter
 semestersets.com # AdGuard DNS Filter
 semi-flow.conesemison.in.net # URLhaus Malware Domains
 semi-v08.conesemison.in.net # URLhaus Malware Domains
+semiansyllab.cfd # AdGuard DNS Filter
 semicizard.cfd # AdGuard DNS Filter
 semicolondriverelevated.com # AdGuard DNS Filter
 semihintrarbitre.qpon # AdGuard DNS Filter
@@ -213416,6 +213666,7 @@ sentifi.com # AdGuard DNS Filter
 sentiment.icis.com # AdGuard DNS Filter
 sentiment39.top # AdGuard DNS Filter
 sentimentalflight.com # AdGuard DNS Filter
+sentimentalhind.com # AdGuard DNS Filter
 sentimentalrailing.com # AdGuard DNS Filter
 sentimentbuttertrapped.com # AdGuard DNS Filter
 sentimentssmuggleask.com # AdGuard DNS Filter
@@ -217113,6 +217364,7 @@ services.reveilshop.fr # AdGuard DNS Filter
 services.sdiapi.com # AdGuard DNS Filter
 services.wetek.com # AdGuard DNS Filter
 services.xtm.com.au # AdGuard DNS Filter
+servicesinexclusive.com # AdGuard DNS Filter
 servicesscoop.com # AdGuard DNS Filter
 servicing.business.hsbc.com # AdGuard DNS Filter
 servicing.unitedautocredit.net # AdGuard DNS Filter
@@ -219619,6 +219871,7 @@ sgpoo.greavessports.com # AdGuard DNS Filter
 sgpsz.cbdamericanshaman.com # AdGuard DNS Filter
 sgpyuhlzgwjyd.site # AdGuard DNS Filter
 sgqh.firstbeasts.in.net # URLhaus Malware Domains
+sgqibwrfuzhoy.site # AdGuard DNS Filter
 sgqjj.bitsandpiecescanada.ca # AdGuard DNS Filter
 sgqugwekjazyw.website # AdGuard DNS Filter
 sgqzzpkraeymj.site # AdGuard DNS Filter
@@ -223115,6 +223368,7 @@ short.n0uvpu7itan.ru # URLhaus Malware Domains
 shortagedissatisfaction.com # AdGuard DNS Filter
 shortbrotherinlaw.com # AdGuard DNS Filter
 shortcutacheless.com # AdGuard DNS Filter
+shortcutentranceacross.com # AdGuard DNS Filter
 shortener.np6.com # AdGuard DNS Filter
 shortenoverleg.com # AdGuard DNS Filter
 shortergroundyanew.cfd # AdGuard DNS Filter
@@ -223818,6 +224072,7 @@ simpak.ru # StevenBlack Gambling & Porn
 simpcity-su.com # StevenBlack Gambling & Porn
 simpcity.fans # StevenBlack Gambling & Porn
 simpcity.su # StevenBlack Gambling & Porn
+simperisthmia.cfd # AdGuard DNS Filter
 simpio.com # AdGuard DNS Filter
 simple-affiliate.com # AdGuard DNS Filter
 simple-form4.aim-national.in.net # URLhaus Malware Domains
@@ -224683,6 +224938,7 @@ skokka.com # StevenBlack Gambling & Porn
 skolshrinks.qpon # AdGuard DNS Filter
 skp.jalg.me # AdGuard DNS Filter
 skppwc.billabong.com.br # AdGuard DNS Filter
+skqchmt.visszateritok.hu # URLhaus Malware Domains
 skrblsszekwia.online # AdGuard DNS Filter
 skrhg.kendallscollection.com # AdGuard DNS Filter
 skrhuf.com # AdGuard DNS Filter
@@ -224887,6 +225143,7 @@ slaggerpiete.qpon # AdGuard DNS Filter
 slagmanknock.qpon # AdGuard DNS Filter
 slahpxqb6wto.com # AdGuard DNS Filter
 slahxfnkp.com # AdGuard DNS Filter
+slaithamitalgodpapa.qpon # AdGuard DNS Filter
 slamactress.com # AdGuard DNS Filter
 slammedloftygauze.com # AdGuard DNS Filter
 slampallies.help # AdGuard DNS Filter
@@ -225205,6 +225462,7 @@ sluicechaise.com # AdGuard DNS Filter
 sluicedevastating.com # AdGuard DNS Filter
 sluicehamate.com # AdGuard DNS Filter
 slumberralph.com # AdGuard DNS Filter
+slumgummoguls.qpon # AdGuard DNS Filter
 slumsluts.net # StevenBlack Gambling & Porn
 slumwhoeverelevated.com # AdGuard DNS Filter
 slumzbsktpgkt.website # AdGuard DNS Filter
@@ -231928,6 +232186,7 @@ sovrn.com # AdGuard DNS Filter
 sovujva.angelfire.com # StevenBlack Gambling & Porn
 sovuyibacinnb.space # AdGuard DNS Filter
 sowa.carhartt.com # AdGuard DNS Filter
+sowelsnock.cyou # AdGuard DNS Filter
 sowercession.help # AdGuard DNS Filter
 sowisconsintimes.com # StevenBlack Fake News
 sowlettuce.com # AdGuard DNS Filter
@@ -232624,6 +232883,7 @@ spijmwsbvc.xyz # AdGuard DNS Filter
 spike.email-disney.cjm.adobe.com # AdGuard DNS Filter
 spike7.nerv0u5radic.ru # URLhaus Malware Domains
 spikerarioian.com # AdGuard DNS Filter
+spikersfootageongaro.cyou # AdGuard DNS Filter
 spikerslaves.click # AdGuard DNS Filter
 spikesandcurrant.com # AdGuard DNS Filter
 spikestanak.qpon # AdGuard DNS Filter
@@ -233002,6 +233262,7 @@ sportyvestral.cyou # AdGuard DNS Filter
 sportzbookz.com # StevenBlack Gambling & Porn
 sportzflix.xyz # AdGuard DNS Filter
 spot2.urbanview.in.net # URLhaus Malware Domains
+spotforlee.com # AdGuard DNS Filter
 spotifyapk.net # URLhaus Malware Domains
 spotlersearchanalytics.com # AdGuard DNS Filter
 spotless-golf.pro # AdGuard DNS Filter
@@ -244816,6 +245077,7 @@ stathat.com # AdGuard DNS Filter
 stathome.org # AdGuard DNS Filter
 stathound.com # AdGuard DNS Filter
 static*.365inews.com # AdGuard DNS Filter
+static-103-160-197-150.unpl.net # URLhaus Malware Domains
 static-103-160-197-181.unpl.net # URLhaus Malware Domains
 static-119-15-248-43.dnt.net.pk # URLhaus Malware Domains
 static-addtoany-com.cdn.ampproject.org # AdGuard DNS Filter
@@ -247384,6 +247646,7 @@ stillporn.click # StevenBlack Gambling & Porn
 stiltsglowed.com # AdGuard DNS Filter
 stiltydreckskangli.cfd # AdGuard DNS Filter
 stiltyfoist.shop # AdGuard DNS Filter
+stimenot.cfd # AdGuard DNS Filter
 stimio.info # StevenBlack Gambling & Porn
 stimiyb.top # AdGuard DNS Filter
 stimpaichoulr.net # AdGuard DNS Filter
@@ -250654,6 +250917,7 @@ swarmertendrac.cyou # AdGuard DNS Filter
 swarmjointarmchair.com # AdGuard DNS Filter
 swarmpush.com # AdGuard DNS Filter
 swarthspocus.cyou # AdGuard DNS Filter
+swarthsuppingsericin.cyou # AdGuard DNS Filter
 swarthycupsconceal.com # AdGuard DNS Filter
 swasc.homedepot.ca # AdGuard DNS Filter
 swasc.homedepot.com # AdGuard DNS Filter
@@ -250697,6 +250961,7 @@ sweatycymous.qpon # AdGuard DNS Filter
 sweatypositive.com # AdGuard DNS Filter
 sweatyprom.com # AdGuard DNS Filter
 sweatysynchronize.com # AdGuard DNS Filter
+sweatywife.pro # AdGuard DNS Filter
 sweb.ulta.com # AdGuard DNS Filter
 swebanalytics.acs.org # AdGuard DNS Filter
 swebanalytics.degulesider.dk # AdGuard DNS Filter
@@ -251312,6 +251577,7 @@ sxzl6x4k9p.com # AdGuard DNS Filter
 sy.ameba.jp # AdGuard DNS Filter
 sy.tubeprnlist.online # AdGuard DNS Filter
 sy1.nicdecor.com # AdGuard DNS Filter
+syagushzoysias.cfd # AdGuard DNS Filter
 syaklfoyjocgq.site # AdGuard DNS Filter
 sybiansolos.com # StevenBlack Gambling & Porn
 sybiantube.com # StevenBlack Gambling & Porn
@@ -251319,6 +251585,7 @@ sybianvirgins.com # StevenBlack Gambling & Porn
 sybil-a.ru # StevenBlack Gambling & Porn
 sybilevolver.shop # AdGuard DNS Filter
 sybspipmmiozz.online # AdGuard DNS Filter
+sybxhd9s.stgsolar.hu # URLhaus Malware Domains
 syceedepend.qpon # AdGuard DNS Filter
 sycesunovert.cyou # AdGuard DNS Filter
 sycheeyustaga.qpon # AdGuard DNS Filter
@@ -251553,6 +251820,7 @@ synsads.com # AdGuard DNS Filter
 synt-sheet.fabulos.in.net # URLhaus Malware Domains
 syntagmquerela.shop # AdGuard DNS Filter
 syntarepo.qim8vorel.in.net # URLhaus Malware Domains
+syntaxoutinstances.com # AdGuard DNS Filter
 syntaxtruckspoons.com # AdGuard DNS Filter
 synth-io.dialectonforge.in.net # URLhaus Malware Domains
 synth-logic.dialectrixengine.in.net # URLhaus Malware Domains
@@ -252801,6 +253069,7 @@ t57294m.dialectraflux.in.net # URLhaus Malware Domains
 t57u6anx2.com # AdGuard DNS Filter
 t59.pixhost.to # StevenBlack Gambling & Porn
 t5jg99ytkujltgnp.cfd # AdGuard DNS Filter
+t5kfgfm1.stgsolar.hu # URLhaus Malware Domains
 t5lin46ngz9e951op8.rest # AdGuard DNS Filter
 t5zw3.piittablet.in.net # URLhaus Malware Domains
 t6.cdn3x.com # StevenBlack Gambling & Porn
@@ -254108,6 +254377,7 @@ talspireos.wi3sorin.in.net # URLhaus Malware Domains
 taltide2ex.si1kforge.in.net # URLhaus Malware Domains
 taltideal3.emberfield.in.net # URLhaus Malware Domains
 taltideis8.currencysn0ut.pics # URLhaus Malware Domains
+taluhetviciousanorexy.cfd # AdGuard DNS Filter
 taluksvivek.shop # AdGuard DNS Filter
 talus3.rapidstone.ru # URLhaus Malware Domains
 talusesnewtake.cfd # AdGuard DNS Filter
@@ -254732,6 +255002,7 @@ tartlay.com # AdGuard DNS Filter
 tartssetling.cfd # AdGuard DNS Filter
 tartstudio.pro # AdGuard DNS Filter
 tarttendency.com # AdGuard DNS Filter
+tarvedossed.cyou # AdGuard DNS Filter
 tarvel.starl1ght.ru # URLhaus Malware Domains
 tarweednasionwacs.cyou # AdGuard DNS Filter
 tarzansaminate.cfd # AdGuard DNS Filter
@@ -255358,6 +255629,7 @@ tcpcons.parliament5almon.lat # URLhaus Malware Domains
 tcpcons.rodrules.surf # URLhaus Malware Domains
 tcpedpdcfkcgo.rocks # AdGuard DNS Filter
 tcpgrb.ogic.fr # AdGuard DNS Filter
+tcpkgbltcegga.site # AdGuard DNS Filter
 tcpmjizhgaypw.site # AdGuard DNS Filter
 tcppu.com # AdGuard DNS Filter
 tcpro2013.xyz # URLhaus Malware Domains
@@ -256858,6 +257130,7 @@ tenping.kr # AdGuard DNS Filter
 tenpinsgraupel.shop # AdGuard DNS Filter
 tenquarr.dru9vexon.in.net # URLhaus Malware Domains
 tenrecgange.cfd # AdGuard DNS Filter
+tenrubajxgv.com # AdGuard DNS Filter
 tens-base.tensora.in.net # URLhaus Malware Domains
 tens-forge.dreswaoaky.in.net # URLhaus Malware Domains
 tens-r8.tensorfield.in.net # URLhaus Malware Domains
@@ -258948,6 +259221,7 @@ thyc.sandball.in.net # URLhaus Malware Domains
 thylouple.com # AdGuard DNS Filter
 thymicanorn.help # AdGuard DNS Filter
 thymideejay.cfd # AdGuard DNS Filter
+thyminebrike.cyou # AdGuard DNS Filter
 thymustilters.qpon # AdGuard DNS Filter
 thyrabbies.cfd # AdGuard DNS Filter
 thyrsusmostechases.qpon # AdGuard DNS Filter
@@ -259906,6 +260180,7 @@ tjumv.mindgamesfragrance.com # AdGuard DNS Filter
 tjuobgeebfpcfc.com # AdGuard DNS Filter
 tjv250730ads.com # AdGuard DNS Filter
 tjv251109ads.com # AdGuard DNS Filter
+tjv260529xxx.com # AdGuard DNS Filter
 tjvcffap.icu # AdGuard DNS Filter
 tjvpnh.icu # AdGuard DNS Filter
 tjwpfr.unitrailer.de # AdGuard DNS Filter
@@ -260948,6 +261223,7 @@ togtlehrmen.cfd # AdGuard DNS Filter
 togtmicah.cfd # AdGuard DNS Filter
 togvnrchpuflt.site # AdGuard DNS Filter
 togxfwvfslruy.space # AdGuard DNS Filter
+tohiels.payestation.com # URLhaus Malware Domains
 tohoef.com # AdGuard DNS Filter
 tohvww.mathon.fr # AdGuard DNS Filter
 toieetnnb.com # AdGuard DNS Filter
@@ -261089,10 +261365,12 @@ tomdsfpeyrsoo.vip # AdGuard DNS Filter
 tomecards.com # AdGuard DNS Filter
 tomefine.com # AdGuard DNS Filter
 tomefuldunch.cfd # AdGuard DNS Filter
+tomefulkoorg.shop # AdGuard DNS Filter
 tomehippish.cyou # AdGuard DNS Filter
 tomejkwjlqyoz.site # AdGuard DNS Filter
 tomekas.com # AdGuard DNS Filter
 tomharrph.com # AdGuard DNS Filter
+tomialwauken.cyou # AdGuard DNS Filter
 tominspialdolcino.cfd # AdGuard DNS Filter
 tomiumbautadustoor.cfd # AdGuard DNS Filter
 tomladvert.com # AdGuard DNS Filter
@@ -266658,6 +266936,7 @@ trahkino.club # StevenBlack Gambling & Porn
 trahkino.me # StevenBlack Gambling & Porn
 trahnul.com # StevenBlack Gambling & Porn
 trahodom.com # StevenBlack Gambling & Porn
+trahtombaks.shop # AdGuard DNS Filter
 trahtorrent.net # StevenBlack Gambling & Porn
 trahtv.club # StevenBlack Gambling & Porn
 trahub.net # StevenBlack Gambling & Porn
@@ -268583,6 +268862,7 @@ troghypoxis.cyou # AdGuard DNS Filter
 trohycv.top # AdGuard DNS Filter
 troilusshrieky.cfd # AdGuard DNS Filter
 trojanspithfreyja.cfd # AdGuard DNS Filter
+trolledsedums.cfd # AdGuard DNS Filter
 trolleyjackpotbummer.com # AdGuard DNS Filter
 trollopkubong.shop # AdGuard DNS Filter
 trollsvide.com # AdGuard DNS Filter
@@ -269234,6 +269514,7 @@ tsosdfnfznyrs.com # AdGuard DNS Filter
 tsouvwkpdg.net # AdGuard DNS Filter
 tsouvwkpdg.xyz # AdGuard DNS Filter
 tsoztmiqxzzun.website # AdGuard DNS Filter
+tspdegr.askvava.com # URLhaus Malware Domains
 tspdn.ikv-bochum.de # AdGuard DNS Filter
 tsplayground.com # StevenBlack Gambling & Porn
 tspops.com # AdGuard DNS Filter
@@ -270497,6 +270778,7 @@ tvrezka.link # StevenBlack Gambling & Porn
 tvrfkftonilxl.site # AdGuard DNS Filter
 tvrkxscyamfno.site # AdGuard DNS Filter
 tvrqlfdtfxtsh.space # AdGuard DNS Filter
+tvrtwkf.ricebowl.io # URLhaus Malware Domains
 tvsbb.representclo.com # AdGuard DNS Filter
 tvsji.adameve.com # AdGuard DNS Filter
 tvslkhnslzfkr.space # AdGuard DNS Filter
@@ -271014,6 +271296,7 @@ tyimgmegpirwo.online # AdGuard DNS Filter
 tyingtastevolleyball.com # AdGuard DNS Filter
 tyjhppeycigsm.space # AdGuard DNS Filter
 tyjitvdujivma.space # AdGuard DNS Filter
+tykenrivalvalines.cfd # AdGuard DNS Filter
 tykgdewf.com # AdGuard DNS Filter
 tykhcihsletwx.space # AdGuard DNS Filter
 tykitakis.sbs # URLhaus Malware Domains
@@ -271625,6 +271908,7 @@ ubwpssfbiflmnkm.com # AdGuard DNS Filter
 ubxdnqoim.net # AdGuard DNS Filter
 ubxrbilvxqhpi.online # AdGuard DNS Filter
 uby9w6k4vjyf8ebinxq8zmk7wyimi81fyl.cfd # AdGuard DNS Filter
+ubydanl.doppe.io # URLhaus Malware Domains
 ubydqaebqwnit.space # AdGuard DNS Filter
 ubyf.cn # AdGuard DNS Filter
 ubyjor.distrelec.ch # AdGuard DNS Filter
@@ -272257,6 +272541,7 @@ uhhtr.secend.ch # AdGuard DNS Filter
 uhi02121uik.xyz # AdGuard DNS Filter
 uhi02130uik.xyz # AdGuard DNS Filter
 uhikfiyuduuvl.website # AdGuard DNS Filter
+uhinmknjemdtw.site # AdGuard DNS Filter
 uhityllhn.com # AdGuard DNS Filter
 uhjcnbzhnnqqb.space # AdGuard DNS Filter
 uhjeg.tjswim.com # AdGuard DNS Filter
@@ -272474,6 +272759,7 @@ uj2h8xm8w.com # AdGuard DNS Filter
 uj4z4lu78k8z4thex.rest # AdGuard DNS Filter
 ujajsexpoc.com # AdGuard DNS Filter
 ujapanesesex.com # StevenBlack Gambling & Porn
+ujbhfgb.sm188dvlv.cfd # URLhaus Malware Domains
 ujbhri.pharmamarket.nl # AdGuard DNS Filter
 ujcascgwte.com # AdGuard DNS Filter
 ujcubsakohqav.website # AdGuard DNS Filter
@@ -272495,6 +272781,7 @@ ujgjrajahqcpv.website # AdGuard DNS Filter
 ujgobywxexkti.website # AdGuard DNS Filter
 ujgssjktyezth.website # AdGuard DNS Filter
 ujhmwfajzdsvu.space # AdGuard DNS Filter
+ujhtrjp.laborfotostudio.hu # URLhaus Malware Domains
 ujhu.cn # AdGuard DNS Filter
 ujiqkgxnuzofp.site # AdGuard DNS Filter
 ujivs.robertdyas.co.uk # AdGuard DNS Filter
@@ -272544,6 +272831,7 @@ ujw1y54r.fun # AdGuard DNS Filter
 ujwgaetqfp.com # AdGuard DNS Filter
 ujygir.effectivebasketball.com # AdGuard DNS Filter
 ujygniofvnu.xyz # AdGuard DNS Filter
+ujyipmuakgbkui.com # AdGuard DNS Filter
 ujyloty.kingofchristmas.com # AdGuard DNS Filter
 ujzlb.harryanddavid.com # AdGuard DNS Filter
 ujzqud.bestsecret.se # AdGuard DNS Filter
@@ -272885,6 +273173,7 @@ ultrathots.com # StevenBlack Gambling & Porn
 ultrauraniummirai.ddns.net # URLhaus Malware Domains
 ultravalid.com # AdGuard DNS Filter
 ultraviewv.com # URLhaus Malware Domains
+ultraviolence.buzz # URLhaus Malware Domains
 ultrawebcams.com # StevenBlack Gambling & Porn
 ultrayoungsex.com # StevenBlack Gambling & Porn
 ultrbird.f0xharbor.in.net # URLhaus Malware Domains
@@ -273037,6 +273326,7 @@ umqydofmropacc.com # AdGuard DNS Filter
 umr.40220i.com # StevenBlack Gambling & Porn
 umrdtmhwfahct.fun # AdGuard DNS Filter
 umrgdvvdgxjto.store # AdGuard DNS Filter
+umrhrnh.lampaoszlopbolt.hu # URLhaus Malware Domains
 umrr.cn # AdGuard DNS Filter
 umrvmb.net.anwalt.de # AdGuard DNS Filter
 umsgpfloirafp.site # AdGuard DNS Filter
@@ -273089,6 +273379,7 @@ unaptchait.qpon # AdGuard DNS Filter
 unarkyuchi.cfd # AdGuard DNS Filter
 unarmedindustry.com # AdGuard DNS Filter
 unarmedtriumphal.com # AdGuard DNS Filter
+unarrayinbdtaker.cfd # AdGuard DNS Filter
 unartedunchain.shop # AdGuard DNS Filter
 unashamedinsoluble.com # AdGuard DNS Filter
 unasonoric.com # AdGuard DNS Filter
@@ -273455,12 +273746,14 @@ unibotscdn.com # AdGuard DNS Filter
 unicingmennuet.qpon # AdGuard DNS Filter
 uniclub.lt # StevenBlack Gambling & Porn
 unicontainers.com # AdGuard DNS Filter
+unicore.pw # URLhaus Malware Domains
 unicorn.wereanimal.net # StevenBlack Gambling & Porn
 unicornpride123.com # AdGuard DNS Filter
 unicume.com # AdGuard DNS Filter
 unid.go.com # AdGuard DNS Filter
 unidentifiedanalytics.web.app # AdGuard DNS Filter
 unidentifiedrelatecalled.com # AdGuard DNS Filter
+unidentifiedscammertravel.com # AdGuard DNS Filter
 unif-id.ssp.inmobi.com # AdGuard DNS Filter
 unif.hedgy-haagplanten.nl # AdGuard DNS Filter
 unifacedaffing.cfd # AdGuard DNS Filter
@@ -273918,6 +274211,7 @@ untily.com # AdGuard DNS Filter
 untimburra.com # AdGuard DNS Filter
 untimely-chemistry.com # AdGuard DNS Filter
 untimely-hate.pro # AdGuard DNS Filter
+untimely-way.pro # AdGuard DNS Filter
 untipsyzincked.cyou # AdGuard DNS Filter
 untitled.dwstatic.com # AdGuard DNS Filter
 untixkiuuxkgy.com # AdGuard DNS Filter
@@ -276953,6 +277247,7 @@ varietiesassuage.com # AdGuard DNS Filter
 varietyofdisplayformats.com # AdGuard DNS Filter
 varietyproduction.com # AdGuard DNS Filter
 varietytooartmolge.cyou # AdGuard DNS Filter
+varifybalas.cyou # AdGuard DNS Filter
 varifyfullom.cyou # AdGuard DNS Filter
 variostoyons.cyou # AdGuard DNS Filter
 variouscreativeformats.com # AdGuard DNS Filter
@@ -276969,6 +277264,7 @@ varsityborshts.qpon # AdGuard DNS Filter
 vartoken.com # AdGuard DNS Filter
 varun.fullleafteacompany.com # AdGuard DNS Filter
 varunawagged.help # AdGuard DNS Filter
+varvelabrus.shop # AdGuard DNS Filter
 varvelunwagedwair.qpon # AdGuard DNS Filter
 varydbjnhzqxh.website # AdGuard DNS Filter
 varyingwolfsmile.com # AdGuard DNS Filter
@@ -277336,6 +277632,7 @@ vbiaakxndtbww.xyz # AdGuard DNS Filter
 vbiefmqbhfcgx.space # AdGuard DNS Filter
 vbihcm.alaiyeresorthotel.com # AdGuard DNS Filter
 vbiqz.schutz-shoes.com # AdGuard DNS Filter
+vbiyclipmg.com # AdGuard DNS Filter
 vbjcj.afflictionclothing.com # AdGuard DNS Filter
 vbjfvensrmnri.online # AdGuard DNS Filter
 vbjibjsftqxkq.site # AdGuard DNS Filter
@@ -278482,6 +278779,7 @@ vfqgmtqglqxkd.xyz # AdGuard DNS Filter
 vfqgtrrrtsugw.space # AdGuard DNS Filter
 vfqhvr.hearing-aid-advice.com # AdGuard DNS Filter
 vfqnmkcjbtifo.online # AdGuard DNS Filter
+vfqpsfq.webrevelem.hu # URLhaus Malware Domains
 vfr43ie3wo3.pro # AdGuard DNS Filter
 vfreecams.com # AdGuard DNS Filter
 vfrykczqqimeu.site # AdGuard DNS Filter
@@ -278700,6 +278998,7 @@ vhqyfzxfr9t9x3.rest # AdGuard DNS Filter
 vhr6.ravelmint.ru # URLhaus Malware Domains
 vhrbxb.vidaxl.nl # AdGuard DNS Filter
 vhrhnh.icu # AdGuard DNS Filter
+vhsdamic.com # AdGuard DNS Filter
 vhsea.smokingjackets.com # AdGuard DNS Filter
 vhsgyvbjsvrtm.online # AdGuard DNS Filter
 vhsrwd.aip24.pl # AdGuard DNS Filter
@@ -281178,6 +281477,7 @@ vjrjvojuxlkhc.website # AdGuard DNS Filter
 vjsjr.v0lticrum.ru # URLhaus Malware Domains
 vjstudksodqe.com # AdGuard DNS Filter
 vjtbgysqkmngz.website # AdGuard DNS Filter
+vjtboagpnkpdt.site # AdGuard DNS Filter
 vjtpmzsmcwfko.online # AdGuard DNS Filter
 vjtpr.dimeoptics.com # AdGuard DNS Filter
 vjuaeivpigdei.space # AdGuard DNS Filter
@@ -282522,6 +282822,7 @@ votarycogger.cfd # AdGuard DNS Filter
 votduhwjkhilf.com # AdGuard DNS Filter
 voteallude.com # AdGuard DNS Filter
 voteeckakrou.net # AdGuard DNS Filter
+voteendurums.shop # AdGuard DNS Filter
 voteensillago.qpon # AdGuard DNS Filter
 voteme100.com # StevenBlack Gambling & Porn
 votepercussivepoplar.com # AdGuard DNS Filter
@@ -283140,6 +283441,7 @@ vst.dfn-network.pro # AdGuard DNS Filter
 vst.sibnet.ru # AdGuard DNS Filter
 vstar79.com # StevenBlack Gambling & Porn
 vstat.borderlessbd.com # AdGuard DNS Filter
+vstbjyvsuxcgoda.com # AdGuard DNS Filter
 vstixgqbvxdlq.site # AdGuard DNS Filter
 vstnbkruuiu.xyz # AdGuard DNS Filter
 vstream-9.sb-cd.com # StevenBlack Gambling & Porn
@@ -283730,6 +284032,7 @@ vxdbcutwrzzet.website # AdGuard DNS Filter
 vxddydruqitjl.space # AdGuard DNS Filter
 vxeeifkwixons.space # AdGuard DNS Filter
 vxetjbsjganly.site # AdGuard DNS Filter
+vxfeyayy.com # AdGuard DNS Filter
 vxfpcgpfcdede.website # AdGuard DNS Filter
 vxfwyzevnp9tf7jl.cfd # AdGuard DNS Filter
 vxfxox7r.manchustill.in.net # URLhaus Malware Domains
@@ -283889,6 +284192,7 @@ vyuaolnqfgoas.store # AdGuard DNS Filter
 vyufgiaesxzib.site # AdGuard DNS Filter
 vyuhylzzq.com # AdGuard DNS Filter
 vyuodh.your-look-for-less.nl # AdGuard DNS Filter
+vyura.net # AdGuard DNS Filter
 vyvjoeeryyol.top # AdGuard DNS Filter
 vyvjoevkyyal.top # AdGuard DNS Filter
 vywicefxghj.com # AdGuard DNS Filter
@@ -285121,6 +285425,7 @@ wayfarerorthodox.com # AdGuard DNS Filter
 wayfareyomin.qpon # AdGuard DNS Filter
 wayftertheyhadg.com # AdGuard DNS Filter
 waygangquakersgrugous.cyou # AdGuard DNS Filter
+waygonenegrita.qpon # AdGuard DNS Filter
 waygoneoncenosism.qpon # AdGuard DNS Filter
 wayjoyfarm.com # AdGuard DNS Filter
 waykingroup.com # AdGuard DNS Filter
@@ -285374,6 +285679,7 @@ wctr.satzdruck.com # AdGuard DNS Filter
 wctr.scaleup-fulfillment.de # AdGuard DNS Filter
 wctr.sus-architekten-muenster.de # AdGuard DNS Filter
 wctr.vitanova-kliniken.de # AdGuard DNS Filter
+wctrzrymswuom.site # AdGuard DNS Filter
 wctsub.hostingcheck24.de # AdGuard DNS Filter
 wctsub.start24.nl # AdGuard DNS Filter
 wcufajra.in # AdGuard DNS Filter
@@ -286599,6 +286905,7 @@ weekwambondage.cyou # AdGuard DNS Filter
 weem.weemco.com # AdGuard DNS Filter
 weemjtsdwwrry.com # AdGuard DNS Filter
 weendugroup.com # URLhaus Malware Domains
+weenierfrisian.cfd # AdGuard DNS Filter
 weenxmphvvwda.space # AdGuard DNS Filter
 weeoffer.com # AdGuard DNS Filter
 weepedaliyas.cyou # AdGuard DNS Filter
@@ -287603,6 +287910,7 @@ whoregays.com # StevenBlack Gambling & Porn
 whorenasties.com # StevenBlack Gambling & Porn
 whoreshub.com # StevenBlack Gambling & Porn
 whoretodaygonetomorrow.com # StevenBlack Gambling & Porn
+whoretuskar.shop # AdGuard DNS Filter
 whoreuro.com # StevenBlack Gambling & Porn
 whoringnusfiah.help # AdGuard DNS Filter
 whorishholaclayed.cfd # AdGuard DNS Filter
@@ -288555,6 +288863,7 @@ wjhurodf.com # AdGuard DNS Filter
 wjibjvgebkolf.space # AdGuard DNS Filter
 wjiebpblheplc.site # AdGuard DNS Filter
 wjkedtosqkqdjd.com # AdGuard DNS Filter
+wjkhmcp.sm188dvlv.cfd # URLhaus Malware Domains
 wjkpvahoulqok.online # AdGuard DNS Filter
 wjljwqbzjleek.top # AdGuard DNS Filter
 wjljwqbzjlezw.top # AdGuard DNS Filter
@@ -288590,6 +288899,7 @@ wjxdmbftniafy.website # AdGuard DNS Filter
 wjxjomgbxflfc.store # AdGuard DNS Filter
 wjxwmpybty.net # AdGuard DNS Filter
 wjxyjaeerityq.space # AdGuard DNS Filter
+wjyfieh.evaz.io # URLhaus Malware Domains
 wjzjfj.clickandboat.com # AdGuard DNS Filter
 wjzrzwyvzvolz.top # AdGuard DNS Filter
 wjzrzwyvzvovr.top # AdGuard DNS Filter
@@ -289103,6 +289413,7 @@ wolfe.pixelbuche.ru # URLhaus Malware Domains
 wolfe2.stormseed.ru # URLhaus Malware Domains
 wolfeddovens.shop # AdGuard DNS Filter
 wolfeighteen.com # AdGuard DNS Filter
+wolferspegging.cyou # AdGuard DNS Filter
 wolffiadestiny.help # AdGuard DNS Filter
 wolfianimpact.cfd # AdGuard DNS Filter
 wolfkinfrousybizarre.cfd # AdGuard DNS Filter
@@ -290005,6 +290316,7 @@ wry1tppxttprlunl7xbqz68.cfd # AdGuard DNS Filter
 wryabmekmukxp.site # AdGuard DNS Filter
 wrybillcaban.qpon # AdGuard DNS Filter
 wryentrance.pro # AdGuard DNS Filter
+wryrqrwfpfjct.online # AdGuard DNS Filter
 wryspiqywpe.com # AdGuard DNS Filter
 wrytailfilcherostrea.cfd # AdGuard DNS Filter
 wrywcoocbugen.online # AdGuard DNS Filter
@@ -290376,6 +290688,7 @@ wvjwlezmgprhq.website # AdGuard DNS Filter
 wvjzqrwhbvepc.space # AdGuard DNS Filter
 wvkrsgeugkjuk.website # AdGuard DNS Filter
 wvkvbsckwuru.com # AdGuard DNS Filter
+wvlgstyak.com # AdGuard DNS Filter
 wvlirb.lexoffice.de # AdGuard DNS Filter
 wvlserrzyvspo.online # AdGuard DNS Filter
 wvlwtsgbperzr.space # AdGuard DNS Filter
@@ -309594,6 +309907,7 @@ x2.bramblefix.ru # URLhaus Malware Domains
 x2.saffronkern.ru # URLhaus Malware Domains
 x2.xo88.info # StevenBlack Gambling & Porn
 x2281.fythoria.in.net # URLhaus Malware Domains
+x2jjzvnd.dichvuff.com # URLhaus Malware Domains
 x2k8.g1zmobrain.ru # URLhaus Malware Domains
 x2n.bestffriend.com # URLhaus Malware Domains
 x2n.bestffriend.digital # URLhaus Malware Domains
@@ -310143,6 +310457,7 @@ xdlechibkgb.xyz # AdGuard DNS Filter
 xdlipr.icu # AdGuard DNS Filter
 xdmamkqxatzrh.website # AdGuard DNS Filter
 xdmanage.com # AdGuard DNS Filter
+xdmvxmt.sm188login.cyou # URLhaus Malware Domains
 xdmwyecqmbykn.website # AdGuard DNS Filter
 xdmycvwgynylh.store # AdGuard DNS Filter
 xdneygldlewtb.space # AdGuard DNS Filter
@@ -314561,6 +314876,7 @@ xwedjowkfhfvp.online # AdGuard DNS Filter
 xweporn.com # StevenBlack Gambling & Porn
 xwetpics.com # StevenBlack Gambling & Porn
 xwfafjiihnpmy.space # AdGuard DNS Filter
+xwfbwfirtdih.com # AdGuard DNS Filter
 xwgdcamizuhhp.online # AdGuard DNS Filter
 xwgkbcbvjjvxr.website # AdGuard DNS Filter
 xwguvpwktsjkg.site # AdGuard DNS Filter
@@ -314656,6 +314972,7 @@ xxdem.pro # StevenBlack Gambling & Porn
 xxdem.ws # StevenBlack Gambling & Porn
 xxdem.xyz # StevenBlack Gambling & Porn
 xxdlfjdtazsju.website # AdGuard DNS Filter
+xxegq.sm188login.sbs # URLhaus Malware Domains
 xxeijpnflygus.website # AdGuard DNS Filter
 xxerotica.com # StevenBlack Gambling & Porn
 xxezsifdsivsa.site # AdGuard DNS Filter
@@ -317136,6 +317453,7 @@ ydzivzuvmuwmy.space # AdGuard DNS Filter
 ydzlen.mebloo.pl # AdGuard DNS Filter
 ye.dun.163yun.com # AdGuard DNS Filter
 ye.scramblehub.ru # URLhaus Malware Domains
+ye4bco746h1igvw1q67.rest # AdGuard DNS Filter
 yeabunny.com # StevenBlack Gambling & Porn
 yeah1publishing.com # AdGuard DNS Filter
 yeahmobi.com # AdGuard DNS Filter
@@ -317231,6 +317549,7 @@ yeqmnfifpcgoh.store # AdGuard DNS Filter
 yequiremuke.com # AdGuard DNS Filter
 yeqxnp.pavi1lor.lat # URLhaus Malware Domains
 yeranydwould.org # AdGuard DNS Filter
+yeravercabbalaxystus.qpon # AdGuard DNS Filter
 yerbalist.31cannabis.com # AdGuard DNS Filter
 yerbalist.420.com # AdGuard DNS Filter
 yerbalist.cookiesdispensary.com # AdGuard DNS Filter
@@ -317607,6 +317926,7 @@ yicbgvynmxxbxc.com # AdGuard DNS Filter
 yicha.jp # AdGuard DNS Filter
 yichengkyp.top # URLhaus Malware Domains
 yickbhugbd.com # AdGuard DNS Filter
+yickgetrv.com # AdGuard DNS Filter
 yicrdo.amsterdamprinting.com # AdGuard DNS Filter
 yicujrewbrxmqk.xyz # AdGuard DNS Filter
 yicvfyduwxibce.com # AdGuard DNS Filter
@@ -318867,6 +319187,7 @@ youxxxvideo.com # StevenBlack Gambling & Porn
 youyoungporn.com # StevenBlack Gambling & Porn
 youzzporno.com # StevenBlack Gambling & Porn
 yovcb.com # AdGuard DNS Filter
+yovck9n6tt7jb8tn3pt35te6.cfd # AdGuard DNS Filter
 yovmdbaeqynr.com # AdGuard DNS Filter
 yovoads.com # AdGuard DNS Filter
 yovrvujvmtgvv.com # AdGuard DNS Filter
@@ -320294,6 +320615,7 @@ zbqww.vipbottles.co.uk # AdGuard DNS Filter
 zbqxy.card.gift # AdGuard DNS Filter
 zbqzsgtqyzmid.website # AdGuard DNS Filter
 zbrfde.ozmall.co.jp # AdGuard DNS Filter
+zbriridhannol.site # AdGuard DNS Filter
 zbrtnv.icu # AdGuard DNS Filter
 zbs.etodomendlyareklamy.ru # AdGuard DNS Filter
 zbseb.underdoggames.com # AdGuard DNS Filter
@@ -321298,6 +321620,7 @@ zjfowaspawuza.store # AdGuard DNS Filter
 zjfsjzzquhdcw.online # AdGuard DNS Filter
 zjfvpv.serengeticatalog.com # AdGuard DNS Filter
 zjgfq.com # AdGuard DNS Filter
+zjhbvqq.wlwyb.com # URLhaus Malware Domains
 zjhczxkqxqclr.space # AdGuard DNS Filter
 zjhopmpjrehih.space # AdGuard DNS Filter
 zjhswy.comeup.com.tr # AdGuard DNS Filter
@@ -322057,6 +322380,7 @@ zpgb.cn # AdGuard DNS Filter
 zpgetworker11.com # AdGuard DNS Filter
 zpgnipitynywq.space # AdGuard DNS Filter
 zpguxkvsnjobx.website # AdGuard DNS Filter
+zphaxvq.technologiaiviz.hu # URLhaus Malware Domains
 zphcinfodwkzn.space # AdGuard DNS Filter
 zphimsex.me # StevenBlack Gambling & Porn
 zphimsex.pro # StevenBlack Gambling & Porn
@@ -322311,6 +322635,7 @@ zsmsuwmifkrqv.online # AdGuard DNS Filter
 zsnrhqltxmsdp.site # AdGuard DNS Filter
 zsnrkdpoxlfzz.space # AdGuard DNS Filter
 zsozgqchlueqp.world # AdGuard DNS Filter
+zsozxqvobieoi.space # AdGuard DNS Filter
 zsp1.ah.be # AdGuard DNS Filter
 zsp1.ah.nl # AdGuard DNS Filter
 zspph.ballerinafarm.com # AdGuard DNS Filter
