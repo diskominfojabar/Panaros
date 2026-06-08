@@ -1,5 +1,5 @@
-# Last updated: 2026-06-07 17:59:21 UTC
-# Total entries: 20027
+# Last updated: 2026-06-08 19:15:54 UTC
+# Total entries: 20029
 # Format: <entry> # <source>
 #
 1.178.1.0/24 # AWS IPs
@@ -4857,6 +4857,7 @@
 32.200.0.0/13 # AWS IPs
 32.232.0.0/16 # AWS IPs
 32.236.0.0/15 # AWS IPs
+32.236.198.0/23 # AWS IPs
 32.240.0.0/15 # AWS IPs
 34.22.85.0/27 # Google IPs
 34.64.6.0/27 # Google IPs
@@ -10566,6 +10567,7 @@
 56.68.33.64/29 # AWS IPs
 56.68.36.0/23 # AWS IPs
 56.69.0.0/16 # AWS IPs
+56.69.112.0/23 # AWS IPs
 56.70.0.0/16 # AWS IPs
 56.71.0.0/16 # AWS IPs
 56.96.0.0/16 # AWS IPs
