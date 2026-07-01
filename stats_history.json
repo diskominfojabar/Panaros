@@ -90,6 +90,19 @@
         "hosts": 335595
       },
       "updated": "2026-06-29T20:52:59.282870"
+    },
+    {
+      "month": "2026-07",
+      "stats": {
+        "blacklist": 335972,
+        "blacklist_specific": 316513,
+        "drop": 2058,
+        "whitelist": 219,
+        "whitelist_specific": 176,
+        "pass": 21318,
+        "hosts": 335961
+      },
+      "updated": "2026-07-01T00:08:08.137370"
     }
   ]
 }
