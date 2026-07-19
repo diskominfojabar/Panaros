@@ -94,15 +94,15 @@
     {
       "month": "2026-07",
       "stats": {
-        "blacklist": 343158,
-        "blacklist_specific": 332801,
+        "blacklist": 343567,
+        "blacklist_specific": 333238,
         "drop": 2061,
         "whitelist": 219,
         "whitelist_specific": 190,
         "pass": 21555,
-        "hosts": 343147
+        "hosts": 343556
       },
-      "updated": "2026-07-18T20:34:46.806595"
+      "updated": "2026-07-19T20:09:18.589317"
     }
   ]
 }
