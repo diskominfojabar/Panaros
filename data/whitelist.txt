@@ -1,5 +1,5 @@
-# Last updated: 2026-07-29 18:01:54 UTC
-# Total entries: 219
+# Last updated: 2026-07-30 18:09:54 UTC
+# Total entries: 220
 # Format: <entry> # <source>
 #
 *.actions.githubusercontent.com # GitHub Domains
@@ -43,6 +43,7 @@ archlinux.org/download # Arch Official
 broker.actions.githubusercontent.com # GitHub Domains
 buaya.klas.or.id/centos # Centos Mirrors
 buaya.klas.or.id/ubuntu # Ubuntu Mirrors
+cafe.github.com # GitHub Domains
 cdn.redhat.com # Redhat Official
 codeload.github.com # GitHub Domains
 containers.pkg.github.com # GitHub Domains
