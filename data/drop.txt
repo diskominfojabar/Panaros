@@ -1,5 +1,5 @@
-# Last updated: 2026-08-09 17:22:57 UTC
-# Total entries: 2088
+# Last updated: 2026-08-10 17:43:58 UTC
+# Total entries: 2092
 # Format: <entry> # <source>
 #
 1.10.16.0/20 # Spamhaus DROP
@@ -801,6 +801,7 @@
 119.13.179.0/24 # Spamhaus DROP
 119.27.192.0/18 # Spamhaus DROP
 119.58.0.0/16 # Spamhaus DROP
+119.82.8.0/21 # Spamhaus DROP
 119.82.12.0/22 # Spamhaus DROP
 119.161.184.0/21 # Spamhaus DROP
 119.161.248.0/22 # Spamhaus DROP
@@ -2045,6 +2046,7 @@
 211.102.148.0/22 # Spamhaus DROP
 212.8.48.0/24 # Spamhaus DROP
 212.11.64.0/24 # Spamhaus DROP
+212.68.164.0/22 # Spamhaus DROP
 212.224.93.0/24 # Spamhaus DROP
 212.237.152.0/21 # Spamhaus DROP
 213.21.237.0/24 # Spamhaus DROP
@@ -2070,6 +2072,8 @@
 217.22.254.0/23 # Spamhaus DROP
 217.60.24.0/22 # Spamhaus DROP
 217.60.60.0/22 # Spamhaus DROP
+217.60.102.0/24 # Spamhaus DROP
+217.60.103.0/24 # Spamhaus DROP
 217.60.192.0/22 # Spamhaus DROP
 217.60.195.0/24 # Spamhaus DROP
 217.60.199.0/24 # Spamhaus DROP
