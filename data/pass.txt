@@ -1,5 +1,5 @@
-# Last updated: 2026-08-13 17:51:45 UTC
-# Total entries: 22118
+# Last updated: 2026-08-14 17:45:09 UTC
+# Total entries: 22121
 # Format: <entry> # <source>
 #
 1.178.1.0/24 # AWS IPs
@@ -2767,6 +2767,7 @@
 15.237.162.40/30 # AWS IPs
 15.240.0.0/16 # AWS IPs
 15.240.196.0/22 # AWS IPs
+15.240.204.0/23 # AWS IPs
 15.241.0.0/16 # AWS IPs
 15.248.8.0/22 # AWS IPs
 15.248.16.0/22 # AWS IPs
@@ -8692,6 +8693,7 @@
 51.24.162.0/23 # AWS IPs
 51.24.164.0/22 # AWS IPs
 51.24.168.0/22 # AWS IPs
+51.24.198.0/23 # AWS IPs
 51.34.0.0/16 # AWS IPs
 51.35.0.0/16 # AWS IPs
 51.44.0.0/16 # AWS IPs
@@ -18485,6 +18487,7 @@
 2600:f0f0:700::/44 # AWS IPs
 2600:f0f0:720::/48 # AWS IPs
 2600:f0f0:721::/48 # AWS IPs
+2600:f0f0:722::/48 # AWS IPs
 2600:f0f0:730::/48 # AWS IPs
 2600:f0f0:731::/48 # AWS IPs
 2600:f0f0:cfb::/48 # AWS IPs
