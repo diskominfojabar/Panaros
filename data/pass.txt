@@ -1,5 +1,5 @@
-# Last updated: 2026-10-13 21:40:14 UTC
-# Total entries: 23771
+# Last updated: 2026-10-14 20:22:45 UTC
+# Total entries: 23772
 # Format: <entry> # <source>
 #
 1.178.1.0/24 # AWS IPs
@@ -16710,6 +16710,7 @@
 2001:3fc6:c::/47 # AWS IPs
 2001:3fc6:e::/47 # AWS IPs
 2001:3fc6:20::/43 # AWS IPs
+2001:3fc6:3c::/47 # AWS IPs
 2001:3fc6:100::/48 # AWS IPs
 2001:3fc6:200::/40 # AWS IPs
 2001:3fc7:800::/40 # AWS IPs
