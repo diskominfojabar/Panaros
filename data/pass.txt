@@ -1,5 +1,5 @@
-# Last updated: 2026-10-16 19:46:10 UTC
-# Total entries: 23802
+# Last updated: 2026-10-17 18:57:37 UTC
+# Total entries: 23803
 # Format: <entry> # <source>
 #
 1.178.1.0/24 # AWS IPs
@@ -16394,6 +16394,7 @@
 185.199.111.153/32 # GitHub IPs
 188.114.96.0/20 # Cloudflare IPs
 190.93.240.0/20 # Cloudflare IPs
+191.166.0.0/16 # AWS IPs
 191.233.64.0/18 # GitHub IPs
 191.233.144.0/20 # GitHub IPs
 191.234.32.0/19 # GitHub IPs
