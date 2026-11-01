@@ -142,6 +142,19 @@
         "hosts": 416869
       },
       "updated": "2026-10-31T21:49:45.985307"
+    },
+    {
+      "month": "2026-11",
+      "stats": {
+        "blacklist": 417248,
+        "blacklist_specific": 463513,
+        "drop": 2269,
+        "whitelist": 340,
+        "whitelist_specific": 215,
+        "pass": 25310,
+        "hosts": 417237
+      },
+      "updated": "2026-11-01T22:13:25.556500"
     }
   ]
 }
