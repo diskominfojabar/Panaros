@@ -1,5 +1,5 @@
-# Last updated: 2026-11-17 00:35:06 UTC
-# Total entries: 347
+# Last updated: 2026-11-17 23:42:14 UTC
+# Total entries: 349
 # Format: <entry> # <source>
 #
 *.actions.githubusercontent.com # GitHub Domains
@@ -78,6 +78,8 @@ github-registry-files.githubusercontent.com # GitHub Domains
 github-releases.githubusercontent.com # GitHub Domains
 github.com # GitHub Domains
 gitlab.com # Unknown Source
+hosted-compute-request-orchestrator-gccus02-01.githubapp.com # GitHub Domains
+hosted-compute-request-orchestrator-gccus02-02.githubapp.com # GitHub Domains
 hosted-compute-request-orchestrator-prod-eus-01.githubapp.com # GitHub Domains
 hosted-compute-request-orchestrator-prod-eus-02.githubapp.com # GitHub Domains
 hosted-compute-request-orchestrator-prod-iad-01.githubapp.com # GitHub Domains
