@@ -1,5 +1,5 @@
-# Last updated: 2026-11-17 23:42:14 UTC
-# Total entries: 349
+# Last updated: 2026-11-18 23:13:09 UTC
+# Total entries: 350
 # Format: <entry> # <source>
 #
 *.actions.githubusercontent.com # GitHub Domains
@@ -35,6 +35,7 @@
 *.vscode-webview.net # GitHub Domains
 *.windows.net # GitHub Domains
 *.workers.dev # Cloudflare Workers (Shared IP Protection)
+*.wps.githubcopilot.com # GitHub Domains
 access.redhat.com # Redhat Official
 api.github.com # GitHub Domains
 archive.debian.org # Debian Official
